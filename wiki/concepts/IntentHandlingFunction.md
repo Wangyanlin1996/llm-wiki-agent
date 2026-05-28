@@ -6,27 +6,27 @@ sources: [28312-j50]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-IntentHandlingFunction is an IOC in 3GPP TS 28.312 representing the intent handling capabilities of a specific function within the MnS producer. It exposes what expectation objects and targets the producer can support, enabling MnS consumers to discover capabilities before expressing intents.
+IntentHandlingFunction 是3GPP TS 28.312中的一个 IOC，表示 MnS 生产者内特定功能的意图处理能力。它暴露生产者可支持的 ExpectationObject 和 ExpectationTarget，使 MnS 消费者能在表达意图之前发现能力。
 
-## Key Points
+## 关键要点
 
-- Instances are created/modified/deleted by MnS producer only — consumers cannot manage them
-- MnS consumers query IntentHandlingFunction to discover supported expectation objects, targets, and value ranges
-- Multiple IntentHandlingFunction instances may exist, each supporting different domains (e.g., one for RAN, one for 5GC)
-- The DN of an IntentHandlingFunction instance can be used to query all Intent instances it handles
+- 实例仅由 MnS 生产者创建/修改/删除——消费者无法管理它们
+- MnS 消费者查询 IntentHandlingFunction 以发现所支持的 ExpectationObject、ExpectationTarget 和值范围
+- 可存在多个 IntentHandlingFunction 实例，各自支持不同领域（例如一个用于 RAN，一个用于 5GC）
+- IntentHandlingFunction 实例的 DN 可用于查询其处理的全部 Intent 实例
 
-## Capability Exposure
+## 能力暴露
 
-IntentHandlingCapability dataType includes:
-- Supported expectation object types and corresponding targets
-- Supported value ranges for targets
-- Description of alternative expectations that can be evaluated
+IntentHandlingCapability dataType 包括：
+- 所支持的 ExpectationObject 类型及对应 ExpectationTarget
+- 所支持的目标值范围
+- 可评估的备选期望的描述
 
-## Connections
+## 关联
 
-- [[IntentDrivenMnS]] — the service providing these functions
-- [[IntentIOC]] — intents handled by this function
-- [[IntentExpectation]] — expectations supported by this function
-- [[3GPP]] — standards body
+- [[IntentDrivenMnS]] — 提供这些功能的服务
+- [[IntentIOC]] — 由此功能处理的意图
+- [[IntentExpectation]] — 此功能支持的期望
+- [[3GPP]] — 标准组织

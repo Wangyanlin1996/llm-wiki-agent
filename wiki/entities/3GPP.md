@@ -6,19 +6,19 @@ sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-The 3rd Generation Partnership Project (3GPP) is a collaborative standards organization that develops technical specifications for mobile telecommunications systems, including 5G. It unites seven organizational partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC) and produces specifications across Radio, Services & System Aspects, and Core Network domains.
+第三代合作伙伴项目（The 3rd Generation Partnership Project，3GPP）是一个协作性标准组织，负责制定移动通信系统（包括5G）的技术规范（technical specifications）。它汇聚了七个组织伙伴（organizational partners：ARIB、ATIS、CCSA、ETSI、TSDSI、TTA、TTC），并在Radio、Services & System Aspects 和 Core Network 领域产出规范。
 
-## Key Facts
+## 关键要点
 
-- Founded to produce globally applicable technical specifications for 3G mobile systems, later extended to LTE and 5G
-- Specifications organized into Releases (e.g., Rel-17, Rel-18, Rel-19), each adding new features
-- TSG SA5 (Services and System Aspects) handles management and orchestration specifications including [[PolicyMnS]] and [[IntentDrivenMnS]]
-- Headquarters: 650 Route des Lucioles, Sophia Antipolis, Valbonne, France
+- 成立初衷是为3G移动系统制定全球适用的技术规范（globally applicable technical specifications），后扩展至LTE和5G
+- 规范按Release组织（如Rel-17、Rel-18、Rel-19），每个Release增加新特性
+- TSG SA5（Services and System Aspects）负责管理和编排规范（management and orchestration specifications），包括[[PolicyMnS]]和[[IntentDrivenMnS]]
+- 总部：650 Route des Lucioles, Sophia Antipolis, Valbonne, France
 
-## Connections
+## 关联
 
-- [[PolicyMnS]] — 3GPP TS 28.556 defines Policy MnS for 5G networks
-- [[IntentDrivenMnS]] — 3GPP TS 28.312 defines Intent Driven MnS for mobile networks
-- [[5GNetworkManagement]] — 3GPP produces the broader management spec family (TS 28.x series)
+- [[PolicyMnS]] — 3GPP TS 28.556 定义了5G网络的Policy MnS
+- [[IntentDrivenMnS]] — 3GPP TS 28.312 定义了移动网络的Intent Driven MnS
+- [[5GNetworkManagement]] — 3GPP产出更广泛的管理规范族（management spec family，TS 28.x系列）

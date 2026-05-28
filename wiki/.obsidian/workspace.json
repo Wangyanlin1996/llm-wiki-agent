@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "sources/vitabench2.md",
+                "file": "sources/intent-signal-theory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "vitabench2"
+              "title": "intent-signal-theory"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "sources/vitabench2.md",
+                "file": "sources/intent-signal-theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "vitabench2 的反向链接列表"
+              "title": "intent-signal-theory 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "sources/vitabench2.md",
+                "file": "sources/intent-signal-theory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "vitabench2 的出链列表"
+              "title": "intent-signal-theory 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "sources/vitabench2.md",
+                "file": "sources/intent-signal-theory.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "vitabench2 的大纲"
+              "title": "intent-signal-theory 的大纲"
             }
           }
         ]
@@ -182,18 +182,19 @@
       "bases:新建数据库": false
     }
   },
-  "active": "25c758a4a78d9c8b",
+  "active": "e9172d9f85bb3aa3",
   "lastOpenFiles": [
+    "concepts/AgentMemory.md",
+    "sources/vitabench2.md",
+    "glossary.md",
     "sources/pira-bench.md",
     "sources/pask.md",
     "concepts/IntentRecommendation.md",
     "PIRF.md",
     "sources/intentrl.md",
     "sources/intent-communication-design.md",
-    "sources/vitabench2.md",
     "concepts/IntentUnderstanding.md",
     "sources/intent-signal-theory.md",
-    "concepts/AgentMemory.md",
     "sources/intpro.md",
     "sources/emem.md",
     "sources/lightmem.md",

@@ -6,28 +6,28 @@ sources: [28556-j00]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-Policy Conflict Detection is the mechanism in 3GPP Policy MnS whereby the MnS Producer checks incoming new or updated policies against previously stored policies for conflicts. When a conflict is detected, the producer notifies the consumer via the notifyPolicyConflict notification.
+Policy 冲突检测是 3GPP Policy MnS 中的机制，MnS Producer 将新传入的或更新的 Policy 与先前存储的 Policy 进行冲突检查。当检测到冲突时，Producer 通过 notifyPolicyConflict 通知告知 Consumer。
 
-## Notification: notifyPolicyConflict
+## 通知: notifyPolicyConflict
 
-| Parameter | Qualifier | Description |
+| 参数 | 限定符 | 描述 |
 |---|---|---|
-| objectClass | M | ManagedEntity class name |
-| objectInstance | M | DN of the ManagedElement instance |
-| notificationId | M | Unique notification identifier |
-| eventTime | M | Event occurrence time (ITU-T Generalised Time) |
-| systemDN | C | DN of management service producer |
+| objectClass | M | ManagedEntity 类名 |
+| objectInstance | M | ManagedElement 实例的 DN |
+| notificationId | M | 唯一通知标识符 |
+| eventTime | M | 事件发生时间（ITU-T Generalised Time） |
+| systemDN | C | 管理服务 Producer 的 DN |
 | notificationType | M | "notifyPolicyConflict" |
-| conflictDescription | M | Details of the policy conflict (conflicting events, conditions, actions) |
+| conflictDescription | M | Policy 冲突详情（冲突的事件、条件、动作） |
 
-## RESTful HTTP Mapping
+## RESTful HTTP 映射
 
-The notification is delivered via HTTP POST to `/notificationSink` with parameters mapped to the request body as JSON attributes (href, notificationId, notificationType, eventTime, systemDN, conflictDescription, plus optional correlatedNotifications, additionalText, sourceIndicator, attributeList).
+该通知通过 HTTP POST 交付至 `/notificationSink`，参数映射到请求体中的 JSON 属性（href、notificationId、notificationType、eventTime、systemDN、conflictDescription，以及可选的 correlatedNotifications、additionalText、sourceIndicator、attributeList）。
 
-## Connections
+## 关联
 
-- [[PolicyMnS]] — the service performing conflict detection
-- [[PolicyIOC]] — the policy objects being checked for conflicts
-- [[3GPP]] — defining standards body
+- [[PolicyMnS]] — 执行冲突检测的服务
+- [[PolicyIOC]] — 被检查冲突的 Policy 对象
+- [[3GPP]] — 定义标准组织

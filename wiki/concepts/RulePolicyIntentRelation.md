@@ -6,45 +6,45 @@ sources: [28312-j50]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-The Rule→Policy→Intent relation described in 3GPP TS 28.312 Section 4.4 represents a progressive shift in management abstraction from "how" to "what":
+3GPP TS 28.312 第 4.4 节描述的 Rule→Policy→Intent 关系表示管理抽象层次从"怎么做"到"要什么"的渐进转变：
 
-- **Rule**: Explicit or formula logic to be executed — fully specifies "how" (e.g., if X > threshold, execute command Y)
-- **Policy**: Conditional action specification — specifies what action to take when a condition occurs, but leaves some flexibility (e.g., when throughput < 5Mbps, take optimization actions)
-- **Intent**: Declarative goal specification — specifies "what" outcome is desired without specifying "how" (e.g., average throughput > 5Mbps in this area)
+- **Rule（规则）**：待执行的显式逻辑或公式 — 完全指定"怎么做"（例如：若 X > 阈值，执行命令 Y）
+- **Policy（策略）**：条件动作规范 — 指定当条件发生时采取什么动作，但保留一定灵活性（例如：当吞吐量 < 5Mbps 时，采取优化动作）
+- **Intent（意图）**：声明式目标规范 — 指定期望"要什么"结果，而不指定"怎么做"（例如：该区域平均吞吐量 > 5Mbps）
 
-## Abstraction Spectrum
+## 抽象谱系
 
 ```
 Rule ←— "how" focus —→ Policy ←— shifting to "what" —→ Intent
   (explicit logic)       (condition-action)          (declarative goal)
 ```
 
-Current telecom systems are mainly at the rule/policy level ("how" focus). The increasing complexity of 5G networks drives the shift toward intent ("what" focus).
+当前电信系统主要处于 Rule/Policy 层级（聚焦"怎么做"）。5G 网络日益增长的复杂性驱动着向 Intent（聚焦"要什么"）的转变。
 
-## Practical Relationship
+## 实际关系
 
-- Intent can be **translated** to policies for closed-loop automation (see [[IntentDrivenMnS]] Section 4.3)
-- Policy can be **translated** to rules for execution
-- Intent → Policy → Rule is a decomposition chain from abstract to concrete
-- [[PolicyMnS]] and [[IntentDrivenMnS]] are complementary: intent expresses the goal, policy defines the conditional actions to achieve it
+- Intent 可以**翻译**为 Policy，用于闭环自动化（参见 [[IntentDrivenMnS]] 第 4.3 节）
+- Policy 可以**翻译**为 Rule，用于执行
+- Intent → Policy → Rule 是从抽象到具体的分解链
+- [[PolicyMnS]] 和 [[IntentDrivenMnS]] 是互补的：Intent 表达目标，Policy 定义达成目标的条件动作
 
-## Model Comparison
+## 模型比较
 
-| Aspect | Rule | Policy ([[PolicyIOC]]) | Intent ([[IntentIOC]]) |
+| 方面 | Rule（规则） | Policy（策略）（[[PolicyIOC]]） | Intent（意图）（[[IntentIOC]]） |
 |---|---|---|---|
-| Focus | How | How+What | What |
-| Model | Explicit logic | condition + action | expectationObject + target + context |
-| Flexibility | None | Conditional | Declarative |
-| Implementation | Fully specified | Partially specified | Not specified |
+| 聚焦点 | 怎么做 | 怎么做+要什么 | 要什么 |
+| 模型 | 显式逻辑 | condition + action | expectationObject + target + context |
+| 灵活性 | 无 | 条件性 | 声明式 |
+| 实现方式 | 完全指定 | 部分指定 | 未指定 |
 
-## Connections
+## 关联
 
-- [[PolicyMnS]] — policy management at middle abstraction level
-- [[IntentDrivenMnS]] — intent management at highest abstraction level
-- [[PolicyIOC]] — the policy data structure
-- [[IntentIOC]] — the intent data structure
-- [[PolicyContent]] — policy's condition-action model
-- [[IntentExpectation]] — intent's object-target-context model
-- [[5GNetworkManagement]] — broader management domain
+- [[PolicyMnS]] — 中间抽象层级的 Policy 管理
+- [[IntentDrivenMnS]] — 最高抽象层级的 Intent 管理
+- [[PolicyIOC]] — Policy 数据结构
+- [[IntentIOC]] — Intent 数据结构
+- [[PolicyContent]] — Policy 的条件-动作模型
+- [[IntentExpectation]] — Intent 的对象-目标-上下文模型
+- [[5GNetworkManagement]] — 更广泛的管理领域

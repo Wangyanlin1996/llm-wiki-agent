@@ -8,32 +8,32 @@ last_updated: 2026-05-27
 
 # Agent Memory
 
-Agent Memory refers to the mechanisms by which LLM-based agents store, retrieve, and evolve information across interactions. It has evolved from passive trajectory storage to active experience abstraction.
+Agent Memory 指基于 LLM 的智能体跨交互存储、检索和演化信息的机制。其发展已从被动轨迹存储走向主动经验抽象。
 
-## Evolutionary Framework
+## 演化框架
 
-Per [[agent-memory-survey]], agent memory evolves through three stages:
-- **Storage**: raw trajectory preservation — saving dialogue/action history
-- **Reflection**: trajectory refinement — summarization, extraction, compression
-- **Experience**: trajectory abstraction — cross-trajectory aggregation, proactive exploration
+据 [[agent-memory-survey]]，Agent Memory 经历三个阶段：
+- **Storage（存储）**：原始轨迹保存 — 存储对话/行动历史
+- **Reflection（反思）**：轨迹精炼 — 概括、提取、压缩
+- **Experience（经验）**：轨迹抽象 — 跨轨迹聚合、主动探索
 
-Three core drivers: long-range consistency, dynamic environments, continual learning.
+三大核心驱动力：长程一致性、动态环境、持续学习。
 
-## Key Approaches
+## 关键方法
 
-- **[[EvoMemory]]** (Evo-Memory): streaming benchmark for self-evolving memory evaluation; proposes [[ReMem]] pipeline (action-think-memory refine)
-- **[[LightMem]]**: SLM-driven lightweight memory with STM/MTM/LTM three-tier architecture; 83ms retrieval latency, F1 +2.5 over [[A-MEM]]
-- **[[Emem]]**: Episodic Context Reconstruction shifting from preprocessing to context preservation; master+assistant multi-agent; 54% F1 surpassing [[GAM]] by 7.75%, >70% token reduction
+- **[[EvoMemory]]**（Evo-Memory）：面向自演化记忆评估的流式基准；提出 [[ReMem]] 管线（action-think-memory refine）
+- **[[LightMem]]**：SLM 驱动的轻量记忆，STM/MTM/LTM 三层架构；检索延迟 83ms，F1 比 [[A-MEM]] 提升 +2.5
+- **[[Emem]]**：Episodic Context Reconstruction，从预处理转向上下文保存；master+assistant 多智能体架构；F1 54%，超越 [[GAM]] 7.75%，token 减少 >70%
 
-## Common Benchmarks
+## 常用基准
 
-- **[[LoCoMo]]**: Long-term Conversation Memory benchmark — standard evaluation for agent memory systems
-- **Evo-Memory benchmark**: streaming evaluation across 10 datasets
+- **[[LoCoMo]]**：Long-term Conversation Memory 基准 — Agent Memory 系统的标准评估
+- **Evo-Memory benchmark**：跨 10 个数据集的流式评估
 
-## Cross-direction Relevance
+## 跨方向关联
 
-Agent memory is foundational for both [[IntentUnderstanding]] (per-user intent history) and [[IntentRecommendation]] (proactive intent detection requires memory of past interactions and preferences). The [[PASK]] DD-MM-PAS paradigm explicitly links memory modeling to proactive recommendation.
+Agent Memory 是 [[IntentUnderstanding]]（按用户的意图历史）和 [[IntentRecommendation]]（主动意图检测需记忆过往交互与偏好）的基础。[[PASK]] 的 DD-MM-PAS 范式明确将记忆建模与主动推荐关联。
 
-## Key Challenge
+## 关键挑战
 
-Memory preprocessing causes destructive de-contextualization — compressing sequential dependencies into static structures (embeddings, graphs) severs contextual integrity essential for deep reasoning ([[emem]]).
+记忆预处理导致破坏性去上下文化 — 将顺序依赖压缩为静态结构（embeddings、graphs）会切断深度推理所必需的上下文完整性（[[emem]]）。

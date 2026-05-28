@@ -7,27 +7,27 @@ source_file: raw/papers/agent-memory-survey.md
 last_updated: 2026-05-27
 ---
 
-## Summary
-This survey proposes a novel evolutionary framework for LLM agent memory, formalizing three stages: Storage (trajectory preservation), Reflection (trajectory refinement), and Experience (trajectory abstraction). It bridges the fragmented OS engineering and cognitive science perspectives, identifying proactive exploration and cross-trajectory abstraction as frontier mechanisms in the Experience stage.
+## 概要
+本综述为 LLM agent memory 提出了一个新的进化框架，形式化为三个阶段：Storage（轨迹保存）、Reflection（轨迹精炼）和 Experience（轨迹抽象）。它弥合了碎片化的 OS 工程与认知科学视角，将主动探索和跨轨迹抽象识别为 Experience 阶段的前沿机制。
 
-## Key Claims
-- Agent memory research is fragmented between OS engineering and cognitive science
-- Memory evolution follows Storage→Reflection→Experience trajectory
-- Three core drivers: long-range consistency, dynamic environments, continual learning
-- Frontier Experience stage features proactive exploration and cross-trajectory abstraction
+## 关键论点
+- Agent memory 研究在 OS 工程与认知科学之间呈现碎片化
+- Memory 进化遵循 Storage→Reflection→Experience 轨迹
+- 三个核心驱动因素：长程一致性、动态环境、持续学习
+- 前沿 Experience 阶段以主动探索和跨轨迹抽象为特征
 
-## Key Quotes
-> "current research remains fragmented, oscillating between operating system engineering and cognitive science" — fragmentation diagnosis
+## 关键引述
+> "current research remains fragmented, oscillating between operating system engineering and cognitive science" — 碎片化诊断
 
-> "formalizing the development process into three stages: Storage, Reflection, and Experience" — evolutionary framework
+> "formalizing the development process into three stages: Storage, Reflection, and Experience" — 进化框架
 
-## Connections
-- [[AgentMemory]] — the survey provides the evolutionary framework for AgentMemory mechanisms
-- [[EvoMemory]] — test-time evolution aligns with the Experience stage in the framework
-- [[LightMem]] — SLM-driven lightweight memory fits within the Storage→Reflection progression
-- [[Emem]] — episodic context reconstruction represents a shift toward the Experience stage
-- [[IntentUnderstanding]] — proactive exploration in Experience stage connects to intent understanding
-- [[IntentRecommendation]] — cross-trajectory abstraction enables proactive intent recommendation
+## 关联
+- [[AgentMemory]] — 本综述为 AgentMemory 机制提供了进化框架
+- [[EvoMemory]] — test-time evolution 与框架中的 Experience 阶段一致
+- [[LightMem]] — SLM 驱动的轻量级 memory 符合 Storage→Reflection 进化路径
+- [[Emem]] — episodic context reconstruction 代表向 Experience 阶段的转变
+- [[IntentUnderstanding]] — Experience 阶段的主动探索与 intent understanding 相关联
+- [[IntentRecommendation]] — 跨轨迹抽象实现主动 intent recommendation
 
-## Contradictions
-- Contradicts OS-engineering-only view of memory: the survey argues memory must evolve beyond storage toward experiential abstraction
+## 矛盾
+- 与仅从 OS 工程视角看待 memory 的观点矛盾：本综述论证 memory 必须超越 storage 向 experiential abstraction 进化

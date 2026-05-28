@@ -6,41 +6,41 @@ sources: [28622-k20]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-Network Resource Model (NRM) is a 3GPP concept defined in TS 28.622 as "a collection of IOCs, inclusive of their associations, attributes and operations, representing a set of network resources under management." The Generic NRM (TS 28.622) provides the foundational IOCs and data types that domain-specific NRMs (TS 28.541 for 5G, etc.) extend.
+Network Resource Model（NRM）是 3GPP 在 TS 28.622 中定义的概念，即"一组 IOC 的集合，包含其关联、属性和操作，代表一组被管理的网络资源"。通用 NRM（TS 28.622）提供了基础 IOC 和数据类型，领域特定 NRM（如 5G 的 TS 28.541 等）在此基础上进行扩展。
 
-## Structure
+## 结构
 
-An NRM defines:
-- **IOCs** (Information Object Classes) — management aspects of network resources
-- **Associations** — relationships between IOCs (reference attributes, containment)
-- **Attributes** — properties of IOCs
-- **Operations** — management services invocable on IOC instances
-- **Notifications** — event reporting for IOC instances
+NRM 定义了：
+- **IOC**（Information Object Classes，信息对象类）——网络资源的管理方面
+- **关联**（Associations）—— IOC 之间的关系（引用属性、包含关系）
+- **属性**（Attributes）—— IOC 的属性
+- **操作**（Operations）—— 可在 IOC 实例上调用的管理服务
+- **通知**（Notifications）—— IOC 实例的事件报告
 
-An NRM instance (MIB - Management Information Base) consists of:
-1. Name space (DN containment hierarchy)
-2. Managed Objects with attributes
-3. Associations between MOs
+NRM 实例（MIB — Management Information Base，管理信息库）由以下组成：
+1. 命名空间（DN 包含层次）
+2. 带属性的被管对象
+3. 被管对象之间的关联
 
-## Generic vs Domain-Specific
+## 通用与领域特定
 
-- **Generic NRM** (TS 28.622): [[TopIOC]], SubNetwork, ManagedElement, ManagedFunction, etc.
-- **5G NRM** (TS 28.541): Extends Generic with 5G-specific IOCs (gNB, NRCellDU, AMF, etc.)
-- **Policy NRM** (TS 28.556): Extends Generic with [[PolicyIOC]]
-- **Intent NRM** (TS 28.312): Extends Generic with [[IntentIOC]], [[IntentReport]], [[IntentHandlingFunction]]
+- **通用 NRM**（TS 28.622）：[[TopIOC]]、SubNetwork→子网络、ManagedElement→管理单元、ManagedFunction 等
+- **5G NRM**（TS 28.541）：在通用基础上扩展 5G 特定 IOC（gNB, NRCellDU, AMF 等）
+- **策略 NRM**（TS 28.556）：在通用基础上扩展 [[PolicyIOC]]
+- **意图 NRM**（TS 28.312）：在通用基础上扩展 [[IntentIOC]], [[IntentReport]], [[IntentHandlingFunction]]
 
-## Key Definition
+## 关键定义
 
-> "A network resource: discrete entity represented by an Information Object Class (IOC) for the purpose of network and service management." — TS 28.622 Section 3.1
+> "网络资源（network resource）：为网络和服务管理目的，由 Information Object Class（IOC）所代表的离散实体。" — TS 28.622 第 3.1 节
 
-> "Network Resource Model (NRM): A collection of IOCs, inclusive of their associations, attributes and operations, representing a set of network resources under management." — TS 28.622 Section 3.1
+> "Network Resource Model（NRM）：一组 IOC 的集合，包含其关联、属性和操作，代表一组被管理的网络资源。" — TS 28.622 第 3.1 节
 
-## Connections
+## 关联
 
-- [[TopIOC]] — the root IOC anchoring the NRM hierarchy
-- [[TS28622]] — the Generic NRM specification
-- [[5GNetworkManagement]] — the broader domain using NRM
-- [[PolicyIOC]] — policy-specific NRM extension
-- [[IntentIOC]] — intent-specific NRM extension
+- [[TopIOC]] — 锚定 NRM 层次的根 IOC
+- [[TS28622]] — 通用 NRM 规范
+- [[5GNetworkManagement]] — 使用 NRM 的更广泛领域
+- [[PolicyIOC]] — 策略特定的 NRM 扩展
+- [[IntentIOC]] — 意图特定的 NRM 扩展

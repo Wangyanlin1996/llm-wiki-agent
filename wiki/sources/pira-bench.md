@@ -7,28 +7,28 @@ source_file: raw/papers/pira-bench.md
 last_updated: 2026-05-27
 ---
 
-## Summary
-PIRA-Bench introduces the first benchmark for Proactive Intent Recommendation Agents on GUI, featuring complex trajectories with multiple interleaved intents, noisy segments, and user profile contexts. It proposes PIRF, a memory-aware state-tracking framework for multi-thread management, transitioning from reactive to proactive GUI agent paradigm.
+## 概要
+PIRA-Bench 引入首个面向 GUI 上 Proactive Intent Recommendation Agents 的基准，具有包含多个交织 intents、噪声片段和 user profile contexts 的复杂轨迹。它提出 PIRF，一个用于多线程管理的 memory-aware state-tracking framework，推动从 reactive 向 proactive GUI agent 范式转变。
 
-## Key Claims
-- Current GUI agents are purely reactive (require explicit instruction)
-- Proactive intent recommendation requires detecting actionable events from continuous visual input
-- Complex trajectories contain multiple interleaved intents and noise
-- PIRF framework manages multiple task threads with memory-aware state tracking
-- Proactive GUI agents need user profile context for preference-aware detection
+## 关键论点
+- 当前 GUI agents 纯属 reactive（需要显式指令）
+- Proactive intent recommendation 需要从连续视觉输入中检测可执行事件
+- 复杂轨迹包含多个交织 intents 和噪声
+- PIRF framework 通过 memory-aware state tracking 管理多任务线程
+- Proactive GUI agents 需要 user profile context 以实现偏好感知检测
 
-## Key Quotes
-> "Current GUI agents operate under a reactive paradigm requiring explicit user instruction" — problem
+## 关键引述
+> "Current GUI agents operate under a reactive paradigm requiring explicit user instruction" — 问题陈述
 
-> "PIRA-Bench serves as an initial step toward robust proactive GUI-based personal assistants" — contribution
+> "PIRA-Bench serves as an initial step toward robust proactive GUI-based personal assistants" — 贡献
 
-## Connections
-- [[IntentRecommendation]] — PIRA-Bench evaluates proactive IntentRecommendation in GUI contexts
-- [[PIRABench]] — the benchmark concept formalized here
-- [[PIRF]] — memory-aware state-tracking framework proposed alongside PIRA-Bench
-- [[IntentUnderstanding]] — detecting actionable events requires IntentUnderstanding
-- [[VitaBench2]] — complementary benchmark evaluating personalized proactive agents
-- [[AgentMemory]] — PIRF's memory-aware state tracking connects to AgentMemory mechanisms
+## 关联
+- [[IntentRecommendation]] — PIRA-Bench 在 GUI 语境下评估主动 IntentRecommendation
+- [[PIRABench]] — 此处形式化的基准概念
+- [[PIRF]] — 与 PIRA-Bench 同时提出的 memory-aware state-tracking framework
+- [[IntentUnderstanding]] — 检测可执行事件需要 IntentUnderstanding
+- [[VitaBench2]] — 评估个性化 proactive agents 的互补基准
+- [[AgentMemory]] — PIRF 的 memory-aware state tracking 与 AgentMemory 机制相关
 
-## Contradictions
-- Contradicts reactive GUI agent paradigm: PIRA-Bench demonstrates that proactive intent detection is necessary for effective GUI assistants
+## 矩盾
+- 与 reactive GUI agent 范式矛盾：PIRA-Bench 证明 proactive intent detection 对有效的 GUI assistants 是必要的

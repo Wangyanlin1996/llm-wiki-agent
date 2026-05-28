@@ -7,27 +7,27 @@ source_file: raw/papers/intentrl.md
 last_updated: 2026-05-27
 ---
 
-## Summary
-IntentRL trains proactive agents to clarify latent user intents before starting deep research, resolving the autonomy-interaction dilemma. It uses a shallow-to-deep intent refinement graph and two-stage RL (offline dialogues + online rollouts with user simulator), outperforming built-in clarify modules of closed-source DR agents.
+## 概要
+IntentRL 训练主动 agents 在启动深度研究前澄清用户 latent intents，解决自主性-交互困境。它采用 shallow-to-deep intent refinement graph 和两阶段 RL（offline dialogues + online rollouts with user simulator），超越闭源 DR agents 的内置 clarify modules。
 
-## Key Claims
-- Deep research agents face an autonomy-interaction dilemma on ambiguous queries
-- Proactive intent clarification before research improves outcomes
-- Shallow-to-deep intent refinement graph scales training data
-- Two-stage RL (offline+online simulator) achieves strong intent clarification
-- Outperforms closed-source DR agents' built-in clarify modules
+## 关键论点
+- Deep research agents 在模糊查询上面临自主性-交互困境
+- 研究前的主动 intent 澄清改善结果
+- Shallow-to-deep intent refinement graph 扩展训练数据
+- 两阶段 RL（offline+online simulator）实现强 intent clarification
+- 超越闭源 DR agents 的内置 clarify modules
 
-## Key Quotes
-> "high autonomy on ambiguous user queries often leads to prolonged execution with unsatisfactory outcomes" — dilemma
+## 关键引述
+> "high autonomy on ambiguous user queries often leads to prolonged execution with unsatisfactory outcomes" — 困境描述
 
-> "IntentRL trains proactive agents to clarify latent user intents before starting long-horizon research" — approach
+> "IntentRL trains proactive agents to clarify latent user intents before starting long-horizon research" — 方法概述
 
-## Connections
-- [[IntentRecommendation]] — IntentRL implements proactive IntentRecommendation via RL
-- [[IntentRL]] — the RL-trained proactive intent clarification concept formalized here
-- [[IntentUnderstanding]] — intent clarification is a form of IntentUnderstanding
-- [[PIRABench]] — PIRA-Bench evaluates proactive intent recommendation relevant to IntentRL
-- [[PASK]] — proactive agent paradigm aligned with IntentRL's proactive clarification
+## 关联
+- [[IntentRecommendation]] — IntentRL 通过 RL 实现主动 IntentRecommendation
+- [[IntentRL]] — RL 训练的主动 intent clarification 概念在此形式化
+- [[IntentUnderstanding]] — intent clarification 是 IntentUnderstanding 的一种形式
+- [[PIRABench]] — PIRA-Bench 评估与 IntentRL 相关的主动 intent recommendation
+- [[PASK]] — 主动 agent 范式与 IntentRL 的主动澄清一致
 
-## Contradictions
-- Contradicts full-autonomy assumption: IntentRL demonstrates that proactively clarifying intent before deep research yields better outcomes
+## 矛盾
+- 与完全自主假设矛盾：IntentRL 证明在深度研究前主动澄清 intent 产生更好结果

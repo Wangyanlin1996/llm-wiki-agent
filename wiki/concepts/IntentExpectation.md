@@ -6,56 +6,56 @@ sources: [28312-j50]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-IntentExpectation is the core dataType in 3GPP TS 28.312 representing a combination of requirements, goals, and contexts for a set of expectation objects with the same properties. Each intent may contain one or multiple IntentExpectations, allowing the consumer to express different requirements for different object types.
+IntentExpectation 是3GPP TS 28.312中的核心 dataType，表示对一组具有相同属性的 ExpectationObject 的需求、目标和上下文的组合。每个意图可包含一个或多个 IntentExpectation，允许消费者针对不同对象类型表达不同需求。
 
-## Structure
+## 结构
 
-An IntentExpectation contains:
+IntentExpectation 包含：
 
-- **expectationObject**: The object(s) for which the expectation is addressed (e.g., network slice, radio network, service)
-- **expectationTarget(s)**: Desired characteristics as tuples of [targetName, condition, value range]
-- **context(s)**: Conditions under which the targets should be achieved, also as [attribute, condition, value range] tuples
+- **expectationObject**：期望所针对的对象（如网络切片、无线网络、服务）
+- **expectationTarget(s)**：期望特征，以 [targetName, condition, value range] 元组形式表达
+- **context(s)**：目标应在何种条件下达成，同样以 [attribute, condition, value range] 元组形式表达
 
-## Expectation Object
+## ExpectationObject
 
-The object can be identified by:
-- Direct identifier (objectInstance)
-- Object context (objectContext) — attribute/condition/value tuples filtering desired objects, e.g., "all network slices in city_ABC" = [(location, =, city_ABC), (objectType, =, network slice)]
+对象可通过以下方式识别：
+- 直接标识符（objectInstance）
+- 对象上下文（objectContext）——属性/条件/值元组筛选期望对象，例如"city_ABC中所有网络切片" = [(location, =, city_ABC), (objectType, =, network slice)]
 
-## Expectation Target
+## ExpectationTarget
 
-Each target is a triple: **[targetName, condition, value range]**
+每个目标是一个三元组：**[targetName, condition, value range]**
 
-Examples:
-| targetName | Condition | Value range |
+示例：
+| targetName | 条件 | 值范围 |
 |---|---|---|
-| Coverage area | Is greater than | 40 km radius |
-| User throughput | Is greater than | 2 Mbps |
-| RAN energy consumption | Is less than | X Joules |
+| 覆盖区域 | 大于 | 40 km半径 |
+| 用户吞吐量 | 大于 | 2 Mbps |
+| RAN能耗 | 小于 | X Joules |
 
-## Context
+## 上下文
 
-Contexts constrain when targets should be achieved. Same tuple structure as targets but different semantics — conditions trigger management tasks rather than outcomes.
+上下文约束目标应在何时达成。与目标使用相同的元组结构但语义不同——条件触发管理任务而非结果。
 
-Example: "handoverFailureRate < 2% **if** Load > 80%" → target=(handoverFailureRate, <, 2%), context=(load, >, 80%)
+示例："切换失败率 < 2% **当** 负载 > 80%" → target=(handoverFailureRate, <, 2%), context=(load, >, 80%)
 
-Context selection mechanism: ALL_OF / ONE_OF / ANY_OF — defines how to select among multiple overlapping contexts.
+上下文选择机制：ALL_OF / ONE_OF / ANY_OF——定义如何从多个重叠上下文中进行选择。
 
-## Scenario-Specific Expectations
+## 场景特定期望
 
-TS 28.312 defines scenario-specific IntentExpectation definitions for:
-- Radio Network Expectation
-- Radio Service Expectation
-- Edge Service Support Expectation
-- 5GC Network Expectation
-- End-to-end Network Optimization Expectation
-- Network Maintenance Expectation
+TS 28.312 定义了以下场景特定的 IntentExpectation：
+- 无线网络期望
+- 无线服务期望
+- 边缘服务支持期望
+- 5GC网络期望
+- 端到端网络优化期望
+- 网络维护期望
 
-## Connections
+## 关联
 
-- [[IntentIOC]] — contains IntentExpectation(s)
-- [[IntentDrivenMnS]] — the service managing intents with these expectations
-- [[RulePolicyIntentRelation]] — intent expresses "what", policy expresses "how"
-- [[PolicyContent]] — contrast: PolicyContent = condition+action, IntentExpectation = object+target+context
+- [[IntentIOC]] — 包含 IntentExpectation(s)
+- [[IntentDrivenMnS]] — 管理包含这些期望的意图的服务
+- [[RulePolicyIntentRelation]] — 意图表达"要什么"，策略表达"怎么做"
+- [[PolicyContent]] — 对比：PolicyContent = 条件+动作，IntentExpectation = 对象+目标+上下文

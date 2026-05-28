@@ -6,24 +6,24 @@ sources: [28556-j00]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-PolicyContent is a dataType defined in 3GPP TS 28.556 that represents the core logic of a network policy through a condition-action pair. When a condition is met, the corresponding action is triggered.
+PolicyContent 是 3GPP TS 28.556 中定义的 dataType，通过条件-动作对（condition-action pair）表示网络 Policy 的核心逻辑。当条件满足时，触发对应的动作。
 
-## Attributes
+## 属性
 
-| Attribute | Support Qualifier | Readable | Writable | Invariant | Notifyable |
+| 属性 | 支持限定符 | 可读 | 可写 | 不变 | 可通知 |
 |---|---|---|---|---|---|
-| condition | M (Mandatory) | Yes | Yes | No | Yes |
-| action | M (Mandatory) | Yes | Yes | No | Yes |
+| condition | M（必选） | 是 | 是 | 否 | 是 |
+| action | M（必选） | 是 | 是 | 否 | 是 |
 
-## Attribute Definitions
+## 属性定义
 
-- **condition**: Identifies the trigger condition for the policy. The type depends on the concrete policy implementation (not specified in the standard).
-- **action**: Identifies the action to execute when the condition is met. The type also depends on the concrete policy.
+- **condition**：标识 Policy 的触发条件。类型取决于具体的 Policy 实现（标准中未指定）。
+- **action**：标识当条件满足时要执行的动作。类型同样取决于具体的 Policy 实现。
 
-## Connections
+## 关联
 
-- [[PolicyIOC]] — contains PolicyContent as its policyContent attribute
-- [[PolicyMnS]] — the management service managing policies with this structure
-- [[5GNetworkManagement]] — broader management domain
+- [[PolicyIOC]] — 将 PolicyContent 作为其 policyContent 属性包含
+- [[PolicyMnS]] — 管理具有此结构的 Policy 的管理服务
+- [[5GNetworkManagement]] — 更广泛的管理领域

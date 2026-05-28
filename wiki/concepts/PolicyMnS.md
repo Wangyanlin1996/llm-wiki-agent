@@ -6,39 +6,39 @@ sources: [28556-j00]
 last_updated: 2026-05-22
 ---
 
-## Summary
+## 概要
 
-Policy Management Service (Policy MnS) is a 3GPP-defined management service for creating, managing, and governing network policies in 5G mobile networks. It provides lifecycle management (creation, deletion, update, query, activation, deactivation) and conflict detection/notification capabilities through a MnS Producer–MnS Consumer interaction model.
+Policy 管理服务（Policy MnS）是 3GPP 定义的用于在 5G 移动网络中创建、管理和治理网络 Policy 的管理服务。它通过 MnS Producer–MnS Consumer 交互模型提供生命周期管理（创建、删除、更新、查询、激活、去激活）以及冲突检测/通知能力。
 
-## Lifecycle Procedures
+## 生命周期流程
 
-| Procedure | MnS Consumer Action | MnS Producer Action |
+| 流程 | MnS Consumer 动作 | MnS Producer 动作 |
 |---|---|---|
-| Creation | Sends createMOI request | Creates and configures Policy MOI |
-| Deletion | Sends deleteMOI request | Deletes Policy MOI |
-| Update | Sends modifyMOIAttributes request | Updates Policy MOI |
-| Query | Sends getMOIAttributes request | Queries Policy MOI |
-| Activation | Sends activation request | Activates Policy MOI |
-| Deactivation | Sends deactivation request | Deactivates Policy MOI |
+| 创建 | 发送 createMOI 请求 | 创建并配置 Policy MOI |
+| 删除 | 发送 deleteMOI 请求 | 删除 Policy MOI |
+| 更新 | 发送 modifyMOIAttributes 请求 | 更新 Policy MOI |
+| 查询 | 发送 getMOIAttributes 请求 | 查询 Policy MOI |
+| 激活 | 发送 activation 请求 | 激活 Policy MOI |
+| 去激活 | 发送 deactivation 请求 | 去激活 Policy MOI |
 
-## Conflict Detection
+## 冲突检测
 
-When the MnS Producer receives a new or updated policy, it checks for conflicts with existing stored policies. If detected, it sends a notifyPolicyConflict notification (see [[PolicyConflictDetection]]) to the MnS Consumer.
+当 MnS Producer 收到新的或更新的 Policy 时，它会检查是否与已存储的 Policy 存在冲突。若检测到冲突，它将向 MnS Consumer 发送 notifyPolicyConflict 通知（参见 [[PolicyConflictDetection]]）。
 
-## Information Model
+## 信息模型
 
-The [[PolicyIOC]] inherits from Top IOC and carries four mandatory attributes: policyPriority, policyStatus, policyType, and [[PolicyContent]].
+[[PolicyIOC]] 继承自 Top IOC，并携带四个必选属性：policyPriority、policyStatus、policyType 和 [[PolicyContent]]。
 
-## Solution Sets
+## 解决方案集
 
-- **RESTful HTTP**: PUT (create), GET (query), PUT/PATCH (modify), DELETE (delete) operations mapped to HTTP methods on PoliMnS resource URIs
-- **YANG/NETCONF**: Uses generic provisioning MnS solution set from [[TS28532]]
+- **RESTful HTTP**：PUT（创建）、GET（查询）、PUT/PATCH（修改）、DELETE（删除）操作映射到 PoliMnS 资源 URI 上的 HTTP 方法
+- **YANG/NETCONF**：使用来自 [[TS28532]] 的通用 Provisioning MnS 解决方案集
 
-## Connections
+## 关联
 
-- [[3GPP]] — standards body defining Policy MnS
-- [[PolicyIOC]] — the information object class for policies
-- [[PolicyContent]] — condition-action data type
-- [[PolicyConflictDetection]] — conflict notification mechanism
-- [[5GNetworkManagement]] — broader management context
-- [[TS28532]] — referenced generic management services
+- [[3GPP]] — 定义 Policy MnS 的标准化组织
+- [[PolicyIOC]] — Policy 的信息对象类
+- [[PolicyContent]] — 条件-动作数据类型
+- [[PolicyConflictDetection]] — 冲突通知机制
+- [[5GNetworkManagement]] — 更广泛的管理上下文
+- [[TS28532]] — 引用的通用管理服务
