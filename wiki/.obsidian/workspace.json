@@ -11,10 +11,14 @@
             "id": "e9172d9f85bb3aa3",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "sources/vitabench2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "vitabench2"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "sources/vitabench2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "vitabench2 的反向链接列表"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "sources/vitabench2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "vitabench2 的出链列表"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "sources/vitabench2.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "vitabench2 的大纲"
             }
           }
         ]
@@ -175,8 +182,23 @@
       "bases:新建数据库": false
     }
   },
-  "active": "e9172d9f85bb3aa3",
+  "active": "25c758a4a78d9c8b",
   "lastOpenFiles": [
+    "sources/pira-bench.md",
+    "sources/pask.md",
+    "concepts/IntentRecommendation.md",
+    "PIRF.md",
+    "sources/intentrl.md",
+    "sources/intent-communication-design.md",
+    "sources/vitabench2.md",
+    "concepts/IntentUnderstanding.md",
+    "sources/intent-signal-theory.md",
+    "concepts/AgentMemory.md",
+    "sources/intpro.md",
+    "sources/emem.md",
+    "sources/lightmem.md",
+    "sources/agent-memory-survey.md",
+    "sources/evo-memory.md",
     "concepts/IntentSONOrchestration.md",
     "sources/28312-j50.md",
     "sources/28556-j00.md",
