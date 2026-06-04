@@ -114,3 +114,30 @@
 ## [2026-05-29] ingest | Target-Guided Proactive Dialogue via Scenario Modeling and Intent-Keyword Bridging
 ## [2026-05-29] ingest | 9 concepts created: NeuroSymbolicOntology, AssistanceGames, MultimodalIntentDisambiguation, CognitiveChainOfThought, SpeechTextDisambiguation, RecursiveIntentMemory, ConversationStarterGeneration, IntentTreeModeling, IntentKeywordBridging
 ## [2026-05-29] ingest | 1 concept created: SemanticIntentSimilarity
+
+## [2026-06-04] ingest | 第四轮论文归档（13篇）
+
+新增论文：7 AM + 3 IU + 3 IR = 13 篇
+
+### Agent Memory（7篇）
+- OCR-Memory (2604.26622) — 视觉模态记忆；ACL 2026
+- MemoryOS (2506.06326) — OS启发STM/MTM/LTM；64 citations
+- Memp (2508.06433) — 程序性记忆；ACL 2026 Findings
+- Agent KB (2507.06229) — 跨框架共享；53 citations
+- Mem-π (2605.21463) — 自适应生成记忆
+- PEAM (2605.27762) — 参数化具身记忆
+- EvoMemBench (2605.18421) — 自演化记忆评测
+
+### Intent Understanding（3篇）
+- SII/PIWM (2606.03371) — 看-推断-干预；AIDA+BDI
+- KnowU-Bench (2604.08455) — 交互式+主动+个性化评测
+- Reward-Driven Interaction (2505.18731) — 满意度驱动主动对话
+
+### Intent Recommendation（4篇）
+- ProAgentBench (2602.04482) — 真实世界主动Agent评测
+- ProCodeBench (2605.05700) — 主动编程助手评测
+- PA-Bridge (2605.05855) — SIGIR 2026；打破回声室
+
+新增概念页：ProceduralMemory, ParametricMemory, OpticalMemoryEncoding, CrossFrameworkMemorySharing, ProactiveInterventionDecisionChain, EchoChamberPassiveActiveBridge, SimulationRealityGap, AIDABDIStateModel
+
+累计论文：39 + 13 = 52 篇

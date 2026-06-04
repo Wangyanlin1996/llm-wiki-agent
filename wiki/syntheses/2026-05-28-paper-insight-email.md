@@ -26,23 +26,23 @@ Storage（轨迹保存） → Reflection（轨迹提炼） → Experience（轨�
 
 ### 第一轮论文 (4)
 
-| # | 论文 | 年份 | 引用 | 核心贡献 |
-|---|------|------|------|---------|
-| 1 | Evo-Memory | 2025 | 71 | 首个流式记忆评测基准；ExpRAG + ReMem 管线 |
-| 2 | From Storage to Experience (Survey) | 2026 | 4 | Storage→Reflection→Experience 三阶段综述框架 |
-| 3 | LightMem | 2026 | 4 | SLM驱动轻量记忆 STM/MTM/LTM；F1+2.5；83ms延迟 |
-| 4 | E-mem | 2026 | 3 | 情景上下文重构；master+assistant多agent；54% F1超过GAM 7.75% |
+| #   | 论文                                  | 年份   | 引用  | 核心贡献                                             |
+| --- | ----------------------------------- | ---- | --- | ------------------------------------------------ |
+| 1   | Evo-Memory                          | 2025 | 71  | 首个流式记忆评测基准；ExpRAG + ReMem 管线                     |
+| 2   | From Storage to Experience (Survey) | 2026 | 4   | Storage→Reflection→Experience 三阶段综述框架            |
+| 3   | LightMem                            | 2026 | 4   | SLM驱动轻量记忆 STM/MTM/LTM；F1+2.5；83ms延迟              |
+| 4   | E-mem                               | 2026 | 3   | 情景上下文重构；master+assistant多agent；54% F1超过GAM 7.75% |
 
 ### 第二轮论文 (6)
 
-| # | 论文 | 年份 | 核心贡献 |
-|---|------|------|---------|
-| 5 | MemCog | 2026 | 范式转换：Memory-as-Tool → Memory-as-Cognition |
-| 6 | MemGym | 2026 | 长视野记忆评测环境，超越单会话基准 |
-| 7 | APEX-MEM | 2026 | 半结构化记忆 + 时间推理 |
-| 8 | H-Mem | 2026 | 混合表示（事实+摘要+画像）渐进记忆 |
-| 9 | ENPMR-Bench | 2026 | 主动记忆检索基准（情感支持场景） |
-| 10 | MINTEval | 2026 | 多目标干扰下记忆评测 |
+| #   | 论文          | 年份   | 核心贡献                                      |
+| --- | ----------- | ---- | ----------------------------------------- |
+| 5   | MemCog      | 2026 | 范式转换：Memory-as-Tool → Memory-as-Cognition |
+| 6   | MemGym      | 2026 | 长视野记忆评测环境，超越单会话基准                         |
+| 7   | APEX-MEM    | 2026 | 半结构化记忆 + 时间推理                             |
+| 8   | H-Mem       | 2026 | 混合表示（事实+摘要+画像）渐进记忆                        |
+| 9   | ENPMR-Bench | 2026 | 主动记忆检索基准（情感支持场景）                          |
+| 10  | MINTEval    | 2026 | 多目标干扰下记忆评测                                |
 
 **趋势洞察**: 评测多样化爆发 — 从 LoCoMo 单一基准扩展到情感支持、多目标干扰、长视野环境等专用场景；范式从 Memory-as-Tool → Memory-as-Cognition。
 
@@ -58,24 +58,24 @@ IST (Intent Signal Theory) 区分四个对象：
 
 ### 第一轮论文 (4)
 
-| # | 论文 | 年份 | 引用 | 核心贡献 |
-|---|------|------|------|---------|
-| 1 | Intent Signal Theory | 2026 | — | IST计算框架；I*/I-hat/P/O四对象；不可逆丢失定理 |
-| 2 | IntPro | 2026 | 0 | 代理意图理解；检索条件化推理 + SFT+GRPO |
-| 3 | VitaBench 2.0 | 2026 | 0 | 个性化+主动性评测基准；揭示SOTA与实际需求差距 |
-| 4 | Intent Communication Design | 2025 | 2 | Transparency×Abstraction×Modality 三维设计空间 |
+| #   | 论文                          | 年份   | 引用  | 核心贡献                                     |
+| --- | --------------------------- | ---- | --- | ---------------------------------------- |
+| 1   | Intent Signal Theory        | 2026 | —   | IST计算框架；I*/I-hat/P/O四对象；不可逆丢失定理          |
+| 2   | IntPro                      | 2026 | 0   | 代理意图理解；检索条件化推理 + SFT+GRPO                |
+| 3   | VitaBench 2.0               | 2026 | 0   | 个性化+主动性评测基准；揭示SOTA与实际需求差距                |
+| 4   | Intent Communication Design | 2025 | 2   | Transparency×Abstraction×Modality 三维设计空间 |
 
 ### 第二轮论文 (7)
 
-| # | 论文 | 年份 | 引用 | 核心贡献 |
-|---|------|------|------|---------|
-| 5 | IntentGrasp | 2026 | 0 | 12域49语料全面基准；17/20 LLM低于随机基线；IFT微调+30F1 |
-| 6 | RECAP | 2025 | — | 意图改写基准：歧义/漂移/模糊 → 精炼目标表示 |
-| 7 | PersonalAlign | 2026(ACL) | 0 | 隐式意图对齐+HIM-Agent；+15.7%执行 +7.3%主动 |
-| 8 | ContextAgent | 2025 | 41 | 可穿戴感知+意图理解；ContextAgentBench 9场景20工具 |
-| 9 | Intent Detection in Age of LLMs | 2024(EMNLP) | 41 | Hybrid路由框架（LLM+SetFit）；OOS检测+5% |
-| 10 | Satori | 2024 | — | BDI框架+多模态LLM → 主动AR助手 |
-| 11 | NeuroSync | 2025(UIST) | 0 | 直接意图-任务匹配新范式；知识蒸馏提取LLM理解 |
+| #   | 论文                           | 年份          | 引用  | 核心贡献                                   |
+| --- | ---------------------------- | ----------- | --- | -------------------------------------- |
+| 5   | IntentGrasp                  | 2026        | 0   | 12域49语料全面基准；17/20 LLM低于随机基线；IFT微调+30F1 |
+| 6   | RECAP                        | 2025        | —   | 意图改写基准：歧义/漂移/模糊 → 精炼目标表示               |
+| 7   | PersonalAlign                | 2026(ACL)   | 0   | 隐式意图对齐+HIM-Agent；+15.7%执行 +7.3%主动      |
+| 8   | ContextAgent                 | 2025        | 41  | 可穿戴感知+意图理解；ContextAgentBench 9场景20工具   |
+| 9   | Intent Detection in Age of w | 2024(EMNLP) | 41  | Hybrid路由框架（LLM+SetFit）；OOS检测+5%        |
+| 10  | Satori                       | 2024        | —   | BDI框架+多模态LLM → 主动AR助手                  |
+| 11  | NeuroSync                    | 2025(UIST)  | 0   | 直接意图-任务匹配新范式；知识蒸馏提取LLM理解               |
 
 **趋势洞察**: 意图理解从纯文本扩展到多模态（感知/AR/GUI），从分类到改写/操控。IntentGrasp揭示LLM意图理解严重不足（17/20低于随机），IFT微调提供改进路径。
 

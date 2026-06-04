@@ -2,8 +2,8 @@
 title: "Overview"
 type: synthesis
 tags: []
-sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue]
-last_updated: 2026-05-29
+sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction]
+last_updated: 2026-06-04
 ---
 
 # Overview
@@ -207,6 +207,52 @@ Five papers introduce clarification-first planning and reveal human factors risk
 | **符号结构注入** | 语义结构 (APEX-MEM), 事实+摘要+画像 (H-Mem) | 神符号本体 (NOEM³A), 认知结构 (CoCoT) | 意图树 (ProUtt), 场景建模 (Target-Guided) |
 | **小模型效率** | SLM 驱动 (LightMem) | 3B Llama + Ontology (NOEM³A), 4-8B + PP-Clarifier | 递归记忆压缩 22× (OnePred) |
 | **主动生成** | 主动探索 (survey), ReMem | 主动信息获取 (VitaBench2) | 开场语生成 (IceBreaker), 下一查询预测 (OnePred), RL 澄清 (SpeakRL) |
+
+### Expanded Landscape (Fourth Round Ingest)
+
+#### Agent Memory — 7 New Papers
+
+七篇论文将Agent记忆推向视觉编码、参数化内化、程序性记忆、跨框架共享、自适应生成和系统化评测：
+
+- **OCR-Memory** (ACL 2026) — 视觉模态作为高密度记忆表示；将轨迹渲染为带视觉锚点的图像；locate-and-transcribe检索范式避免自由生成和幻觉
+- **MemoryOS** (2025, 64 citations) — OS启发的STM/MTM/LTM三级存储系统；FIFO对话链+分段页面组织策略；LoCoMo F1+49.11%
+- **Memp** (ACL 2026 Findings, 38 citations) — 程序性记忆探索；细粒度步骤指令+脚本抽象两种蒸馏形式；跨模型迁移（强→弱仍有增益）
+- **Agent KB** (2025, 53 citations) — 跨框架共享记忆基础设施；planning seeds+feedback fixes两阶段检索；disagreement gate防知识干扰；+18.7pp GAIA
+- **Mem-π** (2026) — 自适应记忆：从检索到生成的范式转换；决策-内容解耦RL决定何时+生成什么指导；>30%相对提升
+- **PEAM** (2026) — 参数化具身记忆：MoE-LoRA物理隔离适配器；失败-纠正轨迹对比内化；parameterization-worthiness score+自触发整合
+- **EvoMemBench** (2026) — 自演化记忆评测：记忆范围×内容双轴；15方法对比；发现长上下文基线仍竞争力强、无单一记忆形式通用有效
+
+**关键趋势**: Agent记忆从"外部存储检索"演进到"参数化内化"和"按需生成"两种新范式。程序性记忆（Memp）和参数驻留技能（PEAM）代表记忆从被动存储到主动技能的转变。视觉编码（OCR-Memory）开辟了文本之外的高密度信息通道。跨框架共享（Agent KB）从单Agent记忆扩展到集体智能。
+
+#### Intent Understanding — 3 New Papers
+
+三篇论文将意图理解推向主动干预决策、偏好获取和满意度驱动：
+
+- **SII/PIWM** (2026) — See-Infer-Intervene三阶段框架；AIDA购买阶段+BDI心理场双重状态表示；五类响应（包括"等待"）；发现video-to-state grounding是部署瓶颈
+- **KnowU-Bench** (2026) — 交互式+主动性+个性化移动Agent评测；偏好获取+同意协商+拒绝后克制；Claude Sonnet 4.6在模糊指令下<50%
+- **Reward-Driven Interaction** (2025) — 用户满意度作为内在奖励信号驱动主动澄清；对比自监督+领域意图分类辅助任务；DuerOS工业验证
+
+**关键趋势**: 意图理解从"推断意图"深化到"决定是否干预"——SII引入"等待"选项，KnowU-Bench评测同意协商和拒绝后克制。这是[[IntentSignalTheory]]的I*→P信息损失的新回应：不仅推断意图，还要决定是否、如何、何时干预。
+
+#### Intent Recommendation — 4 New Papers
+
+四篇论文引入真实世界评测、编程场景主动意图和回声室打破：
+
+- **ProAgentBench** (2026) — 真实世界主动Agent评测基准；28K+事件/500+小时真实数据；时机预测+辅助内容生成两阶段分解
+- **ProCodeBench** (2026) — 1,246位工业开发者IDE交互数据；发现模拟vs真实轨迹的系统性差距；模拟评估高估真实性能
+- **PA-Bridge** (SIGIR 2026) — 打破对话开场语推荐的回声室效应；对抗分布对齐弥合被动与主动表达差距；语义离散器去偏
+- **Reward-Driven Interaction** (已在IU中归档) — 满意度预测作为奖励触发主动澄清
+
+**关键趋势**: 意图推荐评测从合成数据转向真实世界数据——ProAgentBench和ProCodeBench都发现合成数据高估真实性能。PA-Bridge从推荐角度打破[[ConversationStarterGeneration]]（IceBreaker）的开场语质量问题——回声室效应使推荐偏向泛化建议。
+
+#### Cross-direction Convergence (Updated Round 4)
+
+| 共享主题 | Agent Memory | Intent Understanding | Intent Recommendation |
+|---|---|---|---|
+| **参数化 vs 检索** | 参数驻留技能 (PEAM), 按需生成 (Mem-π) | 用户满意度内化为奖励 (Reward-Driven) | 时机预测内化为习惯 (ProAgentBench) |
+| **真实 vs 合成** | 合成轨迹 ≠ 真实行为 (EvoMemBench) | 模拟画像 ≠ 真实偏好 (KnowU-Bench) | 合成数据高估真实性能 (ProAgentBench, ProCodeBench) |
+| **跨框架共享** | Agent KB 集体智能 | KnowU-Bench 多Agent同意协商 | PA-Bridge 跨来源意图桥接 |
+| **视觉/多模态** | 视觉编码 (OCR-Memory) | 视频推断 (SII/PIWM) | IDE+仓库上下文 (ProCodeBench) |
 
 ### Connection to 3GPP Intent Management
 

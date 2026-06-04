@@ -12,12 +12,12 @@ Policy 信息对象类（IOC）是 3GPP TS 28.556 中定义的核心数据结构
 
 ## 属性
 
-| 属性 | 支持限定符 | 可读 | 可写 | 不变 | 可通知 |
-|---|---|---|---|---|---|
-| policyPriority | M（必选） | 是 | 是 | 否 | 是 |
-| policyStatus | M | 是 | 是 | 否 | 是 |
-| policyType | M | 是 | 是 | 否 | 是 |
-| policyContent | M | 是 | 是 | 否 | 是 |
+| 属性             | 支持限定符 | 可读  | 可写  | 不变  | 可通知 |
+| -------------- | ----- | --- | --- | --- | --- |
+| policyPriority | M（必选） | 是   | 是   | 否   | 是   |
+| policyStatus   | M     | 是   | 是   | 否   | 是   |
+| policyType     | M     | 是   | 是   | 否   | 是   |
+| policyContent  | M     | 是   | 是   | 否   | 是   |
 
 ## 属性定义
 

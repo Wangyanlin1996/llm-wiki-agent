@@ -11,10 +11,14 @@
             "id": "e9172d9f85bb3aa3",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "concepts/PolicyIOC.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PolicyIOC"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "concepts/PolicyIOC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "PolicyIOC 的反向链接列表"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "concepts/PolicyIOC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "PolicyIOC 的出链列表"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "concepts/PolicyIOC.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "PolicyIOC 的大纲"
             }
           }
         ]
@@ -177,32 +184,32 @@
   },
   "active": "e9172d9f85bb3aa3",
   "lastOpenFiles": [
+    "concepts/AIDABDIStateModel.md",
+    "concepts/SimulationRealityGap.md",
+    "concepts/EchoChamberPassiveActiveBridge.md",
+    "concepts/ProactiveInterventionDecisionChain.md",
+    "concepts/CrossFrameworkMemorySharing.md",
+    "concepts/OpticalMemoryEncoding.md",
+    "concepts/ParametricMemory.md",
+    "concepts/ProceduralMemory.md",
+    "sources/reward-driven-interaction.md",
+    "sources/pa-bridge.md",
+    "sources/procodebench.md",
+    "sources/proagentbench.md",
+    "sources/knowu-bench.md",
+    "sources/sii-piwm.md",
+    "sources/evomembench.md",
+    "sources/peam.md",
+    "sources/mempi.md",
+    "sources/agentkb.md",
+    "sources/memp.md",
+    "sources/memoryos.md",
+    "sources/ocr-memory.md",
+    "concepts/PolicyMnS.md",
+    "index.md",
+    "overview.md",
     "sources/icebreaker.md",
     "sources/h-mem.md",
-    "sources/good-agent-alignment.md",
-    "index.md",
-    "glossary.md",
-    "syntheses/2026-05-28-paper-insight-email.md",
-    "sources/vitabench2.md",
-    "sources/intpro.md",
-    "PIRF.md",
-    "overview.md",
-    "sources/assistantx.md",
-    "sources/memgym.md",
-    "concepts/SemanticIntentSimilarity.md",
-    "concepts/IntentKeywordBridging.md",
-    "concepts/IntentTreeModeling.md",
-    "concepts/ConversationStarterGeneration.md",
-    "concepts/RecursiveIntentMemory.md",
-    "concepts/SpeechTextDisambiguation.md",
-    "concepts/CognitiveChainOfThought.md",
-    "concepts/MultimodalIntentDisambiguation.md",
-    "concepts/AssistanceGames.md",
-    "concepts/NeuroSymbolicOntology.md",
-    "sources/target-proactive-dialogue.md",
-    "sources/speakrl.md",
-    "sources/proutt.md",
-    "sources/onepred.md",
     "syntheses"
   ]
 }
