@@ -1,12 +1,22 @@
 ---
-title: "MemoryOS: AI Agent 记忆操作系统"
+title: 'MemoryOS: AI Agent 记忆操作系统'
 type: source
-tags: [agent-memory]
-sources: [memoryos]
-source_file: raw/papers/2506.06326.pdf
+tags:
+- agent-memory
+sources:
+- memoryos
+source_file: raw/papers/memoryos.pdf
 last_updated: 2026-06-04
+arxiv_id: '2506.06326'
+authors:
+- Jiazheng Kang
+- Mingming Ji
+- Zhe Zhao
+- Ting Bai
+year: 2025
+venue: Conference on Empirical Methods
+citation_count: 64
 ---
-
 ## 概要
 MemoryOS 受操作系统记忆管理原理启发，设计STM/MTM/LTM三级存储架构，包含存储、更新、检索、生成四大模块。STM→MTM更新遵循对话链FIFO原则，MTM→LTM使用分段页面组织策略。LoCoMo基准上 F1+49.11%，BLEU-1+46.18%，实现长期对话的上下文连贯性和个性化记忆保持。
 

@@ -1,12 +1,23 @@
 ---
-title: "ETAPP"
+title: ETAPP
 type: source
-tags: [intent-recommendation, personalized, tool-augmented, proactivity, ACL]
+tags:
+- intent-recommendation
+- personalized
+- tool-augmented
+- proactivity
+- ACL
 date: 2025
 source_file: raw/papers/etapp.md
 last_updated: 2026-05-28
+authors:
+- Yupu Hao
+- Pengfei Cao
+- Zhuoran Jin
+year: 2025
+venue: ACL 2025
+doi: 10.18653/v1/2025.acl-long.1064
 ---
-
 ## 概要
 ETAPP（ACL 2025）从个性化（personalization）和主动性（proactivity）视角评估个性化工具增强的 LLMs，建立沙盒环境和 800 个测试案例覆盖多样用户画像。基于关键点的 LLM 评估减轻评判偏差；研究结果揭示了工具调用策略中个性化与主动性之间的权衡关系。
 

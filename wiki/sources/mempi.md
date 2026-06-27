@@ -1,12 +1,26 @@
 ---
-title: "Mem-π: 自适应记忆——学习何时生成与生成什么"
+title: 'Mem-π: 自适应记忆——学习何时生成与生成什么'
 type: source
-tags: [agent-memory]
-sources: [mempi]
-source_file: raw/papers/2605.21463.pdf
+tags:
+- agent-memory
+sources:
+- mempi
+source_file: raw/papers/mempi.pdf
 last_updated: 2026-06-04
+arxiv_id: '2605.21463'
+authors:
+- Xiaoqiang Wang
+- Chao Wang
+- Hadi Nekoei
+- Christopher Pal
+- Alexandre Lacoste
+- Spandana Gella
+- Bang Liu
+- Perouz Taslakian
+year: 2026
+venue: Work in Progress
+citation_count: 0
 ---
-
 ## 概要
 Mem-π 提出自适应记忆框架：不再从外部记忆库检索静态条目，而是用独立参数的专用模型按需生成上下文特定指导。决策-内容解耦RL目标使其能决定何时产生指导（不帮助时放弃）和生成什么指导（简洁有用）。web navigation >30%相对提升，优于检索式和RL优化记忆基线。
 

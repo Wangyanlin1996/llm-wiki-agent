@@ -1,12 +1,24 @@
 ---
-title: "Evo-Memory"
+title: Evo-Memory
 type: source
-tags: [agent-memory, benchmark, LLM-agent, test-time-learning]
+tags:
+- agent-memory
+- benchmark
+- LLM-agent
+- test-time-learning
 date: 2025-11-20
-source_file: raw/papers/evo-memory.md
+source_file: raw/papers/evo-memory.pdf
 last_updated: 2026-05-28
+arxiv_id: '2511.20857'
+authors:
+- Tianxin Wei
+- Noveen Sachdeva
+- Benjamin Coleman
+year: 2025
+venue: arXiv
+citation_count: 71
+doi: 10.48550/arXiv.2511.20857
 ---
-
 ## 概要
 Evo-Memory 引入了首个用于评估 LLM agents 中自进化 memory 的 streaming benchmark（评测基准），要求 agents 在每次交互后搜索、适应和进化 memory，覆盖 10 个多样化数据集。它统一了 10+ memory modules，提出 ExpRAG（experience retrieval，经验检索）和 ReMem（action-think-memory refine pipeline，行动-思考-记忆精炼流水线）基准方法，证明 test-time memory evolution（部署时记忆进化）对长程 agent 性能至关重要。
 

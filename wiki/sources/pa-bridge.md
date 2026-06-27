@@ -1,12 +1,25 @@
 ---
-title: "PA-Bridge: 桥接被动与主动——对话开场语推荐增强"
+title: 'PA-Bridge: 桥接被动与主动——对话开场语推荐增强'
 type: source
-tags: [intent-recommendation]
-sources: [pa-bridge]
-source_file: raw/papers/2605.05855.pdf
+tags:
+- intent-recommendation
+sources:
+- pa-bridge
+source_file: raw/papers/pa-bridge.pdf
 last_updated: 2026-06-04
+arxiv_id: '2605.05855'
+authors:
+- Yiqing Wu
+- Haoming Li
+- Guanyu Jiang
+- Jiahao Liang
+- Yongchun Zhu
+- Jingwu Chen
+- Feng Zhang
+year: 2026
+venue: SIGIR 2026
+citation_count: 0
 ---
-
 ## 概要
 PA-Bridge 利用用户主动表达打破被动推荐的回声室效应。传统对话开场语推荐依赖封闭曝光-点击循环，导致系统偏向流行但泛化的建议。PA-Bridge用对抗分布对齐器弥合被动开场语与主动查询的分布差距，语义离散器使流行度去偏算法可部署。SIGIR 2026录用；Feature Penetration Rate +0.54%，User Active Days提升。
 

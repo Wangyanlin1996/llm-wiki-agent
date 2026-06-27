@@ -1,12 +1,36 @@
 ---
-title: "Agent KB: 跨域经验共享的Agent知识库"
+title: 'Agent KB: 跨域经验共享的Agent知识库'
 type: source
-tags: [agent-memory]
-sources: [agentkb]
-source_file: raw/papers/2507.06229.pdf
+tags:
+- agent-memory
+sources:
+- agentkb
+source_file: raw/papers/agentkb.pdf
 last_updated: 2026-06-04
+arxiv_id: '2507.06229'
+authors:
+- Xiangru Tang
+- Tianrui Qin
+- Tianhao Peng
+- Ziyang Zhou
+- Daniel Shao
+- Tingting Du
+- Xinming Wei
+- Peng Xia
+- Fang Wu
+- He Zhu
+- Ge Zhang
+- Jiaheng Liu
+- Xingyao Wang
+- Sirui Hong
+- Chenglin Wu
+- Hao Cheng
+- Chi Wang
+- Wangchunshu Zhou
+year: 2025
+venue: arXiv
+citation_count: 53
 ---
-
 ## 概要
 Agent KB 提出跨框架共享记忆基础设施，让异构Agent框架无需重训即可共享经验。将轨迹聚合为结构化知识库，提供轻量API；推理时两阶段混合检索：planning seeds 注入跨域工作流 + feedback 应用定向诊断修复；disagreement gate 确保检索知识增强而非干扰推理。smolagents+18.7pp，OpenHands SWE-bench+4.0pp。
 

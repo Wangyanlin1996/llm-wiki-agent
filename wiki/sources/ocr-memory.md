@@ -1,12 +1,26 @@
 ---
-title: "OCR-Memory: 视觉上下文检索增强长程Agent记忆"
+title: 'OCR-Memory: 视觉上下文检索增强长程Agent记忆'
 type: source
-tags: [agent-memory]
-sources: [ocr-memory]
-source_file: raw/papers/2604.26622.pdf
+tags:
+- agent-memory
+sources:
+- ocr-memory
+source_file: raw/papers/ocr-memory.pdf
 last_updated: 2026-06-04
+arxiv_id: '2604.26622'
+authors:
+- Jinze Li
+- Yang Zhang
+- Xin Yang
+- Jiayi Qu
+- Jinfeng Xu
+- Shuo Yang
+- Junhua Ding
+- Edith Cheuk-Han Ngai
+year: 2026
+venue: ACL 2026 (Main Conference)
+citation_count: 0
 ---
-
 ## 概要
 OCR-Memory 利用视觉模态作为高密度的Agent经验表示，将长程历史轨迹渲染为带视觉锚点的标注图像，通过 locate-and-transcribe 检索范式选择相关区域并还原原文，避免自由生成减少幻觉，实现任意长历史的低 prompt 开销保留。ACL 2026 录用。
 

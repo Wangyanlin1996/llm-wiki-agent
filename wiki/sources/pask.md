@@ -1,12 +1,22 @@
 ---
-title: "PASK"
+title: PASK
 type: source
-tags: [intent-recommendation, proactive-agent, long-term-memory]
+tags:
+- intent-recommendation
+- proactive-agent
+- long-term-memory
 date: 2026-04-09
-source_file: raw/papers/pask.md
+source_file: raw/papers/pask.pdf
 last_updated: 2026-05-28
+arxiv_id: '2604.08000'
+authors:
+- Zhifei Xie
+- Zongzheng Hu
+- Fangda Ye
+year: 2026
+venue: arXiv
+citation_count: 2
 ---
-
 ## 概要
 PASK 为 streaming proactive AI agents（流式主动式 AI 智能体）提出 DD-MM-PAS 范式（Demand Detection→Memory Modeling→Proactive Agent System，需求检测→记忆建模→主动式智能体系统），以 IntentFlow 实现 demand detection，配合 hybrid memory（workspace/user/global，混合记忆）和 PAS infra。它引入 LatentNeeds-Bench，并证明 IntentFlow 在延迟约束下匹配 Gemini3-Flash，同时识别更深层的意图。
 

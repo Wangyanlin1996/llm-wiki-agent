@@ -1,12 +1,22 @@
 ---
-title: "Satori"
+title: Satori
 type: source
-tags: [intent-understanding, proactive-agent, AR-assistant, BDI]
+tags:
+- intent-understanding
+- proactive-agent
+- AR-assistant
+- BDI
 date: 2024-10-16
-source_file: raw/papers/satori.md
+source_file: raw/papers/satori.pdf
 last_updated: 2026-05-28
+arxiv_id: '2410.16668'
+authors:
+- Chenyi Li
+- Guande Wu
+- Gromit Yeuk-Yin Chan
+year: 2024
+venue: arXiv
 ---
-
 ## 概要
 Satori 是一个主动式 AR 助手，集成 Belief-Desire-Intention (BDI，信念-愿望-意图) 框架与多模态 LLM，为物理任务提供上下文适宜的指导。它在无需手动配置的情况下匹配 Wizard-of-Oz 性能，改善了 AR 辅助的泛化能力。
 

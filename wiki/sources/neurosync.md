@@ -1,12 +1,23 @@
 ---
-title: "NeuroSync"
+title: NeuroSync
 type: source
-tags: [intent-understanding, intent-task-matching, HCI, UIST]
+tags:
+- intent-understanding
+- intent-task-matching
+- HCI
+- UIST
 date: 2025-08-02
-source_file: raw/papers/neurosync.md
+source_file: raw/papers/neurosync.pdf
 last_updated: 2026-05-28
+arxiv_id: '2508.02823'
+authors:
+- Wenshuo Zhang
+- Leixian Shen
+- Shuchang Xu
+year: 2025
+venue: UIST 2025
+doi: 10.1145/3746059.3747668
 ---
-
 ## 概要
 NeuroSync（UIST 2025）提出 direct intent-task matching（直接意图-任务匹配）作为新的 human-LLM 交互范式，允许用户在代码生成之前检查和编辑 LLM 的理解。Bidirectional ambiguity（双向歧义，非线性意图通过线性 prompts 表达）导致意图-代码不对齐；knowledge distillation（知识蒸馏）提取 LLM 理解供直接操控。用户研究（N=12）显示对齐改善和认知负担降低。
 

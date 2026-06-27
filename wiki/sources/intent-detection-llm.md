@@ -1,12 +1,25 @@
 ---
-title: "Intent Detection in the Age of LLMs"
+title: Intent Detection in the Age of LLMs
 type: source
-tags: [intent-understanding, intent-detection, LLM, hybrid-system, EMNLP]
+tags:
+- intent-understanding
+- intent-detection
+- LLM
+- hybrid-system
+- EMNLP
 date: 2024-10-02
-source_file: raw/papers/intent-detection-llm.md
+source_file: raw/papers/intent-detection-llm.pdf
 last_updated: 2026-05-28
+arxiv_id: '2410.01627'
+authors:
+- Gaurav Arora
+- Shreya Jain
+- S. Merugu
+year: 2024
+venue: EMNLP 2024
+citation_count: 41
+doi: 10.48550/arXiv.2410.01627
 ---
-
 ## 概要
 这篇 EMNLP 2024 论文将 LLM 适配于 intent detection（意图检测），通过 in-context learning 和 CoT prompting 与 SetFit transformer 模型对比。它提出基于不确定性路由的 hybrid system（混合系统），在 LLM 准确率的 2% 以内实现 50% 更低延迟。OOS detection（超范围检测）受标签范围和标签空间大小影响；使用内部 LLM 表征的两步方法获得 >5% OOS 检测提升。
 

@@ -8,12 +8,12 @@
 
 ## 概览
 
-第四轮搜索聚焦三个新方向：Agent记忆的参数化内化/程序性记忆/跨框架共享、意图理解的主动干预决策链、意图推荐的真实世界评测和回声室打破。本轮 Agent Memory 方向新增最多（7篇），发现从"外部存储检索"到"参数化内化"和"按需生成"的范式转换。
+第四轮搜索聚焦三个新方向：Agent记忆的[[ParametricMemory]]/[[ProceduralMemory]]/[[CrossFrameworkMemorySharing]]、意图理解的[[ProactiveInterventionDecisionChain]]、意图推荐的真实世界评测和回声室打破。本轮 Agent Memory 方向新增最多（7篇），发现从"外部存储检索"到"[[ParametricMemory]]"和"按需生成"的范式转换。
 
 | 子方向 | 本轮新增 | 累计 | 本轮关键趋势 |
 |--------|---------|------|-------------|
-| 智能体记忆（Agent Memory） | +7 | 17 | 参数化内化 vs 检索；程序性记忆；跨框架共享；视觉编码 |
-| 意图理解（Intent Understanding） | +3 | 19 | 主动干预决策链（何时干预 vs 等待）；偏好获取+同意协商 |
+| 智能体记忆（Agent Memory） | +7 | 17 | [[ParametricMemory]] vs 检索；[[ProceduralMemory]]；[[CrossFrameworkMemorySharing]]；视觉编码 |
+| 意图理解（Intent Understanding） | +3 | 19 | [[ProactiveInterventionDecisionChain]]（何时干预 vs 等待）；偏好获取+同意协商 |
 | 意图推荐（Intent Recommendation） | +3 | 16 | 真实世界评测（合成数据高估）；回声室效应；编程场景主动意图 |
 
 ---
@@ -24,29 +24,29 @@
 
 | # | 论文 | 年份 | Venue | arXiv | 核心贡献 |
 |---|------|------|-------|-------|---------|
-| 1 | **OCR-Memory**: 视觉上下文检索增强长程Agent记忆 | 2026 | **ACL 2026** | 2604.26622 | 视觉模态高密度记忆表示；locate-and-transcribe检索范式；避免自由生成减少幻觉 |
-| 2 | **MemoryOS**: AI Agent 记忆操作系统 | 2025 | Conf. Empirical | 2506.06326 | OS启发STM/MTM/LTM；FIFO+分段页面；F1+49.11%；64 citations |
-| 3 | **Memp**: Agent 程序性记忆探索 | 2025 | **ACL 2026 Findings** | 2508.06433 | 程序性记忆Build/Retrieval/Update；细粒度+脚本双重蒸馏；跨模型迁移；38 citations |
-| 4 | **Agent KB**: 跨域经验共享知识库 | 2025 | arXiv | 2507.06229 | 跨框架记忆共享；planning seeds+feedback fixes；disagreement gate；+18.7pp；53 citations |
-| 5 | **Mem-π**: 自适应记忆——学习何时生成与生成什么 | 2026 | Work in Progress | 2605.21463 | 按需生成vs检索；决策-内容解耦RL；>30%相对提升 |
-| 6 | **PEAM**: 参数化具身Agent记忆 | 2026 | arXiv | 2605.27762 | MoE-LoRA参数驻留技能；对比内化失败纠正；自触发整合 |
-| 7 | **EvoMemBench**: 自演化记忆评测 | 2026 | arXiv | 2605.18421 | 记忆范围×内容双轴；15方法对比；长上下文仍强 |
+| 1 | [[ocr-memory]]: 视觉上下文检索增强长程Agent记忆 | 2026 | **ACL 2026** | 2604.26622 | 视觉模态高密度记忆表示；locate-and-transcribe检索范式；避免自由生成减少幻觉 |
+| 2 | [[memoryos]]: AI Agent 记忆操作系统 | 2025 | Conf. Empirical | 2506.06326 | OS启发STM/MTM/LTM；FIFO+分段页面；F1+49.11%；64 citations |
+| 3 | [[memp]]: Agent 程序性记忆探索 | 2025 | **ACL 2026 Findings** | 2508.06433 | 程序性记忆Build/Retrieval/Update；细粒度+脚本双重蒸馏；跨模型迁移；38 citations |
+| 4 | [[agentkb]]: 跨域经验共享知识库 | 2025 | arXiv | 2507.06229 | 跨框架记忆共享；planning seeds+feedback fixes；disagreement gate；+18.7pp；53 citations |
+| 5 | [[mempi]]: 自适应记忆——学习何时生成与生成什么 | 2026 | Work in Progress | 2605.21463 | 按需生成vs检索；决策-内容解耦RL；>30%相对提升 |
+| 6 | [[peam]]: 参数化具身Agent记忆 | 2026 | arXiv | 2605.27762 | MoE-LoRA参数驻留技能；对比内化失败纠正；自触发整合 |
+| 7 | [[evomembench]]: 自演化记忆评测 | 2026 | arXiv | 2605.18421 | 记忆范围×内容双轴；15方法对比；长上下文仍强 |
 
 ### Intent Understanding（3 篇）
 
 | # | 论文 | 年份 | Venue | arXiv | 核心贡献 |
 |---|------|------|-------|-------|---------|
-| 8 | **SII/PIWM**: 看-推断-干预主动世界建模 | 2026 | Preprint | 2606.03371 | AIDA+BDI双重状态；五类响应含"等待"；video-to-state是瓶颈 |
-| 9 | **KnowU-Bench**: 交互式主动个性化移动Agent评测 | 2026 | arXiv | 2604.08455 | 偏好获取+同意协商+拒绝后克制；Claude<50%在模糊指令下 |
-| 10 | **Reward-Driven**: 用户满意度驱动主动对话Agent | 2025 | arXiv | 2505.18731 | 满意度作为内在奖励；对比自监督+领域意图分类 |
+| 8 | [[sii-piwm]]: 看-推断-干预主动世界建模 | 2026 | Preprint | 2606.03371 | AIDA+BDI双重状态；五类响应含"等待"；video-to-state是瓶颈 |
+| 9 | [[knowu-bench]]: 交互式主动个性化移动Agent评测 | 2026 | arXiv | 2604.08455 | 偏好获取+同意协商+拒绝后克制；Claude<50%在模糊指令下 |
+| 10 | [[reward-driven-interaction]]: 用户满意度驱动主动对话Agent | 2025 | arXiv | 2505.18731 | 满意度作为内在奖励；对比自监督+领域意图分类 |
 
 ### Intent Recommendation（3 篇）
 
 | # | 论文 | 年份 | Venue | arXiv | 核心贡献 |
 |---|------|------|-------|-------|---------|
-| 11 | **ProAgentBench**: 真实世界主动Agent评测 | 2026 | arXiv | 2602.04482 | 28K+事件/500+小时真实数据；时机预测+辅助内容生成 |
-| 12 | **ProCodeBench**: 主动编程助手评测 | 2026 | arXiv | 2605.05700 | 1,246开发者IDE数据；模拟vs真实差距；模拟高估性能 |
-| 13 | **PA-Bridge**: 桥接被动与主动对话开场语推荐 | 2026 | **SIGIR 2026** | 2605.05855 | 打破回声室；对抗分布对齐；语义离散器去偏 |
+| 11 | [[proagentbench]]: 真实世界主动Agent评测 | 2026 | arXiv | 2602.04482 | 28K+事件/500+小时真实数据；时机预测+辅助内容生成 |
+| 12 | [[procodebench]]: 主动编程助手评测 | 2026 | arXiv | 2605.05700 | 1,246开发者IDE数据；模拟vs真实差距；模拟高估性能 |
+| 13 | [[pa-bridge]]: 桥接被动与主动对话开场语推荐 | 2026 | **SIGIR 2026** | 2605.05855 | 打破回声室；对抗分布对齐；语义离散器去偏 |
 
 ---
 
@@ -54,17 +54,17 @@
 
 ### 1. Agent记忆从"检索"到"内化"和"生成"的双范式转换
 
-本轮7篇AM论文中，PEAM（参数驻留技能）和Mem-π（按需生成指导）代表了两种新范式：前者将经验内化到模型参数（MoE-LoRA），后者用独立模型按需生成而非检索静态条目。这与之前的检索式范式（ExpRAG、A-MEM）形成三元对立：检索→内化→生成。EvoMemBench的发现（无单一记忆形式通用有效）恰好印证了这三种范式各有优势场景。
+本轮7篇AM论文中，PEAM（参数驻留技能）和Mem-π（按需生成指导）代表了两种新范式：前者将经验内化到模型参数（MoE-LoRA），后者用独立模型按需生成而非检索静态条目。这与之前的检索式范式（ExpRAG、A-MEM）形成三元对立：检索→[[ParametricMemory]]→生成。EvoMemBench的发现（无单一记忆形式通用有效）恰好印证了这三种范式各有优势场景。
 
-### 2. 程序性记忆成为新焦点
+### 2. [[ProceduralMemory]]成为新焦点
 
-Memp（ACL 2026 Findings）首次系统研究程序性记忆——"如何做"的技能知识而非"知道什么"的陈述性记忆。细粒度步骤指令+脚本抽象双重蒸馏，且强模型记忆可迁移到弱模型。PEAM进一步将程序性技能参数化到MoE-LoRA适配器。程序性记忆填补了之前 wiki 中侧重于陈述性/经验性记忆的空白。
+Memp（ACL 2026 Findings）首次系统研究[[ProceduralMemory]]——"如何做"的技能知识而非"知道什么"的陈述性记忆。细粒度步骤指令+脚本抽象双重蒸馏，且强模型记忆可迁移到弱模型。PEAM进一步将程序性技能参数化到MoE-LoRA适配器。[[ProceduralMemory]]填补了之前 wiki 中侧重于陈述性/经验性记忆的空白。
 
-### 3. 合成数据vs真实数据的系统性差距被揭示
+### 3. 合成数据vs真实数据的[[SimulationRealityGap]]被揭示
 
 ProAgentBench和ProCodeBench都发现LLM模拟数据无法捕捉真实用户行为的突发模式和时间结构，模拟评估会高估真实性能。KnowU-Bench发现前沿模型在模糊指令下低于50%。这是评测方法论的根本挑战——之前 wiki 中多数基准（PIRA-Bench、VitaBench2、PIRAF等）依赖合成数据，其有效性需要重新审视。
 
-### 4. 主动干预决策链的"等待"选项
+### 4. [[ProactiveInterventionDecisionChain]]的"等待"选项
 
 SII/PIWM的五类响应中包含"Hold"（等待不干预），KnowU-Bench评测拒绝后克制。这回应了[[proactive-ai-implications]]的发现——主动帮助可能降低用户能力感。干预决策不再只是"如何干预"，还包括"何时放弃干预"。
 

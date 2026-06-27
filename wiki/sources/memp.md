@@ -1,12 +1,27 @@
 ---
-title: "Memp: Agent 程序性记忆探索"
+title: 'Memp: Agent 程序性记忆探索'
 type: source
-tags: [agent-memory]
-sources: [memp]
-source_file: raw/papers/2508.06433.pdf
+tags:
+- agent-memory
+sources:
+- memp
+source_file: raw/papers/memp.pdf
 last_updated: 2026-06-04
+arxiv_id: '2508.06433'
+authors:
+- Runnan Fang
+- Yuan Liang
+- Xiaobin Wang
+- Jialong Wu
+- Shuofei Qiao
+- Pengjun Xie
+- Fei Huang
+- Huajun Chen
+- Ningyu Zhang
+year: 2025
+venue: ACL 2026 Findings
+citation_count: 38
 ---
-
 ## 概要
 Memp 探索可学习、可更新、终身化的Agent程序性记忆，将轨迹蒸馏为细粒度步骤指令+高层次脚本抽象两种形式，研究 Build/Retrieval/Update 三种策略的影响。动态更新机制持续更新、纠正和废弃记忆内容。强模型构建的程序性记忆可迁移到弱模型仍获显著增益。ACL 2026 Findings 录用。
 

@@ -2,8 +2,8 @@
 title: "Overview"
 type: synthesis
 tags: []
-sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction]
-last_updated: 2026-06-04
+sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent]
+last_updated: 2026-06-08
 ---
 
 # Overview
@@ -254,6 +254,85 @@ Five papers introduce clarification-first planning and reveal human factors risk
 | **跨框架共享** | Agent KB 集体智能 | KnowU-Bench 多Agent同意协商 | PA-Bridge 跨来源意图桥接 |
 | **视觉/多模态** | 视觉编码 (OCR-Memory) | 视频推断 (SII/PIWM) | IDE+仓库上下文 (ProCodeBench) |
 
-### Connection to 3GPP Intent Management
+### Expanded Landscape (Fifth Round Ingest)
+
+#### Agent Memory — 5 New Papers
+
+五篇论文将Agent记忆推向遗忘机制、主动提取、自主组织和全面综述：
+
+- **A-MEM** (NeurIPS 2025) — Zettelkasten式自主记忆系统：动态索引+双向链接+记忆演化，6基础模型超越SOTA
+- **ScrapMem** (2026) — 生物启发光学遗忘：渐进降分辨率压缩旧记忆+EM-Graph因果时序；93%存储节省；SOTA 51.0%
+- **STALE** (2026) — 首次系统研究记忆过期：隐式冲突（无显式否定的失效）；CUPMem状态裁决；400场景；最佳仅55.2%
+- **ProMem** (2026) — 主动记忆提取替代静态摘要：自问迭代反馈循环；提升完整性和QA准确率
+- **Memory for Autonomous LLM Agents Survey** (2026) — write-manage-read循环形式化；3D分类；5机制族；2022-2026全覆盖
+
+**关键趋势**: Agent记忆从"如何组织存储"演进到"如何遗忘"和"如何主动提取"两个新维度。遗忘不再是被动的上下文溢出而是主动的选择性过期（STALE, ScrapMem）。提取不再是盲目的前馈压缩而是带反馈的迭代认知过程（ProMem）。A-MEM的Zettelkasten互联网络与[[AgentMemory]]的Storage→Reflection→Experience层次结构形成方法论对比。
+
+#### Intent Understanding — 6 New Papers
+
+六篇论文将意图理解推向心智重建、视频语言、集体意图和社交推理：
+
+- **UserHarness** (2026) — ToM→用户心智重建：跟踪观察→信念→意图→行动链；95.94% macro accuracy，+15%超越现有推理
+- **IntentVLM** (2026) — 视频语言前逆建模两阶段意图识别；SOTA 80%；达到人类水平
+- **GUIDE** (CVPR 2026) — GUI意图检测评测基准：67.5h/120用户/10软件；用户上下文+50.2pp帮助预测
+- **COINBench** (2026) — 首个集体意图理解基准：群体共识/矛盾/趋势推断；COIN-TREE层次认知结构
+- **Tomcat/Instruction Inference** (2025) — 人-Agent协作ToM推理；52人类对照；Fs-CoT达人类水平
+- **Bayesian Social Deduction** (ACL 2026) — 贝叶斯+LLM混合社交推理；首个Agent击败人类（67%胜率）
+
+**关键趋势**: 意图理解从"推断行为意图"深化到"重建心理状态链"（UserHarness）和"推断群体共识"（COINBench）。[[IntentSignalTheory]]的I*→P信息损失现在有了三种新回应：心智重建（UserHarness）、概率信念推断（Bayesian Social Deduction）、共享上下文推理（Tomcat）。视频语言（IntentVLM）和GUI（GUIDE）开辟了文本之外的两个新通道。
+
+#### Intent Recommendation — 6 New Papers
+
+六篇论文将意图推荐推向主动影响、主动+个性化联合和意图安全验证：
+
+- **Ψ-Bench** (2026) — 主动个性化影响评测：角色敏感说服；+18.24%有画像
+- **FingerTip 20K** (ICLR 2026) — 20K真实人类演示；主动任务建议+个性化执行轨迹
+- **ProPerSim** (ICLR 2026) — 主动+个性化联合仿真；ProPerAssistant持续学习适应；32画像
+- **DS-IA Framework** (2026) — 双阶段意图感知：语义防火墙+确定性级联验证器；解决交互频率困境
+- **RecGPT-Mobile** (KDD 2026) — 端侧LLM意图理解Agent；淘宝实时推荐验证
+- **CFQP** (2025) — 协同过滤下一问题预测：个性化记忆+图偏好传播
+
+**关键趋势**: 意图推荐从"检测已有意图"演进到"主动影响意图"（Ψ-Bench）和"联合主动+个性化"（ProPerSim, FingerTip 20K）。DS-IA引入"主动拒绝"维度：不仅推荐还要验证意图的可行性。端侧部署（RecGPT-Mobile）和协同过滤（CFQP）代表了IR的两个工程方向。
+
+#### Cross-direction Convergence (Updated Round 5)
+
+| 共享主题 | Agent Memory | Intent Understanding | Intent Recommendation |
+|---|---|---|---|
+| **遗忘/过期** | 光学遗忘 (ScrapMem), 隐式冲突 (STALE), 学习遗忘 (survey) | 记忆过期影响意图推断 (STALE) | 主动拒绝过期意图 (DS-IA) |
+| **主动提取 vs 被动存储** | 主动提取 (ProMem), 按需生成 (Mem-π) | 主动信息获取 (UserHarness, Tomcat) | 主动影响 (Ψ-Bench), 主动+个性化 (ProPerSim) |
+| **心理状态重建** | 用户画像构建 (ScrapMem EM-Graph) | 心智重建 (UserHarness), 贝叶斯信念推断 (Bayesian) | 用户画像驱动 (Ψ-Bench +18.24%) |
+| **群体 vs 个体** | 跨框架共享 (Agent KB) | 集体意图 (COINBench) | 协同过滤 (CFQP), 多画像适应 (ProPerSim) |
+| **视觉/多模态** | 光学遗忘 (ScrapMem), 视觉编码 (OCR-Memory) | 视频意图 (IntentVLM), GUI意图 (GUIDE) | 移动端真实演示 (FingerTip 20K) |
 
 The 3GPP [[IntentDrivenMnS]] concept (declarative goal expression) and the AI Agent intent research share the same foundational principle: **expressing "what" rather than "how"**. The [[RulePolicyIntentRelation]] hierarchy (Rule→Policy→Intent) in telecom parallels the Agent evolution (Reactive→Context-Aware→Proactive). Both domains formalize intent as a higher abstraction layer that enables autonomous goal pursuit.
+
+---
+
+### Expanded Landscape (Sixth Round Ingest)
+
+#### Memory-Enhanced Intent Clarification — 6 New Papers
+
+六篇论文开辟了"记忆增强模糊意图澄清"这一交叉方向，展示三种互补路径：
+
+**路径一：检索增强澄清（RAG as external memory）**
+- **RAC** (ECIR 2026) — RAG 生成语料锚定的澄清问题；对比偏好优化偏向有证据支撑的问题；4 基准显著超越基线。核心洞察：澄清问题必须锚定在可用语料中，否则系统会问出无法回答的问题。
+- **Corpus-informed RAG** (2024) — RAG 联合建模 query+corpus 端到端定位不确定性；发现现有数据集的意图-语料不对齐问题并提出数据增强方案。
+- **Sensitivity-Aware RA** (ECIR 2026 Workshop) — 在敏感域（医疗/政府/法律）中限制检索范围；攻击模型+检索级防御+保护-效用权衡。
+
+**路径二：认知记忆驱动意图理解（Cognitive memory as internal context）**
+- **CoPS** (WWW 2024) — 认知三阶记忆（感觉/工作/长期）驱动个性化搜索意图；从历史交互构建用户画像排序查询意图；零样本超越基线。
+- **JANUS** (2026) — 持久记忆三层（近期缓冲+核心记忆+归档检索）+ 内部言语触发澄清；从欠明确请求恢复；POMDP 形式化；HRI 场景验证。
+
+**路径三：演化记忆 + 目标精炼（Evolutionary memory + goal refinement）**
+- **Fairy** (2025) — Runtime Goal Refinement（知识约束精炼+人在环澄清）+ Evolutionary Memory Architecture（执行-演化双循环）；模糊任务基准 RealMobile-Eval +33.7%；50 页系统设计。
+
+**关键趋势**: "记忆增强模糊意图澄清"形成三种互补范式——外部检索（RAC/Corpus-RAG/Sensitivity-Aware）、内部认知记忆（CoPS/JANUS）、演化记忆+目标精炼（Fairy）。三条路径的共同洞察是：**模糊意图的歧义源于上下文缺失，记忆提供缺失的上下文来消解歧义或在不足时触发有针对性的澄清**。这与 [[IntentSignalTheory]] 的 I*→P 信息损失定理呼应——记忆是补偿信息损失的关键机制。
+
+#### Cross-direction Convergence (Updated Round 6)
+
+| 共享主题 | Agent Memory | Intent Understanding | Memory-Enhanced Clarification |
+|---|---|---|---|
+| **认知层次化记忆** | STM/MTM/LTM (LightMem), episodic (E-mem) | 用户画像记忆 (IntPro) | 认知三阶 (CoPS), 持久三层 (JANUS) |
+| **检索作为记忆** | ExpRAG (Evo-Memory), Agent KB | 检索增强推断 (IntPro) | RAG 澄清 (RAC, Corpus-RAG, Sensitivity-Aware) |
+| **记忆演化** | 按需生成 (Mem-π), 主动提取 (ProMem) | 递归意图 (OnePred) | 执行-演化双循环 (Fairy EMA) |
+| **澄清触发机制** | - | EVPI (SAGE-Agent), intent-sim (Clarify-When-Necessary) | 内部言语 (JANUS), 人在环 (Fairy RGR) |

@@ -1,12 +1,23 @@
 ---
-title: "VitaBench 2.0"
+title: VitaBench 2.0
 type: source
-tags: [intent-understanding, intent-recommendation, benchmark, personalized-agent]
+tags:
+- intent-understanding
+- intent-recommendation
+- benchmark
+- personalized-agent
 date: 2026-05-26
-source_file: raw/papers/vitabench2.md
+source_file: raw/papers/vitabench2.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.27141'
+authors:
+- Yuxin Chen
+- Yi Zhang
+- Zhengzhou Cai
+year: 2026
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 VitaBench 2.0 评估长期用户交互中的个性化与主动式 agent 行为，要求 agents 从碎片化交互中提取、利用和更新用户偏好。它揭示了 SOTA 模型与实际个性化需求之间的巨大差距。
 

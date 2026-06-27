@@ -1,8 +1,13 @@
 ---
-title: "IntentKeywordBridging"
+title: IntentKeywordBridging
 type: concept
-tags: [intent-keyword, target-guided, proactive-dialogue, scenario-modeling]
-sources: [target-proactive-dialogue]
+tags:
+  - intent-keyword
+  - target-guided
+  - proactive-dialogue
+  - scenario-modeling
+sources:
+  - target-proactive-dialogue
 last_updated: 2026-05-29
 ---
 

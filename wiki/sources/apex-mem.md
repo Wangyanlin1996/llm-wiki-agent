@@ -1,12 +1,25 @@
 ---
-title: "APEX-MEM"
+title: APEX-MEM
 type: source
-tags: [agent-memory, semi-structured, temporal-reasoning, conversational-agent]
+tags:
+- agent-memory
+- semi-structured
+- temporal-reasoning
+- conversational-agent
 date: 2026-04-15
-source_file: raw/papers/apex-mem.md
+source_file: raw/papers/apex-mem.pdf
 last_updated: 2026-05-28
+arxiv_id: '2604.14362'
+authors:
+- Pratyay Banerjee
+- Masud Moshtaghi
+- Shivashankar Subramanian
+- Amita Misra
+- Ankit Chadha
+year: 2026
+venue: ACL 2026
+doi: 10.48550/arXiv.2604.14362
 ---
-
 ## 概要
 APEX-MEM 为长期对话型 agents 提出 agentic semi-structured memory（半结构化智能体记忆）配合 temporal reasoning（时间推理），结合结构化记忆组织与时间感知以改善长程对话一致性。
 

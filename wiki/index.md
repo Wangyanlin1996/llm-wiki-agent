@@ -32,6 +32,11 @@
 - [Mem-π: 自适应记忆生成](sources/mempi.md) — 按需生成vs检索；决策-内容解耦RL；>30%提升 (2026)
 - [PEAM: 参数化具身记忆](sources/peam.md) — MoE-LoRA参数驻留技能；对比内化失败纠正；Minecraft (2026)
 - [EvoMemBench: 自演化记忆评测](sources/evomembench.md) — 记忆范围×内容双轴；15方法对比；长上下文仍强 (2026)
+- [A-MEM: Agentic Memory for LLM Agents](sources/amem.md) — Zettelkasten自主记忆；动态索引+链接+演化；NeurIPS 2025 (2025)
+- [ScrapMem: Bio-inspired On-device Memory via Optical Forgetting](sources/scrapmem.md) — 光学遗忘+EM-Graph；93%存储节省；SOTA 51.0% (2026)
+- [STALE: Can LLM Agents Know When Memories Are No Longer Valid?](sources/stale.md) — 隐式冲突检测；CUPMem状态裁决；400场景；55.2% (2026)
+- [ProMem: Proactive Memory Extraction](sources/promem.md) — 自问迭代反馈循环替代静态摘要；完整性提升 (2026)
+- [Memory for Autonomous LLM Agents Survey](sources/memory-autonomous-agents-survey.md) — write-manage-read循环；3D分类；5机制族；2022-2026 (2026)
 
 ### AI Agent — Intent Understanding
 - [IntPro: A Proxy Agent for Context-Aware Intent Understanding](sources/intpro.md) — Retrieval-conditioned intent inference with per-user history library; SFT+GRPO (2026)
@@ -53,6 +58,24 @@
 - [SII/PIWM: 看-推断-干预主动世界建模](sources/sii-piwm.md) — AIDA+BDI双重状态；五类响应；GuidanceSalesBench (2026)
 - [KnowU-Bench: 交互式主动个性化移动Agent评测](sources/knowu-bench.md) — 偏好获取+同意协商+拒绝后克制；Claude<50% (2026)
 - [Reward-Driven Interaction: 用户满意度驱动主动对话](sources/reward-driven-interaction.md) — 满意度预测作为奖励；对比自监督+领域意图分类；DuerOS (2025)
+- [UserHarness: Harnessing User Minds for Stronger Agent ToM](sources/userharness.md) — 心智重建；观察→信念→意图→行动；95.94% macro accuracy (2026)
+- [IntentVLM: Open-Vocabulary Intention Recognition](sources/intentvlm.md) — 视频语言前逆建模；两阶段意图识别；SOTA 80% (2026)
+- [GUIDE: GUI User Intent Detection Evaluation](sources/guide-bench.md) — GUI意图基准；67.5h/120用户/10软件；CVPR 2026 (2026)
+- [COINBench: Collective Intent Understanding](sources/coinbench.md) — 集体意图基准；群体共识/矛盾/趋势；COIN-TREE+COIN-RAG (2026)
+- [Tomcat: Theory of Mind in Human-Agent Collaboration](sources/tomcat.md) — 指令推理ToM；52人类对照；Fs-CoT (2025)
+- [Bayesian Social Deduction](sources/bayesian-social-deduction.md) — 贝叶斯+LLM混合推理；67%胜率击败人类；ACL 2026 (2025)
+- [CICC: Conformal Intent Classification and Clarification](sources/cicc.md) — 共形预测把分类器不确定度转为有统计保证的候选集；三分支决策；保证真意图在集内 (2024)
+- [GID: Generalized Intent Discovery](sources/gid.md) — 开放世界意图发现；IND+OOD同时分类+发现；EMNLP 2022 (2022)
+- [Continual GID: Marching Towards Dynamic Open-world Intent Recognition](sources/continual-gid.md) — 持续增量发现新意图；多阶段OOD学习；ACL 2023 (2023)
+- [DROID: Dual Representation for Out-of-Scope Intent Detection](sources/droid.md) — 双表示OOS检测；监督+对比原型；单一校准阈值 (2025)
+- [Deep Unknown Intent Detection with Margin Loss](sources/deep-unknown-intent.md) — BiLSTM+margin loss+LOF；两阶段未知意图检测经典；ACL 2019, 162 citations (2019)
+- [Open Intent Discovery through Unsupervised Semantic Clustering](sources/open-intent-discovery.md) — 无监督依存解析+语义聚类从零发现意图；EMNLP 2021 (2021)
+- [SAGE-Agent: Structured Uncertainty guided Clarification for LLM Agents](sources/sage-agent.md) — EVPI量化澄清问题消歧价值；结构化参数域建模；ClarifyBench基准 (2025)
+- [Active Task Disambiguation with LLMs](sources/active-task-disambiguation.md) — 贝叶斯实验设计框架任务消歧；最大化信息增益；元认知推理 (2025)
+- [CLARA: Show, Don't Ask — Visual Disambiguation for CIR with Turn-Valid Coverage](sources/clara.md) — 共形预测多轮扩展；似然比重加权turn-valid保证；视觉原型面板消歧 (2026)
+- [Neural EVPI: Ranking Clarification Questions using Neural Expected Value of Perfect Information](sources/neural-evpi.md) — EVPI驱动澄清问题排序鼻祖；StackExchange ~77K数据集；NAACL 2018 (2018)
+- [Clarify When Necessary: Resolving Ambiguity Through Interaction with LMs](sources/clarify-when-necessary.md) — intent-sim意图熵判断何时澄清；三子任务框架；CICC精神前身 (2023)
+- [Uncertainty Decomposition for Clarification Seeking in LLM Agents](sources/uncertainty-decomposition-clarification.md) — prompt-based分离u_t/c_t；黑箱API兼容；F1 +73%；WebShop-Clar/ALFWorld-Clar基准 (2026)
 
 ### AI Agent — Intent Recommendation
 - [IntentRL: Training Proactive User-intent Agents via Reinforcement Learning](sources/intentrl.md) — RL-trained proactive intent clarification; shallow-to-deep refinement graph (2026, 4 citations)
@@ -71,6 +94,20 @@
 - [ProAgentBench: 真实世界主动Agent评测](sources/proagentbench.md) — 28K+事件/500+小时真实数据；时机预测+辅助内容生成 (2026)
 - [ProCodeBench: 主动编程助手评测](sources/procodebench.md) — 1,246开发者IDE数据；模拟vs真实差距；模拟高估性能 (2026)
 - [PA-Bridge: 桥接被动与主动对话开场语推荐](sources/pa-bridge.md) — 打破回声室；对抗分布对齐+语义离散器；SIGIR 2026 (2026)
+- [Ψ-Bench: Persona-Sensitive Influencing](sources/psi-bench.md) — 主动个性化影响评测；+18.24%有画像 (2026)
+- [FingerTip 20K: Proactive and Personalized Mobile Agents](sources/fingertip-20k.md) — 20K真实演示；主动任务建议+个性化执行；ICLR 2026 (2025)
+- [ProPerSim: Proactive+Personalized Simulation](sources/propersim.md) — 主动+个性化联合仿真；ProPerAssistant；ICLR 2026 (2025)
+- [DS-IA Framework: Dual-Stage Intent-Aware](sources/ds-ia-framework.md) — 语义防火墙+级联验证器；EM 58.56%；交互频率困境解决 (2026)
+- [RecGPT-Mobile: On-Device Intent Understanding](sources/recgpt-mobile.md) — 端侧LLM意图理解Agent；淘宝验证；KDD 2026 (2026)
+- [CFQP: Collaborative Filtering Question Prediction](sources/cfqp.md) — 个性化记忆+图偏好传播；下一问题预测 (2025)
+
+### AI Agent — Memory-Enhanced Intent Clarification
+- [RAC: Retrieval-Augmented Clarification for Faithful Conversational Search](sources/rac.md) — RAG生成语料锚定澄清问题；对比偏好优化；ECIR 2026 (2026)
+- [Corpus-informed RAG of Clarifying Questions](sources/corpus-rag-clarifying.md) — RAG联合建模query+corpus定位不确定性；数据增强对齐 (2024)
+- [CoPS: Cognitive Personalized Search with Memory Mechanism](sources/cops.md) — 认知三阶记忆(感觉/工作/长期)驱动个性化搜索意图；WWW 2024 (2024)
+- [JANUS: Factored Reasoning with Inner Speech and Persistent Memory](sources/janus.md) — 持久记忆三层+内部言语触发澄清；从欠明确请求恢复 (2026)
+- [Sensitivity-Aware Retrieval-Augmented Intent Clarification](sources/sensitivity-aware-clarification.md) — 检索增强意图澄清+敏感域保护；攻击模型+检索级防御；ECIR 2026 Workshop (2026)
+- [Fairy: Robust Agentic Systems with EMA + RGR](sources/fairy-gui-agent.md) — 演化记忆架构+目标精炼澄清；模糊任务基准+33.7%；50页 (2025)
 
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
@@ -128,7 +165,26 @@
 - [EchoChamberPassiveActiveBridge](concepts/EchoChamberPassiveActiveBridge.md) — 回声室效应与主动表达桥接：打破被动推荐回声室
 - [SimulationRealityGap](concepts/SimulationRealityGap.md) — 真实世界vs合成评测差距：模拟数据高估真实性能
 - [AIDABDIStateModel](concepts/AIDABDIStateModel.md) — AIDA-BDI双重状态建模：购买阶段+心理场
+- [Memory Forgetting & Staleness](concepts/MemoryForgettingStaleness.md) — 记忆遗忘与过期：隐式冲突+光学遗忘+学习遗忘方向
+- [Theory of Mind Reconstruction](concepts/TheoryOfMindReconstruction.md) — 心智理论重建：显式心理状态分解替代行为推断
+- [Collective Intent Understanding](concepts/CollectiveIntentUnderstanding.md) — 集体意图理解：从个体到群体共识/矛盾/趋势
+- [Proactive Personalized Influencing](concepts/ProactivePersonalizedInfluencing.md) — 主动个性化影响：从推荐到影响/说服
+- [Video-Language Intent Recognition](concepts/VideoLanguageIntentRecognition.md) — 视频意图识别：前逆建模两阶段框架
+- [Zettelkasten Agentic Memory](concepts/ZettelkastenAgenticMemory.md) — Zettelkasten式自主记忆：动态索引+双向链接+记忆演化
+- [ConformalIntentClarification](concepts/ConformalIntentClarification.md) — 共形意图澄清：把分类器不确定度转为有统计保证的候选集+三分支决策
+- [OpenWorldIntentDiscovery](concepts/OpenWorldIntentDiscovery.md) — 开放世界意图发现：从未知查询中发现新意图类别，不限于预定义意图集
+- [OutOfScopeDetection](concepts/OutOfScopeDetection.md) — 越界意图检测：判断输入是否不属于任何已知意图（开放集识别核心子任务）
+- [StructuredUncertaintyClarification](concepts/StructuredUncertaintyClarification.md) — 结构化不确定度澄清：EVPI在工具参数域上量化消歧价值+冗余成本建模
+- [BayesianDisambiguation](concepts/BayesianDisambiguation.md) — 贝叶斯消歧：贝叶斯实验设计框架最大化信息增益+元认知推理
+- [TurnValidConformalCoverage](concepts/TurnValidConformalCoverage.md) — 轮次有效共形覆盖率：似然比重加权修正反馈协变量偏移，多轮交互保证
+- [IntentSimUncertainty](concepts/IntentSimUncertainty.md) — 意图相似度不确定性估计：模拟澄清Q&A→NLI聚类→意图熵，意图空间而非输出空间判断何时澄清
+- [PromptBasedUncertaintyDecomposition](concepts/PromptBasedUncertaintyDecomposition.md) — Prompt驱动不确定度分解：分离行动置信度c_t与请求不确定度u_t，纯prompt兼容黑箱API
+- [RetrievalAugmentedClarification](concepts/RetrievalAugmentedClarification.md) — 检索增强澄清：RAG将语料库作为外部记忆为澄清问题生成提供证据支撑
+- [CognitiveMemoryMechanism](concepts/CognitiveMemoryMechanism.md) — 认知记忆机制：感觉/工作/长期三阶层次化记忆增强意图理解
+- [PersistentMemoryClarification](concepts/PersistentMemoryClarification.md) — 持久记忆澄清：跨会话持久化记忆提供上下文消解歧义或触发针对性澄清
+- [EvolutionaryMemoryArchitecture](concepts/EvolutionaryMemoryArchitecture.md) — 演化记忆架构：执行-演化双循环实现记忆主动演化，持续改进意图理解
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms
 - [论文洞察汇总报告](syntheses/2026-05-28-paper-insight-email.md) — 29篇论文检索与知识库汇总（2026-05-28）
+- [应对用户输入模糊/歧义的技术](syntheses/handling-vague-user-input.md) — 五条技术线（澄清先行/多模态消歧/神经符号注入/有原则澄清三剑客/目标推断+防火墙）+ IST 理论支撑

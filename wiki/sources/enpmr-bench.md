@@ -1,12 +1,28 @@
 ---
-title: "ENPMR-Bench"
+title: ENPMR-Bench
 type: source
-tags: [agent-memory, proactive-retrieval, emotional-support, benchmark]
+tags:
+- agent-memory
+- proactive-retrieval
+- emotional-support
+- benchmark
 date: 2026-05-26
-source_file: raw/papers/enpmr-bench.md
+source_file: raw/papers/enpmr-bench.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.27240'
+authors:
+- Xing Fu
+- Yulin Hu
+- Mengtong Ji
+- Haozhen Li
+- Yixin Sun
+- Weixiang Zhao
+- Yanyan Zhao
+- Bing Qin
+year: 2026
+venue: arXiv
+doi: 10.48550/arXiv.2605.27240
 ---
-
 ## 概要
 ENPMR-Bench 为情感支持 agents 建立了 proactive memory retrieval（主动式记忆检索）的评测基准，评估 agents 应在何时、以何种方式主动回忆过往交互以提供情感支持性回应。
 

@@ -1,12 +1,23 @@
 ---
-title: "H-Mem"
+title: H-Mem
 type: source
-tags: [agent-memory, hybrid-memory, evolving-memory]
+tags:
+- agent-memory
+- hybrid-memory
+- evolving-memory
 date: 2026-05-15
-source_file: raw/papers/h-mem.md
+source_file: raw/papers/h-mem.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.15701'
+authors:
+- Jiawei Yu
+- Yixiang Fang
+- Xilin Liu
+- Yuchi Ma
+year: 2026
+venue: arXiv
+doi: 10.48550/arXiv.2605.15701
 ---
-
 ## 概要
 H-Mem 引入了一种新型 hybrid memory（混合记忆）机制用于 agent memory 的进化与检索，组合多种记忆表征（事实、摘要、用户画像）以实现灵活检索与持续进化。
 

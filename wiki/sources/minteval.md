@@ -1,12 +1,26 @@
 ---
-title: "MINTEval"
+title: MINTEval
 type: source
-tags: [agent-memory, multi-target, interference, evaluation]
+tags:
+- agent-memory
+- multi-target
+- interference
+- evaluation
 date: 2026-05-18
-source_file: raw/papers/minteval.md
+source_file: raw/papers/minteval.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.18565'
+authors:
+- Hyunji Lee
+- Justin Chih-Yao Chen
+- Joykirat Singh
+- Zaid Khan
+- Elias Stengel-Eskin
+- Mohit Bansal
+year: 2026
+venue: arXiv
+doi: 10.48550/arXiv.2605.18565
 ---
-
 ## 概要
 MINTEval 评估长程 agent 系统中多目标干扰下的 memory 性能，揭示管理多个并发目标会产生交叉干扰，降低 memory 检索准确率。
 

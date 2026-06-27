@@ -1,12 +1,31 @@
 ---
-title: "MemGym"
+title: MemGym
 type: source
-tags: [agent-memory, benchmark, long-horizon, memory-environment]
+tags:
+- agent-memory
+- benchmark
+- long-horizon
+- memory-environment
 date: 2026-05-20
-source_file: raw/papers/memgym.md
+source_file: raw/papers/memgym.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.20833'
+authors:
+- Wujiang Xu
+- Yu Wang
+- Kai Mei
+- Kaiqu Liang
+- Zhenting Wang
+- Mingyu Jin
+- Han Zhang
+- Shi-Xiong Zhang
+- Wenyue Hua
+- Sambit Sahu
+- Dimitris N. Metaxas
+year: 2026
+venue: arXiv
+doi: 10.48550/arXiv.2605.20833
 ---
-
 ## 概要
 MemGym 为 LLM agents 引入了长程记忆环境，提供压力测试 memory 持久性与检索的评估设置，覆盖扩展交互序列中的记忆退化模式。
 

@@ -1,12 +1,23 @@
 ---
-title: "IceBreaker: Breaking the First-Message Barrier with Personalized Starters"
+title: 'IceBreaker: Breaking the First-Message Barrier with Personalized Starters'
 type: source
-tags: [conversation-starter, cold-start, personalized-generation, CTR, ACL-2026]
+tags:
+- conversation-starter
+- cold-start
+- personalized-generation
+- CTR
+- ACL-2026
 date: 2026-04-01
-source_file: raw/papers/icebreaker.md
+source_file: raw/papers/icebreaker.pdf
 last_updated: 2026-05-29
+arxiv_id: '2604.18375'
+authors:
+- Hongwei Zheng
+- Weiqi Wu
+- Zhengjia Wang
+year: 2026
+venue: ACL 2026 Industry Track
 ---
-
 ## 概要
 IceBreaker 定义对话开场语生成新任务（零意图冷启动场景），提出两步握手框架：共振感知兴趣蒸馏从用户画像提取兴趣标签，交互导向生成结合兴趣与交互策略生成开场语。真实平台 A/B 测试验证 CTR 提升 9.425%。
 

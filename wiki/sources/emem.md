@@ -1,12 +1,23 @@
 ---
-title: "E-mem"
+title: E-mem
 type: source
-tags: [agent-memory, episodic-memory, multi-agent]
+tags:
+- agent-memory
+- episodic-memory
+- multi-agent
 date: 2026-01-17
-source_file: raw/papers/emem.md
+source_file: raw/papers/emem.pdf
 last_updated: 2026-05-28
+arxiv_id: '2601.21714'
+authors:
+- Kaixiang Wang
+- Yidan Lin
+- Jiong Lou
+year: 2026
+venue: arXiv
+citation_count: 3
+doi: 10.48550/arXiv.2601.21714
 ---
-
 ## 概要
 E-mem 从 Memory Preprocessing（记忆预处理）转向 Episodic Context Reconstruction（情景式上下文重建），采用异构多 agent（multi-agent）层级架构，其中 assistant agents 维护未压缩的 memory 并在聚合前进行局部推理。在 LoCoMo 上实现 54% F1（超越 GAM 7.75%），同时降低 >70% token 成本。
 

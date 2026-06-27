@@ -1,12 +1,23 @@
 ---
-title: "From Storage to Experience"
+title: From Storage to Experience
 type: source
-tags: [agent-memory, survey, LLM-agent, memory-evolution]
+tags:
+- agent-memory
+- survey
+- LLM-agent
+- memory-evolution
 date: 2026-05-09
-source_file: raw/papers/agent-memory-survey.md
+source_file: raw/papers/agent-memory-survey.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.06716'
+authors:
+- Jing Luo
+- Yuchen Tian
+- Chuxue Cao
+year: 2026
+venue: arXiv
+citation_count: 4
 ---
-
 ## 概要
 本综述为 LLM agent memory 提出了一个新的进化框架，形式化为三个阶段：Storage（轨迹保存）、Reflection（轨迹精炼）和 Experience（轨迹抽象）。它弥合了碎片化的 OS 工程与认知科学视角，将主动探索和跨轨迹抽象识别为 Experience 阶段的前沿机制。
 

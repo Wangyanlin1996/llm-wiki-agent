@@ -1,12 +1,24 @@
 ---
-title: "Designing Intent Communication"
+title: Designing Intent Communication
 type: source
-tags: [intent-understanding, intent-communication, human-agent, design-space]
+tags:
+- intent-understanding
+- intent-communication
+- human-agent
+- design-space
 date: 2025-10-28
-source_file: raw/papers/intent-communication-design.md
+source_file: raw/papers/intent-communication-design.pdf
 last_updated: 2026-05-28
+arxiv_id: '2510.20409'
+authors:
+- Yi Li
+- Francesco Chiossi
+- Hein Frijns
+year: 2025
+venue: International Conference on Mobile and Ubiquitous Multimedia (MUM)
+citation_count: 2
+doi: 10.1145/3771882.3771894
 ---
-
 ## 概要
 本文为 intent communication（意图传达）引入多维设计空间，沿三个维度展开：Transparency（传达什么）、Abstraction（何时传达）和 Modality（如何传达），应用于旁观者交互、协作任务和共享控制场景。它弥合了 intent 内容与 communication 实现之间的鸿沟，为可迁移的 agent-human 交互奠定基础。
 

@@ -1,12 +1,34 @@
 ---
-title: "KnowU-Bench: 交互式主动个性化移动Agent评测"
+title: 'KnowU-Bench: 交互式主动个性化移动Agent评测'
 type: source
-tags: [intent-understanding]
-sources: [knowu-bench]
-source_file: raw/papers/2604.08455.pdf
+tags:
+- intent-understanding
+sources:
+- knowu-bench
+source_file: raw/papers/knowu-bench.pdf
 last_updated: 2026-06-04
+arxiv_id: '2604.08455'
+authors:
+- Tongbo Chen
+- Zhengxi Lu
+- Zhan Xu
+- Guocheng Shao
+- Shaohan Zhao
+- Fei Tang
+- Yong Du
+- Kaitao Song
+- Yizhou Liu
+- Yuchen Yan
+- Wenqi Zhang
+- Xu Tan
+- Weiming Lu
+- Jun Xiao
+- Yueting Zhuang
+- Yongliang Shen
+year: 2026
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 KnowU-Bench 是交互式+主动性+个性化移动Agent评测基准，42通用+86个性化+64主动性任务。隐藏用户画像仅暴露行为日志，强制真正的偏好推断而非上下文查找。LLM驱动用户模拟器支持多轮偏好获取和主动同意处理。Claude Sonnet 4.6在模糊指令下低于50%，核心瓶颈不是GUI导航而是偏好获取和干预校准。
 

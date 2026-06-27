@@ -1,12 +1,24 @@
 ---
-title: "Reward-Driven Interaction: 用户满意度预测增强主动对话Agent"
+title: 'Reward-Driven Interaction: 用户满意度预测增强主动对话Agent'
 type: source
-tags: [intent-understanding]
-sources: [reward-driven-interaction]
-source_file: raw/papers/2505.18731.pdf
+tags:
+- intent-understanding
+sources:
+- reward-driven-interaction
+source_file: raw/papers/reward-driven-interaction.pdf
 last_updated: 2026-06-04
+arxiv_id: '2505.18731'
+authors:
+- Wei Shen
+- Xiaonan He
+- Chuheng Zhang
+- Xuyun Zhang
+- Xiaolong Xu
+- Wanchun Dou
+year: 2025
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 Reward-Driven Interaction 将用户满意度预测作为内在奖励信号驱动主动对话Agent，在检测潜在不满意时触发澄清问题。对比自监督学习任务帮助模型学习罕见表达表示和识别ASR错误；领域-意图分类辅助任务改善长尾领域表示。在DuerOS工业系统上验证。
 

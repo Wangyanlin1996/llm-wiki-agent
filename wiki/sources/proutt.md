@@ -1,12 +1,23 @@
 ---
-title: "ProUtt: LLM-Driven Preference Data Synthesis for Proactive Prediction of Next User Utterance"
+title: 'ProUtt: LLM-Driven Preference Data Synthesis for Proactive Prediction of Next
+  User Utterance'
 type: source
-tags: [preference-data-synthesis, intent-tree, proactive-prediction, next-utterance, exploration-exploitation]
+tags:
+- preference-data-synthesis
+- intent-tree
+- proactive-prediction
+- next-utterance
+- exploration-exploitation
 date: 2026-01-01
-source_file: raw/papers/proutt.md
+source_file: raw/papers/proutt.pdf
 last_updated: 2026-05-29
+arxiv_id: '2601.09713'
+authors:
+- Jinqiang Wang
+- Huansheng Ning
+- Jianguo Ding
+year: 2026
 ---
-
 ## 概要
 ProUtt 将对话历史建模为意图树，从 exploitation（沿已知意图分支预测）和 exploration（探索新意图分支）双视角生成推理轨迹，通过扰动与修正构造偏好数据，在 4 个基准上评测优于现有 Next User Utterance Prediction 方法。
 

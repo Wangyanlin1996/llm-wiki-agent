@@ -1,12 +1,27 @@
 ---
-title: "Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about Social Situations"
+title: 'Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about
+  Social Situations'
 type: source
-tags: [cognitive-reasoning, multimodal, theory-of-mind, social-reasoning, intent-disambiguation, VLM]
+tags:
+- cognitive-reasoning
+- multimodal
+- theory-of-mind
+- social-reasoning
+- intent-disambiguation
+- VLM
 date: 2025-07-27
-source_file: raw/papers/cocot.md
+source_file: raw/papers/cocot.pdf
 last_updated: 2026-05-29
+arxiv_id: '2507.20409'
+authors:
+- Eunkyu Park
+- Wesley Hanwen Deng
+- Gunhee Kim
+- Motahhare Eslami
+- Maarten Sap
+year: 2025
+doi: 10.48550/arXiv.2507.20409
 ---
-
 ## 概要
 CoCoT 提出认知 grounded 三阶段推理框架（Perception→Situation→Norm），将视觉语言模型的多模态社会推理结构化。在意图消歧、Theory of Mind、社会常识推理和安全指令遵循等多个任务上平均提升 5-6%，SFT 训练后模型内化推理模式无需显式 CoCoT 提示。
 

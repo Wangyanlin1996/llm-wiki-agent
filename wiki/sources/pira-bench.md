@@ -1,12 +1,23 @@
 ---
-title: "PIRA-Bench"
+title: PIRA-Bench
 type: source
-tags: [intent-recommendation, proactive-agent, GUI-agent, benchmark]
+tags:
+- intent-recommendation
+- proactive-agent
+- GUI-agent
+- benchmark
 date: 2026-03-09
-source_file: raw/papers/pira-bench.md
+source_file: raw/papers/pira-bench.pdf
 last_updated: 2026-05-28
+arxiv_id: '2603.08013'
+authors:
+- Yuxiang Chai
+- Shunye Tang
+- Han Xiao
+year: 2026
+venue: arXiv
+citation_count: 3
 ---
-
 ## 概要
 PIRA-Bench 引入首个面向 GUI 上 Proactive Intent Recommendation Agents（主动式意图推荐智能体）的评测基准，具有包含多个交织 intents、噪声片段和 user profile contexts 的复杂轨迹。它提出 PIRF，一个用于多线程管理的 memory-aware state-tracking framework（记忆感知状态追踪框架），推动从 reactive（响应式）向 proactive（主动式）GUI agent 范式转变。
 

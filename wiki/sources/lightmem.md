@@ -1,12 +1,23 @@
 ---
-title: "LightMem"
+title: LightMem
 type: source
-tags: [agent-memory, lightweight, SLM, memory-system]
+tags:
+- agent-memory
+- lightweight
+- SLM
+- memory-system
 date: 2026-04-09
-source_file: raw/papers/lightmem.md
+source_file: raw/papers/lightmem.pdf
 last_updated: 2026-05-28
+arxiv_id: '2604.07798'
+authors:
+- Jiaquan Zhang
+- Chaoning Zhang
+- Shuxu Chen
+year: 2026
+venue: arXiv
+citation_count: 4
 ---
-
 ## 概要
 LightMem 提出由 Small Language Models (SLMs) 驱动的轻量级 agent memory（智能体记忆）系统，将在线检索与离线整合分离。它采用三层架构（STM/MTM/LTM）配合两阶段检索（vector coarse + semantic re-ranking，向量粗筛+语义重排），在 LoCoMo 上比 A-MEM 提升 ~2.5 F1，median retrieval latency（中位检索延迟）为 83ms。
 

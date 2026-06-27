@@ -1,12 +1,27 @@
 ---
-title: "ProAgentBench: 真实世界数据的主动Agent评测"
+title: 'ProAgentBench: 真实世界数据的主动Agent评测'
 type: source
-tags: [intent-recommendation]
-sources: [proagentbench]
-source_file: raw/papers/2602.04482.pdf
+tags:
+- intent-recommendation
+sources:
+- proagentbench
+source_file: raw/papers/proagentbench.pdf
 last_updated: 2026-06-04
+arxiv_id: '2602.04482'
+authors:
+- Yuanbo Tang
+- Huaze Tang
+- Tingyu Cao
+- Lam Nguyen
+- Anping Zhang
+- Xinwen Cao
+- Chunkang Liu
+- Wenbo Ding
+- Yang Li
+year: 2026
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 ProAgentBench 用真实世界数据评测主动Agent辅助。层次化任务框架分解主动辅助为时机预测+辅助内容生成。28,000+事件/500+小时真实用户会话保留burstiness B=0.787的突发交互模式。发现长期记忆和历史上下文显著提升预测准确率，真实数据训练远优于合成数据。
 

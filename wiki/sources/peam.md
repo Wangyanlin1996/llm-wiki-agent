@@ -1,12 +1,24 @@
 ---
-title: "PEAM: 参数化具身Agent记忆——Minecraft中的对比经验内化"
+title: 'PEAM: 参数化具身Agent记忆——Minecraft中的对比经验内化'
 type: source
-tags: [agent-memory]
-sources: [peam]
-source_file: raw/papers/2605.27762.pdf
+tags:
+- agent-memory
+sources:
+- peam
+source_file: raw/papers/peam.pdf
 last_updated: 2026-06-04
+arxiv_id: '2605.27762'
+authors:
+- Yuchen Guo
+- Junli Gong
+- Weicheng Wang
+- Hongmin Cai
+- Yiu-ming Cheung
+- Weifeng Su
+year: 2026
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 PEAM 在Minecraft中将Agent记忆从推理时检索转变为参数驻留技能。双系统设计：慢推理LLM+快参数化MoE-LoRA模块；per-category物理隔离适配器防止灾难遗忘；失败作为一等训练信号，联合行为克隆+对比目标内化失败-纠正轨迹对；parameterization-worthiness score决定哪些经验内化；scale-free自触发整合机制无需手工阈值。
 

@@ -1,12 +1,23 @@
 ---
-title: "AssistantX"
+title: AssistantX
 type: source
-tags: [intent-recommendation, proactive-assistant, multi-agent, IROS]
+tags:
+- intent-recommendation
+- proactive-assistant
+- multi-agent
+- IROS
 date: 2025-09-17
-source_file: raw/papers/assistantx.md
+source_file: raw/papers/assistantx.pdf
 last_updated: 2026-05-28
+arxiv_id: '2409.17655'
+authors:
+- Nan Sun
+- Bo Mao
+- Yongchang Li
+year: 2025
+venue: IEEE/RSJ IROS 2025
+doi: 10.1109/IROS60139.2025.11246901
 ---
-
 ## 概要
 AssistantX 是一个 LLM 驱动的主动式助手，采用 4-agent 框架（感知、规划、决策、反思审查）用于协作性人类居住环境。在真实办公室中 1.5 个月、210 个任务的部署验证下，它能响应式回应、主动式调整策略以及主动式寻求人类协助以完成任务。
 

@@ -1,12 +1,20 @@
 ---
-title: "Intent Signal Theory"
+title: Intent Signal Theory
 type: source
-tags: [intent-understanding, intent-signal, computational-framework, theory]
+tags:
+- intent-understanding
+- intent-signal
+- computational-framework
+- theory
 date: 2026-05-20
-source_file: raw/papers/intent-signal-theory.md
+source_file: raw/papers/intent-signal-theory.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.25058'
+authors:
+- Gang Peng
+year: 2026
+venue: arXiv
 ---
-
 ## 概要
 Intent Signal Theory (IST) 形式化了 AI 交互中缺失的 intent 层，区分四个对象：latent source intent (I*)（潜在源意图）、observable intent proxy (I-hat)（可观测意图代理）、encoded carrier (P)（编码载体）和 model output (O)（模型输出）。它证明了 Irreversible Intent Loss（不可逆意图损失）定理，并将 prompt engineering 重新界定为 intent-protocol design（意图协议设计），在 6 个 LLM、3 种语言和 3 个任务域上验证。
 

@@ -1,12 +1,23 @@
 ---
-title: "MemCog"
+title: MemCog
 type: source
-tags: [agent-memory, memory-as-cognition, conversational-agent]
+tags:
+- agent-memory
+- memory-as-cognition
+- conversational-agent
 date: 2026-05-27
-source_file: raw/papers/memcog.md
+source_file: raw/papers/memcog.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.28046'
+authors:
+- Zihan Li
+- Xingyu Fan
+- Feifei Li
+- Wenhui Que
+year: 2026
+venue: arXiv
+doi: 10.48550/arXiv.2605.28046
 ---
-
 ## 概要
 MemCog 将范式从 Memory-as-Tool（记忆即工具，被动检索）转向 Memory-as-Cognition（记忆即认知，主动推理），论证对话型 agents 需要将 memory 整合到其认知过程中，而非仅作为外部存储处理。
 

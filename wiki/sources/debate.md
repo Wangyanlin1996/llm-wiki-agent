@@ -1,12 +1,29 @@
 ---
-title: "DEBATE: A Dataset for Disentangling Textual Ambiguity in Mandarin Through Speech"
+title: 'DEBATE: A Dataset for Disentangling Textual Ambiguity in Mandarin Through
+  Speech'
 type: source
-tags: [speech-disambiguation, Chinese, dataset, audio-language-model, textual-ambiguity]
+tags:
+- speech-disambiguation
+- Chinese
+- dataset
+- audio-language-model
+- textual-ambiguity
 date: 2025-06-09
-source_file: raw/papers/debate.md
+source_file: raw/papers/debate.pdf
 last_updated: 2026-05-29
+arxiv_id: '2506.07502'
+authors:
+- Haotian Guo
+- Jing Han
+- Yongfeng Tu
+- Shihao Gao
+- Shengfan Shen
+- Wulong Xiang
+- Weihao Gan
+- Zixing Zhang
+year: 2025
+doi: 10.48550/arXiv.2506.07502
 ---
-
 ## 概要
 DEBATE 是首个中文语音-文本消歧数据集，包含 1001 个歧义语句×10 位说话人录制，通过语音线索（发音、停顿、重音、语调）消解文本歧义揭示说话者真实意图。评测三个 SOTA 大语音/音频语言模型，揭示机器与人类在理解口语意图上存在巨大性能差距。
 

@@ -1,12 +1,23 @@
 ---
-title: "When AI-Based Agents Are Proactive"
+title: When AI-Based Agents Are Proactive
 type: source
-tags: [intent-recommendation, proactive-agent, human-factors, self-determination]
+tags:
+- intent-recommendation
+- proactive-agent
+- human-factors
+- self-determination
 date: 2025
 source_file: raw/papers/proactive-ai-implications.md
 last_updated: 2026-05-28
+authors:
+- Christopher Diebel
+- Marc Goutier
+- Martin Adam
+year: 2025
+venue: Business & Information Systems Engineering (BISE)
+citation_count: 22
+doi: 10.1007/s12599-024-00918-y
 ---
-
 ## 概要
 这篇 BISE 期刊论文揭示，AI agents 的 proactive（主动式）帮助比 reactive（响应式）帮助导致更高的 competence-based self-esteem（基于能力的自尊感）损失和更低的系统满意度，且 AI 知识水平越高此效应越强。基于 self-determination theory（自我决定理论），研究结果凸显了主动式 AI 辅助的人因风险。
 

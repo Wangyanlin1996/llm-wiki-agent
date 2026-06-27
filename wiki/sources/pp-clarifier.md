@@ -1,12 +1,32 @@
 ---
-title: "Plug-and-Play Clarifier: A Zero-Shot Multimodal Framework for Egocentric Intent Disambiguation"
+title: 'Plug-and-Play Clarifier: A Zero-Shot Multimodal Framework for Egocentric Intent
+  Disambiguation'
 type: source
-tags: [multimodal-disambiguation, egocentric-AI, zero-shot, VLM, cross-modal, AAAI-2026]
+tags:
+- multimodal-disambiguation
+- egocentric-AI
+- zero-shot
+- VLM
+- cross-modal
+- AAAI-2026
 date: 2025-11-12
-source_file: raw/papers/pp-clarifier.md
+source_file: raw/papers/pp-clarifier.pdf
 last_updated: 2026-05-29
+arxiv_id: '2511.08971'
+authors:
+- Sicheng Yang
+- Yukai Huang
+- Weitong Cai
+- Shitong Sun
+- You He
+- Jiankang Deng
+- Hang Zhang
+- Jifei Song
+- Zhensong Zhang
+year: 2025
+venue: AAAI 2026
+doi: 10.48550/arXiv.2511.08971
 ---
-
 ## 概要
 Plug-and-Play Clarifier 是模块化零样本多模态意图消歧框架，包含文本澄清器（对话驱动推理消解语言歧义）、视觉澄清器（实时引导用户调整拍摄位置）和跨模态澄清器（3D 指示手势接地识别指向对象）三个协同模块，使 4-8B 小模型意图澄清性能提升约 30%。
 

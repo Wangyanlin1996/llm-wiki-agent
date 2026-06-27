@@ -1,12 +1,22 @@
 ---
-title: "OnePred: Next-Query Prediction via Recursive Intent Memory in Multi-Turn Conversations"
+title: 'OnePred: Next-Query Prediction via Recursive Intent Memory in Multi-Turn Conversations'
 type: source
-tags: [next-query-prediction, recursive-intent-memory, reinforcement-learning, multi-turn, NQP-Bench]
+tags:
+- next-query-prediction
+- recursive-intent-memory
+- reinforcement-learning
+- multi-turn
+- NQP-Bench
 date: 2026-05-01
-source_file: raw/papers/onepred.md
+source_file: raw/papers/onepred.pdf
 last_updated: 2026-05-29
+arxiv_id: '2605.23668'
+authors:
+- Jiangwang Chen
+- Bowen Zhang
+- Zixin Song
+year: 2026
 ---
-
 ## 概要
 OnePred 提出递归意图记忆作为跨轮上下文机制，通过两阶段 RL 管线实现 Next-Query Prediction：第一阶段教模型预测下一查询，第二阶段教模型压缩冗余 token，token 消耗降低 22×，并附带 NQP-Bench 基准评测。
 

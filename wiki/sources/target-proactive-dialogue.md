@@ -1,12 +1,23 @@
 ---
-title: "Enhancing Target-Guided Proactive Dialogue via Scenario Modeling and Intent-Keyword Bridging"
+title: Enhancing Target-Guided Proactive Dialogue via Scenario Modeling and Intent-Keyword
+  Bridging
 type: source
-tags: [target-guided-dialogue, proactive, scenario-modeling, intent-keyword, dialogue-system]
+tags:
+- target-guided-dialogue
+- proactive
+- scenario-modeling
+- intent-keyword
+- dialogue-system
 date: 2026-05-01
-source_file: raw/papers/target-proactive-dialogue.md
+source_file: raw/papers/target-proactive-dialogue.pdf
 last_updated: 2026-05-29
+arxiv_id: '2605.11964'
+authors:
+- Maodong Li
+- Yancui Li
+- Fang Kong
+year: 2026
 ---
-
 ## 概要
 提出会话场景建模（用户画像+领域知识）与意图关键词桥接（预测未来轮次意图关键词）双机制增强目标导向主动对话。场景建模构建对话上下文，意图关键词桥接引导对话走向，显著改善对话的主动性和信息性。
 

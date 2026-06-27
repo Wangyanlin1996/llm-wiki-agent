@@ -1,12 +1,22 @@
 ---
-title: "IntentRL"
+title: IntentRL
 type: source
-tags: [intent-recommendation, proactive-agent, reinforcement-learning]
+tags:
+- intent-recommendation
+- proactive-agent
+- reinforcement-learning
 date: 2026-02-03
-source_file: raw/papers/intentrl.md
+source_file: raw/papers/intentrl.pdf
 last_updated: 2026-05-28
+arxiv_id: '2602.03468'
+authors:
+- Haohao Luo
+- Zexi Li
+- Yuexiang Xie
+year: 2026
+venue: arXiv
+citation_count: 4
 ---
-
 ## 概要
 IntentRL 训练主动式 agents 在启动深度研究前澄清用户 latent intents（潜在意图），解决自主性-交互困境。它采用 shallow-to-deep intent refinement graph 和两阶段 RL（offline dialogues + online rollouts with user simulator），超越闭源 DR agents 的内置 clarify modules。
 

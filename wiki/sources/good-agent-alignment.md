@@ -1,12 +1,24 @@
 ---
-title: "Flexible Agent Alignment with Goal Inference from Open-Ended Dialog"
+title: Flexible Agent Alignment with Goal Inference from Open-Ended Dialog
 type: source
-tags: [assistance-games, goal-inference, agent-alignment, preference-construction, LLM-agent]
+tags:
+- assistance-games
+- goal-inference
+- agent-alignment
+- preference-construction
+- LLM-agent
 date: 2025-08-20
-source_file: raw/papers/good-agent-alignment.md
+source_file: raw/papers/good-agent-alignment.pdf
 last_updated: 2026-05-29
+arxiv_id: '2508.15119'
+authors:
+- Rachel Ma
+- Jingyi Qu
+- Andreea Bobu
+- Dylan Hadfield-Menell
+year: 2025
+doi: 10.48550/arXiv.2508.15119
 ---
-
 ## 概要
 提出 Open-Universe Assistance Games (OU-AGs) 框架，将 Assistance Games 从固定预设偏好扩展到开放对话场景中的动态自然语言偏好分布，并设计 GOOD 方法从交互过程中提取和排序候选目标，利用 LLM 模拟用户进行概率推断，实现可解释、不确定性感知的偏好表示。
 

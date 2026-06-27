@@ -1,12 +1,23 @@
 ---
-title: "ContextAgent"
+title: ContextAgent
 type: source
-tags: [intent-understanding, proactive-agent, sensory-perception, wearable]
+tags:
+- intent-understanding
+- proactive-agent
+- sensory-perception
+- wearable
 date: 2025-05-20
-source_file: raw/papers/contextagent.md
+source_file: raw/papers/contextagent.pdf
 last_updated: 2026-05-28
+arxiv_id: '2505.14668'
+authors:
+- Bufang Yang
+- Lilin Xu
+- Liekang Zeng
+year: 2025
+venue: arXiv
+citation_count: 41
 ---
-
 ## 概要
 ContextAgent 是首个结合感知信息（来自可穿戴设备的视频、音频）的上下文感知主动式 LLM agent，用于理解用户意图并预测主动式服务需求。ContextAgentBench 覆盖 9 个场景和 20 个工具的 1000 个样本，在主动式预测和工具调用准确率上分别提升 8.5% 和 6.0%。
 

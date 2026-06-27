@@ -1,12 +1,22 @@
 ---
-title: "ProCodeBench: 主动编程助手——真实开发者行为vs模拟"
+title: 'ProCodeBench: 主动编程助手——真实开发者行为vs模拟'
 type: source
-tags: [intent-recommendation]
-sources: [procodebench]
-source_file: raw/papers/2605.05700.pdf
+tags:
+- intent-recommendation
+sources:
+- procodebench
+source_file: raw/papers/procodebench.pdf
 last_updated: 2026-06-04
+arxiv_id: '2605.05700'
+authors:
+- Lehui Li
+- Ruixuan Jia
+- Guo-Ye Yang
+- Jia Li
+year: 2026
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 ProCodeBench 对比1,246位工业开发者真实IDE交互与LLM模拟轨迹。发现模拟轨迹在行为多样性/时间结构/探索模式上与真实轨迹显著差异。提出ProCodeBench真实世界基准评测主动意图预测。当前方法在真实IDE轨迹下远不可靠；模拟数据不能替代真实数据但可作为真实微调前的补充。
 

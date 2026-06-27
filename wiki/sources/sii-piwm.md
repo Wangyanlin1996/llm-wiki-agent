@@ -1,12 +1,27 @@
 ---
-title: "SII/PIWM: 看-推断-干预——目标导向社会智能的主动世界建模"
+title: 'SII/PIWM: 看-推断-干预——目标导向社会智能的主动世界建模'
 type: source
-tags: [intent-understanding]
-sources: [sii-piwm]
-source_file: raw/papers/2606.03371.pdf
+tags:
+- intent-understanding
+sources:
+- sii-piwm
+source_file: raw/papers/sii-piwm.pdf
 last_updated: 2026-06-04
+arxiv_id: '2606.03371'
+authors:
+- Honghui Zhang
+- Chenmeinian Guo
+- Yichen Yu
+- Guanyu Liu
+- Yongming Qin
+- Chongguo Song
+- Mengyue Yang
+- Lei Yu
+- Tianyu Shi
+year: 2026
+venue: Preprint
+citation_count: 0
 ---
-
 ## 概要
 SII框架提出看-推断-干预三阶段主动意图理解流程，PIWM用AIDA购买阶段+BDI心理场表示客户状态，预测行为条件意图转移，从五类响应中选择干预或等待。构建GuidanceSalesBench智能零售基准。ground-truth state条件下0.641 macro F1，端到端视频仅0.295（低于随机基线），揭示video-to-state grounding是部署瓶颈。
 

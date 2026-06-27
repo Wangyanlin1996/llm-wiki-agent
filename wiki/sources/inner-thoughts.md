@@ -1,12 +1,22 @@
 ---
-title: "Proactive Conversational Agents with Inner Thoughts"
+title: Proactive Conversational Agents with Inner Thoughts
 type: source
-tags: [intent-recommendation, proactive-agent, inner-thoughts, multi-party]
+tags:
+- intent-recommendation
+- proactive-agent
+- inner-thoughts
+- multi-party
 date: 2025-01-03
-source_file: raw/papers/inner-thoughts.md
+source_file: raw/papers/inner-thoughts.pdf
 last_updated: 2026-05-28
+arxiv_id: '2501.00383'
+authors:
+- Xingyu Bruce Liu
+- Shitao Fang
+- Weiyan Shi
+year: 2025
+venue: arXiv
 ---
-
 ## 概要
 Inner Thoughts framework 为 AI 赋予与显式通信并行运行的连续 covert train of thoughts（隐式思维流），建模表达思想的内在动机。这使 AI 能在多方对话中主动参与，在拟人化、连贯性、智能性和轮次获取适当性上显著超越基线。
 

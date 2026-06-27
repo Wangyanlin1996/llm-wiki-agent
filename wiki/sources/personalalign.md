@@ -1,12 +1,23 @@
 ---
-title: "PersonalAlign"
+title: PersonalAlign
 type: source
-tags: [intent-understanding, implicit-intent, GUI-agent, personalized, ACL]
+tags:
+- intent-understanding
+- implicit-intent
+- GUI-agent
+- personalized
+- ACL
 date: 2026-01-09
-source_file: raw/papers/personalalign.md
+source_file: raw/papers/personalalign.pdf
 last_updated: 2026-05-28
+arxiv_id: '2601.09636'
+authors:
+- Yibo Lyu
+- Gongwei Chen
+- Rui Shao
+year: 2026
+venue: ACL 2026
 ---
-
 ## 概要
 PersonalAlign（ACL 2026）为个性化 GUI agents 引入 Hierarchical Implicit Intent Alignment（层级式隐意图对齐），要求 agents 利用长期用户记录来解决模糊指令和预判潜在例行操作。HIM-Agent 维持持续更新的个人 memory（记忆），以层级式偏好/例行组织，实现执行 +15.7% 和主动式表现 +7.3% 的提升。
 

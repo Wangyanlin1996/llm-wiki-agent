@@ -1,12 +1,28 @@
 ---
-title: "EvoMemBench: 自演化视角的Agent记忆评测基准"
+title: 'EvoMemBench: 自演化视角的Agent记忆评测基准'
 type: source
-tags: [agent-memory]
-sources: [evomembench]
-source_file: raw/papers/2605.18421.pdf
+tags:
+- agent-memory
+sources:
+- evomembench
+source_file: raw/papers/evomembench.pdf
 last_updated: 2026-06-04
+arxiv_id: '2605.18421'
+authors:
+- Yuyao Wang
+- Zhongjian Zhang
+- Mo Chi
+- Kaichi Yu
+- Yuhan Li
+- Miao Peng
+- Bing Tong
+- Chen Zhang
+- Yan Zhou
+- Jia Li
+year: 2026
+venue: arXiv
+citation_count: 0
 ---
-
 ## 概要
 EvoMemBench 从自演化视角评测Agent记忆，双轴设计：记忆范围（in-episode vs cross-episode）× 记忆内容（knowledge-oriented vs execution-oriented）。15种代表性记忆方法对比强长上下文基线。结论：当前记忆系统远非通用解——长上下文基线仍竞争力强；检索式在知识密集场景占优；程序性+长期记忆在执行导向任务更有效；无单一记忆形式在所有设置下一致有效。
 

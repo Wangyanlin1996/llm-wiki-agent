@@ -1,12 +1,22 @@
 ---
-title: "SpeakRL: Synergizing Reasoning, Speaking, and Acting with RL"
+title: 'SpeakRL: Synergizing Reasoning, Speaking, and Acting with RL'
 type: source
-tags: [reinforcement-learning, proactive-clarification, agent, SpeakER, reasoning-speaking-acting]
+tags:
+- reinforcement-learning
+- proactive-clarification
+- agent
+- SpeakER
+- reasoning-speaking-acting
 date: 2025-12-01
-source_file: raw/papers/speakrl.md
+source_file: raw/papers/speakrl.pdf
 last_updated: 2026-05-29
+arxiv_id: '2512.13159'
+authors:
+- Emre Can Acikgoz
+- Jinoh Oh
+- Jie Hao
+year: 2025
 ---
-
 ## 概要
 SpeakRL 通过 RL 增强 Agent 主动澄清意图的能力，奖励模型"问对的澄清问题"而非盲目执行。构建 SpeakER 合成数据集训练 Agent 在推理-说话-行动之间协同，任务完成率绝对提升 20.14%。
 

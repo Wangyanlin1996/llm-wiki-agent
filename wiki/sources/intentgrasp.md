@@ -1,12 +1,22 @@
 ---
-title: "IntentGrasp"
+title: IntentGrasp
 type: source
-tags: [intent-understanding, benchmark, comprehensive, IFT]
+tags:
+- intent-understanding
+- benchmark
+- comprehensive
+- IFT
 date: 2026-05-09
-source_file: raw/papers/intentgrasp.md
+source_file: raw/papers/intentgrasp.pdf
 last_updated: 2026-05-28
+arxiv_id: '2605.06832'
+authors:
+- Yuwei Yin
+- Chuyuan Li
+- Giuseppe Carenini
+year: 2026
+venue: arXiv
 ---
-
 ## 概要
 IntentGrasp 是一个全面评估 LLM 意图理解的 benchmark，源自 49 个语料库，覆盖 12 个领域，包含 262K 训练实例。对 20 个 LLM 的评估显示 All Set 得分低于 60%，Gem Set 得分低于 25%，其中 17/20 低于随机基线。Intentional Fine-Tuning (IFT，意图微调) 在 All Set 上带来 30+ F1 提升，Gem Set 上 20+ 提升，并具有强跨领域泛化能力。
 

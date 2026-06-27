@@ -1,12 +1,22 @@
 ---
-title: "RECAP"
+title: RECAP
 type: source
-tags: [intent-understanding, intent-rewriting, agent-planning, benchmark]
+tags:
+- intent-understanding
+- intent-rewriting
+- agent-planning
+- benchmark
 date: 2025-09-04
-source_file: raw/papers/recap.md
+source_file: raw/papers/recap.pdf
 last_updated: 2026-05-28
+arxiv_id: '2509.04472'
+authors:
+- Kushan Mitra
+- Dan Zhang
+- Hannah Kim
+year: 2025
+venue: arXiv
 ---
-
 ## 概要
 RECAP 将意图理解重新定义为 intent rewriting（意图重写）——将模糊的用户-agent 对话转化为简洁的目标表征以服务于 agentic planning（智能体规划）。它捕获了歧义、意图漂移、模糊性和混合目标对话等挑战，并提供基于 LLM 的评估器衡量规划效用。
 
