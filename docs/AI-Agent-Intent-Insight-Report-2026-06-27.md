@@ -15,28 +15,28 @@
 
 ## 新增论文清单
 
-| # | 论文 | 年份 | Venue | arXiv | 核心贡献 |
-|---|------|------|-------|-------|---------|
-| 1 | RAC: Retrieval-Augmented Clarification | 2026 | ECIR 2026 | 2601.11722 | RAG生成语料锚定澄清问题；对比偏好优化 |
-| 2 | Corpus-informed RAG of Clarifying Questions | 2024 | - | 2409.18575 | RAG联合建模query+corpus定位不确定性；数据增强 |
-| 3 | CoPS: Cognitive Personalized Search | 2024 | WWW 2024 | 2402.10548 | 认知三阶记忆(感觉/工作/长期)驱动个性化搜索意图 |
-| 4 | JANUS: Factored Reasoning with Persistent Memory | 2026 | - | 2602.00675 | 持久记忆+内部言语触发澄清；从欠明确请求恢复 |
-| 5 | Sensitivity-Aware RA Intent Clarification | 2026 | ECIR Workshop | 2603.06025 | 敏感域检索增强意图澄清；攻击模型+防御 |
-| 6 | Fairy: Robust Agentic Systems (EMA+RGR) | 2025 | - | 2509.20729 | 演化记忆+目标精炼澄清；模糊任务+33.7% |
+| #   | 论文                                               | 年份   | Venue         | arXiv                                                                  | 核心贡献                           |
+| --- | ------------------------------------------------ | ---- | ------------- | ---------------------------------------------------------------------- | ------------------------------ |
+| 1   | [[rac]] — RAC: Retrieval-Augmented Clarification           | 2026 | ECIR 2026     | [2601.11722](https://arxiv.org/abs/2601.11722) | RAG生成语料锚定澄清问题；对比偏好优化           |
+| 2   | [[corpus-rag-clarifying]] — Corpus-informed RAG of Clarifying Questions      | 2024 | -             | [2409.18575](https://arxiv.org/abs/2409.18575) | RAG联合建模query+corpus定位不确定性；数据增强 |
+| 3   | [[cops]] — CoPS: Cognitive Personalized Search              | 2024 | WWW 2024      | [2402.10548](https://arxiv.org/abs/2402.10548) | 认知三阶记忆(感觉/工作/长期)驱动个性化搜索意图      |
+| 4   | [[janus]] — JANUS: Factored Reasoning with Persistent Memory | 2026 | -             | [2602.00675](https://arxiv.org/abs/2602.00675) | 持久记忆+内部言语触发澄清；从欠明确请求恢复         |
+| 5   | [[sensitivity-aware-clarification]] — Sensitivity-Aware RA Intent Clarification        | 2026 | ECIR Workshop | [2603.06025](https://arxiv.org/abs/2603.06025) | 敏感域检索增强意图澄清；攻击模型+防御            |
+| 6   | [[fairy-gui-agent]] — Fairy: Robust Agentic Systems (EMA+RGR)          | 2025 | -             | [2509.20729](https://arxiv.org/abs/2509.20729) | 演化记忆+目标精炼澄清；模糊任务+33.7%         |
 
 ## 新增趋势洞察
 
 ### 三种互补范式
 "记忆增强模糊意图澄清"形成三种互补路径：
 
-1. **外部检索（RAG as external memory）**— RAC、Corpus-RAG、Sensitivity-Aware 将语料库作为外部记忆，为澄清问题提供证据支撑。核心洞察：澄清问题必须锚定在可用信息中。
+1. **外部检索（RAG as external memory）**— [[rac]]、[[corpus-rag-clarifying]]、[[sensitivity-aware-clarification]] 将语料库作为外部记忆，为澄清问题提供证据支撑。核心洞察：澄清问题必须锚定在可用信息中。
 
-2. **内部认知记忆（Cognitive memory as internal context）**— CoPS、JANUS 用层次化认知记忆（感觉/工作/长期 或 近期/核心/归档）提供用户上下文消解歧义。CoPS 从历史构建画像驱动个性化意图，JANUS 用内部言语触发澄清。
+2. **内部认知记忆（Cognitive memory as internal context）**— [[cops]]、[[janus]] 用层次化认知记忆（感觉/工作/长期 或 近期/核心/归档）提供用户上下文消解歧义。CoPS 从历史构建画像驱动个性化意图，JANUS 用内部言语触发澄清。
 
-3. **演化记忆+目标精炼（Evolutionary memory + goal refinement）**— Fairy 用执行-演化双循环记忆 + 人在环目标精炼确保意图对齐。
+3. **演化记忆+目标精炼（Evolutionary memory + goal refinement）**— [[fairy-gui-agent]] 用执行-演化双循环记忆 + 人在环目标精炼确保意图对齐。
 
 ### 共同洞察
-**模糊意图的歧义源于上下文缺失，记忆提供缺失的上下文来消解歧义或在不足时触发有针对性的澄清。** 这与 [[IntentSignalTheory]] 的 I*→P 信息损失定理呼应——记忆是补偿信息损失的关键机制。
+**模糊意图的歧义源于上下文缺失，记忆提供缺失的上下文来消解歧义或在不足时触发有针对性的澄清。** 这与 [[IntentSignalTheory]] 的 I*→P 信息损失定理呼应——记忆是补偿信息损失的关键机制。详见各论文：[[rac]]、[[corpus-rag-clarifying]]、[[sensitivity-aware-clarification]]、[[cops]]、[[janus]]、[[fairy-gui-agent]]。
 
 ### 新增概念
 - [[RetrievalAugmentedClarification]] — 检索增强澄清

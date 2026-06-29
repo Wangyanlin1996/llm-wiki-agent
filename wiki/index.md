@@ -109,6 +109,26 @@
 - [Sensitivity-Aware Retrieval-Augmented Intent Clarification](sources/sensitivity-aware-clarification.md) — 检索增强意图澄清+敏感域保护；攻击模型+检索级防御；ECIR 2026 Workshop (2026)
 - [Fairy: Robust Agentic Systems with EMA + RGR](sources/fairy-gui-agent.md) — 演化记忆架构+目标精炼澄清；模糊任务基准+33.7%；50页 (2025)
 
+### AI Agent — Agent Explainability
+- [A Survey on Large Language Model based Autonomous Agents](sources/llm-autonomous-agent-survey.md) — LLM自主智能体统一架构综述；解释列为可信度核心维度；Frontiers of CS 2024, 3137 citations (2024)
+- [AgentBench: Evaluating LLMs as Agents](sources/agentbench.md) — 8环境多维度agent评测基准；长程推理/决策/指令遵循为失败主因；ICLR 2024, 951 citations (2024)
+- [AgentVerse: Facilitating Multi-Agent Collaboration](sources/agentverse.md) — 动态重组多智能体协作框架；社会行为涌现；ICLR 2024 (2024)
+- [Explainable Human-AI Interaction: A Planning Perspective](sources/explainable-human-ai-interaction.md) — "解释即规划"范式；心智模型对齐；顺应/改变人类期望；Morgan & Claypool 2024 (2024)
+- [From Agent Traces to Trust](sources/agent-traces-to-trust.md) — 执行溯源+证据追踪分类法综述；过程级问责统一框架 (2026)
+- [HANSEL: Interactive Verification of Web Agent Trajectories](sources/hansel-web-agent-verification.md) — 交互式证据导航；83.7% precision/88.8% recall；轨迹体积-61.6% (2026)
+- [Causal Past Logic for Runtime Verification](sources/causal-past-logic-runtime-verification.md) — 分布式LLM agent运行时验证；向量时钟监控器；验证嵌入协调语言 (2026)
+- [Three-Level Framework for LLM-Enhanced XAI](sources/three-level-llm-xai.md) — 三层XAI（算法/领域→以人为中心→社会）；LLM跨层中介；Information Systems Frontiers 2025 (2025)
+- [Explainable AI, but explainable to whom?](sources/explainable-ai-to-whom.md) — 利益相关者星座；差异化解释需求；COVID-19 ICU案例 (2021)
+- [Towards Responsible and Explainable AI Agents](sources/responsible-explainable-ai-agents.md) — 多模型共识+推理层治理；异构LLM/VLM独立生成→结构化整合 (2025)
+- [Blockchain Accountability for Autonomous Agents](sources/blockchain-accountability-agents.md) — 区块链防篡改黑箱+LLM生成解释；ROS移动机器人三场景验证 (2024)
+- [The Argument is the Explanation](sources/argument-is-the-explanation.md) — 结构化论证图；可验证推理链；自动幻觉检测；AAEC 94.44 F1 (2025)
+- [Causal Explanations for Sequential Decision Making Under Uncertainty](sources/causal-explanations-sequential-uncertainty.md) — SCM因果解释基础；单一框架多语义解释；MDP因果推理 (2022)
+- [TRiSM for Agentic AI](sources/trism-agentic-ai.md) — AMAS信任/风险/安全管理综述；TRiSM五支柱；CSS+TUE新指标 (2025)
+- [CEMA: Causal Explanations for MAS](sources/cema-causal-explanations-mas.md) — 不假设固定因果结构；反事实世界模拟；AAMAS 2024；HEADD数据集 (2023)
+- [TriEx: Tri-View Framework for Multi-Agent LLMs](sources/triex-multi-agent-llm-explanation.md) — 三视角（自我推理/信念状态/预言机审计）；揭示说/信/做不匹配；ACL 2026 (2026)
+- [AXIS: Counterfactual Explanations for MAS](sources/counterfactual-mas-explanation.md) — LLM盘问模拟器生成反事实解释；正确性+7.7%；目标预测+23% (2025)
+- [Toward Policy Explanations for MARL](sources/policy-explanations-marl.md) — MARL策略解释基础；策略摘要+语言解释；IJCAI 2022 (2022)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -184,7 +204,20 @@
 - [PersistentMemoryClarification](concepts/PersistentMemoryClarification.md) — 持久记忆澄清：跨会话持久化记忆提供上下文消解歧义或触发针对性澄清
 - [EvolutionaryMemoryArchitecture](concepts/EvolutionaryMemoryArchitecture.md) — 演化记忆架构：执行-演化双循环实现记忆主动演化，持续改进意图理解
 
+### Agent Explainability
+- [Agent Explainability](concepts/AgentExplainability.md) — Agent可解释性：覆盖推理/工具/决策/闭环的多维解释，而非仅单步输出
+- [Explainable Planning](concepts/ExplainablePlanning.md) — 可解释规划：解释即规划范式，对齐回路中人类心智模型
+- [LLM Autonomous Agent](concepts/LLMAutonomousAgent.md) — LLM自主智能体：感知-规划-记忆-工具-行动统一架构
+- [Execution Provenance](concepts/ExecutionProvenance.md) — 执行溯源与证据追踪：agent执行类型化图+证据支撑投影；过程级问责基础
+- [Stakeholder Explainability](concepts/StakeholderExplainability.md) — 利益相关者分层解释：多元受众差异化解释需求；三层XAI框架
+- [Causal Explanation](concepts/CausalExplanation.md) — 因果解释：SCM/反事实模拟为序贯决策提供"为什么"的因果回答
+- [Structured Argumentation](concepts/StructuredArgumentation.md) — 结构化论证解释：论证图+每步推理可验证+自动幻觉检测
+- [Multi-Agent Explainability](concepts/MultiAgentExplainability.md) — 多智能体可解释性：MAS协作/竞争/涌现行为的解释方法
+- [Agent Accountability](concepts/AgentAccountability.md) — Agent问责架构：区块链防篡改+共识治理+可验证论证
+- [Consensus-Driven Reasoning](concepts/ConsensusDrivenReasoning.md) — 共识驱动推理：异构模型独立生成→分歧暴露→结构化整合
+
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms
 - [论文洞察汇总报告](syntheses/2026-05-28-paper-insight-email.md) — 29篇论文检索与知识库汇总（2026-05-28）
 - [应对用户输入模糊/歧义的技术](syntheses/handling-vague-user-input.md) — 五条技术线（澄清先行/多模态消歧/神经符号注入/有原则澄清三剑客/目标推断+防火墙）+ IST 理论支撑
+- [电信自智网络闭环可解释性深度研究报告](syntheses/closed-loop-explainability-telecom-autonomous-networks.md) — 6方向技术沙箱（意图理解/Skill编排/闭环溯因/交互解释/机器可读凭证/评估保障）×15篇引用

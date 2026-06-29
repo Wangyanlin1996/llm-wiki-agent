@@ -267,4 +267,94 @@
 
 更新 wiki/index.md（+6 source +4 concept）、wiki/overview.md（Round 6 趋势综合）。
 
-累计 wiki 153 -> 163 页。
+累计 wiki 153 -> 163 页。
+
+## [2026-06-27] report | L1 意图未知方法的智能体记忆能力核查
+
+针对 handling-vague-user-input.md 中 L1（意图本身未知）四条技术路线，核查是否使用智能体记忆能力。结论：均未使用智能体运行态记忆（跨会话经验/用户画像/历史检索）。
+
+查阅 raw/papers/continual-gid.pdf 原文确认：PLRD 方法含 memory module（每类存 5 样本回放，配合 class prototype 伪标签 + feature distillation 抗灾难性遗忘），但属于 continual learning 的 replay buffer（训练态、参数空间），不是 agent memory。
+
+更新：
+- wiki/sources/continual-gid.md — 补充 PLRD 三子模块机制 + "Memory module ≠ 智能体记忆"边界表
+- wiki/syntheses/handling-vague-user-input.md — 5b 节注明 continual-gid replay 性质，新增"L1 与智能体记忆能力的关系"小节（标注 L1 记忆能力空白，关联 Round 6 的 PersistentMemoryClarification / EvolutionaryMemoryArchitecture 落在 L2/L3）
+
+无新增页面，累计 wiki 163 页不变。
+
+## [2026-06-28] query | 智能体闭环可解释性 — 电信自智网络 L4/L5 深度研究报告
+
+用户查询 wiki 是否有"智能体闭环可解释性"相关内容。初步查询发现 wiki 已有 3GPP IntentReport（6类报告含原因）、JANUS（POMDP闭环+内部言语）、EMA（执行-演化双循环）、CoCoT（认知三阶段可解释推理）等交叉点，但无专门页面——数据空白。
+
+用户提供 Deep Research Framework + 6 方向研究任务（意图理解可解释性 / Skill编排可解释性 / 闭环验证与溯因 / 人机交互式解释 / 机器可读解释凭证 / 解释评估与保障），面向电信自智网络 L4/L5 AgentLoop。
+
+执行 Deep Research：
+- Phase 1: 27+ 搜索查询（OpenAlex + arXiv API），覆盖 4 角度（学术/产业/实践/批判）+ 双语
+- Phase 2: 提取 15 篇来源全文摘要，构建 IEEE 格式引用账本（每条含逐字引用）
+- Phase 2.5: 补充搜索 4 查询（O-RAN/PROV-O/XAI批判/意图冲突），发现 EXPLORA、Direct-Conflict Resolution、XAI 2.0 Manifesto
+- Phase 4: 撰写结构化研究报告
+
+关键发现：
+1. O-RAN RIC 闭环架构是电信 XAI 的主要产业载体；EXPLORA 在 Colosseum 上实时验证 DRL 可解释性（+4% bitrate）
+2. 因果建模（SCM/因果世界模型/HPCI因果图）是闭环验证与溯因的主导学术范式，Zhang et al. 在真实电信告警数据上验证
+3. PROV-O + HTN 规划溯源（Friedman et al.）是机器可读解释凭证的最成熟实现，但无电信标准采纳
+4. 3GPP IntentReport IOC（6类报告含原因）是电信侧最接近解释凭证的标准化构件
+5. XAI 2.0 Manifesto 列出 27 个开放问题/9类——确认闭环可解释性是活跃前沿
+
+归档至 wiki/syntheses/closed-loop-explainability-telecom-autonomous-networks.md。
+
+新增页面：wiki/syntheses/closed-loop-explainability-telecom-autonomous-networks.md
+累计 wiki 164 页。
+
+## [2026-06-28] report | 电信自智网络闭环可解释性报告中文翻译
+
+将 wiki/syntheses/closed-loop-explainability-telecom-autonomous-networks.md 全文翻译为中文。翻译策略：
+- 正文叙述全部转为中文
+- IEEE 引用条目保留英文（国际标准格式）
+- 论文逐字引用保留英文原文（直接引用，不可翻译）
+- 技术术语首次出现标注中英文（如"对比解释（contrastive explanation）"）
+- 代码/流程图保留伪代码结构，注释转中文
+
+无新增页面，累计 wiki 164 页不变。
+
+## [2026-06-29] ingest | Round 7 — Agent Explainability（引文核查批次，4/15 真实）
+
+用户提供 15 篇支撑"Agent 闭环可解释性"框架的论文（4 组：信息转换可观测性 / 双受众分层解释 / 闭环验证溯因 / 综合框架）。经 arXiv ID 直查 + 标题检索核查：**11 篇为幻觉（73%）**，仅 4 篇真实存在。
+
+核查要点：
+- 两个 arXiv ID 指向完全不相关论文（2504.01485→图论"Diameter Shortcut Sets on Temporal Graphs"；2405.18023→编码论"Generator polynomials of cyclic Goppa codes"）——LLM 编造引用的标志性手法
+- 9 篇标题在 arXiv 全检索 0 命中（CHI/NAACL/AAAI/ICSE/KR/AIJ/JAIR/NeurIPS WS/FAccT 等venue标注均无法证实）
+- 2 篇作者归属有误：AgentBench 第一作者为 Liu X.（清单标"Park S."）；AgentVerse 第一作者为 Chen W.（清单标"Chen Y."）
+- 拒绝将幻觉论文入库，避免污染知识库与制造虚假 wikilink
+
+入库 4 篇（PDF + wiki/sources 页面）：
+- LLM Autonomous Agent Survey (arXiv:2308.11432, Frontiers of CS 2024, 3137 citations) — 统一架构综述，解释列为可信度核心维度
+- AgentBench (arXiv:2308.03688, ICLR 2024, 951 citations) — 8环境多维评测基准
+- AgentVerse (arXiv:2308.10848, ICLR 2024, citation_count pending—S2限流) — 动态重组多智能体协作
+- Explainable Human-AI Interaction: A Planning Perspective (arXiv:2405.15804, Morgan & Claypool 2024, S2=0书籍低估) — "解释即规划"范式
+
+新增 3 个概念页：AgentExplainability, ExplainablePlanning, LLMAutonomousAgent。
+
+更新 wiki/index.md（+4 source 新建"Agent Explainability"子节 +3 concept）、wiki/overview.md（Round 7 趋势综合 + 跨方向收敛表）。
+
+Phase B 待办：用 academic-search 按四主题（Agent可解释性框架/双受众分层/闭环溯因/多智能体解释）检索真实近期论文补充，重新走第一轮确认。
+
+累计 wiki 164 -> 171 页。
+
+## [2026-06-29] ingest | Round 7 Phase B — Agent Explainability（14 篇真实替代论文入库）
+
+Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），四个框架方向（T1/T2/T3/T4）的支撑文献几乎全为编造。Phase B 通过 arXiv API 按四主题布尔检索，找到 14 篇真实近期论文，全部下载 PDF（raw/papers/）并入库。
+
+入库 14 篇（含 arXiv metadata + PDF + wiki/sources 页面）：
+- T1 信息转换可观测性（3篇）：agent-traces-to-trust (2606.04990, 综述), hansel-web-agent-verification (2606.18671, HANSEL交互验证), causal-past-logic-runtime-verification (2605.20923, CPL运行时验证)
+- T2 双受众分层解释（2篇）：three-level-llm-xai (2506.05887, 三层框架, Information Systems Frontiers), explainable-ai-to-whom (2106.05568, 利益相关者星座)
+- T3 闭环验证溯因（4篇）：responsible-explainable-ai-agents (2512.21699, 多模型共识), blockchain-accountability-agents (2403.09567, 区块链问责), argument-is-the-explanation (2510.03442, 结构化论证+幻觉检测), causal-explanations-sequential-uncertainty (2205.15462, SCM因果基础)
+- T4 多智能体解释（5篇）：trism-agentic-ai (2506.04133, TRiSM综述), cema-causal-explanations-mas (2302.10809, AAMAS 2024), triex-multi-agent-llm-explanation (2604.20043, ACL 2026), counterfactual-mas-explanation (2505.17801, AXIS), policy-explanations-marl (2204.12568, IJCAI 2022)
+
+新增 7 个概念页：ExecutionProvenance, StakeholderExplainability, CausalExplanation, StructuredArgumentation, MultiAgentExplainability, AgentAccountability, ConsensusDrivenReasoning。更新 AgentExplainability 概念页（+14 sources, T1-T4 四主线展开）。
+
+更新 wiki/index.md（+14 source, +7 concept）、wiki/overview.md（Phase B 趋势综合 + 跨方向收敛表）。
+
+注：S2 API 持续 429（无 key），14 篇 citation_count 均标注 pending。AgentVerse（Phase A）citation_count 仍 pending。
+
+累计 wiki 171 -> 192 页。
+

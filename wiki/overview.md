@@ -2,8 +2,8 @@
 title: "Overview"
 type: synthesis
 tags: []
-sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent]
-last_updated: 2026-06-08
+sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl]
+last_updated: 2026-06-29
 ---
 
 # Overview
@@ -336,3 +336,73 @@ The 3GPP [[IntentDrivenMnS]] concept (declarative goal expression) and the AI Ag
 | **检索作为记忆** | ExpRAG (Evo-Memory), Agent KB | 检索增强推断 (IntPro) | RAG 澄清 (RAC, Corpus-RAG, Sensitivity-Aware) |
 | **记忆演化** | 按需生成 (Mem-π), 主动提取 (ProMem) | 递归意图 (OnePred) | 执行-演化双循环 (Fairy EMA) |
 | **澄清触发机制** | - | EVPI (SAGE-Agent), intent-sim (Clarify-When-Necessary) | 内部言语 (JANUS), 人在环 (Fairy RGR) |
+
+---
+
+### Expanded Landscape (Seventh Round Ingest)
+
+#### Agent Explainability — 4 Verified Papers (引文核查批次)
+
+本轮为"引文核查批次"：用户提供 15 篇支撑"Agent 闭环可解释性"框架的论文，经 arXiv ID 直查 + 标题检索核查，**11 篇为幻觉（73%）**，仅 4 篇真实存在并入库。本批引入知识库新方向"Agent 可解释性"。
+
+**核查要点**：两个"arXiv ID"指向完全不相关论文（2504.01485→图论；2405.18023→编码论），是 LLM 编造引用的标志性手法；另有 9 篇标题在 arXiv 全检索 0 命中。已拒绝将幻觉论文入库，避免污染知识库与制造虚假 wikilink。
+
+**入库 4 篇**：
+- **LLM Autonomous Agent Survey** (Frontiers of CS 2024, 3137 citations) — 提出感知-规划-记忆-工具统一架构，明确将"解释"列为 agent 可信度核心维度，呼吁覆盖全生命周期的解释框架。是本方向的理论背书。
+- **AgentBench** (ICLR 2024, 951 citations) — 8 环境多维评测基准，实证 agent 行为多阶段性，单步解释不足以诊断长程推理失败。支撑"解释必须沿信息转换节点展开"。
+- **AgentVerse** (ICLR 2024) — 动态重组多智能体协作，揭示社会行为涌现；论证群体决策源头追溯需对"中间决策"做可解释性记录。支撑"跨域协商需要解释凭证"。
+- **Explainable Human-AI Interaction: A Planning Perspective** (Morgan & Claypool 2024, Sreedharan/Kulkarni/Kambhampati) — 唯一直接命中主题的强相关项。提出"解释即规划"范式：agent 须考虑回路中人类心智模型，解释性通信可顺应或改变人类期望。直接支撑方向四"交互式解释/意图共创"。
+
+**关键趋势**: 真实文献集中于"agent 行为多阶段性→解释须沿信息转换节点展开"与"心智模型对齐→解释即规划"两条主线。用户框架中的"双受众分层解释""闭环溯因形式化保障""机器可读凭证"等核心方向的支撑文献在本批几乎全为幻觉——需在 Phase B 用 academic-search 检索真实替代论文补充（主题：Agent可解释性框架 / 双受众分层 / 闭环溯因 / 多智能体解释）。
+
+#### Cross-direction Convergence (Updated Round 7)
+
+| 共享主题 | Agent Explainability | Agent Memory | Intent Understanding |
+|---|---|---|---|
+| **多阶段行为需多阶段解释** | AgentBench 多阶段评测, AgentVerse 中间决策追溯 | 长程记忆支撑长程解释 | 多步意图推断需过程级解释 |
+| **心智模型对齐** | Sreedharan 心智模型顺应/改变 | 用户画像即心智模型快照 | UserHarness 心智重建 |
+| **解释作为可信度维度** | Survey 将解释列为核心维度 | 记忆可审计性 | 意图透明度 (intent-communication-design) |
+| **解释即规划** | Sreedharan 范式 | - | 意图共创可视为规划问题 |
+
+#### Agent Explainability — Phase B: 14 Replacement Papers (真实替代论文)
+
+Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），四个框架方向（T1 信息转换可观测性 / T2 双受众分层解释 / T3 闭环验证溯因 / T4 多智能体解释）的支撑文献几乎全为编造。Phase B 通过 arXiv API 按四主题布尔检索，找到 14 篇真实近期论文填补空缺，全部下载 PDF 并入库。
+
+**T1 信息转换可观测性（3 篇）**：
+- **From Agent Traces to Trust** (2026) — 综述系统定义执行溯源（typed graph）与证据追踪（evidence-support projection），统一检索接地/声明支撑/工具安全/记忆谱系/可观测性/调试/审计/恢复为过程级问责框架
+- **HANSEL** (2026) — 将验证从被动阅读重构为交互式证据导航；83.7% precision/88.8% recall；轨迹体积-61.6%；不可追溯时显式标记缺口
+- **Causal Past Logic** (2026) — 分布式 LLM agent 运行时验证；CPL 守卫嵌入协调语言本身，向量时钟监控器证明本地值=指称语义
+
+**T2 双受众分层解释（2 篇）**：
+- **Three-Level Framework for LLM-Enhanced XAI** (Information Systems Frontiers 2025) — 三层框架（算法/领域→以人为中心→社会）；LLM 担任跨层中介，将技术输出转化为情境叙述
+- **Explainable AI, but explainable to whom?** (2021) — 经验基础：COVID-19 ICU 案例揭示"利益相关者星座"（开发/专家/决策者/受众）差异化解释需求
+
+**T3 闭环验证溯因（4 篇）**：
+- **Responsible and Explainable AI Agents** (2025) — 多模型共识架构：异构 LLM/VLM 独立生成→分歧暴露→推理 agent 结构化整合；可解释性=跨模型比较+保留中间输出
+- **Blockchain Accountability** (2024) — 区块链防篡改黑箱 + LLM 从问责数据生成解释；ROS 移动机器人三场景验证
+- **The Argument is the Explanation** (2025) — 结构化论证图；每步推理可验证；Bipolar ABA 实现自动幻觉检测；AAEC 94.44 F1 (+5.7)
+- **Causal Explanations for Sequential Decision Making Under Uncertainty** (2022) — SCM 因果解释基础；单一框架识别多个语义不同解释；MDP 因果推理精确+近似方法
+
+**T4 多智能体解释（5 篇）**：
+- **TRiSM for Agentic AI** (2025) — AMAS 信任/风险/安全管理综述；TRiSM 五支柱适配；CSS+TUE 新指标；风险分类法
+- **CEMA** (AAMAS 2024) — 不假设固定因果结构；反事实世界模拟识别显著原因；HEADD 数据集；用户研究验证信任提升
+- **TriEx** (ACL 2026) — 三视角（自我推理/信念状态/预言机审计）；揭示 agent 说什么/信什么/做什么的系统性不匹配
+- **AXIS** (2025) — LLM 用"whatif"/"remove"盘问模拟器生成反事实解释；正确性+7.7%；目标预测+23%
+- **Policy Explanations for MARL** (IJCAI 2022) — MARL 策略解释基础；策略摘要+语言解释；用户研究验证
+
+**关键趋势**：
+1. **从被动阅读到交互验证**（HANSEL）— 验证不是读日志而是导航证据
+2. **从自我解释到外部验证**（TriEx, 共识架构）— LLM 自我叙述不可信，需跨模型比较或三视角审计
+3. **从结果解释到过程溯源**（执行溯源综述, CPL）— 过程级问责要求类型化图+运行时验证
+4. **因果解释的适用性扩大**（SCM→CEMA→AXIS）— 从固定结构到仅需前向模拟到 LLM 盘问
+5. **问责 = 不可篡改记录 + 可审计理据 + 责任执行**（区块链+共识+论证三路径互补）
+
+#### Cross-direction Convergence (Updated Round 7 Phase B)
+
+| 共享主题 | T1 信息转换可观测性 | T2 双受众分层 | T3 闭环验证溯因 | T4 多智能体解释 |
+|---|---|---|---|---|
+| **过程级 vs 结果级** | 执行溯源 typed graph | 三层框架分层交付 | 论证图每步可验证 | TriEx 三视角对齐 |
+| **交互式验证** | HANSEL 证据导航 | LLM 对话式解释 | 论证测试时反馈 | AXIS LLM 盘问模拟器 |
+| **因果/反事实** | CPL 因果可见性 | - | SCM 因果解释 | CEMA/AXIS 反事实 |
+| **信任校准** | 过程级问责 | 利益相关者差异化 | 区块链+共识治理 | TRiSM 五支柱 |
+| **幻觉检测** | 不可追溯标记缺口 | - | 论证事实节点攻击 | TriEx 说/信/做不匹配 |

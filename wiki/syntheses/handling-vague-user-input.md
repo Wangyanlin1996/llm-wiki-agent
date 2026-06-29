@@ -149,8 +149,12 @@ Uncertainty Decomposition (2026) — prompt-based 分离 u_t / c_t
 不仅检测 OOS，进一步将未知查询聚类为新意图类别并扩展分类器：
 
 - [[GID]] — Generalized Intent Discovery 开山作：同时分类 IND 意图 + 发现 OOD 新意图。两种框架（pipeline / joint）。EMNLP 2022。
-- [[continual-gid]] — 持续版：多阶段增量发现新意图，解决灾难性遗忘。ACL 2023。
+- [[continual-gid]] — 持续版：多阶段增量发现新意图，解决灾难性遗忘。方法 PLRD 含 memory module（每类存 5 样本回放）+ class prototype 伪标签 + feature distillation 三子模块。ACL 2023。**关键边界**：PLRD 的 memory module 属于 continual learning 的 **replay buffer**（训练态、参数空间，防梯度覆盖旧类），**不是智能体运行态记忆**（不存对话历史/用户偏好，推理阶段不调用，对用户透明）——故不填补 L1 智能体记忆能力空白。
 - [[open-intent-discovery]] — 从零发现：无监督依存解析 + 语义聚类，不假设任何预定义意图。EMNLP 2021。
+
+### L1 与智能体记忆能力的关系
+
+L1 四条路线（OOS 检测 / 意图发现 / 共形澄清 / 开放目标推断）整体停留在**无状态的单轮或离线批处理范式**，均**未使用智能体记忆能力**（跨会话经验积累、历史交互检索、用户长期偏好画像）。[[continual-gid]] 的 replay buffer 是最接近"记忆"的机制，但层级在模型参数空间而非 agent 认知空间。智能体记忆在 L1 处理中是**空白点**，可作为后续研究方向（对比 Round 6 引入的 [[PersistentMemoryClarification]] / [[EvolutionaryMemoryArchitecture]] 等记忆增强澄清工作，其多落在 L2/L3）。
 
 ### 5c. 共形澄清——有保证地缩小范围
 
