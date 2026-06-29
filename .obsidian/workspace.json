@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/sources/assistantx.md",
+                "file": "telecom-agent-explainability-blueprint.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "assistantx"
+              "title": "telecom-agent-explainability-blueprint"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 231.5
+    "width": 521.5
   },
   "right": {
     "id": "5b8d995dcfff144f",
@@ -94,7 +94,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": false,
+                "file": "telecom-agent-explainability-blueprint.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "telecom-agent-explainability-blueprint 的反向链接列表"
             }
           },
           {
@@ -180,43 +181,43 @@
       "bases:新建数据库": false
     }
   },
-  "active": "5ba9afb669a9aacc",
+  "active": "cf78155d6b47392e",
   "lastOpenFiles": [
-    "docs/AI-Agent-Intent-Insight-Report-2026-06-27.md",
-    "wiki/concepts/EvolutionaryMemoryArchitecture.md",
-    "wiki/concepts/PersistentMemoryClarification.md",
-    "wiki/concepts/CognitiveMemoryMechanism.md",
-    "wiki/concepts/RetrievalAugmentedClarification.md",
-    "wiki/sources/fairy-gui-agent.md",
-    "wiki/sources/sensitivity-aware-clarification.md",
-    "wiki/sources/janus.md",
-    "wiki/sources/cops.md",
-    "wiki/sources/corpus-rag-clarifying.md",
-    "wiki/sources/rac.md",
-    "wiki/sources/28622-k20.md",
-    "raw/papers/fairy-gui-agent.pdf",
-    "raw/papers/sensitivity-aware-clarification.pdf",
-    "raw/papers/cops.pdf",
-    "raw/papers/janus.pdf",
-    "raw/papers/corpus-rag-clarifying.pdf",
-    "raw/papers/rac.pdf",
-    "wiki/sources/clarify-when-necessary.md",
-    "tools/md2html.py",
-    "raw/papers/uncertainty-decomposition-clarification.pdf",
-    "raw/papers/clara.pdf",
-    "raw/papers/sage-agent.pdf",
-    "docs/agents/domain.md",
-    "docs/agents/triage-labels.md",
-    "docs/agents/issue-tracker.md",
-    "wiki/concepts/PromptBasedUncertaintyDecomposition.md",
-    "wiki/concepts/IntentSimUncertainty.md",
-    "wiki/syntheses/handling-vague-user-input.md",
-    "ClarifyWhenNecessary.md",
-    "wiki/sources/neural-evpi.md",
-    "NeuralEVPI.md",
-    "wiki/sources/uncertainty-decomposition-clarification.md",
-    "UncertaintyDecomposition.md",
-    "raw/papers/uncertainty-decomposition-clarification.md",
-    "raw/papers/clarify-when-necessary.md"
+    "report-2026-06-29.html",
+    "docs/AI-Agent-Intent-Insight-Report-2026-06-29.md",
+    "wiki/concepts/ConsensusDrivenReasoning.md",
+    "wiki/concepts/AgentAccountability.md",
+    "wiki/concepts/MultiAgentExplainability.md",
+    "wiki/concepts/StructuredArgumentation.md",
+    "wiki/concepts/CausalExplanation.md",
+    "wiki/concepts/StakeholderExplainability.md",
+    "wiki/concepts/ExecutionProvenance.md",
+    "wiki/sources/policy-explanations-marl.md",
+    "wiki/sources/counterfactual-mas-explanation.md",
+    "wiki/sources/triex-multi-agent-llm-explanation.md",
+    "wiki/sources/cema-causal-explanations-mas.md",
+    "wiki/sources/trism-agentic-ai.md",
+    "wiki/sources/causal-explanations-sequential-uncertainty.md",
+    "wiki/sources/argument-is-the-explanation.md",
+    "wiki/sources/blockchain-accountability-agents.md",
+    "wiki/sources/responsible-explainable-ai-agents.md",
+    "wiki/sources/explainable-ai-to-whom.md",
+    "wiki/sources/three-level-llm-xai.md",
+    "wiki/sources/causal-past-logic-runtime-verification.md",
+    "wiki/sources/hansel-web-agent-verification.md",
+    "wiki/sources/agent-traces-to-trust.md",
+    "raw/papers/policy-explanations-marl.pdf",
+    "raw/papers/counterfactual-mas-explanation.pdf",
+    "raw/papers/triex-multi-agent-llm-explanation.pdf",
+    "raw/papers/causal-explanations-sequential-uncertainty.pdf",
+    "raw/papers/causal-past-logic-runtime-verification.pdf",
+    "raw/papers/cema-causal-explanations-mas.pdf",
+    "raw/papers/hansel-web-agent-verification.pdf",
+    "raw/papers/explainable-ai-to-whom.pdf",
+    "raw/papers/three-level-llm-xai.pdf",
+    "raw/papers/argument-is-the-explanation.pdf",
+    "wiki/concepts/LLMAutonomousAgent.md",
+    "wiki/concepts/ExplainablePlanning.md",
+    "wiki/concepts/AgentExplainability.md"
   ]
 }
