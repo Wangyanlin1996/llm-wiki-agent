@@ -374,3 +374,24 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 关键填补: T2 LLM 编排 vs HTN/PDDL 空白 (VADAOrchestra); T5 机器可读凭证标准化空白 (6 篇构成全生命周期凭证栈); T3 验证地平线逆转 (Verification Horizon).
 
 累计 192 -> 210 页; PDF 103 -> 121.
+
+
+## [2026-07-02] ingest | Round 9 — 语义检索全景 26篇 (7子方向: Dense Retrieval / RAG / Hybrid / Embedding / Evaluation / GraphRAG / Agentic Retrieval)
+
+**新增内容**: 26篇来源页 + 7个概念页 (DenseRetrieval, RetrievalAugmentedGeneration, HybridRetrieval, EmbeddingModels, RetrievalEvaluation, GraphRAG, AgenticRetrieval)
+
+**子方向分布**:
+- T1 Dense Retrieval (3): dream-dense-retrieval, scaling-dense-retrieval, coder-constraint-retrieval
+- T2 RAG Architecture (4): rag-comprehensive-survey, beyond-parameters-survey, rag-security-privacy, rag-evaluation-survey
+- T3 Hybrid Retrieval (3): telco-orag, bm25-corrective-rag, hakari-bench
+- T4 Embedding Models (4): teleembedbench, llm2vec-gen, promptembedder, hteb-harder-embedding-bench
+- T5 Retrieval Evaluation (2): coverage-not-averages, rare-redundancy-eval
+- T6 GraphRAG (4): is-graphrag-needed, multimodal-graphrag, ex-graphrag, omd-graphrag
+- T7 Agentic Retrieval (5): reasoning-agentic-rag-survey, r2-searcher, kbsd-knowledge-boundary, metaresearcher, simplesearch-vl
+- Telecom-specific (1): armor-telecom-retriever
+
+**电信场景填补**: telco-orag (3GPP检索+Web混合+神经路由), teleembedbench (电信嵌入基准), ARMOR (查询侧检索器自适应优化) — 直接针对3GPP/O-RAN生态
+
+**关键连接**: AgenticRetrieval ↔ AgentLoop框架 (closed-loop-explainability-telecom-autonomous-networks); GraphRAG ↔ NeurosymbolicOrchestration; RetrievalEvaluation ↔ VerificationCoEvolution
+
+累计 210 -> 236 页, 121 -> 147 PDF, 122 -> 148 论文, 81 -> 88 概念.

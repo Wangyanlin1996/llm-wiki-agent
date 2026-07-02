@@ -149,6 +149,34 @@
 - [AgentRiskBOM: Risk-Scoping Security Bill of Materials](sources/agentriskbom.md) — Agent安全BOM；JSON-schema；16能力维度14分vs SBOM 1分；IEEE Cyber-AI 2026 (2026)
 - [RedAct: Redacting Agent Capability Traces for Procedural Skill Protection](sources/redact-traces.md) — 轨迹脱敏+行为水印；NST降至基线下；审计证据保留 (2026)
 
+### Semantic Retrieval — Round 9 (2024-2026)
+- [DREAM: 自回归建模统一稠密检索 (2024)](sources/dream-dense-retrieval.md) — 自回归query建模替代双编码器；MS MARCO nDCG@10=0.441 (2024)
+- [Scaling Dense Retrieval: LLM标注训练数据挖掘 (2024)](sources/scaling-dense-retrieval.md) — 从LLM标注挖掘高质量训练数据；SIGIR 2026 E-Commerce Workshop (2024)
+- [Coder-Constraint Retrieval: 约束感知代码检索 (2025)](sources/coder-constraint-retrieval.md) — 约束感知检索器；代码检索新范式 (2025)
+- [RAG Comprehensive Survey: 检索增强生成综述 (2025)](sources/rag-comprehensive-survey.md) — retriever/generator/hybrid/robust四类架构分类法 (2025)
+- [Beyond Parameters Survey: ICL→RAG→GraphRAG→CausalRAG演进 (2025)](sources/beyond-parameters-survey.md) — RAG范式演进路径全景综述 (2025)
+- [RAG Security & Privacy: 三阶段安全威胁 (2025)](sources/rag-security-privacy.md) — 检索/上下文构建/生成三阶段安全与隐私综述 (2025)
+- [RAG Evaluation Survey: RAG评估方法 (2025)](sources/rag-evaluation-survey.md) — 系统性能/事实准确性/安全/计算效率四维评估 (2025)
+- [Telecom ORAG: 电信场景混合检索+神经路由 (2025)](sources/telco-orag.md) — 3GPP检索+Web混合+神经路由；45%内存节省；开源LLM达GPT-4水平 (2025)
+- [BM25 Corrective RAG: 金融文档BM25超越稠密检索 (2025)](sources/bm25-corrective-rag.md) — BM25+神经重排两阶段；Recall@5=0.816 (2025)
+- [HAKARI-Bench: 五族检索模型统一对比 (2025)](sources/hakari-bench.md) — 稀疏/稠密/混合/重排/LLM五族统一基准 (2025)
+- [TeleEmbedBench: 电信领域嵌入基准 (2025)](sources/teleembedbench.md) — 电信首个嵌入基准；LLM embedder显著优于sentence-transformer (2025)
+- [LLM2Vec-Gen: 生成式嵌入 (2025)](sources/llm2vec-gen.md) — 在LLM输出空间直接生成嵌入；推理时无额外编码 (2025)
+- [PromptEmbedder: 双LLM软提示解耦嵌入知识 (2025)](sources/promptembedder.md) — 软提示解耦嵌入知识与主干权重 (2025)
+- [HTEB: 更难的嵌入基准 (2025)](sources/hteb-harder-embedding-bench.md) — MTEB多维度动态鲁棒性扩展 (2025)
+- [Coverage Not Averages: 语义分层检索评估 (2025)](sources/coverage-not-averages.md) — 评估形式化为统计估计；形式化覆盖保证 (2025)
+- [Rare-Redundancy Eval: 高冗余语料评估 (2025)](sources/rare-redundancy-eval.md) — 原子事实分解+冗余感知评估；ACL 2026 (2025)
+- [Is GraphRAG Needed? 9种RAG场景对比 (2025)](sources/is-graphrag-needed.md) — 检索-生成差距；扩展检索不比例提升生成质量；ACL 2026 GEM Workshop (2025)
+- [Multimodal GraphRAG: 视觉富文档知识图谱 (2025)](sources/multimodal-graphrag.md) — GraphRAG扩展到多模态视觉富文档 (2025)
+- [Ex-GraphRAG: 可解释图检索 (2025)](sources/ex-graphrag.md) — M-GNAN精确分解节点贡献；可解释性 (2025)
+- [OMD-GraphRAG: 本体引导提取 (2025)](sources/omd-graphrag.md) — 本体引导提升领域特定实体/关系精度 (2025)
+- [Reasoning Agentic RAG Survey: System 1 vs System 2 (2025)](sources/reasoning-agentic-rag-survey.md) — 预定义推理管线vs自主工具编排双范式 (2025)
+- [R2-Searcher: 多跳推理检索-推理边界校准 (2025)](sources/r2-searcher.md) — 多跳推理中检索-推理边界校准 (2025)
+- [KBSD Knowledge Boundary: 知识边界校准三决策 (2025)](sources/kbsd-knowledge-boundary.md) — 信任记忆/依赖检索/弃答三决策 (2025)
+- [MetaResearcher: 对抗虚拟环境+自反思RL (2025)](sources/metaresearcher.md) — 对抗虚拟环境扩展深度研究能力 (2025)
+- [SimpleSearch-VL: 多模态agentic搜索 (2025)](sources/simplesearch-vl.md) — 仅需5K SFT+2K RL实现多模态agentic搜索 (2025)
+- [ARMOR: 电信查询侧检索器自适应优化 (2025)](sources/armor-telecom-retriever.md) — 查询侧检索器自适应优化；低资源电信场景 (2025)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -243,6 +271,15 @@
 - [Verification Co-Evolution](concepts/VerificationCoEvolution.md) — 验证协同演化：验证器须与生成器共演化；可扩展×忠实×鲁棒三重困境
 - [Policy Contestability](concepts/PolicyContestability.md) — 策略可争议性：可废止规则+诊断→修订闭环；解释/质疑/重评
 - [Intent-Centric Accountability](concepts/IntentCentricAccountability.md) — 意图为中心问责：问责基线从动作上移到意图规格化+验证+溯源
+
+### Semantic Retrieval Concepts
+- [稠密检索 Dense Retrieval](concepts/DenseRetrieval.md) — 神经编码器向量空间相似度检索；从双编码器到自回归建模与约束感知
+- [检索增强生成 RAG](concepts/RetrievalAugmentedGeneration.md) — retrieve→augment→generate核心范式；从ICL到CausalRAG演进
+- [混合检索 Hybrid Retrieval](concepts/HybridRetrieval.md) — 稀疏+稠密融合；BM25在特定领域仍超越SOTA稠密检索
+- [嵌入模型 Embedding Models](concepts/EmbeddingModels.md) — 从对比学习双编码器到生成式嵌入与软提示解耦
+- [检索评估 Retrieval Evaluation](concepts/RetrievalEvaluation.md) — 超越nDCG/Recall@k的多维统计估计与冗余感知评估
+- [知识图谱检索 GraphRAG](concepts/GraphRAG.md) — 知识图谱增强检索支持多跳推理；可解释性与本体引导
+- [Agent驱动检索 Agentic Retrieval](concepts/AgenticRetrieval.md) — LLM Agent自主决定何时/检索什么/如何反思；System 1 vs System 2
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms

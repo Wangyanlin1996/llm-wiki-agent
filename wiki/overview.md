@@ -457,3 +457,35 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 | **闭环完整性** | 监控→检测 | 选择→评估 | 检测→解释→恢复 (RAIDER) | 授权→执行→回执 |
 | **意图对齐** | 意图假设 (Agent-ToM) | 任务相关节点 (SkillCAT) | 意图代理 vs 意图 (Verification Horizon) | 授权图源自意图 (AuthGraph) |
 | **隐私 vs 问责** | - | - | - | 脱敏+水印 (RedAct) |
+
+---
+
+## 第9轮：语义检索全景（2024-2026）— 26篇论文 × 7子方向
+
+第9轮聚焦语义检索（Semantic Retrieval）领域，覆盖7个子方向共26篇论文（2024-2026），构建从基础检索到Agent驱动的完整技术图谱。
+
+### 跨方向趋势
+
+| 子方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **T1 稠密检索** | 双编码器→自回归建模→约束感知 | [[dream-dense-retrieval]]、[[scaling-dense-retrieval]]、[[coder-constraint-retrieval]] |
+| **T2 RAG架构** | ICL→RAG→GraphRAG→CausalRAG | [[rag-comprehensive-survey]]、[[beyond-parameters-survey]]、[[rag-security-privacy]] |
+| **T3 混合检索** | 稀疏+稠密融合；BM25在特定领域仍占优 | [[telco-orag]]、[[bm25-corrective-rag]]、[[hakari-bench]] |
+| **T4 嵌入模型** | 对比学习→生成式嵌入→软提示解耦 | [[teleembedbench]]、[[llm2vec-gen]]、[[promptembedder]] |
+| **T5 检索评估** | nDCG/Recall@k→统计估计→冗余感知 | [[coverage-not-averages]]、[[rare-redundancy-eval]]、[[rag-evaluation-survey]] |
+| **T6 GraphRAG** | 文档建图→可解释子图检索→本体引导 | [[is-graphrag-needed]]、[[ex-graphrag]]、[[omd-graphrag]] |
+| **T7 Agent驱动检索** | System 1预定义管线→System 2自主编排 | [[reasoning-agentic-rag-survey]]、[[r2-searcher]]、[[metaresearcher]] |
+
+### 与现有Wiki的连接
+
+- **电信场景填补**：三篇电信专用论文（[[telco-orag]]、[[teleembedbench]]、[[armor-telecom-retriever]]）直接针对3GPP/O-RAN，填补了wiki最大的场景空白
+- **AgentLoop框架对应**：[[AgenticRetrieval]]与现有综合[[closed-loop-explainability-telecom-autonomous-networks]]中定义的AgentLoop框架（用户意图→编排器→Skill执行→结果整合→闭环验证）直接对应——检索是Skill执行的核心环节
+- **神经符号编排呼应**：[[GraphRAG]]与[[NeurosymbolicOrchestration]]呼应——LLM灵活规划+符号可验证执行
+- **评估维度扩展**：[[RetrievalEvaluation]]为wiki的[[VerificationCoEvolution]]三重困境（可扩展×忠实×鲁棒）提供了检索侧的评估方法论
+
+### 关键洞察
+
+1. **检索-生成差距**（[[is-graphrag-needed]]）：扩展检索不比例提升生成质量——GraphRAG的价值在于多跳推理而非单跳事实查询
+2. **BM25的持久生命力**（[[bm25-corrective-rag]]）：在金融/法律等高术语密度领域，BM25仍超越SOTA稠密检索——混合检索是工程最优解
+3. **System 1 vs System 2**（[[reasoning-agentic-rag-survey]]）：Agentic RAG正从预定义推理管线向自主工具编排演进，与AgentLoop框架的Skill编排层直接对应
+4. **评估的形式化**（[[coverage-not-averages]]）：检索评估从经验平均指标走向统计估计理论——这与电信网络中SLA可验证性的思路一致

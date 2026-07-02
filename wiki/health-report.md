@@ -1,0 +1,165 @@
+# Wiki Health Report — 2026-07-02
+
+Scanned 249 wiki pages. Checks are purely structural (no LLM calls).
+
+## Empty / Stub Files (0 found)
+
+All pages have content beyond frontmatter. ✅
+
+## Index Sync (0 issues)
+
+index.md is in sync with disk. ✅
+
+## Log Coverage (149 source pages without log entry)
+
+These source pages have no corresponding `ingest` entry in log.md:
+
+- `wiki\sources\28312-j50.md` — 3gpp ts 28.312 v19.5.0 — intent driven management services for mobile networks
+- `wiki\sources\28556-j00.md` — 3gpp ts 28.556 v19.0.0 — network policy management for 5g (stage 2 & 3)
+- `wiki\sources\28622-k20.md` — 3gpp ts 28.622 v20.2.0 — generic nrm irp information service (is)
+- `wiki\sources\28912-j00.md` — 3gpp tr 28.912 v19.0.0 — study on intent driven management services for mobile networks (rel-18)
+- `wiki\sources\28914-j00.md` — 3gpp tr 28.914 v19.0.0 — study on intent driven management services for mobile networks (rel-19)
+- `wiki\sources\active-task-disambiguation.md` — active task disambiguation with llms
+- `wiki\sources\agent-memory-survey.md` — from storage to experience
+- `wiki\sources\agent-tom-monitoring.md` — agent-tom: learning to monitor autonomous llm agents via theory-of-mind reasoning（基于心智理论推理的自治 agent 监控）
+- `wiki\sources\agent-traces-to-trust.md` — from agent traces to trust: a survey of evidence tracing and execution provenance in llm agents
+- `wiki\sources\agentbench.md` — agentbench: evaluating llms as agents（llm 作为智能体的多维评测基准）
+- `wiki\sources\agentbound.md` — agentbound: verifiable behavioral governance for autonomous ai agents（自治 ai agent 的可验证行为治理）
+- `wiki\sources\agentkb.md` — agent kb: 跨域经验共享的agent知识库
+- `wiki\sources\agentriskbom.md` — agentriskbom: a risk-scoping security bill of materials for agentic ai systems（agentic ai 系统的风险范围安全物料清单）
+- `wiki\sources\agentverse.md` — agentverse: facilitating multi-agent collaboration and exploring emergent behaviors（多智能体协作与涌现行为）
+- `wiki\sources\amem.md` — a-mem：zettelkasten 式自主记忆系统
+- `wiki\sources\apex-mem.md` — apex-mem
+- `wiki\sources\argument-is-the-explanation.md` — the argument is the explanation: structured argumentation for trust in agents
+- `wiki\sources\armor-telecom-retriever.md` — armor：低资源电信问答的自适应检索器优化
+- `wiki\sources\ask-before-plan.md` — ask-before-plan
+- `wiki\sources\assistantx.md` — assistantx
+- `wiki\sources\bayesian-social-deduction.md` — 贝叶斯社交推理：agent击败人类（acl 2026）
+- `wiki\sources\beyond-parameters-survey.md` — 超越参数：llm 上下文增强技术综述
+- `wiki\sources\blockchain-accountability-agents.md` — enhancing trust in autonomous agents: an architecture for accountability and explainability through blockchain and large language models
+- `wiki\sources\bm25-corrective-rag.md` — 从 bm25 到 corrective rag：文本与表格文档的检索策略基准
+- `wiki\sources\causal-explanations-sequential-uncertainty.md` — causal explanations for sequential decision making under uncertainty
+- `wiki\sources\causal-past-logic-runtime-verification.md` — causal past logic for runtime verification of distributed llm agent workflows
+- `wiki\sources\causalab.md` — causalab: a scalable environment for interactive causal discovery toward ai scientists（面向 ai 科学家的可扩展交互式因果发现环境）
+- `wiki\sources\cema-causal-explanations-mas.md` — cema: causal explanations for sequential decision-making in multi-agent systems
+- `wiki\sources\cfqp.md` — cfqp：协同过滤下一问题预测
+- `wiki\sources\clara.md` — 'clara: show, don''t ask — generative visual disambiguation for composed image
+- `wiki\sources\clarify-when-necessary.md` — clarify when necessary: resolving ambiguity through interaction with lms
+- `wiki\sources\cocot.md` — 'cognitive chain-of-thought (cocot): structured multimodal reasoning about
+- `wiki\sources\coder-constraint-retrieval.md` — coder：超越语义相似度的局部约束兼容检索
+- `wiki\sources\coinbench.md` — coinbench：从个体到集体意图理解
+- `wiki\sources\contestability-layer.md` — machine-coached policy revision in adaptive agent-based regulatory simulation: a controller-level contestability layer（自适应 agent 仿真中的机器辅导策略修订：控制器级可争议层）
+- `wiki\sources\contextagent.md` — contextagent
+- `wiki\sources\continual-gid.md` — 'continual generalized intent discovery: marching towards dynamic and open-world
+- `wiki\sources\cops.md` — cops：认知记忆驱动的个性化搜索
+- `wiki\sources\corpus-rag-clarifying.md` — 语料感知的检索增强澄清问题生成
+- `wiki\sources\counterfactual-mas-explanation.md` — integrating counterfactual simulations with language models for explaining multi-agent behaviour (axis)
+- `wiki\sources\coverage-not-averages.md` — 覆盖率而非均值：可信检索评估的语义分层
+- `wiki\sources\debate.md` — 'debate: a dataset for disentangling textual ambiguity in mandarin through
+- `wiki\sources\deep-unknown-intent.md` — deep unknown intent detection with margin loss
+- `wiki\sources\dream-dense-retrieval.md` — dream：基于自回归建模的稠密检索嵌入
+- `wiki\sources\droid.md` — droid: dual representation for out-of-scope intent detection
+- `wiki\sources\ds-ia-framework.md` — ds-ia：双阶段意图感知框架（主动拒绝+确定执行）
+- `wiki\sources\emem.md` — e-mem
+- `wiki\sources\enpmr-bench.md` — enpmr-bench
+- `wiki\sources\etapp.md` — etapp
+- `wiki\sources\evo-memory.md` — evo-memory
+- `wiki\sources\evomembench.md` — evomembench: 自演化视角的agent记忆评测基准
+- `wiki\sources\ex-graphrag.md` — ex-graphrag：图增强 llm 的可解释证据路由
+- `wiki\sources\explainable-ai-to-whom.md` — explainable ai, but explainable to whom?
+- `wiki\sources\explainable-human-ai-interaction.md` — explainable human-ai interaction: a planning perspective（可解释人机交互：规划视角）
+- `wiki\sources\fairy-gui-agent.md` — fairy：演化记忆 + 目标精炼驱动的鲁棒 agent 系统
+- `wiki\sources\fingertip-20k.md` — fingertip 20k：主动个性化移动agent基准（iclr 2026）
+- `wiki\sources\forensic-trajectory-signatures.md` — forensic trajectory signatures for agent memory poisoning detection（agent 记忆投毒的轨迹取证签名）
+- `wiki\sources\gid.md` — generalized intent discovery: learning from open world dialogue system
+- `wiki\sources\good-agent-alignment.md` — flexible agent alignment with goal inference from open-ended dialog
+- `wiki\sources\grounded-continuation.md` — grounded continuation: a linear-time runtime verifier for llm conversations（llm 对话的线性时间运行时验证器）
+- `wiki\sources\guide-bench.md` — guide：gui意图检测评测基准（cvpr 2026）
+- `wiki\sources\h-mem.md` — h-mem
+- `wiki\sources\hakari-bench.md` — hakari-bench：统一条件下检索架构与效率设置对比的轻量级基准
+- `wiki\sources\hansel-web-agent-verification.md` — hansel: extracting breadcrumbs from web agent trajectories for interactive verification
+- `wiki\sources\hteb-harder-embedding-bench.md` — hteb：超越一维静态鲁棒性的更难文本嵌入基准
+- `wiki\sources\intent-centric-se.md` — from code-centric to intent-centric software engineering: a reflexive thematic analysis of generative ai, agentic systems, and engineering accountability（从代码为中心到意图为中心的软件工程：反思性主题分析）
+- `wiki\sources\intent-communication-design.md` — designing intent communication
+- `wiki\sources\intent-signal-theory.md` — intent signal theory
+- `wiki\sources\intentgrasp.md` — intentgrasp
+- `wiki\sources\intentrl.md` — intentrl
+- `wiki\sources\intentvlm.md` — intentvlm：视频语言前逆建模意图识别
+- `wiki\sources\intpro.md` — intpro
+- `wiki\sources\is-graphrag-needed.md` — graphrag 是否必要？从基础 rag 到图/agent 解决方案
+- `wiki\sources\janus.md` — janus：持久记忆与内部言语驱动的欠明确请求恢复
+- `wiki\sources\kbsd-knowledge-boundary.md` — kbsd：agentic 搜索中知识边界感知的自蒸馏行为校准
+- `wiki\sources\knowu-bench.md` — knowu-bench: 交互式主动个性化移动agent评测
+- `wiki\sources\kya-trust-layer.md` — kya: a framework-agnostic trust layer for autonomous systems with verifiable provenance and hierarchical policy composition（自治系统的框架无关信任层：可验证溯源与层次化策略组合）
+- `wiki\sources\lightmem.md` — lightmem
+- `wiki\sources\llm-autonomous-agent-survey.md` — a survey on large language model based autonomous agents（基于 llm 的自主智能体综述）
+- `wiki\sources\llm2vec-gen.md` — llm2vec-gen：从大语言模型生成嵌入
+- `wiki\sources\looking-not-picking.md` — looking is not picking: an attention-segment account of tool-selection failures in llm agents（工具选择失败的注意力段解释）
+- `wiki\sources\memcog.md` — memcog
+- `wiki\sources\memgym.md` — memgym
+- `wiki\sources\memory-autonomous-agents-survey.md` — 自主agent记忆综述：机制、评测与前沿
+- `wiki\sources\memoryos.md` — memoryos: ai agent 记忆操作系统
+- `wiki\sources\memp.md` — memp: agent 程序性记忆探索
+- `wiki\sources\mempi.md` — mem-π: 自适应记忆——学习何时生成与生成什么
+- `wiki\sources\metaresearcher.md` — metaresearcher：对抗虚拟环境中自反思 rl 驱动的深度研究扩展
+- `wiki\sources\minteval.md` — minteval
+- `wiki\sources\multimodal-graphrag.md` — 多模态图 rag：面向视觉富文档的长程理解
+- `wiki\sources\neural-evpi.md` — 'learning to ask good questions: ranking clarification questions using neural
+- `wiki\sources\neurosync.md` — neurosync
+- `wiki\sources\noemmma.md` — 'noem³a: a neuro-symbolic ontology-enhanced method for multi-intent understanding
+- `wiki\sources\ocr-memory.md` — ocr-memory: 视觉上下文检索增强长程agent记忆
+- `wiki\sources\omd-graphrag.md` — omd-graphrag：本体引导提取+多维聚类+双通道融合
+- `wiki\sources\onepred.md` — onepred: next-query prediction via recursive intent memory in multi-turn conversations
+- `wiki\sources\open-intent-discovery.md` — open intent discovery through unsupervised semantic clustering and dependency
+- `wiki\sources\pa-bridge.md` — pa-bridge: 桥接被动与主动——对话开场语推荐增强
+- `wiki\sources\pask.md` — pask
+- `wiki\sources\peam.md` — peam: 参数化具身agent记忆——minecraft中的对比经验内化
+- `wiki\sources\personalalign.md` — personalalign
+- `wiki\sources\pira-bench.md` — pira-bench
+- `wiki\sources\policy-explanations-marl.md` — toward policy explanations for multi-agent reinforcement learning
+- `wiki\sources\pp-clarifier.md` — 'plug-and-play clarifier: a zero-shot multimodal framework for egocentric intent
+- `wiki\sources\proactive-ai-implications.md` — when ai-based agents are proactive
+- `wiki\sources\proagentbench.md` — proagentbench: 真实世界数据的主动agent评测
+- `wiki\sources\procodebench.md` — procodebench: 主动编程助手——真实开发者行为vs模拟
+- `wiki\sources\promem.md` — promem：主动记忆提取替代静态摘要
+- `wiki\sources\promptembedder.md` — promptembedder：双 llm 软提示的高效可迁移文本嵌入
+- `wiki\sources\proof-carrying-agent.md` — proof-carrying agent actions: model-agnostic runtime governance for heterogeneous agent systems（携证 agent 动作：异构 agent 系统的模型无关运行时治理）
+- `wiki\sources\propersim.md` — propersim：主动+个性化推荐仿真（iclr 2026）
+- `wiki\sources\proutt.md` — 'proutt: llm-driven preference data synthesis for proactive prediction of next
+- `wiki\sources\provenance-authorization.md` — aligning provenance with authorization: a dual-graph defense for llm agents（溯源与授权对齐：llm agent 的双图防御）
+- `wiki\sources\psi-bench.md` — ψ-bench：主动个性化影响评测
+- `wiki\sources\r2-searcher.md` — r²-searcher：校准 agentic 搜索的检索-推理边界
+- `wiki\sources\rac.md` — rac：检索增强的语料锚定澄清问题生成
+- `wiki\sources\rag-comprehensive-survey.md` — rag 综合综述：架构、增强与鲁棒性前沿
+- `wiki\sources\rag-evaluation-survey.md` — llm 时代 rag 评估综合综述
+- `wiki\sources\rag-security-privacy.md` — rag 安全与隐私：架构、威胁、防御与未来方向
+- `wiki\sources\raider-robot.md` — raider: tool-equipped llm agent for robotic action issue detection, explanation and recovery（机器人动作问题检测、解释与恢复的工具增强 agent）
+- `wiki\sources\rare-redundancy-eval.md` — rare：高相似语料的冗余感知检索评估框架
+- `wiki\sources\reasoning-agentic-rag-survey.md` — 推理 rag 的 system 1 与 system 2：推理 agentic rag 综述
+- `wiki\sources\recap.md` — recap
+- `wiki\sources\recgpt-mobile.md` — recgpt-mobile：端侧llm意图理解agent（kdd 2026）
+- `wiki\sources\redact-traces.md` — redact: redacting agent capability traces for procedural skill protection（为程序性技能保护脱敏 agent 能力轨迹）
+- `wiki\sources\responsible-explainable-ai-agents.md` — towards responsible and explainable ai agents with consensus-driven reasoning
+- `wiki\sources\reward-driven-interaction.md` — reward-driven interaction: 用户满意度预测增强主动对话agent
+- `wiki\sources\sage-agent.md` — sage-agent: structured uncertainty guided clarification for llm agents
+- `wiki\sources\satori.md` — satori
+- `wiki\sources\scaling-dense-retrieval.md` — 扩展稠密检索：llm 标注训练数据的结构化挖掘与渐进课程
+- `wiki\sources\scrapmem.md` — scrapmem：生物启发光学遗忘与端侧记忆
+- `wiki\sources\sensitivity-aware-clarification.md` — 敏感感知的检索增强意图澄清
+- `wiki\sources\sii-piwm.md` — sii/piwm: 看-推断-干预——目标导向社会智能的主动世界建模
+- `wiki\sources\simplesearch-vl.md` — simplesearch-vl：多模态 agentic 深度搜索的简单配方
+- `wiki\sources\skillcat.md` — skillcat: contrastive assessment and topology-aware skill self-evolution for llm agents（对比评估与拓扑感知的 skill 自演化）
+- `wiki\sources\stale.md` — stale：记忆过期检测与隐式冲突
+- `wiki\sources\swe-agent-mindset.md` — projecting the emerging mindset of swe agent（swe agent 涌现心智的投影）
+- `wiki\sources\target-proactive-dialogue.md` — enhancing target-guided proactive dialogue via scenario modeling and intent-keyword
+- `wiki\sources\telco-orag.md` — telco-orag：面向电信查询的混合检索与神经路由 rag 优化
+- `wiki\sources\teleembedbench.md` — teleembedbench：电信 rag 多语料嵌入基准
+- `wiki\sources\three-level-llm-xai.md` — a three-level framework for llm-enhanced explainable ai: from technical explanations to natural language
+- `wiki\sources\tomcat.md` — tomcat：人-agent协作中的心智理论推理
+- `wiki\sources\triex-multi-agent-llm-explanation.md` — triex: a game-based tri-view framework for explaining internal reasoning in multi-agent llms
+- `wiki\sources\trism-agentic-ai.md` — trism for agentic ai: a review of trust, risk, and security management in llm-based agentic multi-agent systems
+- `wiki\sources\uncertainty-decomposition-clarification.md` — uncertainty decomposition for clarification seeking in llm agents
+- `wiki\sources\userharness.md` — userharness：心智重建增强agent心智理论
+- `wiki\sources\vadaorchestra.md` — vadaorchestra: neurosymbolic orchestration of adaptive reasoning workflows（自适应推理工作流的神经符号编排）
+- `wiki\sources\verification-horizon.md` — the verification horizon: no silver bullet for coding agent rewards（编码 agent 奖励的验证地平线：无银弹）
+- `wiki\sources\vitabench2.md` — vitabench 2.0
