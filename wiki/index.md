@@ -129,6 +129,26 @@
 - [AXIS: Counterfactual Explanations for MAS](sources/counterfactual-mas-explanation.md) — LLM盘问模拟器生成反事实解释；正确性+7.7%；目标预测+23% (2025)
 - [Toward Policy Explanations for MARL](sources/policy-explanations-marl.md) — MARL策略解释基础；策略摘要+语言解释；IJCAI 2022 (2022)
 
+### AI Agent — Closed-Loop Interpretability (Round 8)
+- [Forensic Trajectory Signatures for Agent Memory Poisoning Detection](sources/forensic-trajectory-signatures.md) — 记忆投毒行为不变量；AUC 0.9904；过确定签名；前缀仅实时阻断 (2026)
+- [Agent-ToM: Monitor Autonomous LLM Agents via Theory-of-Mind](sources/agent-tom-monitoring.md) — ToM推理监控隐蔽恶意行为；Reason-Verify-Refine；语义护栏记忆 (2026)
+- [Projecting the Emerging Mindset of SWE Agent](sources/swe-agent-mindset.md) — 观察透镜投影think-action链；408轨迹；导航/证据/接地/停止可见 (2026)
+- [Looking Is Not Picking: Attention-Segment Account of Tool-Selection Failures](sources/looking-not-picking.md) — 看对却选错；读出而非感知瓶颈；免训练选择器+11.9分 (2026)
+- [SkillCAT: Contrastive Assessment and Topology-Aware Skill Self-Evolution](sources/skillcat.md) — 对比因果提取+评估增强演化+拓扑感知路由；+40.40% (2026)
+- [VADAOrchestra: Neurosymbolic Orchestration of Adaptive Reasoning Workflows](sources/vadaorchestra.md) — LLM编排+Datalog+/-符号引擎；可验证推理轨迹；KR 2026 (2026)
+- [Grounded Continuation: Linear-Time Runtime Verifier for LLM Conversations](sources/grounded-continuation.md) — 依赖图+四形式主义8更新操作；线性时间；无冲突保证 (2026)
+- [The Verification Horizon: No Silver Bullet for Coding Agent Rewards](sources/verification-horizon.md) — 验证比生成更难逆转；可扩展性×忠实度×鲁棒性三重困境 (2026)
+- [RAIDER: Tool-Equipped LLM Agent for Action Issue Detection, Explanation and Recovery](sources/raider-robot.md) — Ground-Ask&Answer-Issue；检测→解释→恢复完整闭环 (2025)
+- [CausaLab: Scalable Environment for Interactive Causal Discovery](sources/causalab.md) — SCM采样因果发现；预测成功≠因果理解；92%任务准确率vs 0.471 F1 (2026)
+- [Machine-Coached Policy Revision: Controller-Level Contestability Layer](sources/contestability-layer.md) — 可废止规则+诊断→修订闭环；策略可争议性 (2026)
+- [From Code-Centric to Intent-Centric Software Engineering](sources/intent-centric-se.md) — 反思性主题分析；意图规格化+验证+溯源+治理问责 (2026)
+- [Proof-Carrying Agent Actions: Model-Agnostic Runtime Governance](sources/proof-carrying-agent.md) — 动作证书+5检查点；跨运行时一致治理；外部性感知 (2026)
+- [AgentBound: Verifiable Behavioral Governance for Autonomous AI Agents](sources/agentbound.md) — 三权威保守组合；密码学可验证治理回执；常设委托 (2026)
+- [KYA: Framework-Agnostic Trust Layer with Verifiable Provenance](sources/kya-trust-layer.md) — 5原语信任层；15+框架适配；only-tighten组合代数；亚毫秒 (2026)
+- [Aligning Provenance with Authorization: Dual-Graph Defense](sources/provenance-authorization.md) — AuthGraph注入推理图vs授权图对齐；参数源级检测；40%→1% (2026)
+- [AgentRiskBOM: Risk-Scoping Security Bill of Materials](sources/agentriskbom.md) — Agent安全BOM；JSON-schema；16能力维度14分vs SBOM 1分；IEEE Cyber-AI 2026 (2026)
+- [RedAct: Redacting Agent Capability Traces for Procedural Skill Protection](sources/redact-traces.md) — 轨迹脱敏+行为水印；NST降至基线下；审计证据保留 (2026)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -215,6 +235,14 @@
 - [Multi-Agent Explainability](concepts/MultiAgentExplainability.md) — 多智能体可解释性：MAS协作/竞争/涌现行为的解释方法
 - [Agent Accountability](concepts/AgentAccountability.md) — Agent问责架构：区块链防篡改+共识治理+可验证论证
 - [Consensus-Driven Reasoning](concepts/ConsensusDrivenReasoning.md) — 共识驱动推理：异构模型独立生成→分歧暴露→结构化整合
+
+### Agent Explainability (Round 8)
+- [Runtime Governance](concepts/RuntimeGovernance.md) — 运行时治理：动作级可验证授权/合规/证据捕获，凭证驱动而非信任驱动
+- [Trajectory Forensics](concepts/TrajectoryForensics.md) — 轨迹取证：行为不变量+心智画像+技能特征，超越结果级的安全监控
+- [Neurosymbolic Orchestration](concepts/NeurosymbolicOrchestration.md) — 神经符号编排：LLM灵活规划+符号可验证执行+对比选择归因
+- [Verification Co-Evolution](concepts/VerificationCoEvolution.md) — 验证协同演化：验证器须与生成器共演化；可扩展×忠实×鲁棒三重困境
+- [Policy Contestability](concepts/PolicyContestability.md) — 策略可争议性：可废止规则+诊断→修订闭环；解释/质疑/重评
+- [Intent-Centric Accountability](concepts/IntentCentricAccountability.md) — 意图为中心问责：问责基线从动作上移到意图规格化+验证+溯源
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms

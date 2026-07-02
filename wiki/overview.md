@@ -2,8 +2,8 @@
 title: "Overview"
 type: synthesis
 tags: []
-sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl]
-last_updated: 2026-06-29
+sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces]
+last_updated: 2026-07-02
 ---
 
 # Overview
@@ -406,3 +406,54 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 | **因果/反事实** | CPL 因果可见性 | - | SCM 因果解释 | CEMA/AXIS 反事实 |
 | **信任校准** | 过程级问责 | 利益相关者差异化 | 区块链+共识治理 | TRiSM 五支柱 |
 | **幻觉检测** | 不可追溯标记缺口 | - | 论证事实节点攻击 | TriEx 说/信/做不匹配 |
+
+### Expanded Landscape (Eighth Round Ingest)
+
+#### Agent Closed-Loop Interpretability — 18 New Papers
+
+本轮聚焦"智能体闭环可解释性 + AgentLoop 框架兼容"，18 篇论文按 AgentLoop 6 方向填补 Round 7 识别的空白（特别是方向2 LLM 编排 vs 经典 HTN/PDDL、方向5 机器可读凭证标准化空白）。
+
+**T1 信息转换可观测性 / 轨迹取证（3 篇）**：
+- **Forensic Trajectory Signatures** (2026) — 发现记忆投毒的行为不变量（memory_recall_fact 必先于 email_send_email）；AUC 0.9904；签名过确定（移除半数特征 AUC 不变）；前缀仅变体 AUC 0.934 支持实时阻断；记忆攻击 vs 提示注入可区分
+- **Agent-ToM** (2026) — 心智理论推理监控隐蔽恶意行为；Reason-Verify-Refine 管线；持久语义护栏记忆跨 episode 复用信念/意图条件化约束；两调用即超越 SOTA 集成
+- **SWE Agent Mindset** (2026) — 观察透镜投影 think-action 链；导航/证据选择/综合/接地/停止五透镜；408 轨迹跨模型/仓库；不臆测隐藏意图
+
+**T2 Skill/Tool 选择可解释性（3 篇）**：
+- **Looking Is Not Picking** (2026) — 反驳"拥挤脚手架"直觉：80% 时间注意到正确工具却选错；失败在读出而非感知；读出侧干预恢复 59-91% vs 提示修复 ≤23%；免训练选择器 +11.9 分
+- **SkillCAT** (2026) — 对比因果提取（成功/失败对）+评估增强演化（补丁合并前验证）+拓扑感知路由（仅加载相关节点）；+40.40%
+- **VADAOrchestra** (KR 2026) — LLM 编排+Datalog+/- 符号引擎解耦；可验证推理轨迹；按需逻辑构造合成——**填补 synthesis 方向2"LLM 编排 vs HTN/PDDL"空白**
+
+**T3 闭环验证与溯因（4 篇）**：
+- **Grounded Continuation** (2026) — 依赖图+四形式主义（DEL/溯因/意识/论证）8 更新操作；线性时间；形式化无冲突保证；撤回微秒级
+- **Verification Horizon** (2026) — "验证比生成更难"逆转趋势；可扩展性×忠实度×鲁棒性三重困境；验证须与生成器协同演化——**挑战方向3"验证廉价"假设**
+- **RAIDER** (2025) — Ground-Ask&Answer-Issue 流程；检测→解释→恢复完整闭环；解释增强恢复成功率——**少数覆盖 AgentLoop 完整闭环**
+- **CausaLab** (2026) — SCM 采样因果发现；92% 任务准确率 vs 0.471 全边 F1；预测成功≠因果理解；过早停止为主要弱点
+
+**T4 人机交互 / 可争议性（2 篇）**：
+- **Machine-Coached Policy Revision** (2026) — 可废止规则+显式冲突/优先级；诊断→修订闭环；控制器级可争议性
+- **Intent-Centric SE** (2026) — 反思性主题分析；代码为中心→意图为中心；意图规格化+验证+溯源+治理问责——**与 3GPP IntentDrivenMnS "what vs how" 跨域呼应**
+
+**T5 机器可读凭证 / 溯源治理（6 篇）**——填补 synthesis 识别的"最大空白"：
+- **Proof-Carrying Agent Actions** (2026) — 动作证书+5 检查点（可准入/开启/假设/批准/闭环）；外部性感知；显式 enforceability classes——**桥接 PROV-O 与 IntentReport 的工程构件**
+- **AgentBound** (2026) — 三权威保守组合（委托授权×行为宪章×动作契约）；密码学可验证治理回执；常设委托
+- **KYA** (2026) — 5 原语框架无关信任层；15+ 框架适配；only-tighten 组合代数；亚毫秒 p99；检测 89% 对抗探测
+- **AuthGraph** (2026) — 注入推理图 vs 授权图双图对齐；参数源级检测；信息论不可注入基线；40%→1% 攻击成功率
+- **AgentRiskBOM** (IEEE Cyber-AI 2026) — Agent 安全 BOM（JSON-schema）；16 能力维度 14 分 vs SBOM 1 分；差异检测 33 种部署变异
+- **RedAct** (2026) — 轨迹脱敏+行为水印；NST 44.7-67.1%→基线下；审计证据保留；水印 93.6-100% 检测——**揭示问责-隐私张力**
+
+**关键趋势**：
+1. **从信任到验证**（T5 六篇）— 治理从"必须被信任的过程"转为"可独立验证的过程"：动作证书/治理回执/信任评分/双图对齐/BOM/水印构成全生命周期凭证栈。这直接填补 synthesis 报告识别的"无电信标准定义解释序列化"最大空白
+2. **LLM 编排可解释性的解耦范式**（VADAOrchestra）— LLM 灵活规划+符号可验证执行，超越"经典 HTN/PDDL vs 纯 LLM"二元对立
+3. **验证地平线逆转**（Verification Horizon）— "验证比生成容易"的经典直觉在编码 agent 领域已逆转；验证须与生成器协同演化，不可作为廉价环节
+4. **轨迹作为安全接口**（Forensic Signatures, RedAct）— 轨迹既是问责证据又是技能泄露载体，催生"选择性脱敏+行为水印"的轨迹治理
+5. **意图为中心问责**（Intent-Centric SE + Contestability）— 问责基线从动作上移到意图规格化，与 3GPP IntentDrivenMnS 跨域共鸣
+
+#### Cross-direction Convergence (Updated Round 8)
+
+| 共享主题 | T1 轨迹取证 | T2 Skill 编排 | T3 闭环验证 | T5 机器可读凭证 |
+|---|---|---|---|---|
+| **行为不变量** | 分布式签名 (Forensic) | 读出瓶颈 (Looking) | 依赖图 (Grounded) | 动作证书 (PCAA) |
+| **神经+符号** | ToM 推理 (Agent-ToM) | LLM+Datalog (VADAOrchestra) | SCM 因果 (CausaLab) | 逻辑规则凭证 (AgentBound) |
+| **闭环完整性** | 监控→检测 | 选择→评估 | 检测→解释→恢复 (RAIDER) | 授权→执行→回执 |
+| **意图对齐** | 意图假设 (Agent-ToM) | 任务相关节点 (SkillCAT) | 意图代理 vs 意图 (Verification Horizon) | 授权图源自意图 (AuthGraph) |
+| **隐私 vs 问责** | - | - | - | 脱敏+水印 (RedAct) |

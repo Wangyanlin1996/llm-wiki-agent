@@ -358,3 +358,19 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 
 累计 wiki 171 -> 192 页。
 
+
+## [2026-07-02] ingest | Round 8 — Agent 闭环可解释性 18 篇
+
+本轮聚焦"智能体闭环可解释性 + AgentLoop 框架兼容"。arXiv API 持续 503，改用 WebFetch 抓 abs 页面获取元数据；curl.exe 默认 UA 被 arXiv 阻断，加 Mozilla UA 后下载成功。18 篇按 AgentLoop 6 方向分布：
+
+- T1 轨迹取证/监控 (3): forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset
+- T2 Skill/Tool 选择可解释性 (3): looking-not-picking, skillcat, vadaorchestra (KR 2026)
+- T3 闭环验证与溯因 (4): grounded-continuation, verification-horizon, raider-robot, causalab
+- T4 人机交互/可争议性 (2): contestability-layer, intent-centric-se
+- T5 机器可读凭证/溯源治理 (6): proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom (IEEE Cyber-AI 2026), redact-traces
+
+新建 6 个概念页: RuntimeGovernance, TrajectoryForensics, NeurosymbolicOrchestration, VerificationCoEvolution, PolicyContestability, IntentCentricAccountability
+
+关键填补: T2 LLM 编排 vs HTN/PDDL 空白 (VADAOrchestra); T5 机器可读凭证标准化空白 (6 篇构成全生命周期凭证栈); T3 验证地平线逆转 (Verification Horizon).
+
+累计 192 -> 210 页; PDF 103 -> 121.
