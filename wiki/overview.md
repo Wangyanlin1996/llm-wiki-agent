@@ -3,7 +3,7 @@ title: "Overview"
 type: synthesis
 tags: []
 sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces]
-last_updated: 2026-07-02
+last_updated: 2026-07-07
 ---
 
 # Overview
@@ -489,3 +489,51 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 2. **BM25的持久生命力**（[[bm25-corrective-rag]]）：在金融/法律等高术语密度领域，BM25仍超越SOTA稠密检索——混合检索是工程最优解
 3. **System 1 vs System 2**（[[reasoning-agentic-rag-survey]]）：Agentic RAG正从预定义推理管线向自主工具编排演进，与AgentLoop框架的Skill编排层直接对应
 4. **评估的形式化**（[[coverage-not-averages]]）：检索评估从经验平均指标走向统计估计理论——这与电信网络中SLA可验证性的思路一致
+
+---
+
+## 第10轮：本体应用在人机交互问答与任务执行（2021-2026）— 28篇论文 × 5维度
+
+第10轮聚焦"本体应用在计算机/AI领域，尤其是人机交互问答场景和任务执行场景"，覆盖2021-2026年共28篇论文，按用户要求的5个维度（本体建模、用户输入实体抽取、实体链接、本体推理、任务完成）进行精读分析。这是wiki首次系统性覆盖本体（Ontology）在HCI中的应用方向。
+
+### 跨方向趋势
+
+| 子方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 本体驱动KGQA** | 固定本体约束→动态本体构建→多维立方体 | [[opi-ontology-kgqa]]、[[oracle-ontology-multihop]]、[[multicube-rag-multihop-qa]] |
+| **B. 本体在TOD** | 固定slot-value本体→描述驱动schema→无本体/开放词汇 | [[opal-ontology-aware-tod]]、[[d3st-description-driven-tod]]、[[beyond-ontology-dst]] |
+| **C. 本体任务执行** | 动作本体规划→统一任务/动作/环境/能力本体→分层超图 | [[husky-language-agent]]、[[ontobot-robotics-ontology]]、[[hear-hypergraph-enterprise]] |
+| **D. 对话流管理** | 话题本体对话管理→社交规范本体 | [[knowledge-grounded-dialogue-flow]]、[[socialdial-socially-aware]] |
+| **E. 综述** | 不一致KG推理三方向；LLM-KG协同四方向 | [[inconsistency-kg-reasoning-survey]]、[[llm-kg-research-trends]] |
+
+### 五维分析核心发现
+
+#### 本体建模（Ontology Modeling）
+本体建模经历了从"静态预定义"到"动态自动构建"的范式转变。传统方法依赖领域专家预定义本体（如 [[ontology-enhanced-slot-filling]] 的 MultiWOZ slot-value 列表），而新方法让 LLM 根据任务自动构建：[[oracle-ontology-multihop]] 为每个问题动态构建特定本体，[[teqodo-tod-ontology]] 用 SQL 能力从零构建 TOD 本体，[[lom-large-ontology-model]] 融合结构化数据库和非结构化文本构建双层企业本体。关键创新还有关系中心本体图（[[opi-ontology-kgqa]]）、正交多维本体立方体（[[multicube-rag-multihop-qa]]）、分层超图本体（[[hear-hypergraph-enterprise]]）。
+
+#### 用户输入实体抽取（Entity Extraction）
+实体抽取从"基于本体的 slot filling"演进到"QA 式抽取"和"LLM 直接推断"。[[ontology-enhanced-slot-filling]] 用本体匹配跨轮命名实体；[[d3st-description-driven-tod]] 将 DST 重新表述为基于 schema 描述的问题回答；[[zero-shot-open-vocab-dst]] 和 [[beyond-ontology-dst]] 让 LLM 直接从对话推断状态，不依赖固定本体。在 KGQA 中，[[ort-ontology-reverse-kgqa]] 提取目的标签和条件标签作为逆向推理起点。
+
+#### 实体链接（Entity Linking）
+实体链接方法呈现多元化：本体约束匹配（[[ontology-enhanced-slot-filling]]）、嵌入规范化（[[neuro-symbolic-kg-ontology]]）、双重角色交叉验证（[[vlk-rl-cross-domain-tod]]）、SPARQL 查询（[[kg-gap-overlap-benchmark]]）、图执行器遍历（[[titan-graph-reasoning-cti]]）。核心张力是"可靠约束 vs 开放泛化"——固定本体提供可靠链接但限制新实体，开放词汇提供灵活性但牺牲一致性。
+
+#### 本体推理（Ontology Reasoning）
+推理方法涵盖双向路径推理（[[opi-ontology-kgqa]]）、逆向思维推理（[[ort-ontology-reverse-kgqa]]）、一阶逻辑推理链（[[oracle-ontology-multihop]]）、维度分解-征服（[[multicube-rag-multihop-qa]]）、知识模块组合（[[kml-procedural-video-qa]]）、路径规划+图执行（[[titan-graph-reasoning-cti]]）、证据驱动推理循环（[[hear-hypergraph-enterprise]]）。神经符号分离是共同主题——LLM 负责灵活规划，符号引擎负责确定性执行。
+
+#### 任务完成（Task Completion）
+任务完成维度覆盖从 DST 到企业推理的完整谱系。关键发现：正摩擦提升任务成功率（[[positive-friction-dialogue]]）、约束感知状态提升长程行为（[[vlk-rl-cross-domain-tod]]）、统一动作本体使7B模型匹配GPT-4（[[husky-language-agent]]）、超图本体达94.7%企业推理准确率（[[hear-hypergraph-enterprise]]）。本体对任务完成的价值在于"结构化约束提升可靠性"——但好的本体设计（描述驱动、模块化）能兼顾约束和泛化。
+
+### 与现有Wiki的连接
+
+- **与3GPP意图管理呼应**：本体建模的"what vs how"抽象层次与 [[IntentDrivenMnS]] 的声明式目标表达跨域共鸣——本体定义"是什么"，推理引擎决定"怎么做"
+- **与神经符号编排呼应**：[[NeuroSymbolicKGModule]] 与已有 [[NeurosymbolicOrchestration]]（VADAOrchestra）呼应——LLM灵活规划+符号可验证执行
+- **与意图澄清互补**：[[PositiveFrictionOntology]] 从对话节奏角度补充了已有意图澄清策略（[[ConformalIntentClarification]]、[[BayesianDisambiguation]]）
+- **与GraphRAG连接**：本体引导的KGQA（[[OntologyGuidedKGQA]]）与已有 [[GraphRAG]] 和 [[OMD-GraphRAG]]（本体引导提取）形成方法论互补
+
+### 关键洞察
+
+1. **本体从静态先验到动态推导**（[[DynamicOntologyConstruction]]）：LLM 使自动本体构建成为可能，降低本体工程成本，但需权衡自动构建的质量与专家本体的精确性
+2. **固定vs开放本体的张力**（[[DialogueStateTrackingOntology]]）：从严格依赖固定本体（[[ontology-enhanced-slot-filling]]）到完全无本体（[[beyond-ontology-dst]]），谱系上的最优解可能是"描述驱动"（[[d3st-description-driven-tod]]）——保留本体约束但用自然语言描述增强泛化
+3. **神经符号分离是推理可靠性关键**（[[NeuroSymbolicKGModule]]）：LLM负责"理解要查什么"，符号引擎负责"确定性地查"——这种分离确保了推理的灵活性和可验证性
+4. **本体不只是约束，更是任务执行的结构化基础**（[[ActionOntologyAgent]]）：动作本体将agent行为空间结构化，使规划可分解、执行可委托、结果可验证
+5. **正摩擦悖论**（[[PositiveFrictionOntology]]）：策略性减速反而提升任务成功率——挑战了"无摩擦=更好"的传统直觉

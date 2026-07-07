@@ -177,6 +177,36 @@
 - [SimpleSearch-VL: 多模态agentic搜索 (2025)](sources/simplesearch-vl.md) — 仅需5K SFT+2K RL实现多模态agentic搜索 (2025)
 - [ARMOR: 电信查询侧检索器自适应优化 (2025)](sources/armor-telecom-retriever.md) — 查询侧检索器自适应优化；低资源电信场景 (2025)
 
+### Ontology Applications in HCI — Round 10 (2021-2026)
+- [OPI: 本体引导证据路径推理用于多跳KGQA](sources/opi-ontology-kgqa.md) — 关系中心本体图+双向检索+迭代精炼 (2026)
+- [ORT: 本体引导逆向思维增强KGQA](sources/ort-ontology-reverse-kgqa.md) — 逆向思维从目的到条件构建推理路径 (2025)
+- [ORACLE: 本体驱动多跳推理框架](sources/oracle-ontology-multihop.md) — 动态本体构建→FOL推理链→子问题分解 (2025)
+- [MultiCube-RAG: 本体立方体多跳问答](sources/multicube-rag-multihop-qa.md) — 正交多维本体立方体；查询分解-征服 (2026)
+- [Better Later Than Sooner: 本体引导后提取纠错KG构建](sources/neuro-symbolic-kg-ontology.md) — 神经符号KG；嵌入规范化；SPARQL查询 (2026)
+- [KML: 程序化视频问答神经符号知识推理](sources/kml-procedural-video-qa.md) — 神经知识模块组合推理；COIN本体+ConceptNet (2025)
+- [TITAN: 网络威胁情报图可执行推理](sources/titan-graph-reasoning-cti.md) — TITAN本体(MITRE)；路径规划器+图执行器 (2025)
+- [KG表示用于LLM政策合规推理](sources/kg-policy-compliance.md) — 两种本体schema；LLM自发现schema匹配形式化本体 (2026)
+- [LOM: 面向企业知识管理大本体模型](sources/lom-large-ontology-model.md) — 双层本体；construct-align-reason三阶段；4B超越DeepSeek (2026)
+- [QIME: 本体驱动可解释医学嵌入](sources/qime-ontology-embeddings.md) — 每维度对应临床yes/no问题；免训练嵌入 (2026)
+- [VLK-RL: LLM知识验证RL跨域TOD](sources/vlk-rl-cross-domain-tod.md) — 约束验证→本体对齐slot-value→RL策略 (2026)
+- [TeQoDO: Text-to-SQL TOD本体构建](sources/teqodo-tod-ontology.md) — LLM用SQL自主从零构建TOD本体 (TACL 2025)
+- [Better Slow than Sorry: 正摩擦提升对话可靠性](sources/positive-friction-dialogue.md) — 正摩擦本体；策略性减速提升任务成功率 (2025)
+- [约束CoT解码的对话本体关系抽取](sources/dialogue-ontology-relation-extraction.md) — CoT多分支解码+本体约束；降幻觉 (SIGDIAL 2024)
+- [OPAL: 本体感知预训练端到端TOD](sources/opal-ontology-aware-tod.md) — 本体三元组恢复+下一文本生成预训练 (TACL 2022)
+- [D3ST: 描述驱动任务型对话建模](sources/d3st-description-driven-tod.md) — schema描述替代名称；index-picking零样本迁移 (2022)
+- [本体增强Slot Filling](sources/ontology-enhanced-slot-filling.md) — 跨轮本体实体匹配；约束检查 (2021)
+- [零样本开放词汇对话理解管线](sources/zero-shot-open-vocab-dst.md) — DST即QA；不依赖固定本体值域 (NAACL 2025)
+- [Beyond Ontology: 无本体目标导向DST](sources/beyond-ontology-dst.md) — 指令调优+VGAE；无预定义本体DST SOTA (ICKG 2024)
+- [NLU++: 多标签细粒度本体TOD NLU数据集](sources/nlu-plus-plus.md) — intent模块化；跨域复用 (NAACL 2022)
+- [HEAR: 分层超图本体企业Agent推理器](sources/hear-hypergraph-enterprise.md) — 基础图层+超边层；证据驱动推理循环 (2026)
+- [OntoBOT: 服务机器人任务/动作/环境/能力统一本体](sources/ontobot-robotics-ontology.md) — 扩展SOMA/DOLCE；能力推理；四agent评估 (2025)
+- [Husky: 统一开源语言Agent多步推理](sources/husky-language-agent.md) — 统一动作本体+专家模型执行；7B匹配GPT-4 (2024)
+- [KG任务就绪性基准: 本体驱动Gap/Overlap分析](sources/kg-gap-overlap-benchmark.md) — TBox+ABox；SPARQL场景；可审计 (2026)
+- [知识驱动对话流管理: 社交机器人本体](sources/knowledge-grounded-dialogue-flow.md) — 话题本体+对话管理算法；100人评估 (2022)
+- [SocialDial: 社交感知对话系统基准](sources/socialdial-socially-aware.md) — 社交规范本体；本体驱动合成数据生成 (SIGIR 2023)
+- [处理不一致KG推理: 综述](sources/inconsistency-kg-reasoning-survey.md) — 三方向：检测/修复/容忍推理 (2025)
+- [LLM与KG交互研究趋势: 综述](sources/llm-kg-research-trends.md) — KG QA/本体生成/验证；LLM-KG协同分类法 (2024)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -280,6 +310,16 @@
 - [检索评估 Retrieval Evaluation](concepts/RetrievalEvaluation.md) — 超越nDCG/Recall@k的多维统计估计与冗余感知评估
 - [知识图谱检索 GraphRAG](concepts/GraphRAG.md) — 知识图谱增强检索支持多跳推理；可解释性与本体引导
 - [Agent驱动检索 Agentic Retrieval](concepts/AgenticRetrieval.md) — LLM Agent自主决定何时/检索什么/如何反思；System 1 vs System 2
+
+### Ontology in HCI Concepts
+- [本体引导KGQA](concepts/OntologyGuidedKGQA.md) — 利用本体类型约束和关系层次引导KG问答推理路径搜索
+- [动态本体构建](concepts/DynamicOntologyConstruction.md) — LLM根据任务/查询自动推断和构建本体结构
+- [神经符号知识模块](concepts/NeuroSymbolicKGModule.md) — KG关系类别学习为可组合神经模块+符号引擎执行
+- [动作本体Agent](concepts/ActionOntologyAgent.md) — 本体定义动作/任务空间结构化agent行为规划和执行
+- [本体感知TOD](concepts/OntologyAwareTOD.md) — 利用本体slot类型/值域/约束结构化对话状态追踪和响应生成
+- [对话状态追踪本体](concepts/DialogueStateTrackingOntology.md) — 本体定义的slot/值域/约束用于DST表示、更新和验证
+- [正摩擦本体](concepts/PositiveFrictionOntology.md) — 对话系统策略性减速行为的结构化分类
+- [LLM-KG本体协同](concepts/LLMKGOntologySynergy.md) — LLM与KG/本体双向增强：生成/验证/推理
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms

@@ -395,3 +395,25 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 **关键连接**: AgenticRetrieval ↔ AgentLoop框架 (closed-loop-explainability-telecom-autonomous-networks); GraphRAG ↔ NeurosymbolicOrchestration; RetrievalEvaluation ↔ VerificationCoEvolution
 
 累计 210 -> 236 页, 121 -> 147 PDF, 122 -> 148 论文, 81 -> 88 概念.
+
+## [2026-07-07] ingest | Round 10: 本体应用在人机交互问答与任务执行 (Ontology Applications in HCI)
+
+**方向**: 计算机/AI领域本体应用，聚焦人机交互问答场景 + 任务执行场景
+**五维分析**: 本体建模 / 用户输入实体抽取 / 实体链接 / 本体推理 / 任务完成
+**年份范围**: 2021-2026 (最近5年)
+**新增论文**: 28篇
+**新增概念页**: 8个
+**新增PDF**: 28个
+
+### 子方向分布
+- A. 本体驱动知识图谱问答 (KGQA): 10篇 (opi, ort, oracle, multicube-rag, neuro-symbolic-kg, kml, titan, kg-policy-compliance, lom, qime)
+- B. 本体在任务型对话 (TOD): 10篇 (vlk-rl, teqodo, positive-friction, dialogue-ontology-re, opal, d3st, ontology-enhanced-sf, zero-shot-dst, beyond-ontology-dst, nlu-plus-plus)
+- C. 本体驱动任务执行与Agent推理: 4篇 (hear, ontobot, husky, kg-gap-overlap-benchmark)
+- D. 本体驱动对话流管理 (HCI): 2篇 (knowledge-grounded-dialogue-flow, socialdial)
+- E. 综述: 2篇 (inconsistency-kg-reasoning-survey, llm-kg-research-trends)
+
+### 新增概念
+- OntologyGuidedKGQA, DynamicOntologyConstruction, NeuroSymbolicKGModule, ActionOntologyAgent
+- OntologyAwareTOD, DialogueStateTrackingOntology, PositiveFrictionOntology, LLMKGOntologySynergy
+
+累计 236 -> 272 页, 147 -> 175 PDF, 148 -> 176 论文, 88 -> 96 概念.
