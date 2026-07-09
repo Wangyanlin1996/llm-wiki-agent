@@ -2,8 +2,8 @@
 title: "Overview"
 type: synthesis
 tags: []
-sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces]
-last_updated: 2026-07-07
+sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces, cog-rag, coact-action-preserving-compression, smoothagent-lookahead-context, latent-context-compilation, cross-family-speculative-prefill, mia-signature-activation, prism-intent-memory-retrieval, apex-dynamic-data-selection, prompt-codebooks-pco, spear-code-augmented-prompt, mo-capo-multi-objective, maspo-joint-mas-prompt, prism-prompt-reliability, saga-workflow-scheduling, dynamo-asset-orchestration, co-coder-task-partitioning, agent-jit-compilation, typego-os-runtime, model-native-architecture, saecache-semantic-eviction, leyline-kv-directives, tokendance-collective-sharing, prism-scheduling-memory, stateful-inference-multi-agent, kv-policy-learning-evict, vericache-lossless-compression, hydra-dynamic-routing, inframind-infra-aware, routing-plateau, recal-reward-calibration, twinrouterbench-step-routing, goodserve-goodput-serving]
+last_updated: 2026-07-09
 ---
 
 # Overview
@@ -473,7 +473,7 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 | **T3 混合检索** | 稀疏+稠密融合；BM25在特定领域仍占优 | [[telco-orag]]、[[bm25-corrective-rag]]、[[hakari-bench]] |
 | **T4 嵌入模型** | 对比学习→生成式嵌入→软提示解耦 | [[teleembedbench]]、[[llm2vec-gen]]、[[promptembedder]] |
 | **T5 检索评估** | nDCG/Recall@k→统计估计→冗余感知 | [[coverage-not-averages]]、[[rare-redundancy-eval]]、[[rag-evaluation-survey]] |
-| **T6 GraphRAG** | 文档建图→可解释子图检索→本体引导 | [[is-graphrag-needed]]、[[ex-graphrag]]、[[omd-graphrag]] |
+| **T6 GraphRAG** | 文档建图→可解释子图检索→本体引导→主题对齐双超图 | [[is-graphrag-needed]]、[[ex-graphrag]]、[[omd-graphrag]]、[[cog-rag]] |
 | **T7 Agent驱动检索** | System 1预定义管线→System 2自主编排 | [[reasoning-agentic-rag-survey]]、[[r2-searcher]]、[[metaresearcher]] |
 
 ### 与现有Wiki的连接
@@ -489,6 +489,7 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 2. **BM25的持久生命力**（[[bm25-corrective-rag]]）：在金融/法律等高术语密度领域，BM25仍超越SOTA稠密检索——混合检索是工程最优解
 3. **System 1 vs System 2**（[[reasoning-agentic-rag-survey]]）：Agentic RAG正从预定义推理管线向自主工具编排演进，与AgentLoop框架的Skill编排层直接对应
 4. **评估的形式化**（[[coverage-not-averages]]）：检索评估从经验平均指标走向统计估计理论——这与电信网络中SLA可验证性的思路一致
+5. **结构对齐优于扩展检索**（[[cog-rag]]）：Cog-RAG 用主题超图+实体超图双结构+认知两阶段检索，从全局主题到局部细节实现语义对齐——部分修正洞察2"扩展检索无益"的结论：在检索-生成差距中，**对齐**比**扩展**是更有效的杠杆。消融亦揭示主题超图在跨域稀疏开放场景引入噪声，提示全局主题组织需动态过滤
 
 ---
 
@@ -537,3 +538,71 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 3. **神经符号分离是推理可靠性关键**（[[NeuroSymbolicKGModule]]）：LLM负责"理解要查什么"，符号引擎负责"确定性地查"——这种分离确保了推理的灵活性和可验证性
 4. **本体不只是约束，更是任务执行的结构化基础**（[[ActionOntologyAgent]]）：动作本体将agent行为空间结构化，使规划可分解、执行可委托、结果可验证
 5. **正摩擦悖论**（[[PositiveFrictionOntology]]）：策略性减速反而提升任务成功率——挑战了"无摩擦=更好"的传统直觉
+
+---
+
+## 第11轮：LLM 推理与服务优化全景（2025-2026）— 31篇论文 × 5方向
+
+第11轮聚焦"LLM 推理与服务优化"，覆盖 agent 系统优化的完整链路：从上下文管理到 prompt 优化，从执行调度到缓存复用，再到模型动态路由。31篇论文全部为 2025-2026 年最新工作，构建了从单 token 到集群级的全栈优化图谱。
+
+### 跨方向趋势
+
+| 方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 上下文优化** | 文本压缩→动作保持→段可分解预计算→LoRA编译→跨族推测→激活签名 | [[coact-action-preserving-compression]]、[[smoothagent-lookahead-context]]、[[latent-context-compilation]] |
+| **B. Prompt优化** | 全局字符串→动态数据分层→离散codebook→Agent式优化→多目标→持续可靠性 | [[apex-dynamic-data-selection]]、[[prompt-codebooks-pco]]、[[spear-code-augmented-prompt]] |
+| **C. 执行调度** | 请求级→工作流级→图分区→JIT编译→OS式runtime→统一架构 | [[saga-workflow-scheduling]]、[[co-coder-task-partitioning]]、[[typego-os-runtime]] |
+| **D. 缓存复用** | LRU均匀淘汰→语义感知→缓存编辑→集体共享→调度协同→有状态→RL策略→无损压缩 | [[saecache-semantic-eviction]]、[[leyline-kv-directives]]、[[tokendance-collective-sharing]] |
+| **E. 模型路由** | 二元强/弱→多维能力匹配→基础设施感知→路由上限分析→RL校准→步级评估→goodput | [[hydra-dynamic-routing]]、[[inframind-infra-aware]]、[[routing-plateau]] |
+
+### 五维分析核心发现
+
+#### A. 上下文优化（Context Optimization）
+上下文优化正从"压缩文本"转向"保持行为"。[[CoACT]] 提出 NAP 原则——衡量标准不是保留多少信息，而是 agent 后续行为是否一致。[[SmoothAgent]] 发现 context 变换的段可分解性，将问题从"压缩什么"转向"何时变换"。[[LatentContextCompilation]] 从"适应"转向"编译"——生成无状态、可移植的记忆制品。[[MiASignature]] 借鉴认知科学全局点火理论，用次模函数构建激活签名。[[PRISM-IntentMemoryRetrieval]] 将检索-压缩联合优化为图结构上的搜索问题。
+
+**关键洞察**：上下文优化的核心矛盾是"信息保留 vs 行为保持 vs 计算成本"——三者不可同时最优，需根据场景权衡。
+
+#### B. Prompt 优化（Prompt Optimization）
+Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多目标+持续监控"。[[APEX]] 打破静态数据集假设，动态分层采样。[[PromptCodebooks]] 将 prompt 重构为离散本能词汇表上的学习。[[SPEAR]] 将优化器本身 agent 化——自主编写 Python 做错误分析。[[MO-CAPO]] 引入部署导向成本目标。[[MASPO]] 用联合评估机制弥合局部与全局。[[PRISM-PromptReliability]] 将 prompt 工程转为持续可靠性工程——LLM 行为漂移是一等关切。
+
+**关键洞察**：优化器自身从固定管线→agent 式自主决策；评估从一次性→持续监控；目标从单一性能→性能+成本+可靠性。
+
+#### C. 执行调度优化（Execution Scheduling）
+调度粒度正从"请求级"→"工作流级"→"程序级"。[[SAGA]] 将整个 agent 工作流视为可调度单元，预测跨工具调用边界的 KV 复用。[[CoCoder]] 将多 agent 编排形式化为图分区问题——通信-计算 tradeoff 是核心。[[TypeGo]] 将 LLM 移出关键路径——OS 式异步架构。[[ModelNativeArchitecture]] 提出统一架构框架——LLM=CPU、KV=cache、上下文=RAM、agent=OS 的类比提供设计语言。
+
+**关键洞察**：OS 类比为 agent 系统设计提供了统一语言——缓存层次、调度公平性、资源仲裁等经典 OS 概念直接迁移。
+
+#### D. 缓存复用（Cache Reuse）
+缓存管理正从"LRU 均匀淘汰"→"语义感知+学习驱动"。[[SAECache]] 发现 token 类型复用率差异达 756x。[[Leyline]] 打破"缓存仅追加"假设——agent 需要主动编辑缓存。[[TokenDance]] 将共享从单 agent 内扩展到多 agent 间——集体复用+diff 压缩。[[StatefulInference]] 从 O(n_t) 转为 O(Δ_t) delta-only 推理。[[KVPolicy]] 用 RL 学习淘汰策略——per-head 专门化。[[VeriCache]] 用草拟-验证范式实现无损压缩。
+
+**关键洞察**：agent 工作负载打破 chatbot 假设——缓存需要主动编辑（Leyline）、集体共享（TokenDance）、跨轮持久（StatefulInference）。
+
+#### E. 模型动态路由（Model Dynamic Routing）
+路由正从"二元强/弱"→"多维能力匹配+全栈感知"。[[HyDRA]] 预测四维能力需求与模型 profile shortfall 匹配。[[INFRAMIND]] 让整个多 agent 栈感知基础设施状态。[[RoutingPlateau]] 发现路由准确率存在 plateau——根因是可预测性瓶颈。[[TwinRouterBench]] 首次评估 agent 中间步骤的路由——one-shot 评估不够。
+
+**关键洞察**：路由 plateau 的根因是路由器学习全局趋势而非实例特定信号——突破需要更大数据、更强编码器、端到端微调。
+
+### 跨方向收敛
+
+| 收敛主题 | 上下文优化 | 执行调度 | 缓存复用 | 模型路由 |
+|---|---|---|---|---|
+| **OS类比** | 段可分解预计算 (SmoothAgent) | OS式runtime (TypeGo), ICA架构 | 缓存=处理器缓存 (ICA) | - |
+| **KV cache为中心** | 压缩为buffer token (LatentContext) | 工作流级KV复用预测 (SAGA) | 语义淘汰/编辑/共享/持久 | - |
+| **行为保持vs信息压缩** | NAP原则 (CoACT) | - | 无损草拟-验证 (VeriCache) | 路由质量保持 (HyDRA) |
+| **Agent工作负载特性** | observation累积 (CoACT) | 链式调用 (SAGA) | 85-95%重复 (StatefulInference) | 多步调用 (TwinRouterBench) |
+| **学习驱动** | LoRA编译 (LatentContext) | - | RL淘汰 (KVPolicy), 在线学习 (SAECache) | RL路由 (ReCal) |
+
+### 与现有Wiki的连接
+
+- **与Agent Memory呼应**：上下文优化（[[ContextOptimization]]）与 Agent Memory（[[AgentMemory]]）共享"压缩vs保留"张力——CoACT 的 NAP 原则与 STALE 的记忆过期机制互补
+- **与AgentLoop框架对应**：执行调度（[[ExecutionScheduling]]）直接对应 AgentLoop 的 Skill 编排层——SAGA 的工作流调度和 TypeGo 的 OS 式 runtime 是编排层的系统化实现
+- **与可解释性连接**：缓存编辑指令（Leyline）的声明式 4-tuple 与 Proof-Carrying Agent Actions 的动作证书在"声明式治理"上方法论一致
+- **与3GPP意图管理呼应**：模型路由的多维能力匹配（HyDRA）与 3GPP IntentHandlingFunction 的能力暴露在"能力 profile 匹配"上跨域共鸣
+
+### 关键洞察
+
+1. **OS类比是统一设计语言**（[[ModelNativeArchitecture]]）：LLM=CPU、KV cache=处理器缓存、上下文窗口=主存、agent框架=OS——这一类比贯穿上下文优化、调度、缓存三个方向
+2. **Agent工作负载打破所有chatbot假设**（[[SAECache]]、[[Leyline]]、[[StatefulInference]]）：缓存不是仅追加的、token不是均匀的、prompt不是一次性的——需要全新的缓存管理范式
+3. **行为保持优于信息保留**（[[CoACT]]）：压缩的衡量标准不是保留了多少信息，而是 agent 的后续行为是否一致——这是上下文优化的范式转换
+4. **路由准确率存在plateau**（[[RoutingPlateau]]）：21种方法收敛到相似准确率——突破需要从全局趋势学习转向实例特定信号学习
+5. **调度-缓存-路由三者协同**（[[PRISM-SchedulingMemory]]、[[INFRAMIND]]、[[GoodServe]]）：独立优化任一维度都不够——调度决定缓存命中、缓存决定延迟、延迟决定路由选择

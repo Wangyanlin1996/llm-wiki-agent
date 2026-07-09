@@ -417,3 +417,61 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - OntologyAwareTOD, DialogueStateTrackingOntology, PositiveFrictionOntology, LLMKGOntologySynergy
 
 累计 236 -> 272 页, 147 -> 175 PDF, 148 -> 176 论文, 88 -> 96 概念.
+
+## [2026-07-09] ingest | Cog-RAG: 认知启发主题对齐双超图 RAG (AAAI 2026)
+
+**方向**: 语义检索 / GraphRAG 超图扩展（归入第9轮 T6 GraphRAG 方向）
+**来源**: arXiv 2511.13201 (用户指定下载) — AAAI 2026 主会录用
+**作者**: Hao Hu, Yifan Feng, Ruoxue Li, Rundong Xue, Xingliang Hou, Zhiqiang Tian, Yue Gao, Shaoyi Du (西安交大/清华/西安电子科大)
+**新增论文**: 1篇
+**新增概念页**: 1个
+**新增PDF**: 1个
+
+### 核心内容
+- 双超图索引：主题超图（跨chunk全局主题结构）+ 实体超图（chunk内高阶多实体关系，E_low成对+E_high群组）
+- 认知启发两阶段检索：主题超图激活+扩散→主题对齐实体关键词→实体超图检索+扩散→融合生成
+- 实验：5数据集（UltraDomain Mix/CS/Agriculture + MIRAGE Neurology/Pathology）×6维度，全面超越 NaiveRAG/GraphRAG/LightRAG/HiRAG/Hyper-RAG；vs Hyper-RAG 域内密集医学 +21.0%–26.4%
+
+### 新增概念
+- ThemeAlignedDualHypergraph（主题对齐双超图检索）
+
+### 更新
+- 概念页 GraphRAG.md：加入 cog-rag 源 + 双超图扩展段落
+- index.md / overview.md：归入第9轮 T6 GraphRAG，新增洞察5"结构对齐优于扩展检索"
+
+### 矛盾标记
+- 与 is-graphrag-needed "扩展检索不比例提升生成质量" 形成张力：Cog-RAG 表明结构对齐是比扩展更有效的杠杆
+- 消融内部边界：主题超图在跨域稀疏(Mix)场景引入噪声致退化(85.39→76.58)，与"主题超图普遍有益"总体论断存在边界条件
+
+累计 272 -> 274 页, 175 -> 176 PDF, 176 -> 177 论文, 96 -> 97 概念.
+
+---
+
+## [2026-07-09] ingest | Round 11: LLM 推理与服务优化全景 — 31篇论文 × 5方向
+
+**方向**: LLM 推理与服务优化（上下文优化 / Prompt优化 / 执行调度 / 缓存复用 / 模型动态路由）
+**来源**: arXiv 搜索 5 方向 7 次查询，31 篇候选全部 2025-2026 年
+**新增论文**: 31篇
+**新增概念页**: 6个（ContextOptimization, PromptOptimization, ExecutionScheduling, CacheReuse, ModelRouting, SpeculativeDecoding）
+**新增PDF**: 31个
+
+### 五方向分布
+- A. 上下文优化: 6篇 — CoACT, SmoothAgent, LatentContextCompilation, CrossFamilySpeculativePrefill, MiA-Signature, PRISM-IntentMemory
+- B. Prompt优化: 6篇 — APEX, PromptCodebooks, SPEAR, MO-CAPO, MASPO, PRISM-Reliability
+- C. 执行调度: 6篇 — SAGA, DynAMO, Co-Coder, AgentJIT, TypeGo, ModelNativeArchitecture
+- D. 缓存复用: 7篇 — SAECache, Leyline, TokenDance, PRISM-SchedulingMemory, StatefulInference, KVPolicy, VeriCache
+- E. 模型路由: 6篇 — HyDRA, INFRAMIND, RoutingPlateau, ReCal, TwinRouterBench, GoodServe
+
+### 核心发现
+1. OS类比成为统一设计语言（LLM=CPU, KV=cache, 上下文=RAM, agent=OS）
+2. Agent工作负载打破所有chatbot假设（缓存非追加/token非均匀/prompt非一次性）
+3. 行为保持优于信息保留（CoACT NAP原则）
+4. 路由准确率存在plateau（可预测性瓶颈）
+5. 调度-缓存-路由三者需协同优化
+
+### 更新
+- index.md: +31 source entries +6 concept entries
+- overview.md: +Round 11 section (5方向趋势+五维分析+跨方向收敛+关键洞察)
+- log.md: 本条目
+
+累计 274 -> 311 页, 176 -> 207 PDF, 177 -> 208 论文, 97 -> 103 概念.

@@ -176,6 +176,7 @@
 - [MetaResearcher: 对抗虚拟环境+自反思RL (2025)](sources/metaresearcher.md) — 对抗虚拟环境扩展深度研究能力 (2025)
 - [SimpleSearch-VL: 多模态agentic搜索 (2025)](sources/simplesearch-vl.md) — 仅需5K SFT+2K RL实现多模态agentic搜索 (2025)
 - [ARMOR: 电信查询侧检索器自适应优化 (2025)](sources/armor-telecom-retriever.md) — 查询侧检索器自适应优化；低资源电信场景 (2025)
+- [Cog-RAG: 认知启发主题对齐双超图 RAG (2025)](sources/cog-rag.md) — 主题超图+实体超图；认知两阶段检索；AAAI 2026 (2025)
 
 ### Ontology Applications in HCI — Round 10 (2021-2026)
 - [OPI: 本体引导证据路径推理用于多跳KGQA](sources/opi-ontology-kgqa.md) — 关系中心本体图+双向检索+迭代精炼 (2026)
@@ -206,6 +207,49 @@
 - [SocialDial: 社交感知对话系统基准](sources/socialdial-socially-aware.md) — 社交规范本体；本体驱动合成数据生成 (SIGIR 2023)
 - [处理不一致KG推理: 综述](sources/inconsistency-kg-reasoning-survey.md) — 三方向：检测/修复/容忍推理 (2025)
 - [LLM与KG交互研究趋势: 综述](sources/llm-kg-research-trends.md) — KG QA/本体生成/验证；LLM-KG协同分类法 (2024)
+
+### LLM Inference Optimization — Round 11 (2025-2026)
+
+#### A. 上下文优化 (Context Optimization)
+- [CoACT: 动作保持的观测压缩](sources/coact-action-preserving-compression.md) — NAP原则：压缩后下一步动作一致；token -33% (2026)
+- [SmoothAgent: 前瞻上下文工程](sources/smoothagent-lookahead-context.md) — 段可分解性+异步预计算KV；TTFT -11.9x (2026)
+- [Latent Context Compilation](sources/latent-context-compilation.md) — Disposable LoRA编译长上下文为buffer token；16x压缩 (2026)
+- [Cross-Family Speculative Prefill](sources/cross-family-speculative-prefill.md) — 跨模型族注意力估计压缩prompt；免训练 (ICLR 2026 WS)
+- [MiA-Signature: 全局激活签名](sources/mia-signature-activation.md) — 次模函数选择高层概念；条件信号近似全激活 (2026)
+- [PRISM: 意图感知记忆检索](sources/prism-intent-memory-retrieval.md) — 图结构记忆联合检索-压缩；训练免；10x更小预算更高准确率 (2026)
+
+#### B. Prompt 优化 (Prompt Optimization)
+- [APEX: 动态数据选择](sources/apex-dynamic-data-selection.md) — Easy/Hard/Mixed分层+frontier采样；+11.2% (2026)
+- [Prompt Codebooks (PCO)](sources/prompt-codebooks-pco.md) — 离散本能词汇表+per-instance路由；+30.36pp vs零样本 (2026)
+- [SPEAR: 代码增强Agent式优化](sources/spear-code-augmented-prompt.md) — CodeAct范式优化器+Python错误分析；BBH-7 0.938 (EMNLP 2026)
+- [MO-CAPO: 多目标成本感知](sources/mo-capo-multi-objective.md) — 联合优化性能+部署成本；发现trade-off解集 (2026)
+- [MASPO: 多Agent联合Prompt优化](sources/maspo-joint-mas-prompt.md) — 联合评估机制+进化beam search；+2.9 (ICML 2026)
+- [PRISM: Prompt可靠性工程](sources/prism-prompt-reliability.md) — 持续可靠性+自动测试+漂移检测；99%可靠性 (2026)
+
+#### C. 执行调度优化 (Execution Scheduling)
+- [SAGA: 工作流原子化调度](sources/saga-workflow-scheduling.md) — 程序级调度+KV复用预测+公平性；1.64x加速 (2026)
+- [DynAMO: 动态资产管理编排](sources/dynamo-asset-orchestration.md) — Plan-then-Execute+依赖感知并行；延迟-1.6x (2026)
+- [Co-Coder: 内聚感知任务分区](sources/co-coder-task-partitioning.md) — 图分区+社区检测+通信-计算tradeoff；2.10x加速 (2026)
+- [Agent JIT Compilation](sources/agent-jit-compilation.md) — JIT编译常用规划模式+按需执行 (2026)
+- [TypeGo: OS式Agent运行时](sources/typego-os-runtime.md) — LLM移出关键路径+Skill Kernel+speculative streaming；延迟-50% (2026)
+- [模型原生计算架构 (ICA)](sources/model-native-architecture.md) — 六层架构+双平面+三个Amdahl启发式 (2026)
+
+#### D. 缓存复用 (Cache Reuse)
+- [SAECache: 语义感知淘汰](sources/saecache-semantic-eviction.md) — 多队列+在线学习token权重；756x复用率差异；TTFT 1.4-2.7x (2026)
+- [Leyline: KV缓存编辑指令](sources/leyline-kv-directives.md) — 声明式4-tuple+闭式RoPE校正；solve rate +14.3pp (2026)
+- [TokenDance: 集体KV共享](sources/tokendance-collective-sharing.md) — KV Collector+Diff-Aware Storage；17.5x压缩 (2026)
+- [PRISM: 调度-内存协同](sources/prism-scheduling-memory.md) — QAS+DART联合设计；P99 TTFT -37.1% (2026)
+- [有状态推理多Agent工具调用](sources/stateful-inference-multi-agent.md) — O(Δ_t) delta-only+持久KV+推测解码；4.2x加速 (2026)
+- [KV Policy: RL淘汰](sources/kv-policy-learning-evict.md) — Per-head RL agent学习淘汰策略；零推理开销 (ICML 2026)
+- [VeriCache: 无损压缩](sources/vericache-lossless-compression.md) — 压缩KV草拟+全KV验证；4x吞吐；输出完全相同 (2026)
+
+#### E. 模型动态路由 (Model Dynamic Routing)
+- [HyDRA: 混合动态路由](sources/hydra-dynamic-routing.md) — 多维能力匹配+shortfall算法；iso-quality省54.1% (2026)
+- [INFRAMIND: 基础设施感知编排](sources/inframind-infra-aware.md) — 全栈感知+层次化CMDP；高负载99.9% SLO (2026)
+- [The Routing Plateau](sources/routing-plateau.md) — 21方法×5基准发现路由准确率上限；可预测性瓶颈 (2026)
+- [ReCal: RL路由奖励校准](sources/recal-reward-calibration.md) — 分层奖励分解+方差感知重加权；7数据集一致提升 (2026)
+- [TwinRouterBench: 步级路由基准](sources/twinrouterbench-step-routing.md) — 双轨设计(静态+动态)；首次评估agent中间步骤路由 (2026)
+- [GoodServe: Goodput优化服务](sources/goodserve-goodput-serving.md) — Predict-and-rectify+请求迁移；goodput +27.4% (2026)
 
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
@@ -310,6 +354,7 @@
 - [检索评估 Retrieval Evaluation](concepts/RetrievalEvaluation.md) — 超越nDCG/Recall@k的多维统计估计与冗余感知评估
 - [知识图谱检索 GraphRAG](concepts/GraphRAG.md) — 知识图谱增强检索支持多跳推理；可解释性与本体引导
 - [Agent驱动检索 Agentic Retrieval](concepts/AgenticRetrieval.md) — LLM Agent自主决定何时/检索什么/如何反思；System 1 vs System 2
+- [主题对齐双超图检索](concepts/ThemeAlignedDualHypergraph.md) — 主题超图+实体超图双结构；认知两阶段检索；跨chunk主题对齐
 
 ### Ontology in HCI Concepts
 - [本体引导KGQA](concepts/OntologyGuidedKGQA.md) — 利用本体类型约束和关系层次引导KG问答推理路径搜索
@@ -320,6 +365,14 @@
 - [对话状态追踪本体](concepts/DialogueStateTrackingOntology.md) — 本体定义的slot/值域/约束用于DST表示、更新和验证
 - [正摩擦本体](concepts/PositiveFrictionOntology.md) — 对话系统策略性减速行为的结构化分类
 - [LLM-KG本体协同](concepts/LLMKGOntologySynergy.md) — LLM与KG/本体双向增强：生成/验证/推理
+
+### LLM Inference Optimization
+- [上下文优化 Context Optimization](concepts/ContextOptimization.md) — 五大范式：动作保持/前瞻工程/潜在编译/跨族推测/激活签名
+- [Prompt优化 Prompt Optimization](concepts/PromptOptimization.md) — 六大方向：动态数据/离散codebook/Agent式/多目标/多Agent/持续可靠性
+- [执行调度优化 Execution Scheduling](concepts/ExecutionScheduling.md) — 工作流级调度+OS类比+图分区+JIT编译
+- [缓存复用 Cache Reuse](concepts/CacheReuse.md) — 语义淘汰/缓存编辑/集体共享/调度协同/有状态/RL策略/无损压缩
+- [模型动态路由 Model Routing](concepts/ModelRouting.md) — 多维能力匹配/基础设施感知/路由上限/RL校准/步级评估/goodput
+- [推测解码 Speculative Decoding](concepts/SpeculativeDecoding.md) — 草拟-验证范式扩展到预填充和缓存压缩
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms
