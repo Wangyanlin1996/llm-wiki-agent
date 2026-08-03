@@ -3,7 +3,7 @@ title: "Overview"
 type: synthesis
 tags: []
 sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces, cog-rag, coact-action-preserving-compression, smoothagent-lookahead-context, latent-context-compilation, cross-family-speculative-prefill, mia-signature-activation, prism-intent-memory-retrieval, apex-dynamic-data-selection, prompt-codebooks-pco, spear-code-augmented-prompt, mo-capo-multi-objective, maspo-joint-mas-prompt, prism-prompt-reliability, saga-workflow-scheduling, dynamo-asset-orchestration, co-coder-task-partitioning, agent-jit-compilation, typego-os-runtime, model-native-architecture, saecache-semantic-eviction, leyline-kv-directives, tokendance-collective-sharing, prism-scheduling-memory, stateful-inference-multi-agent, kv-policy-learning-evict, vericache-lossless-compression, hydra-dynamic-routing, inframind-infra-aware, routing-plateau, recal-reward-calibration, twinrouterbench-step-routing, goodserve-goodput-serving]
-last_updated: 2026-07-09
+last_updated: 2026-08-03
 ---
 
 # Overview
@@ -606,3 +606,161 @@ Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多�
 3. **行为保持优于信息保留**（[[CoACT]]）：压缩的衡量标准不是保留了多少信息，而是 agent 的后续行为是否一致——这是上下文优化的范式转换
 4. **路由准确率存在plateau**（[[RoutingPlateau]]）：21种方法收敛到相似准确率——突破需要从全局趋势学习转向实例特定信号学习
 5. **调度-缓存-路由三者协同**（[[PRISM-SchedulingMemory]]、[[INFRAMIND]]、[[GoodServe]]）：独立优化任一维度都不够——调度决定缓存命中、缓存决定延迟、延迟决定路由选择
+
+---
+
+## Round 12: 多智能体解决长上下文问题 (2024-2026)
+
+### 概览
+
+本轮聚焦多智能体（Multi-Agent）方法解决长上下文（Long-Context）问题，涵盖 32 篇论文，分为 6 大方向。核心洞察是：**多智能体协作是突破单一 LLM 上下文窗口限制的重要范式**，通过分段处理、共享记忆、KV cache 复用和递归委派实现超长上下文的有效建模。
+
+### A. 核心框架：从链式到图到门控
+
+多智能体长上下文处理的基础范式演进：
+
+| 框架 | 核心机制 | 关键突破 | 引用 |
+|---|---|---|---|
+| [[ChainOfAgents]] (CoA) | worker 顺序处理 → manager 综合 | 奠基性框架；interleave reading & reasoning | 261 |
+| [[GraphOfAgents]] (GoA) | 信息论压缩目标 + 动态协作图 | 2K context 超越 128K Llama 3.1 8B | 1 |
+| [[LSTMMAS]] | LSTM 门控映射（input/forget/CEC/output gate） | +97.97% NarrativeQA vs CoA | 1 |
+| [[COSMIR]] | 结构化记忆替代自由文本传递 | 减少传播阶段信息损失 | 1 |
+| [[ChowLiuCoA]] | Chow-Liu 树学习 chunk 依赖排序 | ICLR 2026 Workshop | 0 |
+
+**演进脉络**：自由文本传递(CoA) → 结构化记忆(COSMIR) → 门控机制(LSTM-MAS) → 信息论形式化(GoA) → 排序优化(Chow-Liu)。每一步都在解决前一步的信息瓶颈问题。
+
+### B. 多智能体 RAG：文档级专业化
+
+[[SPDRAG]] 的"每文档一 agent"范式与 [[SLEUTH]] 的"retriever + 4 协作 agent 粗到细"代表了多智能体 RAG 的两个方向：前者沿文档轴分解实现聚焦检索，后者沿证据处理流程分解实现多模态证据过滤。[[FinLongDocAgent]] 在金融领域验证了迭代检索+中间计算+验证的必要性。
+
+### C. 记忆管理：多智能体的核心挑战
+
+[[MemAgent]]（180 citations）通过 RL 训练单 agent 的覆写记忆策略实现 8K→3.5M 外推，是本领域引用最高的工作。[[AMA]] 用 Constructor/Retriever/Judge/Refresher 多 agent 协作管理多粒度记忆。[[ShardMemo]] 从分片路由角度用 masked MoE 优化记忆访问。[[GovernedSharedMemory]] 提出 fleet-memory 治理原语。[[EnsembleQSP]] 用三层层次记忆保持上下文有界（中位 301 tokens）。
+
+### D. 基础设施：KV Cache 共享是系统级突破口
+
+从"文本传递"到"KV 传递"的范式转换：
+- [[AAFLOWPlus]]：KV cache 作为一等分布式对象，TTFT -50.2x
+- [[AgentPrimitives]]：KV cache 内部通信替代自然语言，token -3~4x
+- [[SideQuest]]：LRM 自身驱动 KV cache 压缩，peak token -65%
+- [[TwinAgent]]：上下文残差压缩，仅传递紧凑 hint
+
+### E. 特定任务：从代码到视频到医疗
+
+多智能体长上下文方法已扩展到多个领域：[[SwarmResearch]] 和 [[CodeWiki]]（代码库）、[[WebSwarm]] 和 [[LMM-Searcher]]（搜索）、[[DelTA]]（翻译）、[[MACF]]（视频）、[[Traj-Evolve]]（医疗 EHR）。每个领域都验证了多智能体方法在处理超长上下文时的有效性。
+
+### F. 分析洞察：扩展定律与深度失效
+
+[[SIMAS]] 发现 MAS 性能不随 agent 数单调提升而是递减回报，协调开销是主因。[[TEP]] 识别了深度复合 AI 的 textual gradient 爆炸/消失问题。[[HIPIF]] 提出信息折叠减少长上下文干扰。[[PRIMA]] 总结了弹性多智能体操作模式。
+
+### 与现有 Wiki 的连接
+
+- **与 Agent Memory 呼应**：[[MultiAgentLongContext]] 与 [[AgentMemory]] 共享"压缩vs保留"张力——MemAgent 的覆写策略与 A-MEM 的 Zettelkasten 互补
+- **与上下文优化连接**：[[AgentKVCacheSharing]] 是 [[ContextOptimization]] 的多智能体扩展——AAFLOW+ 的分布式 KV 复用与 SAECache 的语义淘汰互补
+- **与可解释性呼应**：[[MultiAgentContextManagement]] 的治理原语与 [[RuntimeGovernance]] 的动作级验证在"显式治理"上方法论一致
+
+### 关键洞察
+
+1. **顺序链式处理是基础范式**（CoA → COSMIR → LSTM-MAS → Chow-Liu）：从自由文本到结构化记忆到门控机制到排序优化的渐进演进
+2. **信息论形式化**（GoA）：将多智能体长上下文建模形式化为压缩问题，2K context 超越 128K——理论指导实践
+3. **KV cache 共享是系统级突破口**（AAFLOW+/Agent Primitives）：从文本传递到 KV 传递，TTFT -50.2x——系统层优化比算法层更有效
+4. **记忆管理是多智能体核心挑战**（MemAgent/AMA/ShardMemo）：粒度对齐/分片路由/治理原语三管齐下
+5. **扩展定律：递减回报**（SIMAS）：MAS 性能不随 agent 数单调提升——协调开销是主因而非长上下文失败
+6. **深度复合 AI 的梯度失效**（TEP）：textual gradient 爆炸/消失是长程工作流的核心挑战——需要平衡传播而非全局反向传播
+
+---
+
+## 第13轮：本体推理、LLM Agent本体增强与本体语义层（2023-2026）— 22篇论文 × 3方向
+
+第13轮聚焦"本体推理、LLM Agent使用本体提升能力、本体用于语义层"，覆盖2023-2026年共22篇论文，按三个方向构建从推理技术到Agent增强到语义基础设施的完整技术图谱。这是 wiki 继 Round 10（本体应用在HCI）后再次系统性覆盖本体方向，但本轮聚焦的是本体推理技术本身、LLM Agent 的本体增强综合性技术，以及本体作为语义层的基础设施角色——与 Round 10 的 HCI/KGQA/TOD 场景互补。
+
+### 跨方向趋势
+
+| 方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 本体推理** | 符号推理器→LLM增强推理→代数投影→同伦类型论推广 | [[neurowl]]、[[fuzzy-owl2-reasoning]]、[[hott-nesy-neurosymbolic]]、[[algebraic-ontology-projection]] |
+| **B. LLM Agent+本体增强** | 本体作为知识源→本体作为工具层→本体作为架构基础→本体作为治理层 | [[agentic-redux]]、[[semantic-training-gap]]、[[virf-verifiable-embodied]]、[[deontic-policies-agenticrei]] |
+| **C. 本体语义层** | 数据集成→虚拟本体层→对象中心建模→因果智能层→显式世界模型 | [[umodel-observability]]、[[causely-causal-intelligence]]、[[daoql-explicit-world-model]]、[[intent-6g-orchestration]] |
+
+### A. 本体推理（Ontology Reasoning）
+
+本体推理正从纯符号推理器向 LLM 增强的神经符号推理演进。[[neurowl]] 将 LLM 文本语义与本体嵌入结合，统一了包含验证与本体溯因——解决了不完整本体中经典推理器无法推断"合理但未被蕴含"关系的难题。[[algebraic-ontology-projection]] 从另一个角度切入，将 LLM 隐状态投影到 Galois 域 F2，发现 LLM 内部确实编码了可形式验证的代数本体结构，但存在"Late-layer Collapse"——最终层系统性逻辑一致性退化。[[hott-nesy-neurosymbolic]] 用同伦类型论推广神经符号推理，保留集合遗忘的对称性和证明计数信息。[[ontolearner]] 提供了首个统一本体学习基准（180本体×22域），发现瓶颈不是模型能力而是模型编码知识与本体组织方式的结构不匹配。
+
+### B. LLM Agent使用本体提升能力
+
+本方向的核心洞察是**本体从"知识源"提升为"架构基础层"**。[[agentic-redux]] 提出 Ontology-First Agent Design 方法论，用 BFO 本体化问题域+类型 lambda 演算证明语义正确性。[[deontic-policies-agenticrei]] 用 OWL 道义策略语言在 LLM 外部实现义务/豁免/冲突解决治理。[[semantic-training-gap]] 形式化"语义训练鸿沟"概念，将本体嵌入工具层实现 43%→0% 幻觉率。[[virf-verifiable-embodied]]（ICLR 2026）用形式安全本体驱动 tutor-apprentice 计划修复，HAR=0%。[[auto-ontology-construction-llm]] 构建 LLM+外部本体记忆层，生成-验证-修正管线。[[cybercane-neuro-symbolic-rag]] 引入 PhishOnt OWL 本体通过形式推理链实现可验证攻击分类。[[neuron-clinical-explainability]] 集成 SNOMED CT 本体+ML+RAG 三层。[[bdi-ontology]] 将 BDI 模型形式化为本体设计模式，通过 Logic Augmented Generation 与 LLM 耦合。
+
+### C. 本体用于语义层
+
+本方向展示本体作为异构数据/系统/agent 间的统一语义接口层。[[umodel-observability]] 在阿里云将可观测性从数据中心转向对象中心，百万级 OPS。[[causely-causal-intelligence]] 构建因果智能层，MTTD-63%、token-60%、根因100%。[[intent-6g-orchestration]] 用 TMF 意图本体+SHACL 验证驱动 6G 编排，幻觉-26pp。[[security-ontology-autonomous-networks]] 规范 TM Forum 安全本体 v4.0.0，RDFS 声明式安全管理。[[discoverable-agent-knowledge-aap]] 提出四维形式化框架和 Agent 可供性配置文件作为 VoID/DCAT 之上的语义层。[[ontology-aware-design-patterns-clinical]] 提出 7 种本体感知设计模式。[[autonomous-fair-digital-objects]] 用 RDF-star/PROV-O/SHACL/ODRL 三层增强 FAIR 数字对象。[[daoql-explicit-world-model]] 将确定性知识移入显式本体世界模型，反事实可分解性 94% vs GPT-4o 单独 45%。[[obda-query-abstraction]] 在 KR 2025 研究本体数据访问中的查询抽象。
+
+### 跨方向收敛
+
+| 收敛主题 | 本体推理 | LLM Agent+本体 | 本体语义层 |
+|---|---|---|---|
+| **神经符号分离** | LLM+嵌入 (NeurOWL), HoTT推广 | LLM+符号引擎 (VIRF, CyberCane) | 因果层+本体 (Causely) |
+| **LLM外推理** | 代数投影 (AOP) | OWL道义策略 (AgenticRei) | SHACL验证 (6G), 逻辑引擎 (DaoQL) |
+| **幻觉抑制** | F2约束 (AOP) | 本体工具层 43%→0% (Semantic Gap) | 目录接地 -26pp (6G) |
+| **可验证性** | 形式验证+溯因 (NeurOWL) | 类型lambda证明 (Agentic Redux) | 审计账本+凭证 (Agentic Redux) |
+| **从知识到架构** | 本体学习基础设施 (OntoLearner) | 本体优先设计 (Ontology-First) | 对象中心建模 (UModel) |
+
+### 与现有Wiki的连接
+
+- **与Round 10互补**：Round 10 聚焦本体在 HCI/KGQA/TOD 场景的应用，本轮聚焦本体推理技术本身、LLM Agent 的本体增强方法论、以及本体作为语义基础设施——两轮形成"应用场景×技术方法"的完整矩阵
+- **与3GPP意图管理呼应**：[[intent-6g-orchestration]] 和 [[security-ontology-autonomous-networks]] 直接用 TM Forum 本体扩展了 [[IntentDrivenMnS]] 的"what vs how"抽象——本体定义"是什么"，推理引擎/agent决定"怎么做"
+- **与AgentLoop框架对应**：[[OntologyFirstAgentDesign]] 的"本体→角色→agent→治理"与 [[RuntimeGovernance]] 的"动作级可验证授权"直接对应——本体提供机器可验证的治理基础
+- **与神经符号编排呼应**：[[neurowl]] 和 [[virf-verifiable-embodied]] 与已有 [[NeurosymbolicOrchestration]]（VADAOrchestra）共享"LLM灵活规划+符号可验证执行"范式
+- **与可观测性/因果连接**：[[umodel-observability]] 和 [[causely-causal-intelligence]] 为 [[CausalExplanation]] 提供了生产级语义基础设施实例
+
+### 关键洞察
+
+1. **本体从知识源到架构基础层**（[[OntologyFirstAgentDesign]]）：本体不再仅作为 RAG 的外部知识源，而是 agent 架构的基础层——提供类型约束、语义验证、审计凭证和治理边界
+2. **LLM内隐编码可形式验证的本体结构**（[[algebraic-ontology-projection]]）：LLM 隐状态投影到 F2 域后展现 93.33% 零样本本体包含准确率——但存在 Late-layer Collapse，需 prompt+instruction tuning 联合防止
+3. **本体语义层是生产级AI的基础设施**（[[umodel-observability]]、[[causely-causal-intelligence]]）：阿里云百万级 OPS 和 MTTD-63% 证明本体语义层不是学术概念而是工程必需
+4. **神经符号分离是可靠性关键**（[[neurowl]]、[[virf-verifiable-embodied]]）：LLM 负责灵活推理，符号引擎/本体约束负责确定性验证——这种分离在医疗、安全、网络管理等高精度领域不可或缺
+5. **本体学习瓶颈是结构而非模型**（[[ontolearner]]）：180本体×22域大规模评测发现，失败模式随本体复杂度而非模型规模扩展——"模型编码知识与本体组织方式的结构不匹配"是核心挑战
+
+---
+
+## Round 14: 本体用于意图理解与语义对齐 (2024-2026)
+
+### 搜索方向
+
+三个子方向交叉搜索：(A) 本体驱动的意图表示与对齐——用本体结构化约束将NL意图映射到可执行结构化表示；(B) LLM+本体协同意图理解——LLM借助本体做意图推理/grounding/消歧；(C) 本体对齐/匹配用于语义对齐——异构本体/schema间建立语义等价映射。
+
+### A. 本体驱动的意图表示与对齐
+
+本方向核心是利用形式本体（ISA-95、TMF Intent Ontology等）的结构化语义约束，将自然语言意图精确映射到可执行的结构化表示。[[intent-driven-smart-manufacturing]] 在 MaaS 生态中将 LLM 意图翻译为 ISA-95 对齐的 Neo4j KG 节点，89.33% EM。[[treerec-intent-artifacts]] 用本体语义树组织制品层次，实现意图-功能对齐并缩小候选空间。[[geospatial-kg-multi-agent]] 用统一元数据本体作为语义中介层对齐跨平台异构标准，多 Agent 架构执行意图解析→KG检索→答案合成。[[rag-intent-reasoning-network]] 指出为每个应用手工构建本体语言不可扩展，提出 MR+RAG 替代方案。[[usage-centric-intent-ecommerce]]（EMNLP 2024）反思产品本体的类别刚性和属性模糊局限，提出本体无关的意图理解范式。
+
+### B. LLM+本体协同意图理解
+
+本方向研究 LLM 借助本体进行意图推理、grounding 和消歧。[[birgat-multi-intent-slu]]（ICASSP 2024）用双关系图注意力网络编码本体项层次结构，配合3层语义框架解决多意图对齐和分配问题。[[usd-scene-ontology-grounding]]（ICRA 2026 WS）证明 LLM 可零样本完成场景对象到 SOMA-HOME 本体的 grounding（90-96%），但消融实验揭示 LLM 依赖场景图语义线索而非几何信息。[[sam-ner-semantic-archetype]]（ACL 2026 Findings）通过从本体抽象蒸馏的中间原型空间稳定跨域 NER 迁移，避免标签定义与 LLM 内在语义不对齐导致的系统性漂移。
+
+### C. 本体对齐/匹配用于语义对齐
+
+本方向聚焦异构本体/schema间的语义等价映射技术。[[open-ontologies-stable-matching]] 的核心发现是稳定 1:1 匹配是对齐质量主导因素（OAEI F1=0.832），信号权重在稳定匹配下无关紧要（F1变化<0.004）。反直觉发现：LLM 读原始 OWL 文件（F1=0.323）比不读文件（F1=0.431）更差，MCP 工具结构化访问（F1=0.717）提供质变模式。[[anchor-schema-agnostic-ontology]] 的混合本体发现机制动态探索大本体 schema，SHACL 验证确保合规。[[blinkg-llm-kg-benchmark]] 评估 LLM schema-本体映射能力，发现复杂场景仍有限。[[llm-ontology-engineering-legal-kg]]（SEMANTiCS 2026）用两阶段开放-封闭提取策略构建法律 KG。[[cortex-ontological-corpus-graph]] 的三层 OCG 统一内容/本体/跨域对齐，发布 24.14B token 精炼语料。[[concepte-event-ontology-expansion]] 用 LLM 概念化提取概念级语义，BCubed-F1 +12.37%。[[virtualset-typed-ontology-worlds]] 用类型化本体世界替代 SQL 作为 LLM 生成目标，GCP 预执行语义检查。
+
+### 跨方向收敛
+
+| 收敛主题 | 意图对齐 (A) | LLM+本体 (B) | 本体匹配 (C) |
+|---|---|---|---|
+| **稳定匹配/对齐** | TreeRec层次语义树 | SAM-NER原型中介 | Open Ontologies稳定1:1匹配 |
+| **grounding** | ISA-95 KG节点映射 | USD场景→SOMA-HOME | ANCHOR schema→本体发现 |
+| **本体局限性** | 类别刚性/属性模糊 | 标签语义不对齐 | LLM读原始OWL更差 |
+| **工具层vs原始访问** | MR+RAG替代手工本体 | 冻结LLM+约束推理 | MCP工具>F1=0.717 |
+| **幻觉抑制** | 本体约束操作对齐 | 定义对齐推理 | GCP类型错误预执行 |
+
+### 与现有Wiki的连接
+
+- **与Round 10/13互补**：Round 10 聚焦本体在 HCI/KGQA/TOD 场景应用，Round 13 聚焦本体推理/语义层基础设施，本轮聚焦本体与意图理解/语义对齐的交叉——形成"应用场景×技术方法×意图交叉"三维矩阵
+- **与NOEM³A直接呼应**：[[noemmma]] 用本体注入+解码先验增强多意图理解，本轮 [[birgat-multi-intent-slu]] 用图注意力编码本体层次解决多意图对齐，[[intent-driven-smart-manufacturing]] 用 ISA-95 本体对齐意图翻译——三者从不同角度验证"本体结构化约束提升意图理解精度"
+- **与3GPP意图管理呼应**：[[rag-intent-reasoning-network]] 和 [[intent-driven-smart-manufacturing]] 为 [[IntentDrivenMnS]] 的"what vs how"抽象提供了工业实践案例——本体定义"是什么"的语义约束
+- **与语义检索连接**：[[treerec-intent-artifacts]] 的语义树和 [[cortex-ontological-corpus-graph]] 的三层OCG为 [[RetrievalAugmentedGeneration]] 提供了本体驱动的语义组织方案
+
+### 关键洞察
+
+1. **本体结构化约束是意图对齐的操作语义保证**（[[intent-driven-smart-manufacturing]]、[[geospatial-kg-multi-agent]]）：领域标准本体（ISA-95/TMF）确保意图翻译结果与实际系统资源和约束一致，而非仅语义相似
+2. **稳定匹配主导本体对齐质量**（[[open-ontologies-stable-matching]]）：信号权重在稳定匹配下无关紧要——这一发现简化了本体对齐的工程实践
+3. **LLM本体grounding依赖语义线索而非几何信息**（[[usd-scene-ontology-grounding]]）：匿名化语义线索后准确率降至0-6%，揭示LLM的grounding本质是语义推理
+4. **本体刚性是双刃剑**（[[usage-centric-intent-ecommerce]]）：本体提供结构化约束但也限制跨类别对齐——需要本体无关的推理作为补充
+5. **工具结构化访问是LLM本体交互的质变模式**（[[open-ontologies-stable-matching]]）：MCP工具访问（F1=0.717）远超原始OWL文件读取（F1=0.323），证明LLM需要结构化而非原始语法访问本体

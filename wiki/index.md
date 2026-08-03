@@ -251,6 +251,105 @@
 - [TwinRouterBench: 步级路由基准](sources/twinrouterbench-step-routing.md) — 双轨设计(静态+动态)；首次评估agent中间步骤路由 (2026)
 - [GoodServe: Goodput优化服务](sources/goodserve-goodput-serving.md) — Predict-and-rectify+请求迁移；goodput +27.4% (2026)
 
+### Multi-Agent Long-Context — Round 12 (2024-2026)
+
+#### A. 核心多智能体长上下文框架
+- [Chain-of-Agents (CoA)](sources/chain-of-agents.md) — 奠基性框架：worker→manager 顺序处理长上下文；NeurIPS 2024, 261 citations (2024)
+- [Graph of Agents (GoA)](sources/graph-of-agents.md) — 信息论压缩目标；2K context 超越 128K Llama 3.1 8B (2025)
+- [LSTM-MAS](sources/lstm-mas.md) — LSTM 门控映射到多智能体；+97.97% NarrativeQA vs CoA (2026)
+- [COSMIR](sources/cosmir.md) — 结构化记忆替代 CoA 自由文本传递；HELMET suite (2025)
+- [Chow-Liu Ordering for CoA](sources/chow-liu-coa.md) — chunk 排序优化；Chow-Liu 树；ICLR 2026 Workshop (2026)
+
+#### B. 多智能体 RAG / 长文档 QA
+- [SPD-RAG](sources/spd-rag.md) — 每文档一 agent + 递归 map-reduce；LOONG Avg 58.1 (2026)
+- [SLEUTH](sources/sleuth-long-doc.md) — Retriever + 4 协作 agent 粗到细；长文档多模态 SOTA (2025, 13 citations)
+- [FinLongDocAgent](sources/finlongdoc-agent.md) — 金融长文档多智能体多轮 RAG (2026)
+
+#### C. 多智能体记忆与上下文管理
+- [MemAgent](sources/memagent-long-context.md) — RL 记忆 agent；8K→3.5M 外推；512K RULER 95%+ (2025, 180 citations)
+- [AMA](sources/ama-adaptive-memory.md) — 多 agent 多粒度记忆管理；token -80%；ACL 2026 (2026)
+- [ShardMemo](sources/shardmemo.md) — Masked MoE 路由分片记忆；三层架构 (2026)
+- [Governed Shared Memory](sources/governed-shared-memory.md) — fleet-memory 治理原语；MemClaw (2026)
+- [Ensemble QSP](sources/ensemble-qsp.md) — 三层层次记忆；中位 301 tokens；5 specialist agents (2026)
+
+#### D. 多智能体基础设施
+- [AAFLOW+](sources/aaflow-plus.md) — KV cache 一等分布式对象；零拷贝复用；TTFT -50.2x (2026)
+- [Agent Primitives](sources/agent-primitives.md) — 可复用原语 + KV cache 通信；token -3~4x (2026, 6 citations)
+- [Twin Agent](sources/twin-agent.md) — 上下文残差压缩；双 agent 特权分离 (2026)
+- [SideQuest](sources/sidequest.md) — LRM 自驱动 KV cache 压缩；peak token -65% (2026, 7 citations)
+- [XFlow](sources/xflow-multi-agent.md) — 可执行协议编程系统；约束显式可执行 (2026)
+
+#### E. 多智能体特定长上下文任务
+- [SwarmResearch](sources/swarmresearch.md) — 全局/局部上下文分离编排；15/13 任务更优 (2026)
+- [WebSwarm](sources/webswarm.md) — 递归多智能体深度搜索；过程级经验复用 (2026)
+- [CodeWiki](sources/codewiki.md) — 递归多智能体代码库文档；ACL 2026 (2025, 6 citations)
+- [DelTA](sources/delta-translation-agent.md) — 多级记忆文档翻译；ICLR 2025 (2024, 29 citations)
+- [DS2SC-Agent](sources/ds2sc-agent.md) — 多智能体非结构化长文档→SystemC (2026)
+- [MemDocAgent](sources/memdocagent.md) — 共享 RepoMemory 仓库级代码文档 (2026)
+- [MACF](sources/macf-video.md) — 潜在多智能体协作视频理解；预算解耦 (2026)
+- [LMM-Searcher](sources/lmm-searcher.md) — 100-turn 多模态搜索；UID 映射 (2026, 4 citations)
+- [Traj-Evolve](sources/traj-evolve.md) — 自演化多智能体 EHR；ExPool + MARL (2026)
+
+#### F. 分析与扩展行为
+- [SIMAS](sources/simas.md) — MAS 扩展定律：递减回报；协调开销 vs 长上下文失败 (2026)
+- [TEP](sources/tep-textual-equilibrium.md) — textual gradient 爆炸/消失；平衡传播；ICLR 2026 (2026)
+- [HIPIF](sources/hipif.md) — 层级规划 + 信息折叠；子目标历史折叠 (2026)
+- [PRIMA](sources/prima-multi-agent.md) — 弹性多智能体研究操作模式；上下文压缩 (2026)
+- [Agentic Context Management](sources/agentic-context-management.md) — 上下文生命周期+架构管理 (2026)
+
+### Ontology Reasoning, LLM Agent+Ontology, Ontology Semantic Layer — Round 13 (2023-2026)
+
+#### A. 本体推理 (Ontology Reasoning)
+- [NeurOWL: LLM神经符号框架解决不完整OWL本体推理](sources/neurowl.md) — 统一蕴含验证+本体溯因；LLM+本体嵌入联合推理 (2026)
+- [Fuzzy OWL 2 Reasoning: 重新实现的Python框架](sources/fuzzy-owl2-reasoning.md) — 模糊OWL 2推理的现代化Python实现 (2026)
+- [HoTT-NeSy: 同伦类型论推广神经符号推理](sources/hott-nesy-neurosymbolic.md) — 信念加权同伦基数；对称性感知推理捷径 (2026)
+- [OBDA查询抽象](sources/obda-query-abstraction.md) — 本体数据访问查询抽象；最小完备/最大可靠；KR 2025 (2025)
+- [Algebraic Ontology Projection](sources/algebraic-ontology-projection.md) — LLM隐状态投影到Galois域F2；Late-layer Collapse (2026)
+- [OntoLearner: 首个统一本体学习框架](sources/ontolearner.md) — 180本体×22域；22检索模型+12 LLM评测；Nature Comms (2026)
+
+#### B. LLM Agent使用本体提升能力
+- [Agentic Redux: 本体优先Agent设计](sources/agentic-redux.md) — BFO本体+类型lambda演算正确性证明；审计账本 (2026)
+- [Deontic Policies: OWL道义策略语言治理Agent](sources/deontic-policies-agenticrei.md) — 义务/豁免/冲突解决；LLM外推理引擎；IEEE ICWS 2026 (2026)
+- [Semantic Training Gap: 本体嵌入工具层](sources/semantic-training-gap.md) — resolve/contextualize/annotate；幻觉43%→0% (2026)
+- [Automatic Ontology Construction: LLM外部本体记忆层](sources/auto-ontology-construction-llm.md) — RDF/OWL；生成-验证-修正管线 (2026)
+- [VIRF: 安全本体驱动的可验证具身AI](sources/virf-verifiable-embodied.md) — tutor-apprentice对话；HAR=0%；ICLR 2026 (2026)
+- [CyberCane: PhishOnt OWL本体驱动钓鱼检测](sources/cybercane-neuro-symbolic-rag.md) — 神经符号RAG；FPR低至0.16% (2026)
+- [NEURON: SNOMED CT本体增强临床可解释性](sources/neuron-clinical-explainability.md) — 本体+ML+RAG三层集成；AUC 0.74→0.88 (2026)
+- [BDI Ontology: 信念-欲望-意图本体设计模式](sources/bdi-ontology.md) — LLM+Logic Augmented Generation；T2B2T范式 (2025)
+
+#### C. 本体用于语义层
+- [UModel: 统一本体框架重塑可观测性](sources/umodel-observability.md) — 对象中心建模；阿里云生产部署1年+；百万级OPS (2026)
+- [Intent-Driven 6G编排: TMF意图本体+SHACL验证](sources/intent-6g-orchestration.md) — 语义服务目录接地；幻觉-26pp；ICML'26 WS (2026)
+- [Security Ontology for Autonomous Networks](sources/security-ontology-autonomous-networks.md) — TM Forum安全本体v4.0.0；RDFS声明式安全管理 (2026)
+- [Causely: 因果智能层+本体表示](sources/causely-causal-intelligence.md) — MTTD-63%；token-60%；根因100% (2026)
+- [Discoverable Agent Knowledge: KG可供性框架](sources/discoverable-agent-knowledge-aap.md) — 四维形式化；AAP语义层；VoID/DCAT之上 (2026)
+- [Ontology-Aware Design Patterns for Clinical AI](sources/ontology-aware-design-patterns-clinical.md) — 7种设计模式；Dual-Ontology Layer (2026)
+- [Autonomous FAIR Digital Objects](sources/autonomous-fair-digital-objects.md) — 语义Web标准(RDF-star/PROV-O/SHACL/ODRL)；拜占庭容错 (2026)
+- [DaoQL: 数据优先本体作为显式世界模型](sources/daoql-explicit-world-model.md) — 反事实94%；LLM推理引擎+确定性知识 (2026)
+
+### Ontology for Intent Understanding & Semantic Alignment — Round 14 (2024-2026)
+
+#### A. 本体驱动的意图表示与对齐
+- [Intent-Driven Smart Manufacturing](sources/intent-driven-smart-manufacturing.md) — LLM+本体对齐KG翻译NL意图为ISA-95 JSON；89.33% EM；ICKG 2025 (2025)
+- [TreeRec: 意图驱动制品推荐](sources/treerec-intent-artifacts.md) — 本体语义树实现意图-功能对齐；IntentRecBench基准 (2025)
+- [Geospatial KG Multi-Agent](sources/geospatial-kg-multi-agent.md) — 统一元数据本体作语义中介层；多agent意图解析+检索 (2026)
+- [RAG-Enabled Intent Reasoning](sources/rag-intent-reasoning-network.md) — MR+RAG克服LLM/vanilla-RAG意图翻译缺陷；EuCNC 2026 (2025)
+- [Usage-centric Intent Understanding](sources/usage-centric-intent-ecommerce.md) — FolkScope意图KG弱点分析；EMNLP 2024 (2024)
+
+#### B. LLM+本体协同意图理解
+- [BiRGAT Multi-intent SLU](sources/birgat-multi-intent-slu.md) — 双关系GAT编码本体层次+3层语义框架；ICASSP 2024 (2024)
+- [USD Scene Ontology Grounding](sources/usd-scene-ontology-grounding.md) — LLM零样本场景对象grounding到SOMA-HOME本体；90-96%；ICRA 2026 WS (2026)
+- [SAM-NER: 语义原型中介](sources/sam-ner-semantic-archetype.md) — 本体抽象原型空间稳定跨域NER迁移；ACL 2026 Findings (2026)
+
+#### C. 本体对齐/匹配用于语义对齐
+- [Open Ontologies: 稳定匹配对齐](sources/open-ontologies-stable-matching.md) — 稳定1:1匹配主导对齐质量；OAEI F1=0.832；MCP工具访问 (2026)
+- [ANCHOR: 无schema依赖KG构建](sources/anchor-schema-agnostic-ontology.md) — 混合本体发现+SHACL验证；本地LLM匹配企业LLM (2026)
+- [BLINKG: LLM KG生成基准](sources/blinkg-llm-kg-benchmark.md) — 评估LLM将数据schema映射到本体概念能力 (2026)
+- [LLM Ontology Engineering + Legal KG](sources/llm-ontology-engineering-legal-kg.md) — 两阶段本体工程；嵌入融合标签规范化；SEMANTiCS 2026 (2026)
+- [CORTEX: 本体语料图](sources/cortex-ontological-corpus-graph.md) — 三层OCG统一内容/本体/跨域对齐；24.14B token语料 (2026)
+- [ConceptE: 事件本体扩展](sources/concepte-event-ontology-expansion.md) — LLM概念化提取概念级语义；BCubed-F1 +12.37% (2026)
+- [VirtualSet: 类型化本体世界](sources/virtualset-typed-ontology-worlds.md) — 类型化本体世界替代SQL；GCP预执行语义；+4.0pp (2026)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -373,6 +472,23 @@
 - [缓存复用 Cache Reuse](concepts/CacheReuse.md) — 语义淘汰/缓存编辑/集体共享/调度协同/有状态/RL策略/无损压缩
 - [模型动态路由 Model Routing](concepts/ModelRouting.md) — 多维能力匹配/基础设施感知/路由上限/RL校准/步级评估/goodput
 - [推测解码 Speculative Decoding](concepts/SpeculativeDecoding.md) — 草拟-验证范式扩展到预填充和缓存压缩
+
+### Multi-Agent Long-Context Concepts
+- [多智能体长上下文建模](concepts/MultiAgentLongContext.md) — 多 agent 协作处理超出单模型上下文窗口的长输入；顺序链式/动态协作图/门控机制
+- [顺序智能体推理](concepts/SequentialAgentReasoning.md) — 长输入分段→worker agent 顺序处理→manager agent 综合；CoA/COSMIR/LSTM-MAS
+- [多智能体上下文管理](concepts/MultiAgentContextManagement.md) — 多 agent 系统中上下文的管理/共享/治理；粒度对齐/分片路由/治理原语
+- [多智能体 KV Cache 共享](concepts/AgentKVCacheSharing.md) — 多 agent 间复用 KV cache 避免重复 prefill；分布式对象/原语通信/模型驱动压缩
+- [多智能体 RAG](concepts/MultiAgentRAG.md) — 文档级专业化 + 中心化融合；跨文档 QA 和长文档理解
+
+### Ontology Reasoning & Semantic Layer Concepts (Round 13)
+- [本体推理 Ontology Reasoning](concepts/OntologyReasoning.md) — 形式本体上的自动化推理：包含验证/溯因/可满足性/一致性；从符号推理器到LLM增强
+- [本体语义层 Ontology Semantic Layer](concepts/OntologySemanticLayer.md) — 本体作为异构数据/系统/agent间统一语义接口层；虚拟本体层+语义图+对象中心建模
+- [本体优先Agent设计 Ontology-First Agent Design](concepts/OntologyFirstAgentDesign.md) — 本体从知识源提升为agent架构基础层；类型约束/语义验证/审计凭证/治理边界
+
+### Ontology Intent & Alignment Concepts (Round 14)
+- [本体驱动意图对齐 Ontology-Driven Intent Alignment](concepts/OntologyIntentAlignment.md) — 利用形式本体结构化语义约束将NL意图映射到可执行结构化表示；ISA-95/TMF标准提供操作语义保证
+- [本体语义grounding Ontology Semantic Grounding](concepts/OntologySemanticGrounding.md) — 将非结构化输入映射到形式本体类获得类型/关系/约束语义；与本体对齐不同的单向映射
+- [本体匹配与对齐 Ontology Matching & Alignment](concepts/OntologyMatching.md) — 异构本体/schema间建立语义等价映射；稳定1:1匹配主导质量；LLM工具结构化访问质变
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms

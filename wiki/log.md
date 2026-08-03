@@ -475,3 +475,142 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - log.md: 本条目
 
 累计 274 -> 311 页, 176 -> 207 PDF, 177 -> 208 论文, 97 -> 103 概念.
+
+## [2026-07-24] ingest | Round 12 — 多智能体解决长上下文问题
+
+### 方向
+多智能体（Multi-Agent）方法解决长上下文（Long-Context）问题，覆盖 2024-2026 年最新研究。
+
+### 搜索策略
+- arXiv API: 11 组互补查询（multi-agent + long context/document/RAG/reasoning/survey 等）
+- arXiv 搜索页面: 4 组精确查询
+- Semantic Scholar batch API: 32 篇 batch 查询获取引用数
+
+### 新增论文（32 篇，6 类）
+
+**A. 核心多智能体长上下文框架（5 篇）**
+- Chain-of-Agents (CoA) — 2406.02818 — 奠基性框架，worker→manager 顺序处理 (NeurIPS 2024, 261 citations)
+- Graph of Agents (GoA) — 2509.21848 — 信息论压缩目标，2K超越128K (2025, 1 citation)
+- LSTM-MAS — 2601.11913 — LSTM 门控映射到多智能体 (2026, 1 citation)
+- COSMIR — 2510.04568 — 结构化记忆替代自由文本传递 (2025, 1 citation)
+- Chow-Liu CoA — 2603.09835 — chunk 排序优化 (ICLR 2026 Workshop)
+
+**B. 多智能体 RAG / 长文档 QA（3 篇）**
+- SPD-RAG — 2603.08329 — 每文档一 agent + 递归 map-reduce
+- SLEUTH — 2511.22850 — Retriever + 4 协作 agent 粗到细 (13 citations)
+- FinLongDocAgent — 2604.03664 — 金融长文档多智能体多轮 RAG
+
+**C. 多智能体记忆与上下文管理（5 篇）**
+- MemAgent — 2507.02259 — RL 训练记忆 agent，8K→3.5M 外推 (180 citations)
+- AMA — 2601.20352 — 多 agent 多粒度记忆管理 (ACL 2026, 4 citations)
+- ShardMemo — 2601.21545 — Masked MoE 路由分片记忆
+- Governed Shared Memory — 2606.24535 — fleet-memory 治理原语
+- Ensemble QSP — 2607.07666 — 三层层次记忆，中位 301 tokens
+
+**D. 多智能体基础设施（5 篇）**
+- AAFLOW+ — 2607.10987 — KV cache 一等分布式对象，TTFT -50.2x
+- Agent Primitives — 2602.03695 — 可复用原语 + KV cache 通信 (6 citations)
+- Twin Agent — 2607.19595 — 上下文残差压缩，双 agent 特权分离
+- SideQuest — 2602.22603 — LRM 自驱动 KV cache 压缩 (7 citations)
+- XFlow — 2606.14790 — 可执行协议编程系统
+
+**E. 多智能体特定长上下文任务（9 篇）**
+- SwarmResearch — 2607.02807 — 全局/局部上下文分离编排
+- WebSwarm — 2607.08662 — 递归多智能体深度搜索
+- CodeWiki — 2510.24428 — 递归多智能体代码库文档 (ACL 2026, 6 citations)
+- DelTA — 2410.08143 — 多级记忆文档翻译 (ICLR 2025, 29 citations)
+- DS2SC-Agent — 2603.21190 — 多智能体非结构化长文档解析
+- MemDocAgent — 2605.14563 — 共享 RepoMemory 仓库级文档
+- MACF — 2605.00444 — 潜在多智能体协作视频理解
+- LMM-Searcher — 2604.12890 — 100-turn 多模态搜索
+- Traj-Evolve — 2606.02812 — 自演化多智能体 EHR 序列
+
+**F. 分析与扩展行为（5 篇）**
+- SIMAS — 2606.00655 — MAS 扩展定律：递减回报
+- TEP — 2601.21064 — textual gradient 爆炸/消失 (ICLR 2026)
+- HIPIF — 2606.10507 — 层级规划 + 信息折叠
+- PRIMA — 2605.24775 — 弹性多智能体研究操作模式
+- Agentic Context Management — 2607.21503 — 上下文生命周期+架构管理
+
+### 核心发现
+1. **顺序链式处理是基础范式**（CoA→COSMIR→LSTM-MAS→Chow-Liu）：从自由文本传递到结构化记忆到门控机制到排序优化
+2. **信息论形式化**（GoA）：将多智能体长上下文建模形式化为压缩问题，2K context 超越 128K
+3. **KV cache 共享是系统级突破口**（AAFLOW+/Agent Primitives/SideQuest）：从文本传递到 KV 传递，TTFT -50.2x
+4. **记忆管理是多智能体核心挑战**（MemAgent/AMA/ShardMemo/GovernedSharedMemory）：粒度对齐/分片路由/治理原语
+5. **扩展定律：递减回报**（SIMAS）：MAS 性能不随 agent 数单调提升，协调开销是主因
+6. **深度复合 AI 的梯度失效**（TEP）：textual gradient 爆炸/消失是长程工作流的核心挑战
+
+### 更新
+- index.md: +32 source entries +5 concept entries
+- overview.md: +Round 12 section
+- log.md: 本条目
+- 32 PDFs downloaded to raw/papers/
+
+累计 311 -> 378 页, 207 -> 239 PDF, 208 -> 240 论文, 103 -> 108 概念.
+
+---
+
+## [2026-07-25] ingest | Round 13 — 本体推理、LLM Agent本体增强与本体语义层 (22篇)
+
+### 搜索方向
+- A. 本体推理（Ontology Reasoning）：描述逻辑推理、OWL推理、本体一致性、可满足性、推理器技术进展
+- B. LLM Agent使用本体提升能力：LLM agent用本体提升推理/规划/工具调用/幻觉抑制等综合性技术
+- C. 本体用于语义层：本体作为数据集成/语义互操作/知识图谱语义层/语义基础设施
+
+### 搜索策略
+- arXiv API: 6组查询 (ontology+reasoning+LLM / ontology+agent+LLM / ontology+semantic+layer / neuro-symbolic+ontology+LLM / ontology+KG+LLM+reasoning / ontology+hallucination+LLM)
+- WebFetch arXiv abstract pages for individual paper details
+- 排除 Round 10 已收录论文 (HEAR, OPI, neuro-symbolic-kg-ontology, VLK-RL, LOM)
+
+### 入库22篇
+**A. 本体推理 (6篇)**: NeurOWL, Fuzzy OWL 2, HoTT-NeSy, OBDA Query Abstraction, Algebraic Ontology Projection, OntoLearner
+**B. LLM Agent+本体增强 (8篇)**: Agentic Redux, Deontic Policies, Semantic Training Gap, Auto Ontology Construction, VIRF (ICLR 2026), CyberCane, NEURON, BDI Ontology
+**C. 本体语义层 (8篇)**: UModel, Intent-Driven 6G, Security Ontology, Causely, Discoverable Agent Knowledge, Ontology-Aware Design Patterns, Autonomous FAIR Digital Objects, DaoQL
+
+### 关键趋势
+1. 本体从知识源到架构基础层 (Ontology-First Agent Design)
+2. LLM内隐编码可形式验证的本体结构但存在Late-layer Collapse
+3. 本体语义层是生产级AI基础设施 (阿里云百万级OPS)
+4. 神经符号分离是高精度领域可靠性关键
+5. 本体学习瓶颈是结构而非模型能力
+
+### 更新
+- index.md: +22 source entries +3 concept entries
+- overview.md: +Round 13 section
+- log.md: 本条目
+- 22 PDFs downloaded to raw/papers/
+- 3 new concept pages: OntologyReasoning, OntologySemanticLayer, OntologyFirstAgentDesign
+
+累计 378 -> 389 页, 239 -> 261 PDF, 240 -> 262 论文, 108 -> 111 概念.
+
+## [2026-08-03] ingest | Round 14: 本体用于意图理解与语义对齐 — 15 papers × 3 sub-directions
+
+### 搜索方向
+- A. 本体驱动的意图表示与对齐：用本体结构化约束将NL意图映射到可执行结构化表示
+- B. LLM+本体协同意图理解：LLM借助本体做意图推理/grounding/消歧
+- C. 本体对齐/匹配用于语义对齐：异构本体/schema间建立语义等价映射
+
+### 搜索策略
+- arXiv API: 5组查询 (ontology+intent+alignment / ontology+LLM+intent+reasoning / ontology+alignment+LLM / ontology+intent+disambiguation / ontology+semantic+grounding+LLM)
+- S2 batch API: 15篇论文citation counts一次性获取
+
+### 入库15篇
+**A. 本体驱动意图对齐 (5篇)**: Intent-Driven Smart Manufacturing, TreeRec, Geospatial KG Multi-Agent, RAG-Enabled Intent Reasoning, Usage-centric Intent Understanding
+**B. LLM+本体协同意图理解 (3篇)**: BiRGAT Multi-intent SLU, USD Scene Ontology Grounding, SAM-NER
+**C. 本体匹配/对齐 (7篇)**: Open Ontologies, ANCHOR, BLINKG, LLM Ontology Engineering+Legal KG, CORTEX, ConceptE, VirtualSet
+
+### 关键趋势
+1. 本体结构化约束是意图对齐的操作语义保证 (ISA-95/TMF标准)
+2. 稳定匹配主导本体对齐质量，信号权重无关紧要
+3. LLM本体grounding依赖语义线索而非几何信息
+4. 本体刚性是双刃剑，需本体无关推理补充
+5. 工具结构化访问是LLM本体交互的质变模式 (MCP F1=0.717 vs 原始OWL F1=0.323)
+
+### 更新
+- index.md: +15 source entries +3 concept entries
+- overview.md: +Round 14 section
+- log.md: 本条目
+- 15 PDFs downloaded to raw/papers/
+- 3 new concept pages: OntologyIntentAlignment, OntologySemanticGrounding, OntologyMatching
+
+累计 389 -> 404 页, 261 -> 276 PDF, 262 -> 277 论文, 111 -> 114 概念.
