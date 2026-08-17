@@ -614,3 +614,54 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - 3 new concept pages: OntologyIntentAlignment, OntologySemanticGrounding, OntologyMatching
 
 累计 389 -> 404 页, 261 -> 276 PDF, 262 -> 277 论文, 111 -> 114 概念.
+
+## [2026-08-17] ingest | Round 15: 本体图增强精准检索 — 17 papers × 4 sub-directions
+
+### 搜索策略
+- 方向: 类似ANCHOR的本体图增强精准检索
+- 用户确认子方向: 本体图增强精准检索 (2024-2026)
+- arXiv API搜索: 4组互补查询 (abs:ontology+retrieval+KG, ontology+RAG+generation, ontology+SPARQL+query, ti:ontology+ti:retrieval)
+- 17篇全部确认入库
+
+### 新增论文 (17篇)
+
+#### A. 本体图直接增强检索精度 (7篇)
+- og-rag-ontology-grounded (2412.15235) — 本体超图最小超边集检索; recall+55%
+- evidence-units-ontology-retrieval (2604.00500) — 语义完整EU chunk; 解析器无关
+- hyem-hyperbolic-ontology-retrieval (2604.09550) — 双曲嵌入is-a层次; 查询自适应
+- omagr-ontology-multi-anchor-retrieval (2606.11910) — 多锚点并行图检索; 法律场景
+- fair-graphrag-semantic-data (2607.11464) — FAIR原则+本体schema约束GraphRAG
+- ontologyrag-biomedical-code-mapping (2502.18992) — 本体KG+RAG代码映射
+- cyberbot-ontology-grounded-rag (2504.00389) — 本体约束RAG可信教育
+
+#### B. 本体感知图/记忆引擎 (3篇)
+- worlddb-ontology-aware-memory (2604.18478) — 递归图+写入时协调; 替代flat向量库
+- moss-auditable-agentic-memory (2607.04391) — 结构化DB替代嵌入搜索; 可审计
+- rag-autoconfig-industrial-fieldbus (2608.08618) — ECLASS本体图+混合检索
+
+#### C. 本体引导查询构造 (4篇)
+- nlkgq-nl-ontology-query (2607.18029) — OWL本体零样本结构化查询生成
+- researcher-agents-kgqa (2608.07700) — Agentic text-to-SPARQL自修正
+- bmqexpander-ontology-query-expansion (2508.11784) — UMLS+LLM查询扩展
+- kroma-ontology-matching-rag (2507.14032) — RAG增强本体匹配
+
+#### D. 本体构建/验证支撑检索 (3篇)
+- ontology-dedup-kg-construction (2607.28662) — 本体引导去重+类型规范化
+- verifiable-knowledge-expansion-fca (2607.01773) — FCA符号验证循环
+- automated-ontology-generation-multi-agent (2604.23090) — 多agent LLM本体生成
+
+### 关键趋势
+1. 本体图检索核心价值是"概念一致"而非"表面相似" (OG-RAG recall+55%)
+2. flat向量库是可解决的结构缺陷 (MOSS/WorldDB写入时协调)
+3. 本体schema是NL→结构化查询的"语义契约" (NLKGQ零样本)
+4. 本体层次需要几何感知编码 (HyEm双曲嵌入)
+5. 本体质量是检索精度天花板 (去重+规范化+符号验证三道防线)
+
+### 更新
+- index.md: +17 source entries +5 concept entries
+- overview.md: +Round 15 section
+- log.md: 本条目
+- 17 PDFs downloaded to raw/papers/
+- 5 new concept pages: OntologyGraphRetrieval, OntologyGroundedRAG, HyperbolicOntologyEmbedding, AuditableStructuredRetrieval, OntologyGuidedQueryGeneration
+
+累计 404 -> 421 页, 276 -> 293 PDF, 277 -> 294 论文, 114 -> 119 概念.

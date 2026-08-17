@@ -764,3 +764,59 @@ Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多�
 3. **LLM本体grounding依赖语义线索而非几何信息**（[[usd-scene-ontology-grounding]]）：匿名化语义线索后准确率降至0-6%，揭示LLM的grounding本质是语义推理
 4. **本体刚性是双刃剑**（[[usage-centric-intent-ecommerce]]）：本体提供结构化约束但也限制跨类别对齐——需要本体无关的推理作为补充
 5. **工具结构化访问是LLM本体交互的质变模式**（[[open-ontologies-stable-matching]]）：MCP工具访问（F1=0.717）远超原始OWL文件读取（F1=0.323），证明LLM需要结构化而非原始语法访问本体
+
+---
+
+## 第15轮：本体图增强精准检索（2024-2026）— 17篇论文 × 4子方向
+
+第15轮聚焦"类似 ANCHOR 的本体图增强精准检索"，覆盖从输入转本体图到本体约束检索的完整管线。17篇论文按四条技术路线组织，核心问题是：如何利用形式本体的类型/层次/关系/约束结构实现超越纯向量相似度的精准语义检索。
+
+### 跨方向趋势
+
+| 子方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 本体图直接增强检索** | 向量相似度→本体超图最小集→层次感知双曲嵌入→多锚点并行→FAIR约束KG | [[og-rag-ontology-grounded]]、[[hyem-hyperbolic-ontology-retrieval]]、[[omagr-ontology-multi-anchor-retrieval]] |
+| **B. 本体感知图/记忆引擎** | flat向量库→递归图组合→写入时协调→可审计结构化DB | [[worlddb-ontology-aware-memory]]、[[moss-auditable-agentic-memory]] |
+| **C. 本体引导查询构造** | 手工SPARQL→零样本LLM生成→迭代自修正→本体知识查询扩展 | [[nlkgq-nl-ontology-query]]、[[researcher-agents-kgqa]]、[[bmqexpander-ontology-query-expansion]] |
+| **D. 本体构建/验证支撑** | LLM提取→类型规范化+去重→FCA符号验证→多agent生成 | [[ontology-dedup-kg-construction]]、[[verifiable-knowledge-expansion-fca]]、[[automated-ontology-generation-multi-agent]] |
+
+### 四维分析核心发现
+
+#### A. 本体图直接增强检索精度
+
+这是本轮的核心方向——直接用本体结构约束检索过程。[[og-rag-ontology-grounded]] 的 OG-RAG 将领域文档构建为本体超图，用最小超边集优化算法检索精准上下文，recall+55%、correctness+40%，是本体图检索的标杆方法。[[evidence-units-ontology-retrieval]] 从文档组织层入手，用本体grounding将结构化文档组织为语义完整 Evidence Units，修复元素级索引的碎片化问题。[[hyem-hyperbolic-ontology-retrieval]] 的 HyEm 将本体 is-a 层次编码为双曲嵌入，查询自适应切换双曲/欧式检索——解决层次感知检索的双曲/欧式两难。[[omagr-ontology-multi-anchor-retrieval]] 的 OMAGR 用本体定义多锚点并行图检索，打破单轴压缩瓶颈。[[fair-graphrag-semantic-data]] 将 FAIR 原则嵌入 GraphRAG。[[ontologyrag-biomedical-code-mapping]] 和 [[cyberbot-ontology-grounded-rag]] 分别在生物医学和网络安全领域验证本体grounding RAG 的精准检索效果。
+
+**关键洞察**：本体图检索的核心优势不是"找到更多"，而是"找对概念"——通过类型约束和关系结构确保检索结果概念一致，而非仅表面相似。
+
+#### B. 本体感知图/记忆引擎
+
+这一方向挑战 RAG 的基础设施——flat 向量库。[[worlddb-ontology-aware-memory]] 的 WorldDB 用递归可组合图+本体感知写入时协调替代 flat chunk，在写入时而非读取时解决矛盾/替代。[[moss-auditable-agentic-memory]] 的 MOSS 将 RAG 的"不透明"从固有特性重新定义为可解决的结构缺陷，用结构化关系 DB 让 agent 主动构造查询，实现可审计检索。[[rag-autoconfig-industrial-fieldbus]] 用 ECLASS 本体图+混合稠密稀疏检索在工业场景验证。
+
+**关键洞察**：从"读取时向量匹配"到"写入时结构化协调+读取时精确查询"的范式转变——flat 向量库的根本缺陷（碎片化、无身份、无矛盾感知）需在存储层解决。
+
+#### C. 本体引导查询构造
+
+这一方向用本体 schema 作为 LLM 生成精准查询的"语义契约"。[[nlkgq-nl-ontology-query]] 证明 OWL 本体足以让 LLM 零样本生成准确结构化查询——无需微调/RAG/多agent。[[researcher-agents-kgqa]] 的 Researcher Agent 在验证集上迭代自修正本体grounding和提示/工具配置。[[bmqexpander-ontology-query-expansion]] 用 UMLS 本体知识+LLM 做查询扩展。[[kroma-ontology-matching-rag]] 用 RAG 管线增强本体匹配。
+
+**关键洞察**：本体 schema 是 NL→结构化查询的"语义契约"——足够好的本体可以让 LLM 零样本生成精准查询，降低对微调和 RAG 的依赖。
+
+#### D. 本体构建/验证支撑检索
+
+这一方向解决"输入→本体图"的前端问题。[[ontology-dedup-kg-construction]] 用本体引导去重+类型规范化将文档流转为验证 KG。[[verifiable-knowledge-expansion-fca]] 用 FCA 符号验证循环确保 LLM 本体扩展的可验证性。[[automated-ontology-generation-multi-agent]] 系统研究多 agent LLM 本体生成的架构设计选择。
+
+**关键洞察**：本体构建的质量直接决定检索精度——"垃圾进，垃圾出"在本体图检索中尤为突出。去重、类型规范化、符号验证是保证本体质量的三道防线。
+
+### 与现有Wiki的连接
+
+- **与ANCHOR直接呼应**：[[anchor-schema-agnostic-ontology]] 解决"输入→本体图"构建（schema-agnostic 本体发现+SHACL验证），本轮解决"本体图→精准检索"查询——两者构成完整管线
+- **与Round 10/13/14互补**：Round 10 聚焦本体在 KGQA/TOD/HCI 场景应用，Round 13 聚焦本体推理/语义层基础设施，Round 14 聚焦本体与意图对齐，本轮聚焦本体图增强检索精度——形成"场景×基础设施×意图×检索"四维矩阵
+- **与GraphRAG连接**：[[GraphRAG]] 从文档提取 KG 增强检索但不一定用形式本体约束，[[OntologyGraphRetrieval]] 用形式本体 schema 作为"语义契约"约束全管线——是 GraphRAG 的形式化升级
+- **与语义检索Round 9连接**：Round 9 的 [[omd-graphrag]]（本体引导提取）和 [[cog-rag]]（主题对齐双超图）为本轮提供了语义检索基础，本轮用本体图进一步精确化
+
+### 关键洞察
+
+1. **本体图检索的核心价值是"概念一致"而非"表面相似"**（[[og-rag-ontology-grounded]]、[[cyberbot-ontology-grounded-rag]]）：通过本体类型/关系约束，检索结果锚定到概念层次，确保域适切——在事实推理场景中显著优于 vanilla RAG
+2. **flat 向量库是可解决的结构缺陷**（[[moss-auditable-agentic-memory]]、[[worlddb-ontology-aware-memory]]）：碎片化、无身份、无矛盾感知不是 RAG 的固有特性，而是 flat 存储的工程选择——结构化图存储+写入时协调可解决
+3. **本体 schema 是 NL→结构化查询的"语义契约"**（[[nlkgq-nl-ontology-query]]、[[researcher-agents-kgqa]]）：足够好的本体可以让 LLM 零样本生成精准查询，降低对微调和 RAG 的依赖
+4. **本体层次结构需要几何感知编码**（[[hyem-hyperbolic-ontology-retrieval]]）：is-a 层次树的双曲嵌入天然适配指数体积增长，查询自适应机制解决双曲/欧式两难
+5. **本体质量是检索精度的天花板**（[[ontology-dedup-kg-construction]]、[[verifiable-knowledge-expansion-fca]]）：去重、类型规范化、符号验证是保证本体质量的三道防线——"垃圾进，垃圾出"

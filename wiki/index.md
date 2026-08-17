@@ -350,6 +350,33 @@
 - [ConceptE: 事件本体扩展](sources/concepte-event-ontology-expansion.md) — LLM概念化提取概念级语义；BCubed-F1 +12.37% (2026)
 - [VirtualSet: 类型化本体世界](sources/virtualset-typed-ontology-worlds.md) — 类型化本体世界替代SQL；GCP预执行语义；+4.0pp (2026)
 
+### Ontology Graph-Enhanced Precise Retrieval — Round 15 (2024-2026)
+
+#### A. 本体图直接增强检索精度
+- [OG-RAG: 本体grounding检索增强生成](sources/og-rag-ontology-grounded.md) — 本体超图最小超边集检索；recall+55%, correctness+40% (2024)
+- [Evidence Units: 本体grounding文档组织](sources/evidence-units-ontology-retrieval.md) — 语义完整EU chunk修复碎片化；解析器无关检索 (2026)
+- [HyEm: 双曲空间本体层次检索](sources/hyem-hyperbolic-ontology-retrieval.md) — 双曲嵌入编码is-a层次；查询自适应双曲/欧式切换 (2026)
+- [OMAGR: 本体引导多锚点图检索](sources/omagr-ontology-multi-anchor-retrieval.md) — 多维度并行检索打破单轴瓶颈；法律场景 (2026)
+- [FAIR GraphRAG: FAIR原则语义数据](sources/fair-graphrag-semantic-data.md) — 本体schema约束KG+FAIR原则；医疗领域 (2026)
+- [OntologyRAG: 本体KG+RAG代码映射](sources/ontologyrag-biomedical-code-mapping.md) — 本体KG动态检索替代微调；生物医学代码映射 (2025)
+- [CyberBOT: 本体grounding RAG教育](sources/cyberbot-ontology-grounded-rag.md) — 本体约束RAG可信+域适切；网络安全教育 (2025)
+
+#### B. 本体感知图/记忆引擎
+- [WorldDB: 本体感知图世界记忆引擎](sources/worlddb-ontology-aware-memory.md) — 递归图组合+写入时协调；替代flat向量库 (2026)
+- [MOSS: 可审计Agentic记忆](sources/moss-auditable-agentic-memory.md) — 结构化关系DB替代嵌入搜索；可审计检索 (2026)
+- [RAG-Based Auto-Config: ECLASS本体图工业配置](sources/rag-autoconfig-industrial-fieldbus.md) — ECLASS本体图+混合稠密稀疏检索；多协议 (2026)
+
+#### C. 本体引导查询构造
+- [NLKGQ: OWL本体零样本查询生成](sources/nlkgq-nl-ontology-query.md) — OWL本体→LLM零样本结构化查询；无需微调 (2026)
+- [Researcher Agents for KGQA: Agentic SPARQL](sources/researcher-agents-kgqa.md) — 自修正本体grounding；验证集驱动迭代 (2026)
+- [BMQExpander: UMLS本体查询扩展](sources/bmqexpander-ontology-query-expansion.md) — UMLS知识+LLM查询扩展；生物医学文档检索 (2025)
+- [KROMA: LLM+RAG本体匹配](sources/kroma-ontology-matching-rag.md) — RAG动态丰富OM上下文；双相似性优化 (2025)
+
+#### D. 本体构建/验证支撑检索
+- [Ontology-Guided Dedup KG Construction](sources/ontology-dedup-kg-construction.md) — 本体引导去重+类型规范化；文档流→验证KG (2026)
+- [Verifiable Knowledge Expansion: FCA验证](sources/verifiable-knowledge-expansion-fca.md) — 检索增强SLM+FCA符号验证循环 (2026)
+- [Automated Ontology Generation: 多Agent](sources/automated-ontology-generation-multi-agent.md) — 多agent LLM从文本生成形式本体；保险合同 (2026)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -489,6 +516,13 @@
 - [本体驱动意图对齐 Ontology-Driven Intent Alignment](concepts/OntologyIntentAlignment.md) — 利用形式本体结构化语义约束将NL意图映射到可执行结构化表示；ISA-95/TMF标准提供操作语义保证
 - [本体语义grounding Ontology Semantic Grounding](concepts/OntologySemanticGrounding.md) — 将非结构化输入映射到形式本体类获得类型/关系/约束语义；与本体对齐不同的单向映射
 - [本体匹配与对齐 Ontology Matching & Alignment](concepts/OntologyMatching.md) — 异构本体/schema间建立语义等价映射；稳定1:1匹配主导质量；LLM工具结构化访问质变
+
+### Ontology Graph Retrieval Concepts (Round 15)
+- [本体图增强精准检索 Ontology Graph-Enhanced Retrieval](concepts/OntologyGraphRetrieval.md) — 用本体类型/层次/关系/约束指导检索，超越向量相似度的精准语义检索；四条技术路线
+- [本体grounding RAG Ontology-Grounded RAG](concepts/OntologyGroundedRAG.md) — 本体约束RAG检索确保概念一致+域适切；超图/FAIR/工业本体图
+- [双曲本体嵌入检索 Hyperbolic Ontology Embedding](concepts/HyperbolicOntologyEmbedding.md) — 双曲空间编码本体is-a层次；查询自适应双曲/欧式切换
+- [可审计结构化检索 Auditable Structured Retrieval](concepts/AuditableStructuredRetrieval.md) — 结构化关系DB/图替代嵌入搜索；可审计+可追溯检索
+- [本体引导查询生成 Ontology-Guided Query Generation](concepts/OntologyGuidedQueryGeneration.md) — 本体schema锚定LLM生成结构化查询/扩展术语；零样本/迭代/扩展三路线
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms
