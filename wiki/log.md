@@ -665,3 +665,55 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - 5 new concept pages: OntologyGraphRetrieval, OntologyGroundedRAG, HyperbolicOntologyEmbedding, AuditableStructuredRetrieval, OntologyGuidedQueryGeneration
 
 累计 404 -> 421 页, 276 -> 293 PDF, 277 -> 294 论文, 114 -> 119 概念.
+
+## [2026-08-31] ingest | Round 16: 本体图增强精准检索 续 — 18 papers × 4 sub-directions
+
+### 搜索方向
+- 延续 Round 15 方向：本体图增强精准检索（2025-2026）
+- arXiv API 搜索: 5组互补查询 (ontology+retrieval+KG / ontology+RAG+grounded / ontology+SPARQL+query+LLM / ontology+graph+retrieval+embedding / ontology+reasoning+retrieval+agent)
+- 56 候选 → 跨轮去重（排除 R10/13/14/15 已收录 23 篇）→ 50 候选 → 筛选 18 篇
+
+### 入库 18 篇
+
+**A. 本体图直接增强检索精度 (6篇)**
+- ontology-driven-graph-rag-legal (2505.00039) — SAT-Graph RAG; LRMoo+聚合版本传播; JURIX 2025
+- kg2qa-communication-standards (2506.07037) — LoRA微调+领域KG+KG-RAG; BLEU-4 18.86→66.90
+- ontology-evidence-path-kgqa (2606.28076) — OPI; relation-centric ontology双向检索; 搜索空间-98.7%
+- ontologx-cybersecurity-kg (2510.01409) — OntoLogX; LLM+SHACL校验+MITRE ATT&CK; F1 0.832
+- ragulating-compliance-kg (2508.09893) — 多agent ontology-free三元组+kNN; 跨章节导航+24.3%
+- dense-ontology-kge (2504.02889) — TransU; property-as-entity统一表示; MeanRank 1.42
+
+**B. 本体感知图/记忆引擎 (4篇)**
+- dynamic-ontology-llm-agents (2608.22974) — OaK; ontology-as-kernel+HermiT验证; TravelPlanner +265%
+- ontology-project-memory-coding (2608.13662) — MOOSEDev; 双ontology+SHACL+MCP; supersession 100% vs 8%; NeSy 2026
+- owlpath-bug-repair (2607.27249) — OwlPath; OWL2 bijection+SPARQL传递闭包; token -28.8%
+- deeproot-kg-multi-agent (2606.15931) — DeepRoot; 7-agent+Neo4j+Cypher; R@20 47.6% vs 4.8%; 幻觉7% vs 87%; ICML 2026 WS
+
+**C. 本体引导查询构造 (3篇)**
+- competency-questions-executable-rag (2604.02545) — CQ→beat plan→SPARQL; evidence-closed; 三难困境; ESWC 2026
+- agentmap-ontology-matching (2607.27130) — HOM; 三智能体+层次搜索; subsumption +765%
+- ontoextend-ontology-extension (2607.17963) — RAG检索+两阶段验证; superfluous<2% vs 30%; Semantics 2026
+
+**D. 构建验证+检索诊断 (5篇)**
+- beyond-probabilistic-rag-limitations (2606.09724) — 三重本体论承诺+三种pathology+四个架构承诺; 理论分析
+- retrieval-state-lock-in (2606.22728) — 三对象confidence分解+合取审计; silent error 42%; precision 91.9%
+- omni-retrieval-heterogeneous (2605.29250) — 原生查询语言+source selection+evidence selection; 13数据集/309KB
+- manufacturing-knowledge-llm (2507.22619) — 四级content selection+三种representation; hallucination 0.47→0.97; ECCAI 2026
+- ontology-hybrid-prompt-kgqa (2502.03992) — OntoSCPrompt; 两阶段+ontology verbalization+三种约束解码; 跨KG泛化; ICSC 2025
+
+### 关键趋势
+1. 本体从 descriptive 到 operational 范式转换 (OaK/MOOSEDev) — 不再仅描述域中存在什么，而是作为 agent 访问数据唯一通道
+2. 构建验证 KG 比推理时查询更有效抑制幻觉 (DeepRoot 7% vs 87%)
+3. 检索状态锁定是 RAG 隐蔽失败模式 (42% silent errors, answer-only 方法 ceiling 41-58%)
+4. 法律正确性不是 semantic similarity 而是 validity grounding (SAT-Graph RAG + pathology 理论)
+5. 无损知识压缩是本体图检索工程优势 (OwlPath OWL2 bijection + SAT-Graph 聚合版本传播)
+
+### 更新
+- index.md: +18 source entries +4 concept entries (Round 16 section)
+- overview.md: +Round 16 section (4子方向趋势+四维分析+跨方向收敛+与现有Wiki连接+5关键洞察)
+- log.md: 本条目
+- 18 PDFs downloaded to raw/papers/
+- 4 new concept pages: DynamicOntologyKernel, RetrievalStateLockIn, HybridOntologyMatching, LegalTemporalGraphRAG
+- Updated OntologyGraphRetrieval concept page (+18 sources)
+
+累计 421 -> 439 页, 293 -> 311 PDF, 294 -> 312 论文, 119 -> 123 概念.

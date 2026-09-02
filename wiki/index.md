@@ -377,6 +377,34 @@
 - [Verifiable Knowledge Expansion: FCA验证](sources/verifiable-knowledge-expansion-fca.md) — 检索增强SLM+FCA符号验证循环 (2026)
 - [Automated Ontology Generation: 多Agent](sources/automated-ontology-generation-multi-agent.md) — 多agent LLM从文本生成形式本体；保险合同 (2026)
 
+### Ontology Graph-Enhanced Retrieval — Round 16 (2025-2026)
+
+#### A. 本体图直接增强检索精度
+- [Ontology-Driven Graph RAG for Legal Norms](sources/ontology-driven-graph-rag-legal.md) — SAT-Graph RAG；LRMoo本体+聚合版本传播+Action节点；JURIX 2025 (2025)
+- [KG2QA: 通信标准KG增强问答](sources/kg2qa-communication-standards.md) — LoRA微调+领域KG+KG-RAG；BLEU-4 18.86→66.90 (2025)
+- [OPI: 本体引导证据路径推理](sources/ontology-evidence-path-kgqa.md) — relation-centric ontology双向检索+generator-refiner；搜索空间-98.7% (2026)
+- [OntoLogX: 网安日志本体KG提取](sources/ontologx-cybersecurity-kg.md) — LLM+SHACL校验+MITRE ATT&CK；F1 0.832 (2025)
+- [RAGulating Compliance: 合规KG问答](sources/ragulating-compliance-kg.md) — 多agent ontology-free三元组+kNN检索；跨章节导航+24.3% (2025)
+- [TransU: 密集本体KGE](sources/dense-ontology-kge.md) — property-as-entity统一表示；即插即用wrapper；MeanRank 1.42 (2025)
+
+#### B. 本体感知图/记忆引擎
+- [OaK: 动态本体内核LLM Agent](sources/dynamic-ontology-llm-agents.md) — ontology-as-kernel+HermiT验证+judge精修；TravelPlanner +265% (2026)
+- [MOOSEDev: 编码Agent本体记忆](sources/ontology-project-memory-coding.md) — 双ontology+SHACL+MCP接口；supersession 100% vs 8%；NeSy 2026 (2026)
+- [OwlPath: 无损知识压缩Bug修复](sources/owlpath-bug-repair.md) — OWL2 bijection投影+SPARQL传递闭包+3KB advisory；token -28.8% (2026)
+- [DeepRoot: KG协调多Agent治疗推理](sources/deeproot-kg-multi-agent.md) — 7-agent Assembly+Neo4j+Cypher；R@20 47.6% vs 4.8%；幻觉7% vs 87% (2026)
+
+#### C. 本体引导查询构造
+- [Competency Questions as Executable Plans](sources/competency-questions-executable-rag.md) — CQ→beat plan→SPARQL模板+evidence-closed生成；三难困境；ESWC 2026 (2026)
+- [AgentMap: 联合等价与包含本体匹配](sources/agentmap-ontology-matching.md) — HOM任务+三智能体+层次搜索；subsumption +765% (2026)
+- [OntoExtend: 需求驱动本体扩展](sources/ontoextend-ontology-extension.md) — RAG检索+两阶段验证+多维评估；superfluous<2% vs 30%；Semantics 2026 (2026)
+
+#### D. 本体构建/验证 + 检索诊断
+- [Beyond Probabilistic Similarity: RAG法律局限](sources/beyond-probabilistic-rag-limitations.md) — 三重本体论承诺+三种pathology+四个架构承诺；理论分析 (2026)
+- [Retrieval-State Lock-In: RAG检索诊断](sources/retrieval-state-lock-in.md) — 三对象confidence分解+合取审计；silent error 42%；precision 91.9% (2026)
+- [OmniRetrieval: 异构源统一检索](sources/omni-retrieval-heterogeneous.md) — 原生查询语言+source selection+evidence selection；13数据集/309KB (2026)
+- [Manufacturing Knowledge Access with LLMs](sources/manufacturing-knowledge-llm.md) — 四级content selection+三种representation；hallucination 0.47→0.97；ECCAI 2026 (2025)
+- [OntoSCPrompt: 本体引导混合提示KGQA](sources/ontology-hybrid-prompt-kgqa.md) — 两阶段+ontology verbalization+三种约束解码；跨KG泛化；ICSC 2025 (2025)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -523,6 +551,12 @@
 - [双曲本体嵌入检索 Hyperbolic Ontology Embedding](concepts/HyperbolicOntologyEmbedding.md) — 双曲空间编码本体is-a层次；查询自适应双曲/欧式切换
 - [可审计结构化检索 Auditable Structured Retrieval](concepts/AuditableStructuredRetrieval.md) — 结构化关系DB/图替代嵌入搜索；可审计+可追溯检索
 - [本体引导查询生成 Ontology-Guided Query Generation](concepts/OntologyGuidedQueryGeneration.md) — 本体schema锚定LLM生成结构化查询/扩展术语；零样本/迭代/扩展三路线
+
+### Ontology Graph Retrieval Concepts (Round 16)
+- [动态本体内核 Dynamic Ontology Kernel](concepts/DynamicOntologyKernel.md) — ontology-as-kernel：自动构建schema+typed functions+judge精修；agent访问数据唯一通道
+- [检索状态锁定 Retrieval-State Lock-In](concepts/RetrievalStateLockIn.md) — RAG隐蔽失败模式：三对象confidence分解+合取审计规则；absence/presence两种锁定变体
+- [混合本体匹配 Hybrid Ontology Matching](concepts/HybridOntologyMatching.md) — 统一equivalence+subsumption发现为单一任务；三智能体分阶段推理+层次引导迭代搜索
+- [法律时序图检索 Legal Temporal Graph RAG](concepts/LegalTemporalGraphRAG.md) — 法律规范hierarchical/temporal/institutional结构的ontology-driven Graph RAG；四种pathology+四个架构承诺
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms

@@ -820,3 +820,70 @@ Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多�
 3. **本体 schema 是 NL→结构化查询的"语义契约"**（[[nlkgq-nl-ontology-query]]、[[researcher-agents-kgqa]]）：足够好的本体可以让 LLM 零样本生成精准查询，降低对微调和 RAG 的依赖
 4. **本体层次结构需要几何感知编码**（[[hyem-hyperbolic-ontology-retrieval]]）：is-a 层次树的双曲嵌入天然适配指数体积增长，查询自适应机制解决双曲/欧式两难
 5. **本体质量是检索精度的天花板**（[[ontology-dedup-kg-construction]]、[[verifiable-knowledge-expansion-fca]]）：去重、类型规范化、符号验证是保证本体质量的三道防线——"垃圾进，垃圾出"
+
+---
+
+## 第16轮：本体图增强精准检索 续（2025-2026）— 18篇论文 × 4子方向
+
+第16轮延续 Round 15 的"本体图增强精准检索"方向，新增 18 篇论文覆盖 2025-2026 年最新研究。与 Round 15 的四条技术路线对应，本轮在每条路线上都有新突破：法律时序图检索、动态本体内核、混合本体匹配和检索状态锁定诊断。
+
+### 跨方向趋势
+
+| 子方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 本体图直接增强检索** | flat RAG→法律时序图→通信标准KG→双向本体检索→网安日志KG→合规三元组→密集本体KGE | [[ontology-driven-graph-rag-legal]]、[[kg2qa-communication-standards]]、[[ontology-evidence-path-kgqa]]、[[ontologx-cybersecurity-kg]] |
+| **B. 本体感知图/记忆引擎** | 静态本体→动态本体内核→编码Agent记忆→OWL2无损压缩→KG协调多Agent | [[dynamic-ontology-llm-agents]]、[[ontology-project-memory-coding]]、[[owlpath-bug-repair]]、[[deeproot-kg-multi-agent]] |
+| **C. 本体引导查询构造** | 手工CQ→CQ可执行计划→联合等价+包含匹配→需求驱动扩展 | [[competency-questions-executable-rag]]、[[agentmap-ontology-matching]]、[[ontoextend-ontology-extension]] |
+| **D. 构建验证+检索诊断** | 本体构建→RAG局限理论→检索锁定诊断→异构统一检索→制造知识访问→跨KG泛化 | [[beyond-probabilistic-rag-limitations]]、[[retrieval-state-lock-in]]、[[omni-retrieval-heterogeneous]]、[[manufacturing-knowledge-llm]]、[[ontology-hybrid-prompt-kgqa]] |
+
+### 四维分析核心发现
+
+#### A. 本体图直接增强检索精度（6篇）
+
+[[ontology-driven-graph-rag-legal]] 的 SAT-Graph RAG 将法律规范建模为 LRMoo 本体图，用聚合式版本传播（Aggregation, 非 Composition）复用未变更组件的 CTV，避免数据冗余。[[kg2qa-communication-standards]] 在通信标准领域构建自定义 ontology KG（6 实体类型+10 关系类型），BLEU-4 从 18.86 提升至 66.90，超越 GPT-4o/Gemini。[[ontology-evidence-path-kgqa]] 的 OPI 引入 relation-centric ontology graph 作为答案侧约束接口，双向检索将搜索空间从 O(b^x) 降至 O(b^(x-1)·β)，候选路径减少 98.7%。[[ontologx-cybersecurity-kg]] 集成轻量级日志 ontology+RAG+迭代 SHACL 校验，F1 达 0.832。[[ragulating-compliance-kg]] 用 ontology-free 三元组+kNN 检索实现跨章节导航。[[dense-ontology-kge]] 的 TransU 将 property 视为 entity 的子集统一表示。
+
+**关键洞察**：本体图检索从"通用域"向"垂直域"深化——法律（时序+层级）、通信标准（领域 ontology KG）、网安（SHACL 校验）、合规（ontology-free 三元组），每个域揭示了本体图检索的不同维度需求。
+
+#### B. 本体感知图/记忆引擎（4篇）
+
+[[dynamic-ontology-llm-agents]] 的 OaK 提出 ontology-as-a-kernel——自动构建 schema+typed functions，用 HermiT reasoner 验证，judge-driven 迭代精修，TravelPlanner Final Pass Rate +265%。[[ontology-project-memory-coding]] 的 MOOSEDev 将 coding agent 记忆从 note-keeping 重新定义为 modeling 问题，supersession 100% vs vector memory 8%。[[owlpath-bug-repair]] 用 OWL2 bijection 投影实现无损知识压缩，SPARQL 传递闭包 O(1) amortized，token -28.8%。[[deeproot-kg-multi-agent]] 证明构建验证 KG 能以推理时查询无法实现的方式抑制幻觉（7% vs 87%）。
+
+**关键洞察**：本体从 descriptive 转向 operational——不只是描述域中存在什么，而是作为 agent 访问数据的唯一通道（kernel），约束可调用概念和可执行计算。
+
+#### C. 本体引导查询构造（3篇）
+
+[[competency-questions-executable-rag]] 首次将 CQ 从设计时验证工具重新定位为运行时可执行叙事计划，揭示事实精度/上下文丰富度/叙事连贯性三难困境。[[agentmap-ontology-matching]] 提出 Hybrid Ontology Matching（HOM）统一 equivalence+subsumption，三智能体分阶段推理+层次搜索，subsumption +765%。[[ontoextend-ontology-extension]] 用 RAG 检索+两阶段验证实现需求驱动本体扩展，superfluous elements <2% vs 先前 30%。
+
+**关键洞察**：查询构造从"LLM 运行时生成查询"转向"本体 schema 预定义可执行计划"——CQ 作为 API contract 防止幻觉检索步骤，确保机构对知识访问的控制。
+
+#### D. 构建验证+检索诊断（5篇）
+
+[[beyond-probabilistic-rag-limitations]] 从经典法律理论出发论证 RAG 的三种 pathology（mereological/diachronic/causal）和四个架构承诺。[[retrieval-state-lock-in]] 命名并诊断了检索状态锁定失败模式，三对象 confidence 分解+合取审计规则在 7.7% 覆盖率下达 91.9% precision。[[omni-retrieval-heterogeneous]] 保留各源原生查询语言（SQL/SPARQL/Cypher）统一检索异构知识源。[[manufacturing-knowledge-llm]] 系统比较四级 content selection 策略，context-aware reduction 实现准确率 +20-30%。[[ontology-hybrid-prompt-kgqa]] 的 OntoSCPrompt 用 ontology verbalization+hybrid prompt 实现跨 KG 泛化。
+
+**关键洞察**：RAG 诊断从"答案质量评估"深化到"检索状态诊断"——retrieval-state lock-in 揭示 answer-only 方法在 lock-in 时的 structural ceiling（最多 recall 41-58% 错误），需要三对象分解才能暴露 silent errors。
+
+### 跨方向收敛
+
+| 收敛主题 | A. 检索精度 | B. 记忆引擎 | C. 查询构造 | D. 构建诊断 |
+|---|---|---|---|---|
+| **本体从描述到操作** | 法律层级作为图骨架 | ontology-as-kernel (OaK) | CQ→可执行计划 | 架构承诺 C1-C4 |
+| **验证驱动** | SHACL 校验 (OntoLogX) | HermiT reasoner (OaK) | 两阶段验证 (OntoExtend) | 合取审计 (Lock-In) |
+| **幻觉抑制** | 本体约束检索 | KG 构建抑制幻觉 7% vs 87% (DeepRoot) | evidence-closed 生成 | 三对象分解暴露 silent errors |
+| **领域深化** | 法律/通信/网安/合规 | 编码 Agent/医疗/药物 | 文化遗产/本体匹配 | 制造/跨 KG 泛化 |
+| **无损压缩** | 聚合版本传播 (SAT-Graph) | OWL2 bijection (OwlPath) | - | 原生查询保留结构算子 (OmniRetrieval) |
+
+### 与现有 Wiki 的连接
+
+- **与 Round 15 直接延续**：Round 15 建立四条技术路线，本轮在每条路线上深化——A 新增 6 个垂直域、B 从静态本体到动态内核、C 从 SPARQL 生成到 CQ 可执行计划和 HOM、D 从构建验证到检索诊断
+- **与 3GPP 意图管理呼应**：[[kg2qa-communication-standards]] 直接构建通信标准 KG，[[LegalTemporalGraphRAG]] 的"what/when/how"分离与 [[IntentDrivenMnS]] 的"what vs how"抽象跨域共鸣
+- **与神经符号编排呼应**：[[owlpath-bug-repair]] 的 OWL2 bijection+SPARQL 传递闭包与 [[NeurosymbolicOrchestration]]（VADAOrchestra）共享"LLM+符号引擎"范式
+- **与 Agent Memory 连接**：[[ontology-project-memory-coding]] 的 supersession 机制和 [[dynamic-ontology-llm-agents]] 的 typed functions 为 [[AgentMemory]] 提供了本体驱动的结构化记忆方案
+- **与检索评估连接**：[[retrieval-state-lock-in]] 的三对象 confidence 分解为 [[RetrievalEvaluation]] 增加了"检索状态诊断"维度——超越 nDCG/Recall@k 的统计估计
+
+### 关键洞察
+
+1. **本体从 descriptive 到 operational 的范式转换**（[[dynamic-ontology-llm-agents]]、[[ontology-project-memory-coding]]）：本体不再仅描述"域中存在什么"，而是作为 agent 访问数据的唯一通道——约束可调用概念（schema）和可执行计算（typed functions），使 agent 行为可检查、可审计
+2. **构建验证 KG 比推理时查询更有效地抑制幻觉**（[[deeproot-kg-multi-agent]]）：DeepRoot 的一次性 Assembly（$0.25/语料）将幻觉率从 87%降至 7%，而 Tool-call LLM 在推理时访问相同 API 仍产生 87% 幻觉——"for corpora that predate modern ontologies, agents need a construction pass first"
+3. **检索状态锁定是 RAG 的隐蔽失败模式**（[[retrieval-state-lock-in]]）：42% KG-RAG 错误携带零 answer dispersion（silent errors），answer-only 方法 structural ceiling 最多 recall 41-58%——需要三对象分解（answer/evidence/retrieval-state）才能暴露
+4. **法律正确性不是 semantic similarity 而是 validity grounding**（[[beyond-probabilistic-rag-limitations]]、[[ontology-driven-graph-rag-legal]]）：法律 RAG 的失败不是 LLM confabulation，而是 probabilistic retrieval 与法律知识的 hierarchical/temporal/institutional 结构的架构性不匹配
+5. **无损知识压缩是本体图检索的工程优势**（[[owlpath-bug-repair]]、[[ontology-driven-graph-rag-legal]]）：OWL2 bijection 投影保证无结构信息丢失，SPARQL 传递闭包 O(1) amortized——本体图不仅是语义约束，更是高效的结构化访问路径

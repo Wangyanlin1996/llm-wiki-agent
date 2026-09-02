@@ -2,8 +2,8 @@
 title: "本体图增强精准检索 (Ontology Graph-Enhanced Precise Retrieval)"
 type: concept
 tags: [ontology-graph-retrieval]
-sources: [og-rag-ontology-grounded, evidence-units-ontology-retrieval, hyem-hyperbolic-ontology-retrieval, omagr-ontology-multi-anchor-retrieval, fair-graphrag-semantic-data, ontologyrag-biomedical-code-mapping, cyberbot-ontology-grounded-rag, worlddb-ontology-aware-memory, moss-auditable-agentic-memory, rag-autoconfig-industrial-fieldbus, nlkgq-nl-ontology-query, researcher-agents-kgqa, bmqexpander-ontology-query-expansion, kroma-ontology-matching-rag, ontology-dedup-kg-construction, verifiable-knowledge-expansion-fca, automated-ontology-generation-multi-agent]
-last_updated: 2026-08-17
+sources: [og-rag-ontology-grounded, evidence-units-ontology-retrieval, hyem-hyperbolic-ontology-retrieval, omagr-ontology-multi-anchor-retrieval, fair-graphrag-semantic-data, ontologyrag-biomedical-code-mapping, cyberbot-ontology-grounded-rag, worlddb-ontology-aware-memory, moss-auditable-agentic-memory, rag-autoconfig-industrial-fieldbus, nlkgq-nl-ontology-query, researcher-agents-kgqa, bmqexpander-ontology-query-expansion, kroma-ontology-matching-rag, ontology-dedup-kg-construction, verifiable-knowledge-expansion-fca, automated-ontology-generation-multi-agent, ontology-driven-graph-rag-legal, kg2qa-communication-standards, ontology-evidence-path-kgqa, ontologx-cybersecurity-kg, ragulating-compliance-kg, dense-ontology-kge, dynamic-ontology-llm-agents, ontology-project-memory-coding, owlpath-bug-repair, deeproot-kg-multi-agent, competency-questions-executable-rag, agentmap-ontology-matching, ontoextend-ontology-extension, beyond-probabilistic-rag-limitations, retrieval-state-lock-in, omni-retrieval-heterogeneous, manufacturing-knowledge-llm, ontology-hybrid-prompt-kgqa]
+last_updated: 2026-08-31
 ---
 
 本体图增强精准检索是指利用形式本体（ontology）的类型/层次/关系/约束结构指导检索过程，实现超越纯向量相似度的精准语义检索。核心洞察是：flat 向量库将事实碎片化为 chunk，丢失实体间结构关系；而本体图保留概念层次和关系语义，使检索既能找到"相关"内容，又能确保"概念一致"和"域适切"。
