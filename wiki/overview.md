@@ -887,3 +887,63 @@ Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多�
 3. **检索状态锁定是 RAG 的隐蔽失败模式**（[[retrieval-state-lock-in]]）：42% KG-RAG 错误携带零 answer dispersion（silent errors），answer-only 方法 structural ceiling 最多 recall 41-58%——需要三对象分解（answer/evidence/retrieval-state）才能暴露
 4. **法律正确性不是 semantic similarity 而是 validity grounding**（[[beyond-probabilistic-rag-limitations]]、[[ontology-driven-graph-rag-legal]]）：法律 RAG 的失败不是 LLM confabulation，而是 probabilistic retrieval 与法律知识的 hierarchical/temporal/institutional 结构的架构性不匹配
 5. **无损知识压缩是本体图检索的工程优势**（[[owlpath-bug-repair]]、[[ontology-driven-graph-rag-legal]]）：OWL2 bijection 投影保证无结构信息丢失，SPARQL 传递闭包 O(1) amortized——本体图不仅是语义约束，更是高效的结构化访问路径
+
+---
+
+## 第17轮：本体辅助技能路由/精准推理/循环检测（2025-2026）— 15篇论文 × 3方向
+
+第17轮聚焦三个新方向：本体辅助多级 skill 路由、本体精准推理（偏检索向）、本体辅助 agent loop 循环检测与消解。15 篇论文覆盖从技能选择到执行监控到失败恢复的完整 agent 生命周期。
+
+### 跨方向趋势
+
+| 方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 本体辅助 skill 路由** | prompt-based→task ontology驱动→skill ontology积累→WSA结构化规范 | [[scx-router-task-ontology]]、[[skillnet-ai-skills]]、[[workflow-to-skill]] |
+| **B. 本体精准检索推理** | similarity→constraint satisfaction→hierarchical reasoning→证明助手→知识内化 | [[satir-constraint-ir-clinical]]、[[deeprag-hierarchical-reasoning]]、[[ragged-events-reasoning]] |
+| **C. Agent loop 检测消解** | pre-execution commitment→trace-grounded route editing→确定性控制器→元认知自纠正→harness修复 | [[trove-trace-route-validation]]、[[gubernaut-homeostatic-controller]]、[[failed-trajectories-harness-flaws]] |
+
+### 三维分析核心发现
+
+#### A. 本体辅助多级 skill 路由（5篇）
+
+[[scx-router-task-ontology]] 的 SCX Router 把模型选择重新定义为动态标签分类（非生成），0.6B 参数 + Decoder-KV 持久会话缓存，task ontology 23 family/115 type/345 subtype 驱动 multi-label suitability 预测。[[domain-grounded-tool-orchestration]] 提出五字段 domain ontology（phenomenon/indicators/tools/follow-ups/significance）约束 Plan-Execute-Interpret 闭环，消除 API hallucination 整类失败，accuracy 0.41→0.91。[[skillnet-ai-skills]] 构建三层 Skill Ontology（taxonomy+relation graph+package library），五维评估 MAE<0.03，平均 reward +40%。[[generative-ontology]] 发现 Constraint Paradox——约束单独不提升创造质量但约束+架构特化产生最大增益。[[workflow-to-skill]] 的 WSA 分解（Routing+Workflow+Semantics+Attachments）将 Skill 从文本摘要重新定义为结构化运行时规范。
+
+**关键洞察**：本体在 skill 路由中的价值不在"选择哪个工具"（已可靠），而在"解读结果"和"累积能力"——domain ontology 的 null result 证明选择精度不变但解读精度+122%。
+
+#### B. 本体精准推理（偏检索向）（5篇）
+
+[[satir-constraint-ir-clinical]] 的 SATIR 将约束理解与满足分离——LLM 翻译为 SMT 再投影到关系代数，146ms/患者检索，recall +55.65pp。SNOMED ontology 消融证明是最大贡献因子（-42.2%）。[[deeprag-hierarchical-reasoning]] 整合 DeepSeek R1 hierarchical reasoning + RAG-Gym MDP + UMLS concept-level rewards，EM +8.1%。[[ragged-events-reasoning]] 发现 Inverse Calibration Principle——强模型 base 优于 RAG（GPT-4o 36→20 events），弱模型呈 inverted-U（Llama 10→38→0）。[[rag-ontology-relational-db]] 的 RIGOR 用 FK-Guided 迭代 RAG + Judge-LLM in-loop 验证，OOPS! pitfalls 665→个位数。[[raredxr1-rare-disease]] 的 RERS 从失败轨迹学习（weak-to-strong generalization），14B 超越 671B。
+
+**关键洞察**：Inverse Calibration Principle 挑战"更多检索必然更好"——enhancement 效果与模型能力反向相关，强模型被 RAG 引入 hallucination，弱模型在复杂配置下灾难性崩溃。
+
+#### C. Agent loop 循环检测与消解（5篇）
+
+[[trove-trace-route-validation]] 的 TROVE 将"continuation invalidation"形式化为独立编排问题，Retain-Insert-Replace 三操作在 18 设置中 15 个最优，时间-83.3%。[[gubernaut-homeostatic-controller]] 的 Gubernaut 用 token-free meta level（3 个数值/tick）实现 prompt injection 免疫，确定性 arousal 动力学 15/16 格子更冷静。[[argus-agentic-reasoning-runtime]] 的 Argus 提出 verified pivoting——将目标修正从 goal drift 中区分，SWE-Bench Pro 59→78%。[[masc-metacognitive-self-correction]] 的 MASC 用 Next-Execution Reconstruction 无监督检测异常步骤，AUC 77.84%，防止单错误级联（预实验显示单错误可造成 50% 性能下降）。[[failed-trajectories-harness-flaws]] 的 HARNESSFIX 用 HTIR 对齐 runtime traces 与 harness artifacts，scoped repair operators 约束修复范围，GAIA +18.4pp，跨模型迁移 +5.5-9.5%。
+
+**关键洞察**：循环消解的中间粒度策略（TROVE 的 Retain-Insert-Replace）在粗粒度工作流重选（丢进度）和细粒度逐步重规划（延迟+方差）间开辟新设计空间；确定性控制层（Gubernaut）比 LLM-based guardrail 更可靠，因为 governor 不由被治理的 substrate 构成。
+
+### 跨方向收敛
+
+| 收敛主题 | A. Skill 路由 | B. 精准推理 | C. 循环检测 |
+|---|---|---|---|
+| **结构化约束 vs flat prompt** | Task Ontology+Skill Ontology | SMT 约束满足 | HTIR+scoped operators |
+| **本体作为语义契约** | 五字段 ontology 约束规划 | SNOMED ontology grounding | transition graph 路由建议 |
+| **失败学习** | Constraint Paradox | RERS 从失败轨迹学习 | HARNESSFIX 从失败轨迹诊断 |
+| **可验证性** | 五维评估 MAE<0.03 | Judge-LLM in-loop 验证 | verification-gated admission |
+| **模型无关** | 跨 backbone 稳健 | 跨模型迁移 +5.5-9.5% | token-free meta level |
+
+### 与现有 Wiki 的连接
+
+- **与 Round 16 直接延续**：[[dynamic-ontology-llm-agents]] 的 ontology-as-kernel 是本轮 skill 路由的理论基础；[[retrieval-state-lock-in]] 的检索状态锁定是循环检测的检索侧对应
+- **与 Round 8 运行时治理呼应**：[[RuntimeGovernance]] 的动作级验证 → 本轮 TROVE 的路由编辑和 Gubernaut 的确定性控制器
+- **与 Round 11 执行调度连接**：[[ExecutionScheduling]] 的工作流调度 → 本轮 TROVE 的 one-step commitment 和 Argus 的四角色循环
+- **与 Round 13 本体优先 Agent 设计呼应**：[[OntologyFirstAgentDesign]] 的 BFO 本体+类型 lambda 演算 → 本轮 Generative Ontology 的 ontology-as-grammar 和 SkillNet 的三层 Skill Ontology
+- **与 Agent Memory 连接**：[[skillnet-ai-skills]] 的 skill 积累和 [[workflow-to-skill]] 的 Skill-IR 为 [[AgentMemory]] 提供了结构化技能记忆方案
+
+### 关键洞察
+
+1. **本体在 skill 路由中的价值不在选择而在解读和累积**（[[domain-grounded-tool-orchestration]] null result + [[skillnet-ai-skills]] reward +40%）：tool selection precision/recall 不随 ontology 变化，但 interpretation accuracy 从 0.41 提升到 0.91——ontology 的价值在"结构化解读"而非"选择控制"
+2. **Inverse Calibration Principle 挑战 RAG 普遍有效假设**（[[ragged-events-reasoning]]）：enhancement 效果与模型能力反向相关——强模型 base generation 优于 RAG，弱模型呈 inverted-U pattern，直接挑战"更多检索必然更好"
+3. **约束满足检索超越相似性检索**（[[satir-constraint-ir-clinical]]）：将约束作为 binding requirements 形式化满足（SMT→关系代数），recall +55.65pp 且 146ms/患者——formal methods 在 IR 检索阶段的新范式
+4. **确定性控制层比 LLM-based guardrail 更可靠**（[[gubernaut-homeostatic-controller]]）：token-free meta level 使 prompt injection 在构造上不存在攻击通道，arousal 动力学的 homeostatic recovery 在 4/4 模型家族中复制
+5. **循环消解需要中间粒度策略**（[[trove-trace-route-validation]]）：Retain-Insert-Replace 在粗粒度工作流重选和细粒度逐步重规划间开辟新设计空间——保留已完成前缀仅修复无效后缀

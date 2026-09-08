@@ -717,3 +717,51 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - Updated OntologyGraphRetrieval concept page (+18 sources)
 
 累计 421 -> 439 页, 293 -> 311 PDF, 294 -> 312 论文, 119 -> 123 概念.
+
+## [2026-09-08] ingest | Round 17: 本体辅助技能路由/精准推理/循环检测 — 15 papers × 3 directions
+
+### 搜索方向
+- A. 本体辅助多级 skill 路由
+- B. 本体精准推理（偏检索向、而非判断向）
+- C. 本体辅助 agent loop 循环检测和循环消解
+- arXiv API: 12组主查询 + 8组 D3 补搜 = 20组互补查询
+- 61+78=139 候选 → 去重 → 42 新候选 → 筛选 15 篇
+
+### 入库 15 篇
+
+**A. 本体辅助多级 skill 路由 (5篇)**
+- scx-router-task-ontology (2609.02292) — 0.6B GLiClass+Decoder-KV+task ontology 23/115/345; Macro F1 0.7586
+- domain-grounded-tool-orchestration (2608.30696) — Plan-Execute-Interpret闭环+五字段ontology+MCP; acc 0.41→0.91
+- skillnet-ai-skills (2603.04448) — 三层Skill Ontology+五维评估; reward +40%, steps -30%
+- generative-ontology (2602.05636) — Pydantic schema+DSPy+anxiety-driven多agent; d=4.78结构;d=1.12创意
+- workflow-to-skill (2606.06893) — Skill-IR(R+W+S+A)+evidence provenance; fidelity +10.5% vs ASC
+
+**B. 本体精准推理（偏检索向）(5篇)**
+- satir-constraint-ir-clinical (2604.08849) — SMT→关系代数投影+SNOMED; recall +55.65pp; 146ms; COLM 2026
+- deeprag-hierarchical-reasoning (2506.00671) — DeepSeek R1+RAG-Gym MDP+UMLS rewards; EM 54.3→62.4%; IJCAI 2025
+- ragged-events-reasoning (2506.07042) — RDF→Coq翻译+inverse calibration principle; 强模型base优于RAG
+- rag-ontology-relational-db (2506.01232) — FK-BFS+三源检索+Judge-LLM; OOPS! 665→个位数; ISWC 2026
+- raredxr1-rare-disease (2607.00147) — RERS失败轨迹学习+DCRL; 14B超越671B; IEEE ICME 2026
+
+**C. Agent loop 循环检测与消解 (5篇)**
+- trove-trace-route-validation (2609.05019) — Retain-Insert-Replace+one-step commitment; 18设置15最优; 时间-83.3%
+- gubernaut-homeostatic-controller (2607.24339) — token-free meta level+arousal动力学; 15/16更冷静; prompt injection免疫
+- argus-agentic-reasoning-runtime (2608.05144) — 四角色循环+verified pivoting; SWE-Bench 59→78%
+- masc-metacognitive-self-correction (2510.14319) — Next-Execution Reconstruction+prototype; 无监督异常检测; AUC 77.84%
+- failed-trajectories-harness-flaws (2606.06324) — HTIR+scoped repair operators; GAIA +18.4pp; 跨模型迁移+5.5-9.5%
+
+### 关键趋势
+1. 本体在 skill 路由的价值不在选择而在解读和累积 (domain-grounded null result + skillnet +40%)
+2. Inverse Calibration Principle 挑战 RAG 普遍有效假设 (强模型base优于RAG, 弱模型inverted-U崩溃)
+3. 约束满足检索超越相似性检索 (SMT→关系代数, recall +55.65pp, 146ms)
+4. 确定性控制层比 LLM-based guardrail 更可靠 (token-free meta level, prompt injection免疫)
+5. 循环消解需要中间粒度策略 (Retain-Insert-Replace在粗粒度和细粒度间开辟新设计空间)
+
+### 更新
+- index.md: +15 source entries +3 concept entries (Round 17 section)
+- overview.md: +Round 17 section (3方向趋势+三维分析+跨方向收敛+5关键洞察)
+- log.md: 本条目
+- 15 PDFs downloaded to raw/papers/
+- 3 new concept pages: OntologySkillRouting, OntologyPreciseRetrievalReasoning, AgentLoopDetectionResolution
+
+累计 439 -> 454 页, 311 -> 326 PDF, 312 -> 327 论文, 123 -> 126 概念.

@@ -405,6 +405,29 @@
 - [Manufacturing Knowledge Access with LLMs](sources/manufacturing-knowledge-llm.md) — 四级content selection+三种representation；hallucination 0.47→0.97；ECCAI 2026 (2025)
 - [OntoSCPrompt: 本体引导混合提示KGQA](sources/ontology-hybrid-prompt-kgqa.md) — 两阶段+ontology verbalization+三种约束解码；跨KG泛化；ICSC 2025 (2025)
 
+### Ontology Skill Routing & Precise Retrieval & Loop Detection — Round 17 (2025-2026)
+
+#### A. 本体辅助多级 skill 路由
+- [SCX Router: Task Ontology 驱动模型选择](sources/scx-router-task-ontology.md) — 0.6B GLiClass+Decoder-KV+task ontology 23/115/345；Macro F1 0.7586 (2026)
+- [Domain-Grounded Tool Orchestration](sources/domain-grounded-tool-orchestration.md) — Plan-Execute-Interpret闭环+五字段ontology+MCP；acc 0.41→0.91 (2026)
+- [SkillNet: 创建评估连接 AI 技能](sources/skillnet-ai-skills.md) — 三层Skill Ontology+五维评估；reward +40%, steps -30% (2026)
+- [Generative Ontology: 结构化知识创造](sources/generative-ontology.md) — Pydantic schema+DSPy+anxiety-driven多agent；d=4.78结构;d=1.12创意 (2026)
+- [Workflow-to-Skill: WSA 分解技能创建](sources/workflow-to-skill.md) — Skill-IR(R+W+S+A)+evidence provenance；fidelity +10.5% vs ASC (2026)
+
+#### B. 本体精准推理（偏检索向）
+- [SatIR: 约束满足临床试验检索](sources/satir-constraint-ir-clinical.md) — SMT→关系代数投影+SNOMED ontology；recall +55.65pp；146ms；COLM 2026 (2026)
+- [DeepRAG: 层次化推理+过程监督](sources/deeprag-hierarchical-reasoning.md) — DeepSeek R1+RAG-Gym MDP+UMLS rewards；EM 54.3→62.4%；IJCAI 2025 (2025)
+- [RAGged Events: 事件KB+证明助手](sources/ragged-events-reasoning.md) — RDF→Coq翻译+inverse calibration principle；强模型base优于RAG (2025)
+- [RIGOR: 关系库→本体迭代RAG](sources/rag-ontology-relational-db.md) — FK-BFS+三源检索+Judge-LLM验证；OOPS! 665→个位数；ISWC 2026 (2025)
+- [RareDxR1: 罕见病自主推理](sources/raredxr1-rare-disease.md) — RERS失败轨迹学习+DCRL双层课程；14B超越671B；IEEE ICME 2026 (2026)
+
+#### C. 本体辅助 agent loop 循环检测与消解
+- [TROVE: 轨迹验证路由编辑](sources/trove-trace-route-validation.md) — Retain-Insert-Replace+one-step commitment+transition graph；18设置15最优 (2026)
+- [Gubernaut: 确定性恒温控制器](sources/gubernaut-homeostatic-controller.md) — Nelson-Narens双级+token-free meta level+arousal动力学；15/16更冷静 (2026)
+- [Argus: 通用Agent推理Runtime](sources/argus-agentic-reasoning-runtime.md) — 四角色循环+verified pivoting+verification-gated admission；SWE-Bench 59→78% (2026)
+- [MASC: 元认知自纠正](sources/masc-metacognitive-self-correction.md) — Next-Execution Reconstruction+prototype prior；无监督异常检测；AUC 77.84% (2026)
+- [HARNESSFIX: Harness缺陷诊断修复](sources/failed-trajectories-harness-flaws.md) — HTIR对齐+scoped repair operators+regression validation；GAIA +18.4pp (2026)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -557,6 +580,11 @@
 - [检索状态锁定 Retrieval-State Lock-In](concepts/RetrievalStateLockIn.md) — RAG隐蔽失败模式：三对象confidence分解+合取审计规则；absence/presence两种锁定变体
 - [混合本体匹配 Hybrid Ontology Matching](concepts/HybridOntologyMatching.md) — 统一equivalence+subsumption发现为单一任务；三智能体分阶段推理+层次引导迭代搜索
 - [法律时序图检索 Legal Temporal Graph RAG](concepts/LegalTemporalGraphRAG.md) — 法律规范hierarchical/temporal/institutional结构的ontology-driven Graph RAG；四种pathology+四个架构承诺
+
+### Ontology Skill Routing & Loop Detection Concepts (Round 17)
+- [本体辅助技能路由 Ontology-Assisted Skill Routing](concepts/OntologySkillRouting.md) — 本体结构化约束技能选择/工具编排/工作流路由；Task Ontology+Skill Ontology+WSA分解
+- [本体精准检索推理 Ontology-Precise Retrieval Reasoning](concepts/OntologyPreciseRetrievalReasoning.md) — 本体驱动约束满足检索推理；SMT+层次化推理+证明助手+知识内化；inverse calibration principle
+- [Agent循环检测与消解 Agent Loop Detection and Resolution](concepts/AgentLoopDetectionResolution.md) — 识别重复/停滞/级联错误并触发恢复；continuation invalidation+perseveration+cascading errors+harness flaws
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms
