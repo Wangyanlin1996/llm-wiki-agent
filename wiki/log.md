@@ -765,3 +765,58 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - 3 new concept pages: OntologySkillRouting, OntologyPreciseRetrievalReasoning, AgentLoopDetectionResolution
 
 累计 439 -> 454 页, 311 -> 326 PDF, 312 -> 327 论文, 123 -> 126 概念.
+
+## [2026-10-09] ingest | Round 18: 本体推理引擎/LLM混合/鲁棒性 — 16 papers × 3 sub-directions
+
+### 搜索方向
+- A. 本体推理引擎与规模化：描述逻辑/OWL推理器扩展、增量推理、大规模ABox推理、时序/概率本体推理
+- B. LLM与推理器混合：LLM与符号推理器协作（评测/训练/建模辅助）
+- C. 本体推理鲁棒性：不一致/不完整/模糊本体推理、修复、容忍、溯因
+
+### 搜索策略
+- arXiv API: 14 组主查询 + 10 组补查询（engine/scaling / LLM+reasoner / consistency+repair / DL-Lite+abduction 等）
+- S2 batch API: 16 篇 citation counts 一次性获取
+- 排除 Round 13/16/17 已收录（Fuzzy OWL2, RAGged Events, SCX Router, RIGOR, OwlPath, LOM, Better Later Than Sooner）
+- 2504.07640 (Neuro-Symbolic Integration + Ontological Reasoning) 已被作者撤回（v1 引用与架构不实）→ 弃用，替换为 Neuro-Symbolic DL Reasoners Survey (2308.04814)
+- **去重修正**：inconsistency-kg-reasoning-survey (2502.19023) 已在 Round 10 收录 → 不作为新增，仅保留引用。本轮实际新增 15 篇。
+
+### 入库 16 篇
+
+**A. 本体推理引擎与规模化 (5篇)**
+- syntactic-simplification-owl (2608.18899) — CES句法重写简化; 长度-86%/runtime-90%; 推理器无关
+- dl-ontologies-probabilistic-circuits (2601.14894) — 本体编译概率电路; GPU推理快3数量级; NeSy一致预测
+- datalogmtl-seminaive-materialisation (2208.07100) — DatalogMTL半朴素物化; 非重复性; RuleML+RR 2022
+- meteror-metric-temporal-reasoning (2201.04596) — 首个完整DatalogMTL推理器; 物化+自动机; 1.5亿事实; AAAI 2022; 41 citations
+- datalog-first-class-facts (2411.14330) — DL∃!/Slog一等事实; 通信避免并行; 超越Nemo/Vlog/RDFox/Soufflé; PVLDB 2024
+
+**B. LLM与推理器混合 (6篇)**
+- ontology-grounded-reasoner-benchmarks (2610.00682) — 推理器验证MCQ流水线; Pizza/PMDco/DOID 112/2491/15216题; LLM 41.1-76.8%; NeurIPS 2026 WS
+- neural-shqoi-instance-retrieval (2510.20457) — Ebr嵌入推理器; SHOIQ全构造子; 噪声下F1 1.00; K-CAP 2025
+- owl2dl-differentiable-circuits (2608.17741) — Baobab; SROIQ→SDD; 非Horn可微NeSy; 推理捷径缓解; Lean4验证
+- llm-active-learning-owl (2604.16672) — 子sumption→可满足性归约+LLM; 仅II类错误; 13商用LLM
+- transformer-alcq-reasoning (2410.09613) — DELTAD; ALCQ 384K基准; DeBERTa掌握蕴含检查
+- neuro-symbolic-dl-reasoners-survey (2308.04814) — 神经符号推理器综述; RDF(S)/EL/ALC/OWL2 RL; (替换撤回论文)
+
+**C. 本体推理鲁棒性 (5篇)**
+- falcon-inconsistent-alc (2208.07628) — 模糊ALC神经推理器; 多模型近似蕴含; 忠实性证明
+- ontology-revision-plm (2310.18378) — PLM公理语义修订; 19本体对; 最多省90%时间
+- embedding-inconsistency-tolerant (2304.01664) — 公理语义嵌入MCS; 句嵌入+KGE; IJCKG 2023
+- inconsistency-kg-reasoning-survey (2502.19023) — 检测/修复/容忍三方向综述; ABox修复重心 (**Round 10 已收录, 本轮深化引用**)
+- abox-abduction-repair-semantics (2605.01341) — 修复语义ABox溯因; DL-Lite/EL⊥复杂度; KR 2026
+
+### 关键趋势
+1. 推理器工程三条并行线：时序算子完备（MeTeoR/seminaïve）、树形结构表达力（Slog DL∃!）、编译到可微电路（probabilistic circuits/Baobab）
+2. 神经-符号从"替换推理器"转向"推理器验证神经输出"（reasoner-verified benchmarks; Lean4 验证编译器）
+3. 不一致处理三方向成熟：容忍（MCS/模糊多模型/嵌入排序）vs 修复（PLM修订/ABox溯因建议）vs 综述统合
+4. 表达性 DL 全特征（SROIQ 非 Horn）的可微编译是前沿——23% 公理超出 DeepProbLog Horn 片段
+5. 嵌入推理器的鲁棒性在符号推理器失效处（不一致/不完整）价值凸显（F1 1.00, Jaccard 1.00）
+
+### 更新
+- index.md: +15 source entries +3 concept entries (Round 18 section; inconsistency-kg-reasoning-survey 标注 Round 10 已有)
+- overview.md: +Round 18 section (3子方向趋势+关键洞察)
+- log.md: 本条目
+- 15 PDFs downloaded to raw/papers/ (inconsistency-kg-reasoning-survey.pdf Round 10 已有)
+- 3 new concept pages: OntologyReasoningEngine, LLMReasonerHybrid, InconsistencyTolerantReasoning
+- Updated OntologyReasoning concept page (+15 sources, 4主线展开)
+
+累计 454 -> 472 页, 326 -> 341 PDF, 327 -> 342 论文, 126 -> 129 概念.

@@ -2,8 +2,8 @@
 title: "Overview"
 type: synthesis
 tags: []
-sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces, cog-rag, coact-action-preserving-compression, smoothagent-lookahead-context, latent-context-compilation, cross-family-speculative-prefill, mia-signature-activation, prism-intent-memory-retrieval, apex-dynamic-data-selection, prompt-codebooks-pco, spear-code-augmented-prompt, mo-capo-multi-objective, maspo-joint-mas-prompt, prism-prompt-reliability, saga-workflow-scheduling, dynamo-asset-orchestration, co-coder-task-partitioning, agent-jit-compilation, typego-os-runtime, model-native-architecture, saecache-semantic-eviction, leyline-kv-directives, tokendance-collective-sharing, prism-scheduling-memory, stateful-inference-multi-agent, kv-policy-learning-evict, vericache-lossless-compression, hydra-dynamic-routing, inframind-infra-aware, routing-plateau, recal-reward-calibration, twinrouterbench-step-routing, goodserve-goodput-serving]
-last_updated: 2026-08-03
+sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces, cog-rag, coact-action-preserving-compression, smoothagent-lookahead-context, latent-context-compilation, cross-family-speculative-prefill, mia-signature-activation, prism-intent-memory-retrieval, apex-dynamic-data-selection, prompt-codebooks-pco, spear-code-augmented-prompt, mo-capo-multi-objective, maspo-joint-mas-prompt, prism-prompt-reliability, saga-workflow-scheduling, dynamo-asset-orchestration, co-coder-task-partitioning, agent-jit-compilation, typego-os-runtime, model-native-architecture, saecache-semantic-eviction, leyline-kv-directives, tokendance-collective-sharing, prism-scheduling-memory, stateful-inference-multi-agent, kv-policy-learning-evict, vericache-lossless-compression, hydra-dynamic-routing, inframind-infra-aware, routing-plateau, recal-reward-calibration, twinrouterbench-step-routing, goodserve-goodput-serving, syntactic-simplification-owl, dl-ontologies-probabilistic-circuits, datalogmtl-seminaive-materialisation, meteror-metric-temporal-reasoning, datalog-first-class-facts, ontology-grounded-reasoner-benchmarks, neural-shqoi-instance-retrieval, owl2dl-differentiable-circuits, llm-active-learning-owl, transformer-alcq-reasoning, neuro-symbolic-dl-reasoners-survey, falcon-inconsistent-alc, ontology-revision-plm, embedding-inconsistency-tolerant, inconsistency-kg-reasoning-survey, abox-abduction-repair-semantics]
+last_updated: 2026-10-09
 ---
 
 # Overview
@@ -947,3 +947,61 @@ Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多�
 3. **约束满足检索超越相似性检索**（[[satir-constraint-ir-clinical]]）：将约束作为 binding requirements 形式化满足（SMT→关系代数），recall +55.65pp 且 146ms/患者——formal methods 在 IR 检索阶段的新范式
 4. **确定性控制层比 LLM-based guardrail 更可靠**（[[gubernaut-homeostatic-controller]]）：token-free meta level 使 prompt injection 在构造上不存在攻击通道，arousal 动力学的 homeostatic recovery 在 4/4 模型家族中复制
 5. **循环消解需要中间粒度策略**（[[trove-trace-route-validation]]）：Retain-Insert-Replace 在粗粒度工作流重选和细粒度逐步重规划间开辟新设计空间——保留已完成前缀仅修复无效后缀
+
+---
+
+## 第18轮：本体推理引擎 / LLM-推理器混合 / 鲁棒性（2022-2026）— 16篇论文 × 3方向
+
+第18轮聚焦"本体推理"本身的技术纵深，三个子方向互补：推理引擎与规模化、LLM 与推理器混合、推理鲁棒性（不一致/修复/容忍）。16 篇论文构建从引擎基础设施到神经-符号协作到不一致处理的完整推理技术图谱，是 Round 13 本体推理方向（6篇）的深度扩展。
+
+### 跨方向趋势
+
+| 方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 推理引擎** | tableau→Datalog物化→时序算子完备→树形结构一等事实→句法化简→可微电路编译 | [[meteror-metric-temporal-reasoning]]、[[datalogmtl-seminaive-materialisation]]、[[datalog-first-class-facts]]、[[syntactic-simplification-owl]]、[[dl-ontologies-probabilistic-circuits]] |
+| **B. LLM-推理器混合** | LLM评测→推理器验证基准→嵌入近似推理→非Horn可微编译→LLM辅助建模 | [[ontology-grounded-reasoner-benchmarks]]、[[neural-shqoi-instance-retrieval]]、[[owl2dl-differentiable-circuits]]、[[llm-active-learning-owl]]、[[transformer-alcq-reasoning]] |
+| **C. 鲁棒性** | 一致性检测→修复（修订/溯因建议）→容忍（MCS/模糊多模型/嵌入排序） | [[inconsistency-kg-reasoning-survey]]、[[falcon-inconsistent-alc]]、[[embedding-inconsistency-tolerant]]、[[ontology-revision-plm]]、[[abox-abduction-repair-semantics]] |
+
+### A. 本体推理引擎与规模化（5篇）
+
+推理引擎工程沿四条平行线推进，解决"大而表达性本体上的可扩展演绎推理"。[[meteror-metric-temporal-reasoning]]（AAAI 2022, 41 citations）是首个支持完整 DatalogMTL（含递归）的推理器，用"物化为主、Büchi 自动机为辅"的两线程竞速设计，实证 99.2% 输入事实走物化快速路径，支持至 1.5 亿时序事实。[[datalogmtl-seminaive-materialisation]] 为其提供半朴素物化内核——用增量集合 Δ + 语义差集保证"每个规则实例至多考虑一次"的非重复性，显著降低时间与内存。[[datalog-first-class-facts]] 从树形数据表达力切入：DL∃! 用"每个事实以唯一 Skolem 项标识"的一等事实扩展 Datalog，配合 Slog 的通信避免 MPI 并行超越 Nemo/Vlog/RDFox/Soufflé。[[syntactic-simplification-owl]] 的 CES 用吸收/幂等/支配/排中等重写规则做**推理器无关的句法无损化简**（最高长度-86%、runtime-90%），作为类表达式学习默认后处理。[[dl-ontologies-probabilistic-circuits]] 把本体编译为概率电路，GPU 演绎推理快 3 个数量级，同时服务数据生成与可微 NeSy 训练。
+
+**关键洞察**：引擎优化的杠杆从"算法复杂度"转向"冗余消除"——物化侧（seminaïve 非重复性、Slog 通信避免）、句法侧（CES）、编译侧（电路共享），三条并行线都指向"消除重复计算"这一统一主题。
+
+### B. LLM 与推理器混合（6篇）
+
+神经与符号的协作从"替代推理器"转向"分工互补"。[[neuro-symbolic-dl-reasoners-survey]]（2023）给出全景坐标：嵌入法丢经典蕴含，知识编译法保留经典语义但限于 Horn。[[ontology-grounded-reasoner-benchmarks]]（NeurIPS 2026 WS）是评测侧标杆：自动生成本体接地、推理器验证的 MCQ 流水线（Pizza/PMDco/DOID 共 112/2,491/15,216 题），distractor 的错误性经蕴含检查形式化验证，6 个 LLM 零样本 41.1-76.8%。[[transformer-alcq-reasoning]] 用表达性 ALCQ 构建 384K 基准，DeBERTa 微调掌握蕴含检查、9-shot GPT 显著提升。[[neural-shqoi-instance-retrieval]]（Ebr）用 KGE 嵌入近似符号推理，完整 SHOIQ 构造子映射为集合运算，噪声/不完整知识库上 Jaccard 1.00、概念学习 F1 1.00（符号推理器失效处）。[[owl2dl-differentiable-circuits]]（Baobab）把完整 SROIQ（非 Horn）编译为 SDD，23% 公理超出 DeepProbLog Horn 片段，并用 JustWMC 缓解推理捷径达到贝叶斯最优。[[llm-active-learning-owl]] 用"子sumption→可满足性归约+LLM 实例近似"辅助建模，形式化保证只产生 II 类错误（最坏延迟构建、不污染本体）。
+
+**关键洞察**：混合的价值主张是"符号引擎的确定性 + LLM 的鲁棒性"，且评测、训练、建模三侧同步成熟——推理器不再只是"被替代的对象"，而是"验证 LLM 输出的法官"（[[VerificationCoEvolution]] 的评测侧实例）。
+
+### C. 本体推理鲁棒性（5篇）
+
+不一致/不完整本体的推理按"检测-修复-容忍"三方向成熟（[[inconsistency-kg-reasoning-survey]]，2025 综述；Round 10 已收录，本轮深化引用）。**容忍**路线：[[falcon-inconsistent-alc]]（FALCON）用模糊逻辑+多近似模型采样，证明"模型越多蕴含越忠实"，在经典推理器无条件蕴含一切处恢复近似推理；[[embedding-inconsistency-tolerant]] 用句嵌入（BERT）+KGE（TransE）编码公理语义排序 MCS，优于怀疑式推理基线；[[neural-shqoi-instance-retrieval]] 在 Pellet 失效处达 F1 1.00。**修复**路线：[[ontology-revision-plm]] 用 PLM 编码公理语义做修订排序（19 本体对、最多省 90% 时间）；[[abox-abduction-repair-semantics]]（KR 2026）在修复语义下定义 ABox 溯因，给 DL-Lite/EL⊥ 的复杂度全景，为修复提供"假设建议"（Brave vs AR 语义下谨慎假设差异）。
+
+**关键洞察**：容忍与修复的核心张力是"保留有价值信息 vs 恢复形式一致性"——嵌入/模糊路线保留信息但失去经典蕴含保证，修订/溯因路线恢复一致性但可能删除信息。选择依据：不一致范围、信息价值、下游推理预算。
+
+### 跨方向收敛
+
+| 收敛主题 | A. 推理引擎 | B. LLM-推理器混合 | C. 鲁棒性 |
+|---|---|---|---|
+| **可微/可编译推理** | 电路 GPU 推理 (probabilistic circuits) | SROIQ→SDD (Baobab), Ebr 嵌入 | FALCON 模糊多模型 |
+| **推理器验证** | 无（纯句法 CES） | 推理器验证基准 (MCQ), Lean4 验证 | 修复后一致性检查 |
+| **冗余消除** | seminaïve 非重复性, Slog 通信避免, CES 化简 | 23% 公理超 Horn 片段 | 多模型采样忠实性 |
+| **LLM 语义编码** | - | 句嵌入/KGE 公理排序 | PLM 修订排序, 嵌入 MCS |
+| **复杂度保证** | 非重复性定理, sound&complete | 仅 II 类错误保证 | 复杂度全景 (溯因) |
+
+### 与现有 Wiki 的连接
+
+- **与 Round 13 直接延续**：Round 13 A 本体推理（NeurOWL/Fuzzy OWL2/HoTT/OBDA/Algebraic/OntoLearner）聚焦"LLM 增强推理"，本轮聚焦引擎工程（A）、混合分工（B）与鲁棒性（C）——形成"神经增强×引擎基建×鲁棒性"三支柱
+- **与 Round 8 神经符号编排呼应**：[[NeurosymbolicOrchestration]] 的"LLM 灵活规划+符号可验证执行"→ 本轮 Baobab 的 SDD 可微编译、Ebr 的嵌入近似、probabilistic circuits 的 GPU 演绎都是符号引擎的可微/神经实现
+- **与 Agent Memory 连接**：[[meteror-metric-temporal-reasoning]] 的时序推理支撑流式记忆/流推理场景，[[datalog-first-class-facts]] 的树形事实支撑结构化记忆表示
+- **与检索侧连接**：[[OntologyGraphRetrieval]]/[[OntologyPreciseRetrievalReasoning]] 用本体约束检索，本轮引擎（A）与鲁棒性（C）为其提供推理底座与不一致处理
+- **与验证协同演化连接**：[[VerificationCoEvolution]] 的"验证器与生成器协同演化"→ [[ontology-grounded-reasoner-benchmarks]]（推理器验证 MCQ）与 [[owl2dl-differentiable-circuits]]（Lean4 验证编译器）是评测/工程两侧实例
+
+### 关键洞察
+
+1. **推理器从"被替代"到"被依赖"**（[[ontology-grounded-reasoner-benchmarks]]、[[owl2dl-differentiable-circuits]]）：神经符号融合的成熟标志是推理器成为验证 LLM 输出的法官（蕴含检查验证 distractor、Lean4 机器证明编译器 soundness）——确定性不再让位于鲁棒性，而是两者分层共存
+2. **冗余消除是引擎优化的统一杠杆**（[[datalogmtl-seminaive-materialisation]]、[[datalog-first-class-facts]]、[[syntactic-simplification-owl]]）：半朴素物化（每个规则实例至多一次）、通信避免并行、句法化简三条线都指向"消除重复计算"——引擎性能的瓶颈往往不在算法复杂度而在冗余
+3. **不一致处理三方向各有适用域**（[[inconsistency-kg-reasoning-survey]]、[[abox-abduction-repair-semantics]]）：容忍（MCS/模糊/嵌入）保留信息但失经典保证，修复（PLM 修订/溯因建议）恢复一致性但可能删信息——"检测-修复-容忍"按不一致范围与信息价值选择
+4. **非 Horn 全特征是可微编译的前沿**（[[owl2dl-differentiable-circuits]]）：23% 的 SROIQ 公理超出 DeepProbLog Horn 片段，Baobab 用"后果演算饱和命题核心+有限域实例化扩展"打通——表达力与可微性不再二选一
+5. **嵌入推理器在不一致/不完整处价值凸显**（[[neural-shqoi-instance-retrieval]]、[[falcon-inconsistent-alc]]）：符号推理器对噪声停机、无条件蕴含一切，嵌入/模糊推理器在其失效处恢复有用推理（F1 1.00、Jaccard 1.00）——鲁棒性成为神经推理的核心卖点而非妥协

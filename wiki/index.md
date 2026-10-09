@@ -428,6 +428,30 @@
 - [MASC: 元认知自纠正](sources/masc-metacognitive-self-correction.md) — Next-Execution Reconstruction+prototype prior；无监督异常检测；AUC 77.84% (2026)
 - [HARNESSFIX: Harness缺陷诊断修复](sources/failed-trajectories-harness-flaws.md) — HTIR对齐+scoped repair operators+regression validation；GAIA +18.4pp (2026)
 
+### Ontology Reasoning Engine / LLM-Reasoner Hybrid / Robustness — Round 18 (2022-2026)
+
+#### A. 本体推理引擎与规模化
+- [Syntactic Simplification of OWL Class Expressions](sources/syntactic-simplification-owl.md) — CES句法重写简化；最高长度-86%/runtime-90%；无推理器依赖 (2026)
+- [Compiling DL Ontologies to Probabilistic Circuits](sources/dl-ontologies-probabilistic-circuits.md) — 本体→可微电路；数据生成+GPU推理（快3数量级）+NeSy分类 (2026)
+- [Seminaïve Materialisation in DatalogMTL](sources/datalogmtl-seminaive-materialisation.md) — 时序Datalog半朴素物化；非重复性保证；消除冗余计算 (2022)
+- [MeTeoR: Practical Reasoning in Datalog with Metric Temporal Operators](sources/meteror-metric-temporal-reasoning.md) — 首个完整DatalogMTL推理器；物化+自动机混合；1.5亿时序事实；AAAI 2022 (2022, 41 citations)
+- [Datalog with First-Class Facts](sources/datalog-first-class-facts.md) — DL∃!/Slog一等事实；通信避免并行；超越Nemo/Vlog/RDFox/Soufflé；PVLDB 2024 (2024)
+
+#### B. LLM与推理器混合
+- [Ontology-Grounded, Reasoner-Verified Benchmarks](sources/ontology-grounded-reasoner-benchmarks.md) — 自动生成推理器验证MCQ；Pizza/PMDco/DOID 112/2491/15216题；LLM 41.1-76.8%；NeurIPS 2026 WS (2026)
+- [Neural Reasoning for Robust Instance Retrieval in SHOIQ (Ebr)](sources/neural-shqoi-instance-retrieval.md) — 嵌入鲁棒推理器；噪声/不完整下F1 1.00；K-CAP 2025 (2025)
+- [Neuro-symbolic Learning over OWL 2 DL (Baobab)](sources/owl2dl-differentiable-circuits.md) — SROIQ→SDD编译；非Horn可微NeSy；推理捷径缓解；Lean4验证 (2026)
+- [From Subsumption to Satisfiability: LLM-Assisted Active Learning](sources/llm-active-learning-owl.md) — 子sumption→可满足性归约+LLM实例近似；仅II类错误保证；13商用LLM (2026)
+- [Transformer-based LMs for Reasoning in ALCQ (DELTAD)](sources/transformer-alcq-reasoning.md) — 表达性ALCQ 384K基准；DeBERTa掌握蕴含检查；9-shot GPT提升 (2024)
+- [Neuro-Symbolic RDF and DL Reasoners: SOTA and Challenges](sources/neuro-symbolic-dl-reasoners-survey.md) — 神经符号演绎推理综述；RDF(S)/EL/ALC/OWL2 RL坐标 (2023)
+
+#### C. 本体推理鲁棒性
+- [FALCON: Scalable Reasoning over Inconsistent ALC Ontologies](sources/falcon-inconsistent-alc.md) — 模糊ALC神经推理器；多模型近似蕴含；忠实性证明；生物医学补全 (2022)
+- [Ontology Revision based on Pre-trained Language Models](sources/ontology-revision-plm.md) — PLM公理语义排序修订；19本体对；最多省90%时间 (2023)
+- [Embedding-based Inconsistency-tolerant Reasoning](sources/embedding-inconsistency-tolerant.md) — 公理语义嵌入MCS选择；句嵌入+KGE；优于怀疑式推理；IJCKG 2023 (2023)
+- [Dealing with Inconsistency for Reasoning over KGs: A Survey](sources/inconsistency-kg-reasoning-survey.md) — 检测/修复/容忍三方向综述；ABox修复重心（Round 10 已收录，本轮深化引用） (2025)
+- [ABox Abduction for Inconsistent KBs under Repair Semantics](sources/abox-abduction-repair-semantics.md) — 修复语义下ABox溯因；DL-Lite/EL⊥复杂度全景；KR 2026 (2026)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -562,6 +586,11 @@
 - [本体推理 Ontology Reasoning](concepts/OntologyReasoning.md) — 形式本体上的自动化推理：包含验证/溯因/可满足性/一致性；从符号推理器到LLM增强
 - [本体语义层 Ontology Semantic Layer](concepts/OntologySemanticLayer.md) — 本体作为异构数据/系统/agent间统一语义接口层；虚拟本体层+语义图+对象中心建模
 - [本体优先Agent设计 Ontology-First Agent Design](concepts/OntologyFirstAgentDesign.md) — 本体从知识源提升为agent架构基础层；类型约束/语义验证/审计凭证/治理边界
+
+### Ontology Reasoning Engine / Hybrid / Robustness Concepts (Round 18)
+- [本体推理引擎 Ontology Reasoning Engine](concepts/OntologyReasoningEngine.md) — 可扩展演绎推理基础设施：时序Datalog物化/一等事实并行/句法化简/概率电路GPU编译
+- [LLM与推理器混合 LLM-Reasoner Hybrid](concepts/LLMReasonerHybrid.md) — LLM/神经与符号推理器协作分工：评测验证/可微编译/嵌入近似/建模辅助
+- [不一致容忍推理 Inconsistency-Tolerant Reasoning](concepts/InconsistencyTolerantReasoning.md) — 检测-修复-容忍三方向；MCS/模糊多模型/嵌入语义排序/修订/溯因
 
 ### Ontology Intent & Alignment Concepts (Round 14)
 - [本体驱动意图对齐 Ontology-Driven Intent Alignment](concepts/OntologyIntentAlignment.md) — 利用形式本体结构化语义约束将NL意图映射到可执行结构化表示；ISA-95/TMF标准提供操作语义保证

@@ -1,0 +1,11 @@
+---
+title: "本体推理（Ontology Reasoning）"
+type: concept
+tags: [ontology-reasoning]
+sources: [neurowl, fuzzy-owl2-reasoning, hott-nesy-neurosymbolic, obda-query-abstraction, algebraic-ontology-projection, ontolearner, syntactic-simplification-owl, dl-ontologies-probabilistic-circuits, datalogmtl-seminaive-materialisation, meteror-metric-temporal-reasoning, datalog-first-class-facts, ontology-grounded-reasoner-benchmarks, neural-shqoi-instance-retrieval, owl2dl-differentiable-circuits, llm-active-learning-owl, transformer-alcq-reasoning, neuro-symbolic-dl-reasoners-survey, falcon-inconsistent-alc, ontology-revision-plm, embedding-inconsistency-tolerant, inconsistency-kg-reasoning-survey, abox-abduction-repair-semantics]
+last_updated: 2026-10-09
+---
+
+本体推理是指在形式化本体（如 OWL、描述逻辑）上执行自动化推理任务，包括包含验证、可满足性检查、一致性检测和查询回答。传统本体推理依赖 Tableau、EL 或规则推理器等符号方法，但面临两个核心挑战：(1) 真实本体往往不完整，经典推理器无法推断"合理但未被蕴含"的关系；(2) 推理的计算复杂度在高表达力描述逻辑中很高。LLM 的引入开辟了新范式：NeurOWL 将 LLM 文本语义与本体嵌入结合，统一验证与溯因；Algebraic Ontology Projection 将 LLM 隐状态投影到 Galois 域 F2 提取本体关系；HoTT-NeSy 用同伦类型论推广神经符号推理，保留对称性和证明计数信息。本体学习（Ontology Learning）也从手工构建转向 LLM 驱动的自动化管线，OntoLearner 提供了首个统一基准。
+
+2026 年 Round 18 将本概念扩展为四条主线：(1) **推理引擎规模化**——[[meteror-metric-temporal-reasoning]] 覆盖完整 DatalogMTL（1.5 亿时序事实）、[[datalogmtl-seminaive-materialisation]] 半朴素物化、[[datalog-first-class-facts]] 一等事实并行、[[syntactic-simplification-owl]] 句法无损化简、[[dl-ontologies-probabilistic-circuits]] 编译为概率电路 GPU 推理（快 3 个数量级）；(2) **LLM/神经与推理器混合**——[[ontology-grounded-reasoner-benchmarks]] 用推理器验证 MCQ、[[transformer-alcq-reasoning]] 测 LLM 表达性 DL 推理、[[neural-shqoi-instance-retrieval]] 嵌入近似推理（噪声下 F1 1.00）、[[owl2dl-differentiable-circuits]] 非 Horn SROIQ 可微编译、[[llm-active-learning-owl]] LLM 辅助建模（仅 II 类错误）；(3) **不一致容忍推理**——[[inconsistency-kg-reasoning-survey]] 检测/修复/容忍三方向、[[falcon-inconsistent-alc]] 模糊多模型近似蕴含、[[embedding-inconsistency-tolerant]] 公理语义 MCS 选择、[[ontology-revision-plm]] PLM 修订、[[abox-abduction-repair-semantics]] 修复语义溯因；(4) **综述坐标**——[[neuro-symbolic-dl-reasoners-survey]] 神经符号推理器全景。相关论文：[[neurowl]]、[[fuzzy-owl2-reasoning]]、[[hott-nesy-neurosymbolic]]、[[obda-query-abstraction]]、[[algebraic-ontology-projection]]、[[ontolearner]]、[[inconsistency-kg-reasoning-survey]]、[[llm-kg-research-trends]]、[[meteror-metric-temporal-reasoning]]、[[neural-shqoi-instance-retrieval]]、[[owl2dl-differentiable-circuits]]、[[falcon-inconsistent-alc]]
