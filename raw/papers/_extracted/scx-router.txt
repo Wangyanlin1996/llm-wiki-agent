@@ -1,0 +1,1176 @@
+
+===== PAGE 1 =====
+
+===== PAGE 2 =====
+
+===== PAGE 3 =====
+2
+Related Work
+2.1
+Routing and Cascading Across LLMs
+FrugalGPT learns cascades under budget constraints and shows that heterogeneous API models
+can improve the cost–quality frontier [Chen et al., 2023]. AutoMix similarly escalates based on
+self-verification and a partially observable decision process [Aggarwal et al., 2023]. RouteLLM
+learns strong-versus-weak routing from preference data and studies transfer when the under-
+lying pair changes [Ong et al., 2024].
+More recent work unifies routing and cascading and
+identifies quality estimation as the central statistical problem [Dekoninck et al., 2024]. Router-
+Bench supplies more than 405,000 inference outcomes and emphasizes common task coverage
+for trustworthy comparisons [Hu et al., 2024].
+SCX Router differs along three axes. First, it performs multi-label suitability prediction
+over a configurable roster rather than a fixed binary gate.
+Second, natural-language labels
+allow semantic transfer to new candidates and auxiliary taxonomies. Third, the persistent state
+belongs to a classifier built on a causal decoder: it can reuse dialogue tokens without generating
+a route. Semantic zero-shot transfer does not eliminate the need for outcome data, however; a
+new endpoint name may be accepted mechanically while remaining poorly calibrated empirically.
+2.2
+Efficient Zero-Shot Classification
+GLiNER jointly represents text and entity labels for generalist named-entity recognition [Zara-
+tiana et al., 2023]. GLiClass extends this paradigm to sequence classification, supporting zero-
+and few-shot classification while avoiding one text–label forward pass per class [Stepanov et al.,
+2025]. The original GLiClass family primarily uses bidirectional encoders. SCX Router re-
+tains its label-conditioned scorer but places it after a Qwen3 causal backbone [Qwen Team,
+2025]. A shallow DeBERTa-style encoder [He et al., 2020] restores bidirectional interaction over
+the transient label suffix before classification.
+Embedding and bi-encoder methods precompute cheap label representations but expose lim-
+ited token-level label–text interaction. Pairwise cross-encoders offer stronger interaction at a
+cost proportional to the number of labels. Prompted generative routers are flexible and chat-
+native, but add decoding latency and output-format variance. The decoder-KV design occupies
+a middle point: labels remain dynamic, the backbone is causal and cacheable, and the output
+is discriminative.
+2.3
+Real-World and Agentic Evaluation
+Static question answering is an incomplete proxy for routing real applications. GAIA empha-
+sizes questions that combine reasoning, browsing, multimodality, and tools [Mialon et al., 2023];
+AgentBench evaluates LLMs across interactive environments [Liu et al., 2023]; SWE-bench re-
+quires repository-scale code modification and test execution [Jimenez et al., 2023]; and OSWorld
+pairs realistic tasks with initial-state configurations, files, and execution-based evaluators [Xie
+et al., 2024]. These benchmarks motivate our task packages: the prompt alone is insufficient
+for many workloads, so generation includes the context, artifacts, criteria, and checks needed to
+evaluate an outcome.
+Open-ended evaluation often relies on LLM judges. MT-Bench documents both their scalabil-
+ity and systematic position, verbosity, and self-enhancement biases [Zheng et al., 2023]. Panels
+of heterogeneous judges can reduce single-model bias [Verga et al., 2024]. We therefore treat
+deterministic verifiers as preferable when semantics permit and require judge identity, prompt,
+rubric, and coverage metadata for subjective tasks.
+3
+Task Formulation
+Let xt be the new request content at turn t, h<t the preceding conversation, and Mt =
+{m1, . . . , mK} the available candidate-label vocabulary before product constraints. The clas-
+3
+
+===== PAGE 4 =====
+sifier computes a logit at,k and probability-like score
+pt,k = σ(at,k)
+(1)
+for each candidate in the multi-label view. A candidate is emitted when pt,k ≥τ, with a default
+threshold of 0.5 in the released pipeline. For a single-label auxiliary task, softmax normalization
+and an argmax decision are used instead.
+Routing supervision is derived from observed downstream outcomes. For task i and model
+m, let si,m ∈[0, 1] denote a benchmark-normalized score and oi,m ∈{0, 1} denote whether the
+outcome was actually observed. Our dataset builder defines the positive set as models tied for
+the highest observed score, optionally within a tolerance ϵ:
+Yi =
+
+m ∈Mi : si,m ≥max
+j∈Mi si,j −ϵ
+
+.
+(2)
+Equation 2 operationalizes success from the best observed outcomes and avoids imposing one
+universal threshold across heterogeneous benchmark evaluators.
+If every candidate is evaluated on every task, Yi supports a paired routing objective. When
+coverage differs, oi,m = 0 is missing data, not a failed response. A valid loss must mask unob-
+served pairs,
+Lmasked = −
+1
+P
+i,m oi,m
+X
+i,m
+oi,m [yi,m log pi,m + (1 −yi,m) log(1 −pi,m)] ,
+(3)
+or restrict training and evaluation to a paired intersection. The eleven-endpoint collection has
+unequal endpoint counts, so this paper does not infer unobserved failures or report 11-way
+comparative accuracy.
+The final route is a policy decision. Let Et ⊆Mt be the candidates remaining after context,
+tool, modality, region, privacy, and safety constraints. A policy chooses
+m∗
+t = arg max
+m∈Et Ut(m),
+(4)
+where Ut can combine request-specific scores, empirical performance profiles, expected incremen-
+tal cost, latency, and cache reuse. Section 9 gives the implemented cost-aware form.
+4
+Decoder-KV Router
+The released checkpoint is an approximately 0.6B-parameter GLiClass model with a Qwen3-0.6B
+causal backbone [Qwen Team, 2025]. The backbone has 28 decoder layers, hidden size 1,024, 16
+query heads and 8 KV heads; training uses sequences up to 4,096 tokens. Three special tokens
+organize the classification sequence: «LABEL», «SEP», and «EXAMPLE». The scorer is a two-layer
+DeBERTa-v2 encoder without its own embedding layer, followed by projections and a shared
+MLP of widths 2h →1024 →512 →1.
+Figure 1 summarizes the separation between learned request signals and the deployment
+policy that selects an eligible endpoint.
+4.1
+Sequence and Scoring
+The canonical implementation formats the persistent context and transient labels as
+c≤t = format(prompt, examples, h<t, xt),
+(5)
+q(L) = «SEP» ℓ1 «LABEL» · · · ℓK «LABEL» «SEP».
+(6)
+The label text therefore precedes its «LABEL» marker, matching the data-processing and stream-
+ing implementation.
+4
+
+===== PAGE 5 =====
+Figure 1: System overview. The classifier returns request signals; a separate application policy applies
+hard eligibility constraints and selects an endpoint. The displayed signal families use the same label-
+conditioned inference interface.
+For a stateless call, the causal decoder processes [c≤t; q(L)]. For a session, let ∆ct denote
+only the persistent-context tokens appended since the last cached call. Those new tokens update
+a persistent text-only cache,
+(Hx
+t , Kt, Vt) = Dθ(∆ct; Kt−1, Vt−1),
+(7)
+and label tokens are evaluated conditionally,
+Hℓ
+t = Dθ(q(L); Kt, Vt).
+(8)
+The label-stage keys and values are not written back to (Kt, Vt). Thus repeated classification
+can change the label roster without contaminating dialogue state.
+The transient hidden states pass through a bidirectional scorer encoder Bϕ:
+Z = Bϕ(Hℓ
+t ).
+(9)
+The scorer extracts a joint representation zt from the final separator and label representations zk
+from the «LABEL» positions. Because Bϕ is bidirectional, the final separator summarizes the full
+transient label section as well as decoder-conditioned request context; it is not simply the last
+request-token state. Projected request and label representations are concatenated and scored:
+˜zt = Wtzt,
+˜zk = Wℓzk,
+(10)
+at,k = MLPψ([˜zt; ˜zk]).
+(11)
+Two properties follow from this persistent–transient split.
+First, cache reuse amortizes
+request-side representation, not the entire routing decision. If a turn contributes ∆n context
+tokens and the current roster occupies L label tokens, the cached path extends the state with
+∆n tokens and, when triggered, executes the transient L-token suffix and scorer. The suffix still
+attends to retained history, so latency can depend on both cache length and roster size; reuse
+avoids recomputing earlier hidden states but does not make routing cost independent of his-
+tory. Second, labels are in-band inputs rather than fixed output neurons: the same projections
+5
+
+===== PAGE 6 =====
+and MLP score every marker. The head therefore admits a variable roster and independent
+suitability scores for multiple acceptable endpoints. Label shuffling during training discourages
+position-specific shortcuts, but a new label is only semantically scorable—not automatically
+calibrated—until supported by outcome evidence.
+Figure 2 visualizes the complete text–label scoring path.
+Figure 2: GLiClass decoder architecture. A causal decoder processes the text and appended class
+labels in one sequence. The final text-token state and label-marker states are extracted, fused through
+cross-attention, and scored by a shared per-label MLP.
+4.2
+Streaming Execution
+Each session owns a cache and a classification trigger. The implementation supports classification
+on every chunk, after n tokens, on a delimiter, never, or over a sliding window. Sessions of
+unequal cache length are left-padded for batched decoder calls, with masks and explicit positions
+preserving logical token locations. When physical cache truncation is enabled, absolute rotary
+positions continue increasing rather than reusing cropped positions.
+Optional CPU offload
+bounds GPU cache memory. At the service layer, TTL, LRU capacity, maximum cache length,
+explicit reset, and deletion govern cache lifetime.
+Cache update and classification are deliberately decoupled. A nonempty chunk can advance
+persistent state even when the trigger suppresses scoring; the next triggered call then sees that
+accumulated context.
+Trigger timing and context selection are also separate: a periodic or
+delimiter trigger can be composed with a bounded recent window. This makes the deployment
+trade-off explicit. End-of-turn triggers reduce redundant intermediate decisions, while per-chunk
+triggers provide earlier route changes; windows and physical truncation bound active context at
+the cost of discarding older evidence.
+6
+
+===== PAGE 7 =====
+The router cache is distinct from the prompt cache of the selected generative endpoint. It
+amortizes repeated classification only; after a route change, the destination may still need to
+replay the conversation. We therefore expose downstream cache state to the policy instead of
+treating router-side reuse as evidence that switching is free.
+Table 1 contrasts this design with common alternatives.
+Table 1: Qualitative comparison of router architectures. “Dynamic labels” means that candidate label
+text can change at inference time.
+Approach
+Dynamic
+la-
+bels
+New dialogue
+turn
+Generation
+Primary
+trade-off
+Embedding / bi-encoder
+native
+usually
+re-
+embed
+full
+context
+no
+cheapest
+inter-
+action,
+weaker
+cross-text
+rea-
+soning
+Encoder classifier / NLI
+fixed
+head
+or
+pairwise
+re-encode
+full
+context
+no
+strong
+dis-
+crimination,
+no
+token-level
+session cache
+Generative LLM router
+prompt-native
+prefix
+cache
+may be reused
+yes
+flexible
+and
+explainable,
+but
+decoding
+and
+parsing
+required
+SCX Router decoder-KV
+native
+encode
+only
+new
+text;
+re-
+score labels
+no
+compact
+dis-
+criminative
+path with per-
+sistent dialogue
+state
+5
+Task Ontology
+We construct the task ontology as a three-level hierarchy of intent: family, task type, and
+routable subtype.
+It contains 23 families, 115 task types, and 345 subtypes.
+Every family
+contains five task types and 15 subtypes. We additionally generate 1,173 synthetic example
+specifications to define coverage and seed downstream task generation; these examples are not
+benchmark prompts. An orthogonal domain axis and cross-cutting routing dimensions allow the
+same intent hierarchy to describe different application settings without multiplying the stable
+task labels. Figure 3 depicts these axes and their composition.
+5.1
+Intent, Domain, and Cross-Cutting Dimensions
+We separate semantic intent from context to avoid an unstable Cartesian label vocabulary. “Sum-
+marize a clinical handoff” and “summarize a deployment incident” share an operation but differ
+in domain, risk, artifacts, and likely endpoint requirements. The domain axis contains eight
+sectors and 30 domains. We bind a subtype to a domain scenario only when constructing an
+example or downstream record.
+We define eight cross-cutting dimensions: reasoning level (1–5), risk (low through critical),
+freshness, interaction mode, input modality, output mode, route kind, and instruction complex-
+ity. These dimensions need not be mutually exclusive task classes. In particular, multi-turn
+and instruction-following behavior can apply to any semantic family, so we represent them as
+interaction and constraint dimensions rather than forcing them into the top-level intent axis.
+We also define boundaries between historically overlapping labels. Analysis interprets ev-
+idence, reasoning derives conclusions, and problem solving proposes and validates a remedy.
+Comparison enumerates differences, evaluation scores against criteria, critique identifies weak-
+7
+
+===== PAGE 8 =====
+Figure 3: Ontology structure. Task intent is modeled independently from domain and routing dimen-
+sions. Composing 345 subtypes with 30 domains defines 10,350 initial design cells, but domain-specific
+examples are instantiated only when needed.
+nesses and improvements, and verification checks truth or acceptance evidence. Retrieval returns
+sources, question answering returns an answer, and fact checking returns an evidence-backed
+claim status.
+These distinctions target the weakest classes in the released 28-way task-type
+evaluation, where conceptually overlapping labels exhibit the largest confusion.
+Table 2 summarizes the ontology dimensions and their roles.
+Table 2: Summary of the task ontology.
+Axis
+Count
+Role
+Task families
+23
+broad semantic operation, such as retrieval, rea-
+soning, programming, or agentic execution
+Task types
+115
+operational subdivisions; five per family
+Routable subtypes
+345
+stable fine-grained intents; three per task type
+Synthetic example specifications
+1,173
+generated coverage examples and task-generation
+seeds
+Domain sectors
+8
+broad economic or social contexts
+Domains
+30
+reusable contexts composed with task subtypes
+Subtype–domain design cells
+10,350
+possible initial single-turn generation jobs
+Cross-cutting dimensions
+8
+reasoning, risk, freshness, interaction, modality,
+output, route kind, and instruction complexity
+6
+Data Sources and Supervision
+We use two sources of routing supervision. The initial corpus is benchmark-derived: candidate
+models are evaluated on training subsets of existing benchmarks. The second corpus is gener-
+ated synthetically from the task ontology. Here real-world describes task structure—dialogue
+state, tools, files, repository context, and acceptance criteria—rather than production user-log
+provenance. Table 3 separates prompt origin from label meaning.
+8
+
+===== PAGE 9 =====
+Table 3: Data inventory by origin and supervision. Broad and focused counts are training records;
+synthetic counts are generated task instances.
+Dataset or
+signal
+Origin
+Scale
+Supervision and meaning
+Benchmark model
+routing
+Existing benchmark
+train subsets evaluated
+with candidate models
+∼104.5k broad;
+22,303 focused
+Observed outcomes identify the
+best-performing model or tied
+models.
+Task type
+Benchmark prompts
+classified by LLMs
+∼105.3k broad;
+15,015 focused
+Semantic operation requested by the
+task, independent of model identity.
+Difficulty
+Candidate outcomes on
+the same tasks
+∼104.6k broad;
+17,318 focused
+Five-level, roster-relative solvability:
+tasks solved by fewer models are
+harder.
+Synthetic,
+verifier-scored
+Ontology-conditioned
+synthetic task packages
+150,000 tasks
+Deterministic, executable, or
+environment-based checks score
+candidate results.
+Synthetic,
+judge-scored
+Ontology-conditioned
+synthetic open-ended
+tasks
+15,000 tasks
+gpt5.6-sol scores outputs against
+explicit task criteria.
+6.1
+Benchmark-Derived Routing Data
+The released routing data begins with prompts from the training partitions of existing bench-
+marks spanning classification, question answering, reasoning, code, summarization, translation,
+instruction following, multi-turn interaction. We execute the candidate models on each prompt
+and retain the score and observation indicator for every attempted endpoint. Equation 2 con-
+verts these observed outcomes into model-routing targets; endpoint names or descriptions do
+not determine the target.
+Task type and difficulty have distinct semantics. LLM annotators classify each benchmark
+prompt into the task-type vocabulary according to the requested operation, rather than its
+source benchmark.
+Difficulty is assigned after model evaluation from the relative ability of
+the candidate roster to solve the task. It is therefore roster- and evaluator-dependent: tasks
+solved by many models are easier, whereas tasks solved by few models are harder. A change in
+candidate roster or success rule can change the difficulty label.
+The released checkpoint uses a broad 524,035-record GLiClass mixture followed by a focused
+65,099-record routing mixture. The focused stage contains 22,303 model-routing, 17,318 diffi-
+culty, 15,015 task-type, 1,797 expected-output-length, 890 reasoning-mode, and approximately
+7,700 propositional-logic records. These are classification-record counts, not counts of unique
+benchmark prompts. General topic, hallucination, guardrail, sentiment, emotion, NLI, toxicity,
+safety, and QA-domain data in the broad mixture preserve zero-shot classification ability.
+6.2
+Ontology-Driven Synthetic Data
+The task ontology supplies task family, task type, subtype, domain, and interaction constraints
+to the generator. Every task instantiated through this path is synthetic. Depending on the
+environment, a package contains a prompt, dialogue or execution context, files, tool interfaces,
+repository state, assessment criteria, and an evaluator. This covers single- and multi-turn text,
+tool use, coding, repository-level work, agentic workflows, and multi-agent tasks. The initial
+generated difficulty is metadata only; the training difficulty label is recomputed from relative
+model outcomes.
+We generated 150,000 tasks whose results can be verified with deterministic, executable, or
+environment-based checks. We generated a further 15,000 open-ended tasks for which deter-
+ministic verification is unsuitable; gpt5.6-sol evaluates their candidate outputs against the
+generated criteria. The judge identity, criteria, task package, candidate response, and score are
+9
+
+===== PAGE 10 =====
+retained as evaluation provenance. Together these pools contain 165,000 synthetic tasks. Agen-
+tic packages follow the reproducibility principle of OSWorld and SWE-bench: success depends
+on initial state and executable or rubric-based evaluation, not on an isolated prompt [Xie et al.,
+2024, Jimenez et al., 2023].
+6.3
+Outcome Coverage
+The expanded evaluation uses eleven endpoint identifiers, but endpoints were evaluated on dif-
+ferent numbers of tasks. The 165,000-task total therefore does not imply a complete 165,000×11
+outcome matrix. Every task–model record retains the observation flag oi,m, and only observed
+outcomes contribute to routing labels, difficulty estimates, or performance profiles.
+Missing
+evaluations are not failures. Raw model averages over different task mixtures are not directly
+comparable, so an 11-endpoint leaderboard requires a paired task intersection or an explicit
+missing-outcome estimator.
+7
+Training
+The released decoder-KV model is trained for multi-label classification with shuffled label order.
+For each row, only labels in all_labels are tokenized into the suffix, and binary targets indicate
+the selected winners. The implementation supports standard binary cross entropy when focal
+parameters are disabled, as well as configurable focal modulation [Lin et al., 2017]. The exact
+focal arguments, optimizer state, and complete launch command are not available, so we leave
+those fields unspecified.
+Table 4 summarizes the available training configuration.
+Table 4: Training configuration for the released checkpoint. Unavailable fields are marked accordingly.
+Hyperparameter
+Value
+Backbone
+Qwen3-0.6B
+Architecture
+decoder-KV GLiClass
+Problem type
+multi-label classification
+Maximum sequence length
+4,096
+Scorer encoder layers / heads
+2 / 16
+Scorer MLP hidden size
+1,024
+Dropout / scorer attention dropout
+0.1 / 0.1
+Stage-1 epochs / steps
+3 / 18,300
+Stage-1 per-device batch size
+4
+Stage-1 schedule
+linear with warmup
+Stage-2 decoder / scorer learning rate
+10−6 / 10−6
+Precision
+bfloat16
+Gradient checkpointing
+enabled
+Train/evaluation split
+90/10
+Seed / label shuffling
+42 / enabled
+Training hardware, global batch, wall time
+not available
+Broad pre-training reaches flattened weighted binary accuracy 0.9273, F1 0.9241, precision
+0.9238, recall 0.9273, and loss 0.218. These are label-decision metrics rather than example-level
+exact-match routing accuracy; many negative model labels can dominate them. We therefore
+use the routing-family and downstream results in Section 10 as the more relevant evidence.
+8
+Model-Routing Patterns
+The classifier supports four routing patterns, chosen according to endpoint stability, outcome-
+data coverage, and whether execution is a single call or a workflow. All patterns first restrict
+candidates to an eligible set Et ⊆Mt; context, modality, tools, privacy, residency, and safety
+remain hard constraints. Figure 4 summarizes the designs.
+10
+
+===== PAGE 11 =====
+Figure 4: Major model-routing patterns. (A) Direct routing scores endpoint labels from the request.
+(B) Attribute-mediated routing predicts task, difficulty, and domain, then consults performance profiles.
+(C) Hybrid routing combines direct and profile evidence before deployment policy.
+(D) Hierarchical
+routing selects a planner and routes each typed task node with verification feedback. Only the direct
+path has released end-to-end evidence; hard top-1 profile aggregation is implemented without end-to-end
+results, while posterior, hybrid, and agentic variants are proposed. Unequal endpoint coverage does not
+establish their relative merit.
+11
+
+===== PAGE 12 =====
+8.1
+Direct Endpoint Routing
+The direct pattern presents endpoint descriptions as classifier labels and produces one suitability
+score for each eligible endpoint:
+Qdir(m | xt, h<t) = σ(sm(xt, h<t; Mt)) ,
+m ∈Et,
+(12)
+where sm is the decoder-KV classifier logit. A quality-only policy takes the highest score, while
+production passes the scores to Section 9. Dynamic labels permit endpoint changes without mod-
+ifying the head, but unseen endpoint names remain uncalibrated without measured outcomes.
+The released eight-endpoint checkpoint implements and evaluates this path.
+8.2
+Attribute-Mediated Performance Routing
+When endpoints change faster than router training, the classifier can predict stable attributes
+and use a replaceable performance table. Let D = {task, difficulty, domain}, let Zd denote the
+categories of dimension d, and let µm,d,z be model m’s historical mean outcome for category z.
+The current optimizer selects the top category in each dimension,
+bzd = arg max
+z∈Zd πd(z | xt, h<t),
+(13)
+and computes
+Qhard
+prof (m | xt, h<t) = 1
+W
+X
+d∈D
+wdµm,d,bzd,
+W =
+X
+d∈D
+wd.
+(14)
+Missing cells fall back to the model’s overall mean. This decouples semantic prediction from the
+model–task table, but hard boundaries and sparse cells can mislead. The path is implemented
+but lacks end-to-end results.
+A proposed probabilistic extension instead marginalizes attribute uncertainty:
+Qpost
+prof(m | xt, h<t) = 1
+W
+X
+d∈D
+wd
+X
+z∈Zd
+πd(z | xt, h<t)eµm,d,z.
+(15)
+Here eµ should shrink sparse cells toward a model or task prior. Unequal endpoint coverage addi-
+tionally requires confidence intervals, common-task comparisons, or missing-outcome modeling.
+Equation 15 is therefore proposed rather than evaluated.
+8.3
+Hybrid and Adaptive Routing
+Direct scores capture request–endpoint interactions, while profiles incorporate new outcome data
+without retraining. After calibration, a hybrid combines both:
+Qhyb(m | xt, h<t) = γt norm(Qdir(m)) + (1 −γt) norm
+
+Qpost
+prof(m)
+
+,
+(16)
+The held-out parameter γt ∈[0, 1] may depend on score margin, entropy, profile support, drift,
+or endpoint novelty, allowing reweighting or abstention. Fusion follows eligibility filtering and
+precedes cost, latency, cache, and capacity policy.
+A confidence-gated cascade invokes an economical model and escalates when a verifier pre-
+dicts failure, following FrugalGPT and AutoMix [Chen et al., 2023, Aggarwal et al., 2023]. A
+parallel portfolio instead executes top-k candidates and judges or synthesizes their outputs. Both
+require extra resources and a deployable verifier; the router@k results in Section 10 are oracle
+diagnostics, not portfolio evidence. Contextual-bandit adaptation is another proposed option,
+requiring controlled exploration, delayed-feedback handling, and safety boundaries.
+12
+
+===== PAGE 13 =====
+8.4
+Hierarchical Agentic Routing
+An agentic system adds decisions beyond the initial prompt. A first gate chooses direct execution
+or decomposition; for the latter, the router selects a planner that creates a typed task graph.
+Each node context cv contains the objective, local instruction, predecessor outputs, files and
+tools, acceptance criteria, risk, and remaining budget. A role-aware policy chooses
+m∗
+v = arg max
+m∈Ev U(m | cv, rv),
+rv ∈{plan, execute, verify, synthesize}.
+(17)
+Per-node routing permits different specialists for planning, execution, verification, and synthesis.
+Verification may accept, retry, switch models, escalate compute, or replan, subject to explicit
+budgets and loop limits. The 165,000 synthetic tasks in Section 6 provide context, artifacts, and
+criteria for future evaluation, but hierarchical routing has not been evaluated end to end.
+Table 5 summarizes the evidence available for each routing pattern.
+Table 5: Routing patterns and their evidence status in this work. “Proposed” denotes a design, not an
+empirical result.
+Pattern
+Decision signal
+Execution
+Evidence status
+Direct endpoint
+Prompt-conditioned endpoint-label
+scores
+One selected endpoint
+Released and evaluated
+for eight endpoints
+Hard attribute
+profile
+Top-1 task, difficulty, and domain;
+historical table
+One selected endpoint
+Components
+implemented; no
+end-to-end result
+Posterior profile
+Attribute posteriors and
+support-aware table
+One selected endpoint
+Proposed extension
+Hybrid constrained
+Calibrated direct and profile scores
+plus policy state
+One selected endpoint
+Proposed composition
+Adaptive cascade
+Initial route plus confidence or
+verifier feedback
+Sequential escalation
+Proposed composition
+Parallel portfolio
+Top-k candidates plus a deployable
+judge
+Parallel calls and
+selection
+Proposed; evaluated
+router@k is oracle-based
+Planner–worker
+Decomposition, role, node state,
+and verifier feedback
+Routed task graph
+Proposed; agentic data is
+an evaluation substrate
+9
+Cache-Aware Routing Policy
+Each single-endpoint pattern in Section 8 supplies a performance signal, not an immutable
+product policy.
+After applying hard eligibility constraints, a deployment can combine that
+signal with incremental monetary cost and cache state. The same policy can also score planner
+and worker choices in Equation 17.
+Let Nc be cached conversation tokens, Nn new input tokens, and b
+No expected output tokens.
+Each model m has full input price pin(m), cached-input price pcache(m), and output price pout(m)
+per million tokens. If mc is the current generation model and q is the probability that its cache
+is reusable, the effective history rate is
+rh(m) =
+(
+q pcache(m) + (1 −q)pin(m),
+m = mc,
+pin(m),
+m̸ = mc.
+(18)
+The next-request cost is
+Ct(m) = rh(m)Nc + pin(m)Nn + pout(m) b
+No
+106
+.
+(19)
+Previously billed tokens are sunk; Equation 19 prices only the next action. Switching models
+replays history at the new candidate’s full input rate, making long cache-warm conversations
+naturally sticky.
+13
+
+===== PAGE 14 =====
+The selector normalizes predicted performance and the natural logarithm of cost to [0, 1],
+inverts cost so larger is better, and computes
+Ut(m) = αUperf(m) + (1 −α)Ucost(m).
+(20)
+Normalization uses historical mean ±3σ when available, configured bounds otherwise, and can-
+didate min–max as a fallback. Degenerate ranges yield neutral utilities. Ties break by higher
+raw performance, lower cost, and then model identifier, making the decision deterministic. One
+configurable multi-signal example assigns weights 0.60 to suitability, 0.15 to task fit, 0.15 to
+difficulty fit, and 0.10 to reasoning fit. These weights are illustrative, not learned constants or
+universal defaults.
+Safety, privacy, data residency, tool permissions, and context feasibility should remain outside
+Equation 20 as hard filters. A high utility must never compensate for ineligibility.
+10
+Evaluation
+10.1
+Metrics
+We evaluate the released model at two levels: per-family classification and end-to-end fixed-
+versus-router comparisons. The former measures the prediction heads; the latter measures real-
+ized downstream task quality.
+For multi-label model routing, we compute per-candidate precision, recall, and F1 at thresh-
+old 0.5 and take their unweighted macro average. For single-label auxiliary families, macro F1
+is averaged across classes. A separate 3,192-record evaluation uses a different aggregation and
+obtains model-routing F1 0.805, whereas the explicit per-candidate macro average is 0.759. Be-
+cause the protocols differ, we keep these values separate and do not interpret the difference as a
+temporal regression.
+Figure 5 and Table 6 summarize the released-checkpoint classification families.
+Figure 5: Macro F1 by released-checkpoint classification family. The values summarize distinct label
+families and are not averaged into a single system score.
+14
+
+===== PAGE 15 =====
+Table 6: Released-checkpoint metrics. The hallucination score is a directional response signal.
+Family
+Classes
+Macro F1
+Decision view
+Model suitability
+8
+0.759
+multi-label, threshold 0.5
+Task type
+28
+0.837
+single-label
+Difficulty
+5
+0.789
+single-label, ordinal
+Reasoning mode
+2
+0.897
+single-label
+Expected output length
+7
+0.788
+single-label, ordinal buckets
+Hallucination
+2
+∼0.65
+directional response signal
+10.2
+Model-Routing Classification
+Table 7 shows the released eight-candidate model-routing result.
+Precision is comparatively
+stable (0.739–0.840), whereas recall ranges from 0.650 to 0.950. This matters operationally: a
+high-recall generalist appears in more positive sets, while a specialist can have high precision
+but be missed on tasks it could solve. Threshold tuning should therefore be candidate- and
+objective-aware rather than assumed universal.
+Table 7: Per-candidate routing precision, recall, and F1. Endpoint names are shortened only for display.
+Candidate
+Precision
+Recall
+F1
+Gemma 4 31B
+0.8064
+0.9501
+0.8723
+Llama 4 Maverick
+0.7892
+0.7529
+0.7706
+GPT-OSS 120B
+0.8396
+0.7063
+0.7672
+Coder
+0.8140
+0.7000
+0.7527
+Llama 3.3 70B
+0.7638
+0.7239
+0.7433
+DeepSeek V3.1
+0.7475
+0.7220
+0.7346
+MAGPiE
+0.7394
+0.7234
+0.7313
+Qwen3 32B
+0.7505
+0.6499
+0.6966
+Macro mean
+0.7688
+0.7411
+0.7586
+The 28-way task taxonomy is near-perfect on semantically distinct classes such as analysis,
+code, generation, information extraction, QA, reasoning, summarization, and translation. The
+principal failure is problem solving (F1 0.127), followed by math-and-reasoning (0.537), decision
+support (0.599), information retrieval (0.626), and evaluation (0.642). These failures motivate
+the ontology’s explicit boundary notes and its decision to move interaction properties out of the
+intent hierarchy.
+Difficulty is ordinal. The released-checkpoint evaluation obtains macro F1 0.789, with most
+errors between adjacent hard and extra-hard levels. The separate 3,192-record evaluation gives
+top-1, top-2, and top-3 hit rates of 0.507, 0.748, and 0.873, respectively. Because the protocols
+differ, we do not merge the values; both motivate distance-aware ordinal error alongside exact
+class F1.
+10.3
+End-to-End Routing
+We use two end-to-end baselines. The first compares the routed top-1 score with the arithmetic
+mean of eight candidate scores on six LiveBench subsets [White et al., 2024]. This measures
+improvement over a uniformly sampled candidate, not over a strong fixed policy. Table 8 and
+Figure 6 give the results.
+15
+
+===== PAGE 16 =====
+Figure 6: LiveBench gain over the mean of eight candidate scores. This experiment evaluates an earlier
+system checkpoint and is not a final-checkpoint claim.
+Table 8: Prior LiveBench routed score versus the mean candidate score, 100 tasks per subset.
+Subset
+Router
+Mean of 8
+Gain
+Language
+0.779
+0.517
++0.262
+Math
+0.738
+0.555
++0.183
+Instruction following
+0.863
+0.768
++0.095
+Reasoning
+0.601
+0.551
++0.050
+Coding
+0.500
+0.456
++0.044
+Data analysis
+0.540
+0.539
++0.001
+The second baseline is stricter. fixed@k selects the globally top-k candidates by mean score
+on the same evaluation records; router@k forms a per-task top-k shortlist and takes the best
+realized outcome within that shortlist. At k = 1, both are deployable single-model policies. For
+k > 1, router@k is an oracle-within-shortlist diagnostic unless an online selector is specified.
+The globally fixed ranking is selected in-sample and can therefore be optimistic.
+The full evaluation contains 1,500 tasks across 13 benchmarks. The dataset-level analysis
+uses a selected 1,000-task subset comprising LiveBench and non-LiveBench datasets with a
+positive router gain at one or more depths. On this subset, fixed/router scores are 0.696/0.707
+at k = 1, 0.788/0.794 at k = 2, and 0.837/0.824 at k = 3, giving gains of +0.012, +0.007, and
+−0.013. Table 9 gives the top-1 dataset values.
+These results support a narrower conclusion than “routing always wins.” The router is most
+useful where candidate outcomes disagree and request semantics reveal that disagreement; it adds
+little where candidates cluster and can underperform a fixed baseline. Because the 1,000-task
+analysis subset omits five benchmarks and lacks uncertainty intervals, repeated seeds, endpoint
+versions, and held-out fixed-policy selection, it does not support a global significance claim. We
+do not report downstream comparisons for the unequally covered eleven-endpoint collection.
+16
+
+===== PAGE 17 =====
+Table 9: Top-1 fixed-versus-router diagnostic. “All shown” is sample-weighted over the selected 1,000-
+task subset, not the full 1,500-task evaluation.
+Dataset
+Fixed@1
+Router@1
+Gain
+BBEH [Kazemi et al., 2025]
+0.830
+0.830
++0.000
+MuSR [Sprague et al., 2023]
+0.677
+0.683
++0.007
+LiveBench coding
+0.470
+0.500
++0.030
+LiveBench data analysis
+0.560
+0.550
+−0.010
+LiveBench instruction following [Zhou et al., 2023]
+0.834
+0.854
++0.020
+LiveBench language
+0.659
+0.726
++0.067
+LiveBench math
+0.738
+0.738
++0.000
+LiveBench reasoning
+0.834
+0.824
+−0.010
+All shown
+0.696
+0.707
++0.012
+11
+Discussion
+SCX Router demonstrates a practical benefit of treating model selection as compact, dynamic-
+label classification rather than as another generation task. A small router can score a changing
+endpoint roster, reuse conversational context through the decoder-KV path, and expose task,
+difficulty, reasoning, and output-length signals to an explicit deployment policy. This separation
+makes eligibility, safety, price, latency, and cache reuse controllable rather than implicit in a
+single model prediction.
+The task ontology and 165,000 synthetic tasks further extend this
+interface from conventional prompts to tool use, repository work, and agentic workflows.
+The empirical advantage is nevertheless conditional. Routing helps most when candidate
+models disagree and the request contains signals that predict those differences; a strong fixed
+model remains competitive when outcomes are similar. Current end-to-end evidence covers direct
+routing on a selected subset, while unequal coverage prevents a balanced comparison across all
+eleven expanded endpoints. Synthetic generation, verifier design, and gpt5.6-sol judging can
+introduce author-model, evaluation-shortcut, and judge biases [Zheng et al., 2023, Verga et al.,
+2024]. The full task corpus and outcome matrix are also not yet public. The router should
+therefore be treated as a performance signal inside a constrained policy, with safety, privacy,
+residency, and tool authorization enforced independently.
+Future work should add more model families, sizes, modalities, context lengths, tool-use
+capabilities, and price–latency tiers, with every endpoint evaluated on shared, versioned task
+strata. The four routing patterns should then be compared on the same outcome matrix: direct
+endpoint prediction, attribute-mediated performance profiles, hybrid scoring, and hierarchical
+planner–worker routing for agentic tasks.
+Evaluation should measure realized quality, cost,
+latency, calibration, endpoint-drift robustness, and regret to an oracle. Logged propensities,
+controlled exploration, and shadow evaluation are also needed to improve the router without
+reinforcing its own selection bias. This program would reveal where each routing pattern is
+useful and turn the ontology expansion into a reproducible benchmark.
+12
+Conclusion
+SCX Router frames model selection as lightweight, dynamic-label classification over an
+evolving endpoint roster.
+The approximately 0.6B-parameter checkpoint combines request-
+conditioned model scoring with task, difficulty, reasoning, and output-length predictions, while
+its decoder-KV path supports repeated routing over conversational state.
+On the selected
+1,000-task evaluation subset, direct routing reaches a top-1 score of 0.707 compared with
+0.696 for the strongest fixed endpoint. Together with the per-head classification results, this
+shows that a compact router can exploit predictable model specialization without requiring
+an additional generative decision step. The mixed per-benchmark gains also clarify that this
+advantage depends on meaningful disagreement among candidate models.
+17
+
+===== PAGE 18 =====
+The task ontology, 150,000 verifier-scored tasks, and 15,000 gpt5.6-sol-judged tasks
+broaden the routing target toward realistic applications and agentic workflows. The routing-
+pattern framework connects this data to direct, attribute-mediated, hybrid, and hierarchical
+planner–worker strategies while keeping deployment constraints separate from learned predic-
+tions. This work therefore provides a foundation rather than a final universal leaderboard. A
+paired and versioned outcome matrix across more models, followed by realized quality–cost–
+latency evaluation of each routing pattern, is the central requirement for establishing when
+routing delivers reliable operational value.
+Acknowledgements
+This work was developed jointly by SCX.ai Holdings Limited and Knowledgator.
+References
+Pranjal Aggarwal, Aman Madaan, Ankit Anand, Srividya Pranavi Potharaju, Swaroop Mishra,
+Pei Zhou, Aditya Gupta, Dheeraj Rajagopal, Karthik Kappaganthu, Yiming Yang, Shyam
+Upadhyay, Manaal Faruqui, and Mausam. AutoMix: Automatically mixing language models.
+arXiv preprint arXiv:2310.12963, 2023. URL https://arxiv.org/abs/2310.12963.
+Lingjiao Chen, Matei Zaharia, and James Zou. FrugalGPT: How to use large language models
+while reducing cost and improving performance. arXiv preprint arXiv:2305.05176, 2023. URL
+https://arxiv.org/abs/2305.05176.
+Jasper Dekoninck, Maximilian Baader, and Martin Vechev. A unified approach to routing and
+cascading for LLMs. arXiv preprint arXiv:2410.10347, 2024. URL https://arxiv.org/abs/
+2410.10347.
+Pengcheng He, Xiaodong Liu, Jianfeng Gao, and Weizhu Chen. DeBERTa: Decoding-enhanced
+BERT with disentangled attention.
+arXiv preprint arXiv:2006.03654, 2020.
+URL https:
+//arxiv.org/abs/2006.03654.
+Qitian Jason Hu, Jacob Bieker, Xiuyu Li, Nan Jiang, Benjamin Keigwin, Gaurav Ranganath,
+Kurt Keutzer, and Shriyash Kaustubh Upadhyay. RouterBench: A benchmark for multi-LLM
+routing system. arXiv preprint arXiv:2403.12031, 2024. URL https://arxiv.org/abs/2403.
+12031.
+Carlos E. Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir Press, and
+Karthik Narasimhan. SWE-bench: Can language models resolve real-world GitHub issues?
+arXiv preprint arXiv:2310.06770, 2023. URL https://arxiv.org/abs/2310.06770.
+Mehran Kazemi, Bahare Fatemi, Hritik Bansal, John Palowitch, Chrysovalantis Anastasiou,
+Sanket Vaibhav Mehta, Lalit K. Jain, Virginia Aglietti, Disha Jindal, Peter Chen, Nishanth
+Dikkala, Gladys Tyen, Xin Liu, Uri Shalit, Silvia Chiappa, Kate Olszewska, Yi Tay, Vinh Q.
+Tran, Quoc V. Le, and Orhan Firat. BIG-Bench Extra Hard. arXiv preprint arXiv:2502.19187,
+2025. URL https://arxiv.org/abs/2502.19187.
+Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and Piotr Dollár. Focal loss for dense
+object detection. In Proceedings of the IEEE International Conference on Computer Vision,
+2017. URL https://arxiv.org/abs/1708.02002.
+Xiao Liu, Hao Yu, Hanchen Zhang, Yifan Xu, Xuanyu Lei, Hanyu Lai, Yu Gu, Hangliang Ding,
+Kaiwen Men, Kejuan Yang, et al. AgentBench: Evaluating LLMs as agents. arXiv preprint
+arXiv:2308.03688, 2023. URL https://arxiv.org/abs/2308.03688.
+18
+
+===== PAGE 19 =====
+Grégoire Mialon, Clémentine Fourrier, Craig Swift, Thomas Wolf, Yann LeCun, and Thomas
+Scialom. GAIA: A benchmark for general AI assistants. arXiv preprint arXiv:2311.12983,
+2023. URL https://arxiv.org/abs/2311.12983.
+Isaac Ong, Amjad Almahairi, Vincent Wu, Wei-Lin Chiang, Tianhao Wu, Joseph E. Gonzalez,
+M. Waleed Kadous, and Ion Stoica. RouteLLM: Learning to route LLMs with preference data.
+arXiv preprint arXiv:2406.18665, 2024. URL https://arxiv.org/abs/2406.18665.
+Qwen Team. Qwen3 technical report. arXiv preprint arXiv:2505.09388, 2025. URL https:
+//arxiv.org/abs/2505.09388.
+Zayne Sprague, Xi Ye, Kaj Bostrom, Swarat Chaudhuri, and Greg Durrett. MuSR: Testing
+the limits of chain-of-thought with multistep soft reasoning. arXiv preprint arXiv:2310.16049,
+2023. URL https://arxiv.org/abs/2310.16049.
+Ihor Stepanov, Mykhailo Shtopko, Dmytro Vodianytskyi, Oleksandr Lukashov, Alexander Ya-
+vorskyi, and Mykyta Yaroshenko. GLiClass: Generalist lightweight model for sequence classi-
+fication tasks. arXiv preprint arXiv:2508.07662, 2025. URL https://arxiv.org/abs/2508.
+07662.
+Pat Verga, Sebastian Hofstatter, Sophia Althammer, Yixuan Su, Aleksandra Piktus, Arkady
+Arkhangorodsky, Minjie Xu, Naomi White, and Patrick Lewis. Replacing judges with juries:
+Evaluating LLM generations with a panel of diverse models. arXiv preprint arXiv:2404.18796,
+2024. URL https://arxiv.org/abs/2404.18796.
+Colin White, Samuel Dooley, Manley Roberts, Arka Pal, Ben Feuer, Siddhartha Jain, Ravid
+Shwartz-Ziv, Neel Jain, Khalid Saifullah, Siddartha Naidu, Chinmay Hegde, Yann Le-
+Cun, Tom Goldstein, Willie Neiswanger, and Micah Goldblum.
+LiveBench:
+A challeng-
+ing, contamination-free LLM benchmark.
+arXiv preprint arXiv:2406.19314, 2024.
+URL
+https://arxiv.org/abs/2406.19314.
+Tianbao Xie, Danyang Zhang, Jixuan Chen, Xiaochuan Li, Siheng Zhao, Ruisheng Cao, Toh Jing
+Hua, Zhoujun Cheng, Dongchan Shin, Fangyu Lei, et al. OSWorld: Benchmarking multimodal
+agents for open-ended tasks in real computer environments. arXiv preprint arXiv:2404.07972,
+2024. URL https://arxiv.org/abs/2404.07972.
+Urchade Zaratiana, Nadi Tomeh, Pierre Holat, and Thierry Charnois.
+GLiNER: General-
+ist model for named entity recognition using bidirectional transformer.
+arXiv preprint
+arXiv:2311.08526, 2023. URL https://arxiv.org/abs/2311.08526.
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang,
+Zi Lin, Zhuohan Li, Dacheng Li, Eric P. Xing, Hao Zhang, Joseph E. Gonzalez, and
+Ion Stoica. Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. arXiv preprint
+arXiv:2306.05685, 2023. URL https://arxiv.org/abs/2306.05685.
+Jeffrey Zhou, Tianjian Lu, Swaroop Mishra, Siddhartha Brahma, Sujoy Basu, Yi Luan, Denny
+Zhou, and Le Hou. Instruction-following evaluation for large language models. arXiv preprint
+arXiv:2311.07911, 2023. URL https://arxiv.org/abs/2311.07911.
+A
+Ontology Families
+Table 10 lists the complete top-level ontology. Its deliberately regular construction assigns five
+task types, 15 subtypes, and 51 synthetic example specifications to each family.
+19
+
+===== PAGE 20 =====
+Table 10: Complete task-family inventory.
+ID
+Family
+Types
+Subtypes
+Tasks
+F01
+Information Retrieval and Discovery
+5
+15
+51
+F02
+Question Answering and Explanation
+5
+15
+51
+F03
+Summarization and Synthesis
+5
+15
+51
+F04
+Information Extraction and Structuring
+5
+15
+51
+F05
+Classification and Tagging
+5
+15
+51
+F06
+Clustering and Organization
+5
+15
+51
+F07
+Analysis and Insight
+5
+15
+51
+F08
+Comparison and Benchmarking
+5
+15
+51
+F09
+Evaluation and Scoring
+5
+15
+51
+F10
+Critique and Review
+5
+15
+51
+F11
+Fact-Checking and Verification
+5
+15
+51
+F12
+Logical, Mathematical, and Causal Reasoning
+5
+15
+51
+F13
+Problem Solving and Troubleshooting
+5
+15
+51
+F14
+Forecasting and Estimation
+5
+15
+51
+F15
+Decision Support and Recommendation
+5
+15
+51
+F16
+Planning, Scheduling, and Optimization
+5
+15
+51
+F17
+Writing, Rewriting, and Translation
+5
+15
+51
+F18
+Content Generation and Visualization
+5
+15
+51
+F19
+Programming and Software Engineering
+5
+15
+51
+F20
+Data, Quantitative, and Scientific Computing
+5
+15
+51
+F21
+Agentic Tool Use and Workflow Execution
+5
+15
+51
+F22
+Conversation and Customer Support
+5
+15
+51
+F23
+Safety, Risk, and Compliance
+5
+15
+51
+Total
+115
+345
+1,173
+The 30 domains are grouped into Public, Social, and Education Services (3); Health and
+Life Sciences (2); Financial, Legal, and People Services (5); Digital Technology and Communica-
+tions (6); Industry, Infrastructure, and Property (5); Commerce, Logistics, and Hospitality (4);
+Environment and Primary Production (2); and Research, Media, and Sport (3).
+20

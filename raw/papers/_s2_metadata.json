@@ -1,0 +1,470 @@
+{
+  "2406.02818": {
+    "title": "Chain of Agents: Large Language Models Collaborating on Long-Context Tasks",
+    "authors": [
+      "Yusen Zhang",
+      "Ruoxi Sun",
+      "Yanfei Chen",
+      "Tomas Pfister",
+      "Rui Zhang",
+      "Sercan Ö. Arik"
+    ],
+    "year": 2024,
+    "citationCount": 261,
+    "venue": "Neural Information Processing Systems",
+    "doi": "10.48550/arXiv.2406.02818"
+  },
+  "2509.21848": {
+    "title": "Graph of Agents: Principled Long Context Modeling by Emergent Multi-Agent Collaboration",
+    "authors": [
+      "Taejong Joo",
+      "Shu Ishida",
+      "Ivan Sosnovik",
+      "Bryan Lim",
+      "S. Rezaei-Shoshtari",
+      "Adam Gaier",
+      "Robert Giaquinto"
+    ],
+    "year": 2025,
+    "citationCount": 1,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2509.21848"
+  },
+  "2601.11913": {
+    "title": "LSTM-MAS: A Long Short-Term Memory Inspired Multi-Agent System for Long-Context Understanding",
+    "authors": [
+      "Yichen Jiang",
+      "Peng Ye",
+      "Jiakang Yuan",
+      "Chongjun Tu",
+      "Lei Bai",
+      "Tao Chen"
+    ],
+    "year": 2026,
+    "citationCount": 1,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2601.11913"
+  },
+  "2510.04568": {
+    "title": "COSMIR: Chain Orchestrated Structured Memory for Iterative Reasoning over Long Context",
+    "authors": [
+      "Naman Gupta",
+      "S. Gowaikar",
+      "Arun Iyer",
+      "Kirankumar Shiragur",
+      "Ramakrishna Bairi",
+      "Rishikesh Maurya",
+      "Ritabrata Maiti",
+      "Sankarshan Damle",
+      "Shachee Mishra Gupta"
+    ],
+    "year": 2025,
+    "citationCount": 1,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2510.04568"
+  },
+  "2603.09835": {
+    "title": "Chow-Liu Ordering for Long-Context Reasoning in Chain-of-Agents",
+    "authors": [
+      "Naman Gupta",
+      "Vaibhav Singh",
+      "Arun Iyer",
+      "Kirankumar Shiragur",
+      "Pratham Grover",
+      "Ramakrishna Bairi",
+      "Ritabrata Maiti",
+      "Sankarshan Damle",
+      "Shachee Mishra Gupta",
+      "Rishikesh Maurya",
+      "C. VageeshD."
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2603.09835"
+  },
+  "2603.08329": {
+    "title": "SPD-RAG: Sub-Agent Per Document Retrieval-Augmented Generation",
+    "authors": [
+      "Yagiz Can Akay",
+      "Muhammed Yusuf Kartal",
+      "Esra Alparslan",
+      "Faruk Ortakoyluoglu",
+      "Arda Akpinar"
+    ],
+    "year": 2026,
+    "citationCount": 2,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2603.08329"
+  },
+  "2511.22850": {
+    "title": "Resolving Evidence Sparsity: Agentic Context Engineering for Long-Document Understanding",
+    "authors": [
+      "Keliang Liu",
+      "Zizhi Chen",
+      "Mingcheng Li",
+      "Jingqun Tang",
+      "Dingkang Yang",
+      "Lihua Zhang"
+    ],
+    "year": 2025,
+    "citationCount": 13,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2511.22850"
+  },
+  "2604.03664": {
+    "title": "Document-Level Numerical Reasoning across Single and Multiple Tables in Financial Reports",
+    "authors": [
+      "Yi-Cheng Wang",
+      "Wei-An Wang",
+      "Chu-song Chen"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2604.03664"
+  },
+  "2507.02259": {
+    "title": "MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent",
+    "authors": [
+      "Hongli Yu",
+      "Ting Chen",
+      "Jiangtao Feng",
+      "Jiangjie Chen",
+      "Weinan Dai",
+      "Qiying Yu",
+      "Ya-Qin Zhang",
+      "Wei-Ying Ma",
+      "Jingjing Liu",
+      "Mingxuan Wang",
+      "Hao Zhou"
+    ],
+    "year": 2025,
+    "citationCount": 180,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2507.02259"
+  },
+  "2601.20352": {
+    "title": "AMA: Adaptive Memory via Multi-Agent Collaboration",
+    "authors": [
+      "Weiquan Huang",
+      "Zixuan Wang",
+      "Hehai Lin",
+      "Sudong Wang",
+      "Bo Xu",
+      "Qian Li",
+      "Beier Zhu",
+      "Linyi Yang",
+      "Chengwei Qin"
+    ],
+    "year": 2026,
+    "citationCount": 4,
+    "venue": "Annual Meeting of the Association for Computational Linguistics",
+    "doi": "10.48550/arXiv.2601.20352"
+  },
+  "2601.21545": {
+    "title": "ShardMemo: Masked MoE Routing for Sharded Agentic LLM Memory",
+    "authors": [
+      "Yang Zhao",
+      "Chengxiao Dai",
+      "Yue Xiu",
+      "M. Kou",
+      "Yuliang Zheng",
+      "D. Niyato"
+    ],
+    "year": 2026,
+    "citationCount": 1,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2601.21545"
+  },
+  "2606.24535": {
+    "title": "Governed Shared Memory for Multi-Agent LLM Systems",
+    "authors": [
+      "Yanki Margalit",
+      "Nurit Cohen-Inger",
+      "Erni Avram",
+      "Ran Taig",
+      "Oded Margalit"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2607.07666": {
+    "title": "A hierarchical memory architecture overcomes context limits in long-horizon multi-agent computational modeling",
+    "authors": [
+      "Shivendra G. Tewari",
+      "H. Kimko"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2607.10987": {
+    "title": "[AAFLOW+] Stateful Operator Abstraction with Zero-Copy Distributed KV Cache Orchestration for Multi-Agent Workflows",
+    "authors": [
+      "A. Sarker",
+      "Alexander James Halpern",
+      "M. Staylor",
+      "Aymen Alsaadi",
+      "G. V. Laszewski",
+      "Yue Cheng",
+      "S. Jha",
+      "Geoffrey C. Fox"
+    ],
+    "year": 2026,
+    "citationCount": 1,
+    "venue": "",
+    "doi": ""
+  },
+  "2602.03695": {
+    "title": "Agent Primitives: Reusable Latent Building Blocks for Multi-Agent Systems",
+    "authors": [
+      "Haibo Jin",
+      "Kuang Peng",
+      "Ye Yu",
+      "Xiaopeng Yuan",
+      "Haohan Wang"
+    ],
+    "year": 2026,
+    "citationCount": 6,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2602.03695"
+  },
+  "2607.19595": {
+    "title": "Twin Agent: Context Residual Compression for Privilege Separated Agents",
+    "authors": [
+      "Zhanhao Hu",
+      "Dennis Jacob",
+      "Xiao Huang",
+      "Zhaorun Chen",
+      "Bo Li",
+      "David Wagner"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2602.22603": {
+    "title": "SideQuest: Model-Driven KV Cache Management for Long-Horizon Agentic Reasoning",
+    "authors": [
+      "Sanjay Kariyappa",
+      "G. E. Suh"
+    ],
+    "year": 2026,
+    "citationCount": 7,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2602.22603"
+  },
+  "2606.14790": {
+    "title": "XFlow: An Executable Protocol Programming System for Reliable Multi-Agent Workflows",
+    "authors": [
+      "Hanqi Li",
+      "Jing Peng",
+      "Zijian Wang",
+      "Lu Chen",
+      "Kai Yu"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2607.02807": {
+    "title": "SwarmResearch: Orchestrating Coding Agents for Open-Ended Discovery",
+    "authors": [
+      "Yuvraj Virk",
+      "Zack Edds",
+      "Chun Xia",
+      "Lingming Zhang"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2607.08662": {
+    "title": "WebSwarm: Recursive Multi-Agent Orchestration for Deep-and-Wide Web Search",
+    "authors": [
+      "Xiaoshuai Song",
+      "Lian Zhang",
+      "Kangzhi Zhao",
+      "Yutao Zhu",
+      "Zhongyuan Wang",
+      "Guanting Dong",
+      "Jinghan Yang",
+      "Han Li",
+      "Kun Gai",
+      "Ji-Rong Wen",
+      "Zhicheng Dou"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2510.24428": {
+    "title": "CodeWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases",
+    "authors": [
+      "A. Hoang",
+      "Minh Le-Anh",
+      "Bach Le",
+      "Nghi D. Q. Bui"
+    ],
+    "year": 2025,
+    "citationCount": 6,
+    "venue": "Annual Meeting of the Association for Computational Linguistics",
+    "doi": "10.48550/arXiv.2510.24428"
+  },
+  "2410.08143": {
+    "title": "DelTA: An Online Document-Level Translation Agent Based on Multi-Level Memory",
+    "authors": [
+      "Yutong Wang",
+      "Jiali Zeng",
+      "Xuebo Liu",
+      "Derek F. Wong",
+      "Fandong Meng",
+      "Jie Zhou",
+      "Min Zhang"
+    ],
+    "year": 2024,
+    "citationCount": 29,
+    "venue": "International Conference on Learning Representations",
+    "doi": "10.48550/arXiv.2410.08143"
+  },
+  "2603.21190": {
+    "title": "DS2SC-Agent: A Multi-Agent Automated Pipeline for Rapid Chiplet Model Generation",
+    "authors": [
+      "Yiwei Wu",
+      "Yifan Wu",
+      "Yun Xiong",
+      "Dengwei Zhao",
+      "Jiaxuan Shen",
+      "Jianfei Jiang",
+      "Guanghui He",
+      "Shikui Tu",
+      "Yanan Sun"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2603.21190"
+  },
+  "2605.14563": {
+    "title": "Remember Your Trace: Memory-Guided Long-Horizon Agentic Framework for Consistent and Hierarchical Repository-Level Code Documentation",
+    "authors": [
+      "Suyoung Bae",
+      "Jaehoon Lee",
+      "Changkyu Choi",
+      "YunSeok Choi",
+      "Jee-Hyong Lee"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2605.14563"
+  },
+  "2605.00444": {
+    "title": "Scaling Video Understanding via Compact Latent Multi-Agent Collaboration",
+    "authors": [
+      "Kerui Chen",
+      "Jinglu Wang",
+      "Jianrong Zhang",
+      "Ming Li",
+      "Yang Lu",
+      "Hehe Fan"
+    ],
+    "year": 2026,
+    "citationCount": 2,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2605.00444"
+  },
+  "2604.12890": {
+    "title": "Towards Long-horizon Agentic Multimodal Search",
+    "authors": [
+      "Yifan Du",
+      "Zikang Liu",
+      "Jin Peng",
+      "Jie Wu",
+      "J. Li",
+      "Jinyang Li",
+      "W. Zhao",
+      "Ji-Rong Wen"
+    ],
+    "year": 2026,
+    "citationCount": 4,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2604.12890"
+  },
+  "2606.02812": {
+    "title": "Traj-Evolve: A Self-Evolving Multi-Agent System for Patient Trajectory Modeling in Lung Cancer Early Detection",
+    "authors": [
+      "Sihang Zeng",
+      "M. Thompson",
+      "Ruth Etzioni",
+      "M. Yetisgen"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2606.00655": {
+    "title": "Scaling Behavior of Single LLM-Driven Multi-Agent Systems",
+    "authors": [
+      "Jialin Li",
+      "Zhouhong Gu",
+      "Yin Cai",
+      "Hongwei Feng"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "",
+    "doi": ""
+  },
+  "2601.21064": {
+    "title": "Textual Equilibrium Propagation for Deep Compound AI Systems",
+    "authors": [
+      "Minghui Chen",
+      "Wenlong Deng",
+      "James Zou",
+      "Han Yu",
+      "Xiaoxiao Li"
+    ],
+    "year": 2026,
+    "citationCount": 1,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2601.21064"
+  },
+  "2606.10507": {
+    "title": "HIPIF: Hierarchical Planning and Information Folding for Long-Horizon LLM Agent Learning",
+    "authors": [
+      "Juncheng Diao",
+      "Zhicong Lu",
+      "Peiguang Li",
+      "Yongwei Zhou",
+      "Changyuan Tian",
+      "Qingbin Li",
+      "Rongxiang Weng",
+      "Jingang Wang",
+      "Xunliang Cai"
+    ],
+    "year": 2026,
+    "citationCount": 1,
+    "venue": "",
+    "doi": ""
+  },
+  "2605.24775": {
+    "title": "PRIMA: Operational Patterns for Resilient Multi-Agent Research with Verifiable Identity and Convergent Feedback",
+    "authors": [
+      "Sasank Annapureddy"
+    ],
+    "year": 2026,
+    "citationCount": 0,
+    "venue": "arXiv.org",
+    "doi": "10.48550/arXiv.2605.24775"
+  }
+}

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "telecom-agent-explainability-blueprint.md",
+                "file": "docs/AI-Agent-Intent-Insight-Report-2026-09-08.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "telecom-agent-explainability-blueprint"
+              "title": "AI-Agent-Intent-Insight-Report-2026-09-08"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -78,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 521.5
+    "width": 310.5
   },
   "right": {
     "id": "5b8d995dcfff144f",
@@ -94,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "telecom-agent-explainability-blueprint.md",
+                "file": "docs/AI-Agent-Intent-Insight-Report-2026-07-09.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +106,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "telecom-agent-explainability-blueprint 的反向链接列表"
+              "title": "AI-Agent-Intent-Insight-Report-2026-07-09 的反向链接列表"
             }
           },
           {
@@ -183,41 +185,40 @@
   },
   "active": "cf78155d6b47392e",
   "lastOpenFiles": [
-    "report-2026-06-29.html",
-    "docs/AI-Agent-Intent-Insight-Report-2026-06-29.md",
-    "wiki/concepts/ConsensusDrivenReasoning.md",
-    "wiki/concepts/AgentAccountability.md",
-    "wiki/concepts/MultiAgentExplainability.md",
-    "wiki/concepts/StructuredArgumentation.md",
-    "wiki/concepts/CausalExplanation.md",
-    "wiki/concepts/StakeholderExplainability.md",
-    "wiki/concepts/ExecutionProvenance.md",
-    "wiki/sources/policy-explanations-marl.md",
-    "wiki/sources/counterfactual-mas-explanation.md",
-    "wiki/sources/triex-multi-agent-llm-explanation.md",
-    "wiki/sources/cema-causal-explanations-mas.md",
-    "wiki/sources/trism-agentic-ai.md",
-    "wiki/sources/causal-explanations-sequential-uncertainty.md",
-    "wiki/sources/argument-is-the-explanation.md",
-    "wiki/sources/blockchain-accountability-agents.md",
-    "wiki/sources/responsible-explainable-ai-agents.md",
-    "wiki/sources/explainable-ai-to-whom.md",
-    "wiki/sources/three-level-llm-xai.md",
-    "wiki/sources/causal-past-logic-runtime-verification.md",
-    "wiki/sources/hansel-web-agent-verification.md",
-    "wiki/sources/agent-traces-to-trust.md",
-    "raw/papers/policy-explanations-marl.pdf",
-    "raw/papers/counterfactual-mas-explanation.pdf",
-    "raw/papers/triex-multi-agent-llm-explanation.pdf",
-    "raw/papers/causal-explanations-sequential-uncertainty.pdf",
-    "raw/papers/causal-past-logic-runtime-verification.pdf",
-    "raw/papers/cema-causal-explanations-mas.pdf",
-    "raw/papers/hansel-web-agent-verification.pdf",
-    "raw/papers/explainable-ai-to-whom.pdf",
-    "raw/papers/three-level-llm-xai.pdf",
-    "raw/papers/argument-is-the-explanation.pdf",
-    "wiki/concepts/LLMAutonomousAgent.md",
-    "wiki/concepts/ExplainablePlanning.md",
-    "wiki/concepts/AgentExplainability.md"
+    "docs/AI-Agent-Intent-Insight-Report-2026-08-17.md",
+    "tools/extract_pdf.py",
+    "docs/AI-Agent-Intent-Insight-Report-2026-08-03.md",
+    "wiki/concepts/OntologyGuidedQueryGeneration.md",
+    "wiki/concepts/AuditableStructuredRetrieval.md",
+    "wiki/concepts/HyperbolicOntologyEmbedding.md",
+    "wiki/concepts/OntologyGroundedRAG.md",
+    "wiki/concepts/OntologyGraphRetrieval.md",
+    "wiki/sources/automated-ontology-generation-multi-agent.md",
+    "wiki/sources/verifiable-knowledge-expansion-fca.md",
+    "wiki/sources/ontology-dedup-kg-construction.md",
+    "wiki/sources/kroma-ontology-matching-rag.md",
+    "wiki/sources/bmqexpander-ontology-query-expansion.md",
+    "wiki/sources/researcher-agents-kgqa.md",
+    "wiki/sources/nlkgq-nl-ontology-query.md",
+    "wiki/sources/rag-autoconfig-industrial-fieldbus.md",
+    "wiki/sources/moss-auditable-agentic-memory.md",
+    "wiki/sources/worlddb-ontology-aware-memory.md",
+    "wiki/sources/cyberbot-ontology-grounded-rag.md",
+    "wiki/sources/ontologyrag-biomedical-code-mapping.md",
+    "wiki/sources/fair-graphrag-semantic-data.md",
+    "wiki/sources/omagr-ontology-multi-anchor-retrieval.md",
+    "wiki/sources/hyem-hyperbolic-ontology-retrieval.md",
+    "wiki/sources/evidence-units-ontology-retrieval.md",
+    "wiki/sources/og-rag-ontology-grounded.md",
+    "raw/papers/automated-ontology-generation-multi-agent.pdf",
+    "raw/papers/verifiable-knowledge-expansion-fca.pdf",
+    "raw/papers/ontology-dedup-kg-construction.pdf",
+    "raw/papers/kroma-ontology-matching-rag.pdf",
+    "raw/papers/bmqexpander-ontology-query-expansion.pdf",
+    "raw/papers/researcher-agents-kgqa.pdf",
+    "raw/papers/nlkgq-nl-ontology-query.pdf",
+    "raw/papers/rag-autoconfig-industrial-fieldbus.pdf",
+    "raw/papers/moss-auditable-agentic-memory.pdf",
+    "docs/AI-Agent-Intent-Insight-Report-2026-05-28.md"
   ]
 }

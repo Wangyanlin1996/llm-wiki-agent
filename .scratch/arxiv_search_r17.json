@@ -1,0 +1,1276 @@
+[
+  {
+    "arxiv_id": "2609.02292v1",
+    "arxiv_id_nover": "2609.02292",
+    "title": "SCX Router: Streaming Zero-Shot Model Selection with a Decoder-KV Classifier and a Real-World Task Ontology",
+    "summary": "The rapid proliferation of large language models (LLMs) and the growing diversity of their applications presents a unique optimization opportunity: selecting the right model for the task, while optimizing for speed, cost, and quality at a per-task level. However, inference endpoints can vary widely in quality, price, latency, context support, tool use, domain expertise, and reasoning behavior. This heterogeneity makes manual heuristics difficult to maintain and unlikely to achieve consistently favorable speed--cost--quality trade-offs on their own. We introduce \\router{}, a lightweight GLiClass-based router that assigns a suitability score to each inference-time model label without autoregressive generation. The released 0.6B-parameter checkpoint combines a Qwen3 decoder with a shallow bidirectional scorer. Its decoder-KV execution path preserves a text-only key--value cache across a session, encodes only new dialogue turns, and evaluates transient candidate-label tokens without adding them to the persistent cache. The same checkpoint also predicts task type, difficulty, reasoning mode, and expected output length, and supports custom zero-shot labels. For task generation, we construct a task ontology with 23 families, 115 task types, 345 routable subtypes, 1,173 synthetic examples, and an orthogonal axis of 30 domains. Using this structure, we generate 150,000 verifier-scored tasks and 15,000 open-ended tasks. We then train the Qwen3 decoder on these tasks, while explicitly separating learned request prediction from per-task policies for attributes such as eligibility, cost, cache reuse, safety, and sovereignty. Across six LiveBench subsets, the router outperforms the mean candidate; on the selected 1,000-task subset, it achieves an aggregate top-1 score of 0.707 versus 0.696 for the strongest fixed model, with benchmark-dependent gains.",
+    "published": "2026-09-02",
+    "authors": [
+      "Ihor Stepanov",
+      "Aleksandr Smechov",
+      "Mykhailo Shtopko",
+      "Dmytro Vodianytskyi",
+      "Oleksandr Lukashov"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "20 pages, 10 tables, 6 figures"
+  },
+  {
+    "arxiv_id": "2608.30696v1",
+    "arxiv_id_nover": "2608.30696",
+    "title": "Domain-Grounded Tool Orchestration for LLM-Guided Scientific Analysis",
+    "summary": "Scientific analysis workflows encode deep domain knowledge through sequences of tightly coupled operations where correctness depends on tool selection, execution order, and parameterization. A CFD engineer investigating flow separation must extract wall shear stress, identify zero-crossings in skin friction, and confirm with boundary-layer profiles: a chain that requires both domain expertise and proficiency with visualization tools. Current approaches to LLM-assisted scientific visualization generate scripts that encode this knowledge implicitly, and often incorrectly, producing code that executes but yields wrong results. We present an architecture that separates intent interpretation (LLM) from execution (deterministic domain tools) from explanation (LLM), connected by the Model Context Protocol (MCP) and grounded by domain ontologies that constrain planning to valid analysis chains. We instantiate the architecture in two domains on the same ParaView server infrastructure: computational fluid dynamics post-processing and topological data analysis via the Topology ToolKit (TTK). Adding the second domain required only an ontology and tool wrappers around existing filters, with no change to the architecture, protocol, or deployment. By construction the design removes whole classes of failure that affect script generation (such as API hallucination and missing pipeline stages) and narrows the strategic errors that remain. An ablation across both domains locates the ontology's empirical effect: it does not change which tools the planner selects, which is already reliable, but corrects how the model interprets results, raising interpretation accuracy from 0.41 to 0.91, and only when the relevant fact is retrieved in scoped rather than bulk form. ParaView's client-server model carries analysis to production-scale datasets through a thin browser client.",
+    "published": "2026-08-31",
+    "authors": [
+      "Jeff Lee",
+      "Sebastien Jourdain",
+      "Cory Quammen",
+      "Patrick O'Leary",
+      "Berk Geveci"
+    ],
+    "categories": [
+      "cs.CE",
+      "cs.HC"
+    ],
+    "journal_ref": "",
+    "comment": "27 pages, 12 figures"
+  },
+  {
+    "arxiv_id": "2608.31137v1",
+    "arxiv_id_nover": "2608.31137",
+    "title": "OntoAligner-Ensemble: Voting-Based Fusion across Heterogeneous Ontology Alignment Techniques",
+    "summary": "Ontology alignment (OA) has evolved through several methodological paradigms, ranging from lexical and structural aligners to knowledge graph embedding (KGE) models and, more recently, Large Language Model (LLM)-based approaches. Although modern OA frameworks provide unified ecosystems for deploying these heterogeneous aligners, mechanisms for systematically reconciling their complementary and sometimes conflicting predictions remain relatively underexplored. We present OntoAligner-Ensemble, a modular and aligner-agnostic framework that combines candidate correspondences through a configurable two-stage process comprising voting-based fusion strategies followed by post-fusion selection policies. The framework supports any aligner implemented within OntoAligner that produces candidate correspondences, enabling diverse alignment paradigms to be integrated through a unified decision process. To demonstrate its effectiveness, we instantiate the framework using representative lightweight string-aligner, KGE-based, and Retrieval-Augmented Generation aligners powered by both open-weight and API-based LLMs. We evaluate individual aligners and ensemble configurations across eight benchmark tasks from five OAEI tracks spanning biomedical to beyond-equivalence. The results show that ensemble fusion consistently improves the balance between precision and recall and frequently outperforms standalone aligners across diverse domains. Furthermore, our analysis reveals that ensemble composition directly affects the precision-recall trade-off: heterogeneous cross-paradigm ensembles generally improve precision, whereas homogeneous LLM ensembles more often achieve higher overall F1-scores. These findings demonstrate that systematic ensemble learning offers a robust and reproducible strategy for OA while providing practical guidance for selecting ensemble compositions under different alignment scenarios.",
+    "published": "2026-08-31",
+    "authors": [
+      "Hamed Babaei Giglou",
+      "Sören Auer",
+      "Peio Popov",
+      "Mahsa Sanaei",
+      "Jennifer D'Souza"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "14 pages, 1 figure, accepted for OM-2026 workshop at ISWC 2026"
+  },
+  {
+    "arxiv_id": "2608.31118v1",
+    "arxiv_id_nover": "2608.31118",
+    "title": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
+    "summary": "The effect of Large Language Model (LLM) scale on ontology learning (OL) performance remains insufficiently characterized. We present a controlled evaluation of 13 models spanning dense and Mixture-of-Experts variants from the Qwen3.5 and Qwen3.6 lineages, together with proprietary GPT release variants, using the OntoLearner retrieval-augmented generation pipeline. All models are evaluated with the same embedding model, retrieval configuration, prompt templates, decoding settings, datasets, and metrics on term typing, taxonomy discovery, and non-taxonomic relationship extraction across four biomedical and materials science and engineering ontologies. Within the dense Qwen3.5 lineage, increasing parameter count primarily improves precision rather than recall, with the largest gains occurring between 9B and 27B parameters. However, the effect of scale is neither monotonic nor uniform across tasks and domains. Dense 27B models outperform substantially larger sparse models on term typing, whereas larger Mixture-of-Experts models achieve the strongest open-weight results on taxonomy discovery. Non-taxonomic relationship extraction remains difficult across model scales, particularly for the Materials Data Science ontology. Performance differences across matched Qwen variants and proprietary GPT releases further indicate that architecture and model lineage can outweigh nominal parameter count. These findings show that model size alone is an insufficient selection criterion for OL and provide empirical guidance for reproducible LLM-assisted ontology engineering.",
+    "published": "2026-08-31",
+    "authors": [
+      "Hamed Babaei Giglou",
+      "Sören Auer",
+      "Jennifer D'Souza"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "14 pages, 1 figure, and 5 tables. WOP 2026 workshop at ISWC 2026"
+  },
+  {
+    "arxiv_id": "2608.22974v1",
+    "arxiv_id_nover": "2608.22974",
+    "title": "Toward Effective and Reliable LLM Agents via Dynamic Ontology",
+    "summary": "Large language model (LLM) agents rely heavily on knowledge encoded in model parameters or presented as unstructured context. In domain-specific tasks, this leaves important semantic connections implicit. This often results in incomplete evidence use and brittle multi-step decisions. Ontologies offer a way to externalize domain concepts and relations as machine-interpretable structures, but constructing task-usable ontologies traditionally requires substantial effort from domain experts and is difficult to scale. Automatic construction is also challenging: an ontology that appears semantically plausible may not contain the relational structures needed for actual decision making. We present OaK, an ontology-as-a-kernel framework that dynamically constructs and refines task-oriented ontologies for LLM agents. Given task requirements and training data, OaK constructs an ontology and its knowledge graph, generates task-adaptation functions for graph reasoning, and uses judge feedback to iteratively refine both. By making relevant concepts and relations explicit, the ontology grounds knowledge retrieval and multi-step decision making. We evaluate OaK on TravelPlanner, CRMArenaPro, and ToolQA. Results show that OaK improves standard LLM agents, strengthens evidence grounding, and boosts the reliability of multi-step reasoning.",
+    "published": "2026-08-24",
+    "authors": [
+      "Xiaohui Zhang",
+      "Zequn Sun",
+      "Chengyuan Yang",
+      "Yuanning Cui",
+      "Lingbing Guo",
+      "Wei Hu"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2608.18613v1",
+    "arxiv_id_nover": "2608.18613",
+    "title": "CTIFoundry: An Agent-Native Corpus Scaffold for Cyber Threat Intelligence",
+    "summary": "Cyber threat intelligence (CTI) is increasingly consumed not by human analysts but by LLM agents that compose multi-step investigations at query time. The harness side of this shift has matured rapidly (planning loops, tool protocols, context management), but the corpus side has not: threat reports and vulnerability databases are still packaged for retrieval-augmented generation, as opaque chunks behind an embedding index. We argue that this substrate, not model capability, is the bottleneck on agentic CTI investigation, and present CTIFoundry, an agent-native corpus scaffold. At build time, CTIFoundry materializes the latent structure of a CTI corpus: a deterministic ontology graph over four authoritative knowledge bases (CVE, CWE, CAPEC, ATT&CK) whose official cross-references become typed, traversable edges; a span-grounded report layer whose canonical, alias-resolved cross-vendor entities index provenance-carrying chunks; and hybrid dense+lexical retrieval surfaces. At query time this structure is exposed through seven typed tools and three procedural skills mounted on a stock open-source agent harness. On the public CTIConnect benchmark, swapping only the action surface lifts the identically-harnessed agent by +0.19 to +0.28 overall F1 across a four-model, two-provider panel: a small model on CTIFoundry surpasses a flagship on the flat substrate, and the gain is not bought with search effort, since on both Claude models the scaffolded agent is more accurate at roughly half the tool calls. An ablation attributes it: typed structure carries the larger share, procedural skills convert structure into discipline, and the two compose super-additively, because skills bind only to structure that exists.",
+    "published": "2026-08-19",
+    "authors": [
+      "Yutong Cheng",
+      "Changze Li",
+      "Qian Cui",
+      "Wei Ding",
+      "Lingzhi Wang",
+      "Yan Chen",
+      "Peng Gao"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CR"
+    ],
+    "journal_ref": "",
+    "comment": "Preprint"
+  },
+  {
+    "arxiv_id": "2608.11030v1",
+    "arxiv_id_nover": "2608.11030",
+    "title": "Self-Knowledge Retrieval Augmented Generation Framework for Patent Matching",
+    "summary": "Patent retrieval and matching based on large language models (LLMs) play a vital role in intellectual property protection. However, due to the complex structure of patent documents, dense technical terminology, and multi-modal information, traditional methods struggle to accurately identify subtle differences between patents. Existing LLM-based patent matching approaches typically rely on domain-specific pretrained or instruction tuning, which often entail high manual labeling costs and catastrophic forgetting. While retrieval-augmented generation (RAG) methods introduce external knowledge they fail to fully leverage LLM's capability to automatically parse patents and mine deep semantic relationships. To address these limitations, this paper proposes a self-knowledge RAG framework that guides LLMs to autonomously extract key technical entities and construct hierarchical ontological structures from patent matching queries, thereby enabling query expansion and precise retrieval. The method integrates the FAISS retrieval with a generative matching mechanism, leveraging self-knowledge to enhance the model's understanding of patent innovations and significantly improve retrieval and matching accuracy. Experimental results demonstrate the outstanding performance of the proposed method on real-world patent datasets, validating its effectiveness and application potential.",
+    "published": "2026-08-11",
+    "authors": [
+      "Jian Zhang",
+      "Songlin Lei",
+      "Zhuohao Yang",
+      "Bangli Liu",
+      "Ziwei Wang",
+      "Xufeng Weng",
+      "Gehan Amaratunga",
+      "Yu Lin",
+      "Hongwei Wang"
+    ],
+    "categories": [
+      "cs.IR",
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "Accepted by IEEE CSCWD 2026"
+  },
+  {
+    "arxiv_id": "2608.07700v1",
+    "arxiv_id_nover": "2608.07700",
+    "title": "Towards Researcher Agents for Knowledge-Graph Question Answering",
+    "summary": "Translating a natural-language question into a SPARQL query that can be executed against a large knowledge graph requires resolving lexical ambiguity, grounding surface terms in the target ontology, and producing graph patterns that are both syntactically valid and semantically faithful. We present an agentic text-to-SPARQL system that goes one step beyond static tool-using agents: a researcher agent that, after each round of inference on a validation set, proposes and tests changes to its own prompts, rules, and tool-orchestration code. We instantiate the loop on DBpedia, evolve nine successive versions of the agent driven by a low-cost reasoning model, and deploy the best-performing configuration with two stronger backbone models. The study yields three observations: (i) self-improvement converges quickly and then achieves 0.22 overall accuracy on the 2025 DBpedia validation set; (ii) the bottleneck is consistently in basic-graph-pattern predicate selection, not in SPARQL syntax or modifiers; and (iii) several benchmark items appear to penalise correct queries due to property ambiguity in DBpedia, suggesting that future Text-to-SPARQL benchmarks should be scored using a combination of machine translation and information retrieval metrics.",
+    "published": "2026-08-07",
+    "authors": [
+      "Tommaso Soru",
+      "Abdulsobur Oyewale"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.DB"
+    ],
+    "journal_ref": "",
+    "comment": "Second International TEXT2SPARQL Challenge, co-located with Text2KG at ESWC 2026"
+  },
+  {
+    "arxiv_id": "2607.24093v2",
+    "arxiv_id_nover": "2607.24093",
+    "title": "TCellAlign: Cross-study T-cell Populations Alignment with Nomenclature-Guided Multi-Agent Workflow",
+    "summary": "Cell type standardization plays a central role in integrating biological knowledge across single-cell studies. While standardized resources (e.g., Cell Ontology, Nomenclature Frameworks) provide unified vocabularies of cell populations, scientific publications and public datasets continue to use heterogeneous study-specific labels, making cross-study comparison difficult even when biologically equivalent cell populations are described. In this work, we are the first to formulate this challenge as an evidence-grounded cell population alignment problem and propose TCellAlign, a multi-agent framework that includes literature retrieval, information extraction, nomenclature-guided label alignment, and evidence-based adjudication. This modular design preserves the original terminology and supporting evidence reported by each study while producing standardized labels that can be compared across studies. We further construct a manually validated benchmark dataset linking study-specific labels, CZ CELLxGENE annotations, and standardized T-cell nomenclature across 44 manually curated, published studies (including over seven million cells) spanning four biological categories: healthy, cancer, infectious disease and inflammatory diseases. Across the evaluated tasks, TCellAlign achieves stronger semantic agreement than ontology-based baselines and maintains transcriptomic coherence with both open-source and closed-source large language models (LLM) backbones. By connecting literature, datasets, and expert's nomenclature, TCellAlign enables consistent interpretation of T-cell subtypes and states across studies, facilitating biological knowledge integration and the development of future foundation models built upon standardized cellular representations.",
+    "published": "2026-07-27",
+    "authors": [
+      "Pengyu Xie",
+      "Rongjia Zhou",
+      "Zhilin Ou",
+      "Junyuan Zhang",
+      "Xiang Zhou",
+      "Xiaobo Sun",
+      "Jiaying Lu",
+      "Wenjing Ma"
+    ],
+    "categories": [
+      "q-bio.QM",
+      "cs.DB"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2607.00147v1",
+    "arxiv_id_nover": "2607.00147",
+    "title": "RareDxR1: Autonomous Medical Reasoning for Rare Disease Diagnosis Beyond Human Annotation",
+    "summary": "Rare disease differential diagnosis is a critical yet arduous clinical task, requiring physicians to identify precise phenotypes from complex, unstructured patient symptoms and execute intricate reasoning within a vast search space. However, existing AI approaches typically rely on pipeline-based phenotype extraction or retrieval-augmented generation, which suffer from critical information loss due to predefined ontologies, retrieval bottlenecks, and a lack of diagnostic logic. To address these challenges, we introduce RareDxR1, an end-to-end reasoning-centric large language model designed for open-domain rare disease diagnosis directly from unstructured clinical notes. We design a progressive end-to-end training framework by synergizing knowledge internalization with autonomous evolutionary learning, thereby bypassing reliance on structured phenotypes and closed-set decision-making. To overcome the limitations of RAG and phenotype restriction, we enabled the deep internalization of fragmented rare-disease knowledge directly into the model's parameters. Moreover, to bridge the gap between model generation and expert reasoning, we propose Reflection-Enhanced Reasoning Sampling (RERS), a strategy that synthesizes expert-level diagnostic trajectories by learning from failures without human annotation. Additionally, we propose a dual-level curriculum reinforcement learning approach for gradually mastering rare disease diagnosis. Experimental results demonstrate that RareDxR1 achieves state-of-the-art accuracy across different benchmarks, marking a significant breakthrough in open-domain rare disease diagnosis. Our code and dataset will be publicly available.",
+    "published": "2026-06-30",
+    "authors": [
+      "Deyang Jiang",
+      "Haoran Wu",
+      "Ziyi Wang",
+      "Yiming Rong",
+      "Yunlong Zhao",
+      "Ye Jin",
+      "Bo Xu"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "7 pages, 3 figures. Accepted to IEEE International Conference on Multimedia and Expo (ICME) 2026"
+  },
+  {
+    "arxiv_id": "2606.28011v1",
+    "arxiv_id_nover": "2606.28011",
+    "title": "From Detection to Action: Using LLM Agents for Fault-Tolerant Control",
+    "summary": "We propose an agentic Large Language Model (LLM) framework for active Fault-Tolerant Control (FTC) that transforms fault detection outputs into constraint-aware recovery actions grounded in plant-specific knowledge. The approach couples (i) a multi-agent workflow that decomposes operator duties into monitoring, planning, action synthesis, simulation, validation, and reprompting; (ii) a Digital Process Plant Twin (DPPT) that exposes plant data, models, and a simulation service for pre-execution testing; and (iii) a Graph Retrieval-Augmented Generation (Graph RAG) layer built on the CPSMod ontology, which organizes plant knowledge (structure, function, hybrid dynamics, control context, and fault semantics) into a graph that supports relation-aware, multi-hop retrieval for the agents. Corrective actions are generated as minimal-risk state-machine recovery paths and corresponding discrete commands or continuous setpoint adaptations, then validated deterministically against interlocks, envelopes, and dynamic feasibility before any actuation. If no acceptable plan is found within a bounded time window, control is handed to a safety fallback. The framework is evaluated in simulation on two representative benchmarks: a discrete batch Mixing Module and a Continuous Stirred-Tank Reactor (CSTR) under closed-loop PID regulation. Results with lightweight LLMs (GPT-4o-mini and GPT-4.1-mini) show that semantically grounded agents can derive valid recovery decisions within latency budgets compatible with the respective process dynamics, demonstrating a practical pathway from detection to validated corrective action across both discrete and continuous FTC tasks.",
+    "published": "2026-06-26",
+    "authors": [
+      "Javal Vyas",
+      "Milapji Singh Gill",
+      "Artan Markaj",
+      "Felix Gehlhoff",
+      "Mehmet Mercangöz"
+    ],
+    "categories": [
+      "eess.SY",
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2606.28076v1",
+    "arxiv_id_nover": "2606.28076",
+    "title": "Ontology-Guided Evidence Path Inference for Multi-hop Knowledge Graph Question Answering",
+    "summary": "Knowledge graph question answering (KGQA) aims to answer natural-language questions by reasoning over structured facts. Existing multi-hop KGQA methods mainly rely on topic-centered expansion, which faces two key challenges: the search space rapidly grows with noisy mixed-type paths, and retrieved paths may fail to satisfy the semantic constraints of complex questions. To address these challenges, we propose OPI, an ontology-guided evidence path inference framework for multi-hop KGQA. OPI introduces a relation-centric ontology graph to capture the head-tail type constraints of relations, providing a compact interface for answer-side constraints. Based on this ontology graph, OPI first introduces a bidirectional retrieval mechanism by mapping the predicted answer type to compatible final-hop relations and combining topic-side prefix expansion with answer-side final-hop matching, thereby suppressing noisy mixed-type expansion. OPI further adopts an iterative refinement strategy to reassess retrieved paths and candidate answers under the question context, filtering type-compatible but question-irrelevant evidence for more reliable answer prediction. Experiments on WebQSP, CWQ, and MetaQA show that OPI substantially reduces the search space, improves Hit@1/F1 by 4.6/5.0 points on WebQSP and 8.9/3.3 points on CWQ over the strongest prior results, and achieves near-saturated Hit@1 on MetaQA with the retrieval module alone.",
+    "published": "2026-06-26",
+    "authors": [
+      "Yongxue Shan",
+      "Meihan Wu",
+      "Cundi Fang",
+      "Jie Peng",
+      "Xiaodong Wang"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "14 pages, 4 figures"
+  },
+  {
+    "arxiv_id": "2606.22728v1",
+    "arxiv_id_nover": "2606.22728",
+    "title": "When Confidence Takes the Wrong Path: Diagnosing Retrieval-State Lock-In in RAG",
+    "summary": "The trustworthiness of a retrieval-augmented generation (RAG) system depends on more than the answer it returns, yet many black-box uncertainty methods still read agreement among sampled answers as confidence. That inference fails when repeated samples condition on the same defective retrieval state. The state may be empty, with the model falling back on parametric memory, or populated by a coherent but wrong neighbourhood. In either case, the answers agree because the error is stable. The problem is recognised in deployed RAG, but it has lacked a name, a measurable signature, and a prevalence bound. We supply all three. We name the failure retrieval-state lock-in and diagnose it by separating the three objects a single confidence score conflates: the answer surface, the retrieved evidence, and the retrieval state itself. In an inspectable, ontology-guided knowledge-graph RAG (KG-RAG) system across six question-answering snapshots, we measure the agreement blind spot directly: at five samples per question, 42% of KG-RAG errors and 59% of dense-retrieval errors carry zero answer dispersion, so agreement has nothing to rank, while evidence- and retrieval-state checks still flag most of them. The decomposition supports an auditable decision rule: accepting an answer only when answer, evidence, and retrieval checks all agree that it is low-risk reaches 91.9% pooled precision against a 69.7% accept-all rate. The cost is coverage: it certifies only 7.7% of answers as low-risk. On the clinical calibration domain it reaches 100% precision under an automated judge; this is an in-domain automated-label upper bound, not a clinical safety claim, and still needs human validation. Confidence in RAG is object-specific: when answers agree, the useful question is which part of the pipeline to distrust.",
+    "published": "2026-06-22",
+    "authors": [
+      "Sahib Julka"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2606.15931v1",
+    "arxiv_id_nover": "2606.15931",
+    "title": "DeepRoot: A KG-Coordinated Multi-Agent System for Therapeutic Reasoning over Historical Medical Texts",
+    "summary": "Historical medical archives and traditional medicines hold immense potential for drug discovery and remain a primary source for current drug development. However, pre-ontological prose and idiosyncratic taxonomies prevent the standardization and medical modernization of the data for use in current biomedical pipelines. Furthermore, no existing LLM agent system, whether tool-calling, retrieval-augmented, or agentic deep-research, can convert such text into verifiable drug-discovery leads at scale. We close this gap with DeepRoot, a multi-agent LLM system that jointly builds and utilizes a verified knowledge graph, showing that grounding and reasoning -- often conflated -- are separable axes the system can compose for therapeutic reasoning. Applied to the Shen Nong Ben Cao Jing, DeepRoot recovers $10$ of $21$ held-out compound-disease treatment pairs at R@$20$ ($47.6\\%$ vs $4.8\\%$ for a raw corpus LLM and $\\sim\\!2.4\\%$ random) and dominates an LLM-as-judge audit for reasoning quality over baseline LLMs and LLMs with direct tool-call access to the same APIs DeepRoot itself queries. Tool-using LLMs hallucinate evidence on $87\\%$ of claims, versus 7-10% for DeepRoot. Graph-only inference hallucinates $0\\%$ but ranks lowest on reasoning coherence; DeepRoot KG+LLM is the only condition to win on both axes, pointing toward a route for systematic mining and repurposing of historical medical knowledge.",
+    "published": "2026-06-14",
+    "authors": [
+      "Zijian Carl Ma",
+      "Sean J. Wang",
+      "Sijbren Kramer",
+      "Li Erran Li"
+    ],
+    "categories": [
+      "cs.MA",
+      "cs.AI"
+    ],
+    "journal_ref": "ICML 2026 GenBio; ACM CAIS 2026 Workshop AI Agents for Discovery in the Wild",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2606.11910v1",
+    "arxiv_id_nover": "2606.11910",
+    "title": "An Ontology-Guided Multi-Anchor Graph Retrieval Framework for Traffic Legal Liability Determination",
+    "summary": "Traffic law liability determination is critical for assigning legal penalties, requiring the simultaneous identification of interdependent statutory provisions across multiple legal dimensions. However, existing retrieval-augmented generation methods suffer from a multi-dimensional retrieval bottleneck: single axis architectures compress complex legal queries into a single pathway, causing interdependent statutory dimensions to be overlooked. To address this, we propose OMAGR, an ontology-guided framework that decomposes queries into ontology-aligned anchors and executes parallel graph retrieval across each dimension, ensuring independent retrieval across dimensions before fusion. To evaluate the proposed method, we created the TrafficLaw-QA dataset, an expert-validated benchmark dataset containing 200 questions and 527 legal provisions. Results show that TrafficOmni-RAG outperforms baselines on Context Precision and Faithfulness metrics. The findings demonstrate that parallel multi-anchor retrieval effectively resolves the multi-dimensional retrieval bottleneck, offering a promising direction for traffic law liability determination research.",
+    "published": "2026-06-10",
+    "authors": [
+      "Xu Li",
+      "Shuqi Tian",
+      "Xun Han",
+      "Kuncheng Zhao",
+      "Xinyi Li"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "Submitted to ICONIP. 15 pages, 3 figures"
+  },
+  {
+    "arxiv_id": "2606.04037v2",
+    "arxiv_id_nover": "2606.04037",
+    "title": "Toward Pre-Deployment Assurance for Enterprise AI Agents: Ontology-Grounded Simulation and Trust Certification",
+    "summary": "Pre-deployment verification of enterprise artificial intelligence (AI) agents remains a critical gap between large language model (LLM) capability benchmarking and production deployment. Post-deployment monitoring, human-in-the-loop controls, and prompt-level guardrails offer limited assurance once an agent is operating in production. We present an ontology-grounded verification framework -- to our knowledge the first to combine three components: an Agent Operational Envelope formalizing the certification space across permissions, domain constraints, safety properties, governance rules, and autonomy levels; an ontology-to-scenario generation pipeline that derives regulatory, operational, and adversarial test scenarios automatically; and a machine-verifiable Trust Certificate with graduated deployment verdicts. A controlled pilot across four regulated industries (Fintech, Banking, Insurance, Healthcare), instantiated as five industry-by-regulatory-regime cells across the United States and Vietnam (where Vietnam's 2025 AI Law makes such verification legally mandated for financial services), generated 1,800 scenarios evaluated against 125 primary-source regulatory requirements and 25 injected faults. Ontology-grounded generation significantly outperformed the dominant persona-based baseline on regulatory coverage (48.3% versus 33.1%; corrected p_c = .0006) and attained the highest domain specificity (4.77/5.0; p = 2e-6); transparently, its advantage over plain and retrieval-augmented prompting did not survive Bonferroni correction. Cross-validation across three LLM families (Claude Sonnet 4, Qwen 2.5 72B, Gemma 4 26B; 5,400 total scenarios) replicated the persona-versus-ontology pattern. The framework offers a reproducible, regulation-grounded route to pre-deployment assurance for enterprise AI agents, complementing runtime governance with an auditable deployment gate.",
+    "published": "2026-06-02",
+    "authors": [
+      "Thanh Luong Tuan",
+      "Abhijit Sanyal"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.LG",
+      "cs.SE"
+    ],
+    "journal_ref": "",
+    "comment": "26 pages, 3 figures. Companion to arXiv:2604.00555. Code and data: https://github.com/frank-luongt/faos-research/tree/main/RA-6"
+  },
+  {
+    "arxiv_id": "2605.29168v1",
+    "arxiv_id_nover": "2605.29168",
+    "title": "Better Later Than Sooner: Neuro-Symbolic Knowledge Graph Construction via Ontology-grounded Post-extraction Correction",
+    "summary": "Question answering (QA) is a core challenge in AI, particularly for complex queries requiring multi-hop reasoning across documents, or symbolic operations like aggregation or exhaustive listing. Retrieval-augmented generation has become the dominant approach to QA, with recent graph-based variants addressing part of these issues by organizing knowledge to better support compositional questions. However, most textual graph-based RAG methods still lack the structure needed for symbolic operations useful to answer complex questions reliably. This motivates symbolic graph-based approaches, which extract knowledge graphs (KGs) whose relations are logic predicates that enable SQL-like querying. Yet these pipelines typically use LLMs for KG extraction, which can introduce consistency issues, where extracted facts may violate commonsense ontology constraints. We propose a neuro-symbolic framework for ontology-grounded KG construction combining open-domain extraction, embedding-based canonicalization of types and predicates, and targeted LLM-based correction of ontology violations. By deferring corrections to a post-extraction stage, our method avoids repeated LLM calls, substantially reducing token usage while improving KG consistency and preserving downstream QA quality. Finally, we show that the extracted KGs are well suited for symbolic querying by measuring the occurrence of SPARQL graph patterns.",
+    "published": "2026-05-27",
+    "authors": [
+      "Lorenzo Loconte",
+      "Timothy Hospedales",
+      "Cristina Cornelio"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2605.22734v1",
+    "arxiv_id_nover": "2605.22734",
+    "title": "ChronoMedKG: A Temporally-Grounded Biomedical Knowledge Graph and Benchmark for Clinical Reasoning",
+    "summary": "Biomedical knowledge graphs (KGs) treat disease associations as static facts, but temporal information is crucial for clinical reasoning, e.g., a symptom diagnostic of one disease at age 3 may imply a different disease at age 13. Existing KGs such as PrimeKG, Hetionet, and iKraph do not encode when a finding becomes clinically relevant over the course of a disease. This limits their usefulness for longitudinal clinical reasoning and retrieval augmentation. We introduce ChronoMedKG, a temporal biomedical knowledge graph that contains 460,497 evidence-linked triples (filtered from 13M raw extractions) covering 13,431 diseases. Each association is tied to temporal components like onset window or progression stage, which are backed by PMID-traceable evidence and a multi-signal credibility score. The graph is constructed through a disease-autonomous multi-agent pipeline in which multiple frontier LLMs independently extract knowledge from PubMed and PMC literature. Only those relations are kept that are supported by multi-model consensus, survive credibility filtering, as well as ontology alignment. ChronoMedKG scored 92.7% agreement against Orphadata and adds temporal grounding for 6,250 diseases absent from HPOA, Orphadata, and Phenopackets, including 1,657 Orphanet-coded rare diseases. We further introduce ChronoTQA, a benchmark of 3,341 questions across eight task types (six temporal plus two static controls), with a 12-question supplementary probe. Frontier LLMs lose roughly 30 points moving from static to temporal questions; ChronoMedKG retrieval rescues 47-65% of their long-tail failures, against 17-29% for HPOA-RAG. As such, ChronoMedKG provides a crucial temporal axis for retrieval-augmented clinical systems that was previously absent.",
+    "published": "2026-05-21",
+    "authors": [
+      "Md Shamim Ahmed",
+      "Farzaneh Firoozbakht",
+      "Lukas Galke Poech",
+      "Jan Baumbach",
+      "Richard Röttger"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "9 pages main text plus appendices, 8 figures. Dataset and benchmark paper. ChronoMedKG released under CC BY 4.0 and ChronoTQA/code under MIT (Zenodo: 10.5281/zenodo.19697542). Under review"
+  },
+  {
+    "arxiv_id": "2605.19357v1",
+    "arxiv_id_nover": "2605.19357",
+    "title": "SciCustom: A Framework for Custom Evaluation of Scientific Capabilities in Large Language Models",
+    "summary": "Large language models (LLMs) are increasingly applied to scientific research, yet existing evaluations often fail to reflect the fine-grained capabilities required in practice. Most benchmarks are manually curated or domain-generic, limiting scalability and alignment with real scientific use cases. In this paper, we propose a new framework named SciCustom to address the problem. It enables the custom construction of benchmarks from large-scale scientific data to evaluate application-specific scientific capabilities in LLMs. SciCustom first organizes scientific knowledge into ontology-grounded knowledge units with controlled granularity and trains a tagger to map large-scale data instances into this knowledge space. Given a custom requirement, relevant knowledge units are identified via voting-based multi-model consensus. These units enable relevance-aware benchmark retrieval via binary search, followed by proxy subset selection and data-grounded benchmark generation for efficient evaluation. Experiments in chemistry and healthcare demonstrate that SciCustom reveals fine-grained differences in LLM scientific capabilities that standard benchmarks overlook, while requiring neither expert annotation nor synthetic question generation. This work provides a scalable and application-aware foundation for benchmarking scientific capabilities in LLMs. The source code is available at https://github.com/yjwtheonly/SciCustom.",
+    "published": "2026-05-19",
+    "authors": [
+      "Yiyang Gu",
+      "Junwei Yang",
+      "Junyu Luo",
+      "Ye Yuan",
+      "Bin Feng",
+      "Yingce Xia",
+      "Shufang Xie",
+      "Kaili Liu",
+      "Bohan Wu",
+      "Qi Shi",
+      "Haoran Li",
+      "Beier Xiao",
+      "Zhiping Xiao",
+      "Xiao Luo",
+      "Weizhi Zhang",
+      "Philip S. Yu",
+      "Zequn Liu",
+      "Ming Zhang"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "Accepted to ACL 2026 Main Conference"
+  },
+  {
+    "arxiv_id": "2605.18630v1",
+    "arxiv_id_nover": "2605.18630",
+    "title": "SCICONVBENCH: Benchmarking LLMs on Multi-Turn Clarification for Task Formulation in Computational Science",
+    "summary": "Large Language Models (LLMs) are increasingly deployed as scientific AI as- sistants, and a growing body of benchmarks evaluates their capabilities across knowledge retrieval, reasoning, code generation, and tool use. These evaluations, however, typically assume the scientific problem is already well-posed, whereas practical scientific assistance often begins with an ill-posed user request that must be refined through dialogue before any computation, analysis, or experiment can be carried out reliably. We introduce SCICONVBENCH, a benchmark for multi- turn clarification in scientific task formulation across four computational science problem domains: fluid mechanics, solid mechanics, materials science, and par- tial differential equations (PDEs). SCICONVBENCH targets two complementary capabilities: eliciting missing information (disambiguation) and detecting and correcting erroneous requests containing internally contradictory information (in- consistency resolution). Our benchmark pairs a structured task ontology with a rubric-based evaluation framework, enabling systematic measurement of LLM per- formance across three dimensions: clarification behavior, conversational grounding, and final-specification fidelity. Current frontier models perform relatively well on inconsistency resolution, but even the best model resolves only 52.7% of the disambiguation cases in fluid mechanics. We further find that frontier LLMs fre- quently make silent assumptions and perform implicit specification repairs that are not grounded in the conversation with users. SCICONVBENCH establishes a foundation for evaluating the upstream conversational reasoning that a reliable computational science assistant requires. The code and data can be found at https://github.com/csml-rpi/SciConvBench.",
+    "published": "2026-05-18",
+    "authors": [
+      "Nithin Somasekharan",
+      "Youssef Hassan",
+      "Shiyao Lin",
+      "Gihan Panapitiya",
+      "Patrick Emami",
+      "Anurag Acharya",
+      "Sameera Horawalavithana",
+      "Shaowu Pan"
+    ],
+    "categories": [
+      "cs.AI",
+      "physics.comp-ph"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2605.07022v3",
+    "arxiv_id_nover": "2605.07022",
+    "title": "Self-Driving Datasets: From 20 Million Papers to Nuanced Biomedical Knowledge at Scale",
+    "summary": "Manually curated biomedical repositories -- spanning bioactivity, genomics, and chemistry -- are expensive to maintain, lag behind primary literature, and discard experimental context, obscuring nuances needed to assess data correctness and coverage. We show that PubMed itself can be autonomously and cost-effectively turned into structured datasets that are larger, more nuanced, and more accurate than the curated databases they replace. We present three coupled contributions: (1) an LLM-based entity-tagging pipeline, grounded in nine biomedical ontologies, that tags 4.5B entities across 19 categories in a 22.5M-paper, 2.5T-token PubMed corpus; (2) hybrid sparse-dense retrieval supporting entity-filtered semantic queries over the tagged corpus; and (3) Starling, a multi-agent deep research system that, given only a natural-language task description, designs precision- and recall-targeted retrieval filters, induces an extraction schema, and emits structured records with nuance-rich fields and supporting passages. Across six tasks -- blood-brain barrier permeability, oral bioavailability, acute toxicity (LD50), gene-disease associations, protein subcellular localization, and chemical reactions -- Starling produces ~6.3M records (91K-3M per task); several are, to our knowledge, the largest public datasets for their property. Frontier-model rejection of our extractions is 0.6-7.7% across tasks, far below error rates we measure on widely used curated counterparts (e.g., 16.5% on BBB_Martins, 7.3% on Bioavailability_Ma). Beyond scale and accuracy, the supporting passages carry nuance tabular databases discard -- e.g., oral bioavailability may depend on fed vs. fasted state. Together, the corpus, retrieval, and agent establish a foundation for AI-driven therapeutic design. Code and datasets: https://github.com/starling-labs/starling.",
+    "published": "2026-05-07",
+    "authors": [
+      "Haydn Jones",
+      "Yimeng Zeng",
+      "Alden Rose",
+      "Li S. Yifei",
+      "Yining Huang",
+      "Kaiwen Wu",
+      "Jiaming Liang",
+      "Maggie Ziyu Huan",
+      "Yoseph Barash",
+      "Cesar de la Fuente-Nunez",
+      "Osbert Bastani",
+      "Zachary Ives",
+      "Mark Yatskar",
+      "Jacob R. Gardner"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2605.02346v1",
+    "arxiv_id_nover": "2605.02346",
+    "title": "APIOT: Autonomous Vulnerability Management Across Bare-Metal Industrial OT Networks",
+    "summary": "Bare-metal operational technology (OT) devices -- especially the microcontrollers running Modbus/TCP and CoAP at the base of industrial control systems -- have remained outside the reach of autonomous security attacks. Prior autonomous pentesting studies target Linux and web systems, whose shells and filesystems are familiar to LLM agents. Bare-metal OT has neither, so agents must reason directly over protocol fields and parser semantics. This requires new action-space designs and runtime controls, and opens new research questions about protocol-level exploit reasoning and its deployment envelope. We present APIOT (Autonomous Purple-teaming for Industrial OT), the first large language model (LLM) framework demonstrating an autonomous attack and remediation of bare-metal OT devices, achieving the full discovery -> exploitation -> patching -> verification cycle without step-by-step human intervention. We implemented and evaluated this framework on Zephyr RTOS firmware across heterogeneous industrial IoT (IIoT) topologies. Through 290 experiment runs spanning five frontier LLMs, three network topologies, two impairment levels, and guided versus unguided conditions, APIOT achieved a mission success rate of 90.0% on the full attack-remediation cycle. We found that the runtime governance layer (which we call an overseer) is a critical engineering variable: without it, agents exhibit systematic degenerate patterns, including repetition loops, missing crash verification, and reconnaissance deadlocks. Together, these findings carry two implications beyond our testbed. Attacker expertise is no longer the binding constraint on bare-metal OT exploitation, and defender threat models must now assume LLM-augmented adversaries capable of executing autonomous discovery-through-remediation cycles against industrial firmware.",
+    "published": "2026-05-04",
+    "authors": [
+      "Adel ElZemity",
+      "Budi Arief",
+      "Shujun Li",
+      "Calvin Brierley",
+      "Yichao Wang",
+      "Yuxiang Huang",
+      "James Pope",
+      "Haoxiang Li",
+      "George Oikonomou"
+    ],
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2604.23563v1",
+    "arxiv_id_nover": "2604.23563",
+    "title": "CyberCane: Neuro-Symbolic RAG for Privacy-Preserving Phishing Detection with Formal Ontology Reasoning",
+    "summary": "Privacy-critical domains require phishing detection systems that satisfy contradictory constraints: near-zero false positives to prevent workflow disruption, transparent explanations for non-expert staff, strict regulatory compliance prohibiting sensitive data exposure to external APIs, and robustness against AI-generated attacks. Existing rule-based systems are brittle to novel campaigns, while LLM-based detectors violate privacy regulations through unredacted data transmission. We introduce CyberCane, a neuro-symbolic framework integrating deterministic symbolic analysis with privacy-preserving retrieval-augmented generation (RAG). Our dual-phase pipeline applies lightweight symbolic rules to email metadata, then escalates borderline cases to semantic classification via RAG with automated sensitive data redaction and retrieval from a phishing-only corpus. We further introduce PhishOnt, an OWL ontology enabling verifiable attack classification through formal reasoning chains. Evaluation on DataPhish2025 (12.3k emails; mixed human/LLM) and Nazario/SpamAssassin demonstrates a 78.6-point recall gain over symbolic-only detection on AI-generated threats, with precision exceeding 98% and FPR as low as 0.16%. Healthcare deployment projects a 542x ROI; tunable operating points support diverse risk tolerances, with open-source implementation at https://github.com/sbhakim/Cybercane.",
+    "published": "2026-04-26",
+    "authors": [
+      "Safayat Bin Hakim",
+      "Aniqa Afzal",
+      "Qi Zhao",
+      "Vigna Majmundar",
+      "Pawel Sloboda",
+      "Houbing Herbert Song"
+    ],
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2604.20795v1",
+    "arxiv_id_nover": "2604.20795",
+    "title": "Automatic Ontology Construction Using LLMs as an External Layer of Memory, Verification, and Planning for Hybrid Intelligent Systems",
+    "summary": "This paper presents a hybrid architecture for intelligent systems in which large language models (LLMs) are extended with an external ontological memory layer. Instead of relying solely on parametric knowledge and vector-based retrieval (RAG), the proposed approach constructs and maintains a structured knowledge graph using RDF/OWL representations, enabling persistent, verifiable, and semantically grounded reasoning. The core contribution is an automated pipeline for ontology construction from heterogeneous data sources, including documents, APIs, and dialogue logs. The system performs entity recognition, relation extraction, normalization, and triple generation, followed by validation using SHACL and OWL constraints, and continuous graph updates. During inference, LLMs operate over a combined context that integrates vector-based retrieval with graph-based reasoning and external tool interaction. Experimental observations on planning tasks, including the Tower of Hanoi benchmark, indicate that ontology augmentation improves performance in multi-step reasoning scenarios compared to baseline LLM systems. In addition, the ontology layer enables formal validation of generated outputs, transforming the system into a generation-verification-correction pipeline. The proposed architecture addresses key limitations of current LLM-based systems, including lack of long-term memory, weak structural understanding, and limited reasoning capabilities. It provides a foundation for building agent-based systems, robotics applications, and enterprise AI solutions that require persistent knowledge, explainability, and reliable decision-making.",
+    "published": "2026-04-22",
+    "authors": [
+      "Pavel Salovskii",
+      "Iuliia Gorshkova"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "Artificial Intelligence; Knowledge Representation and Reasoning; Information Retrieval; Machine Learning"
+  },
+  {
+    "arxiv_id": "2608.04011v1",
+    "arxiv_id_nover": "2608.04011",
+    "title": "Towards a New Grammar of Reasoning for Artificial Legal Intelligence and the Mecelle as Its Semantic Protocol",
+    "summary": "This article examines the enduring epistemic and methodological crisis of traditional legal practice in light of the opportunities and constraints introduced by artificial intelligence. It proposes an ontologically grounded framework termed the Mecellem semantic protocol as a response to this crisis. The analysis focuses on the structural tension within law between maintaining normative coherence and adapting to evolving social and institutional conditions, and shows why approaches based solely on codification, positivist systematization, or quantitative methods such as jurimetrics are insufficient. The article argues that legal reasoning cannot be reduced to data retrieval or statistical pattern recognition. Instead, it is grounded in the premise that meaning is context-dependent and must be dynamically reconstructed through ontologically defined entity categories and differentiated layers of knowledge. Within this perspective, Mecellem reconceptualizes law not as a fixed system of rules, but as an ontodynamic architecture structured along the interconnected axes of ontology, epistemology, and methodology. The transition from jurimetrics to a semantic protocol is presented not merely as a technical shift, but as a transformation in the foundations of legal knowledge. The article further argues that neurosymbolic systems, knowledge graphs, and agentic artificial intelligence can effectively address persistent legal challenges only when embedded within such an ontodynamic framework. By understanding law as a domain of ongoing formation rather than a completed rational totality, Mecellem advances a context-sensitive, auditable, and coherent model for legal meaning production at both human and machine levels, offering a comprehensive framework for rethinking legal reasoning in the age of artificial intelligence.",
+    "published": "2026-04-20",
+    "authors": [
+      "Ali Goksu",
+      "F. Gozde Kardes",
+      "Mustafa Yaylali"
+    ],
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "123 pages"
+  },
+  {
+    "arxiv_id": "2604.08849v3",
+    "arxiv_id_nover": "2604.08849",
+    "title": "SatIR: Scalable High-Recall Constraint-Satisfaction-Based Information Retrieval for Clinical Trials Matching",
+    "summary": "Many real-world retrieval and matching problems require more than topical relevance: a candidate must satisfy the specific constraints of one profile among many, not just be relevant to it. Clinical trials are a high-stakes instance of this challenge: they are central to evidence-based medicine, yet many struggle to meet enrollment targets, despite the availability of over half a million trials listed on ClinicalTrials.gov, which attracts approximately two million users monthly. Existing retrieval techniques, largely based on keyword and embedding-similarity matching, treat eligibility constraints as soft signals rather than binding requirements, resulting in low recall, low precision, and limited interpretability. We propose SatIR, a scalable, efficient, high-precision, high-recall, interpretable clinical trial retrieval method based on formal constraint satisfaction. Leveraging established medical ontologies, we use Large Language Models (LLMs) to convert informal reasoning -- regarding ambiguity, implicit clinical assumptions, and incomplete patient records -- into explicit, precise, controllable, and interpretable formal Satisfiability Modulo Theories (SMT) constraints. For scalable and efficient retrieval, we project the SMT matching problem onto relational algebra, enabling an efficient database implementation that retains high recall while sacrificing little precision. SatIR consistently improves eligibility-aware retrieval over similarity-based baselines on the SIGIR 2016 dataset and a benchmark derived from TREC 2022. Relative to TrialGPT-style retrieval, SatIR retrieves 32%-72% more relevant-and-eligible trials per patient on SIGIR 2016 and achieves 1.8-3.2x higher eligible-trial recall on the TREC benchmark. Retrieval is fast, requiring only 146 milliseconds per patient over 3,621 SIGIR trials.",
+    "published": "2026-04-10",
+    "authors": [
+      "Zikai Zhou",
+      "Yufei Jin",
+      "Yilin Xu",
+      "Yu-Chiang Wang",
+      "Chieh-Ju Chao",
+      "Monica S. Lam"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.DB",
+      "cs.MA",
+      "cs.SC"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2604.02545v1",
+    "arxiv_id_nover": "2604.02545",
+    "title": "Competency Questions as Executable Plans: a Controlled RAG Architecture for Cultural Heritage Storytelling",
+    "summary": "The preservation of intangible cultural heritage is a critical challenge as collective memory fades over time. While Large Language Models (LLMs) offer a promising avenue for generating engaging narratives, their propensity for factual inaccuracies or \"hallucinations\" makes them unreliable for heritage applications where veracity is a central requirement. To address this, we propose a novel neuro-symbolic architecture grounded in Knowledge Graphs (KGs) that establishes a transparent \"plan-retrieve-generate\" workflow for story generation. A key novelty of our approach is the repurposing of competency questions (CQs) - traditionally design-time validation artifacts - into run-time executable narrative plans. This approach bridges the gap between high-level user personas and atomic knowledge retrieval, ensuring that generation is evidence-closed and fully auditable. We validate this architecture using a new resource: the Live Aid KG, a multimodal dataset aligning 1985 concert data with the Music Meta Ontology and linking to external multimedia assets. We present a systematic comparative evaluation of three distinct Retrieval-Augmented Generation (RAG) strategies over this graph: a purely symbolic KG-RAG, a text-enriched Hybrid-RAG, and a structure-aware Graph-RAG. Our experiments reveal a quantifiable trade-off between the factual precision of symbolic retrieval, the contextual richness of hybrid methods, and the narrative coherence of graph-based traversal. Our findings offer actionable insights for designing personalised and controllable storytelling systems.",
+    "published": "2026-04-02",
+    "authors": [
+      "Naga Sowjanya Barla",
+      "Jacopo de Berardinis"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "Accepted at the 23rd European Semantic Web Conference (ESWC 2026)"
+  },
+  {
+    "arxiv_id": "2603.28755v1",
+    "arxiv_id_nover": "2603.28755",
+    "title": "Graphilosophy: Graph-Based Digital Humanities Computing with The Four Books",
+    "summary": "The Four Books have shaped East Asian intellectual traditions, yet their multi-layered interpretive complexity limits their accessibility in the digital age. While traditional bilingual commentaries provide a vital pedagogical bridge, computational frameworks are needed to preserve and explore this wisdom. This paper bridges AI and classical philosophy by introducing Graphilosophy, an ontology-guided, multi-layered knowledge graph framework for modeling and interpreting The Four Books. Integrating natural language processing, multilingual semantic embeddings, and humanistic analysis, the framework transforms a bilingual Chinese-Vietnamese corpus into an interpretively grounded resource. Graphilosophy encodes linguistic, conceptual, and interpretive relationships across interconnected layers, enabling cross-lingual retrieval and AI-assisted reasoning while explicitly preserving scholarly nuance and interpretive plurality. The system also enables non-expert users to trace the evolution of ethical concepts across borders and languages, ensuring that ancient wisdom remains a living resource for modern moral discourse rather than a static relic of the past. Through an interactive interface, users can trace the evolution of ethical concepts across languages, ensuring ancient wisdom remains relevant for modern discourse. A preliminary user study suggests the system's capacity to enhance conceptual understanding and cross-cultural learning. By linking algorithmic representation with ethical inquiry, this research exemplifies how AI can serve as a methodological bridge, accommodating the ambiguity of cultural heritage rather than reducing it to static data. The Source code and data are released at https://github.com/ThuDoMinh1102/confucian-texts-knowledge-graph.",
+    "published": "2026-03-30",
+    "authors": [
+      "Minh-Thu Do",
+      "Quynh-Chau Le-Tran",
+      "Duc-Duy Nguyen-Mai",
+      "Thien-Trang Nguyen",
+      "Khanh-Duy Le",
+      "Minh-Triet Tran",
+      "Tam V. Nguyen",
+      "Trung-Nghia Le"
+    ],
+    "categories": [
+      "cs.CY"
+    ],
+    "journal_ref": "",
+    "comment": "AI & Society journal"
+  },
+  {
+    "arxiv_id": "2603.25152v3",
+    "arxiv_id_nover": "2603.25152",
+    "title": "OMD-GraphRAG: Enhancing GraphRAG with Ontology-Guided Extraction, Multi-Dimensional Clustering and Dual-Channel Fusion",
+    "summary": "Retrieval-Augmented Generation (RAG) systems face significant challenges in complex reasoning, multi-hop queries, and domain-specific QA. While existing GraphRAG frameworks have made progress in structural knowledge organization, they still have limitations in knowledge extraction precision, community report integrity, and retrieval performance. This paper proposes OMD-GraphRAG, an enhanced framework built upon open-source GraphRAG. The framework introduces three core innovations: (1) Ontology-Guided Knowledge Extraction that uses predefined Schema to guide LLMs in accurately identifying domain-specific entities and relations; (2) Multi-Dimensional Community Clustering Strategy that improves community completeness through alignment completion, attribute-based clustering, and multi-hop relationship clustering; (3) Dual-Channel Graph Retrieval Fusion that balances QA accuracy and performance through hybrid graph and community retrieval. Evaluation results on MultiHop-RAG benchmark show that OMD-GraphRAG outperforms mainstream open source solutions (e.g., LightRAG) in comprehensive F1 scores, particularly in inference and temporal queries.",
+    "published": "2026-03-26",
+    "authors": [
+      "Jie Wang",
+      "Honghua Huang",
+      "Xi Ge",
+      "Jianhui Su",
+      "Wen Liu",
+      "Shiguo Lian"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.IR"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2603.04448v3",
+    "arxiv_id_nover": "2603.04448",
+    "title": "SkillNet: Create, Evaluate, and Connect AI Skills",
+    "summary": "Current AI agents can flexibly invoke tools and execute complex tasks, yet their long-term advancement is hindered by the lack of systematic accumulation and transfer of skills. Without a unified mechanism for skill consolidation, agents frequently ``reinvent the wheel'', rediscovering solutions in isolated contexts without leveraging prior strategies. To address this challenge, we introduce SkillNet, an open infrastructure for creating, evaluating, and organizing AI skills at scale. SkillNet structures skills within a unified ontology that supports creating skills from heterogeneous sources, establishing rich relational connections, and performing multi-dimensional evaluation across Safety, Completeness, Executability, Maintainability, and Cost-awareness. Our infrastructure integrates a repository of over 600,000 skills, an interactive platform, and a versatile Python toolkit. Experiments on ALFWorld, WebShop, and ScienceWorld show 40% higher average rewards and 30% fewer execution steps across multiple backbone models. Furthermore, SkillNet-Gym benchmarks skill retrieval, utilization, and composition, while SkillNet-Fabric enables task-specific skill routing through lightweight Wikis. By formalizing skills as evolving, composable assets, SkillNet provides a robust foundation for agents to move from transient experience to durable mastery.",
+    "published": "2026-02-26",
+    "authors": [
+      "Yuan Liang",
+      "Ruobin Zhong",
+      "Haoming Xu",
+      "Chen Jiang",
+      "Yi Zhong",
+      "Runnan Fang",
+      "Jia-Chen Gu",
+      "Shumin Deng",
+      "Yunzhi Yao",
+      "Mengru Wang",
+      "Shuofei Qiao",
+      "Yida Xue",
+      "Xin Xu",
+      "Tongtong Wu",
+      "Kun Wang",
+      "Yang Liu",
+      "Zhen Bi",
+      "Jungang Lou",
+      "Yuchen Eleanor Jiang",
+      "Hangcheng Zhu",
+      "Gang Yu",
+      "Haiwen Hong",
+      "Longtao Huang",
+      "Hui Xue",
+      "Chenxi Wang",
+      "Yijun Wang",
+      "Zifei Shan",
+      "Xi Chen",
+      "Zhaopeng Tu",
+      "Feiyu Xiong",
+      "Xin Xie",
+      "Peng Zhang",
+      "Zhengke Gui",
+      "Lei Liang",
+      "Jun Zhou",
+      "Chiyu Wu",
+      "Jin Shang",
+      "Yu Gong",
+      "Junyu Lin",
+      "Changliang Xu",
+      "Hongjie Deng",
+      "Wen Zhang",
+      "Keyan Ding",
+      "Qiang Zhang",
+      "Fei Huang",
+      "Ningyu Zhang",
+      "Jeff Z. Pan",
+      "Guilin Qi",
+      "Haofen Wang",
+      "Huajun Chen"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CV",
+      "cs.LG",
+      "cs.MA"
+    ],
+    "journal_ref": "",
+    "comment": "http://skillnet.openkg.cn/; add SkillNet-Gym, a benchmark for evaluating skill retrieval, utilization, composition, and SkillNet-Fabric for task-specific skill routing through lightweight Wikis"
+  },
+  {
+    "arxiv_id": "2602.15898v1",
+    "arxiv_id_nover": "2602.15898",
+    "title": "MultiCube-RAG for Multi-hop Question Answering",
+    "summary": "Multi-hop question answering (QA) necessitates multi-step reasoning and retrieval across interconnected subjects, attributes, and relations. Existing retrieval-augmented generation (RAG) methods struggle to capture these structural semantics accurately, resulting in suboptimal performance. Graph-based RAGs structure such information in graphs, but the resulting graphs are often noisy and computationally expensive. Moreover, most methods rely on single-step retrieval, neglecting the need for multi-hop reasoning processes. Recent training-based approaches attempt to incentivize the large language models (LLMs) for iterative reasoning and retrieval, but their training processes are prone to unstable convergence and high computational overhead. To address these limitations, we devise an ontology-based cube structure with multiple and orthogonal dimensions to model structural subjects, attributes, and relations. Built on the cube structure, we propose MultiCube-RAG, a training-free method consisting of multiple cubes for multi-step reasoning and retrieval. Each cube specializes in modeling a class of subjects, so that MultiCube-RAG flexibly selects the most suitable cubes to acquire the relevant knowledge precisely. To enhance the query-based reasoning and retrieval, our method decomposes a complex multi-hop query into a set of simple subqueries along cube dimensions and conquers each of them sequentially. Experiments on four multi-hop QA datasets show that MultiCube-RAG improves response accuracy by 8.9% over the average performance of various baselines. Notably, we also demonstrate that our method performs with greater efficiency and inherent explainability.",
+    "published": "2026-02-11",
+    "authors": [
+      "Jimeng Shi",
+      "Wei Hu",
+      "Runchu Tian",
+      "Bowen Jin",
+      "Wonbin Kweon",
+      "SeongKu Kang",
+      "Yunfan Kang",
+      "Dingqi Ye",
+      "Sizhe Zhou",
+      "Shaowen Wang",
+      "Jiawei Han"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "12 pages"
+  },
+  {
+    "arxiv_id": "2602.05636v2",
+    "arxiv_id_nover": "2602.05636",
+    "title": "Generative Ontology: When Structured Knowledge Learns to Create",
+    "summary": "Traditional ontologies describe domain structure but cannot generate novel artifacts. Large language models generate fluently but produce outputs lacking structural validity, hallucinating mechanisms without components, goals without end conditions. We introduce Generative Ontology, a framework synthesizing these complementary strengths: ontology provides the grammar; the LLM provides the creativity. Generative Ontology encodes domain knowledge as executable Pydantic schemas constraining LLM generation via DSPy signatures. A multi-agent pipeline assigns specialized roles: a Mechanics Architect designs game systems, a Theme Weaver integrates narrative, a Balance Critic identifies exploits, each carrying a professional \"anxiety\" that prevents shallow outputs. Retrieval-augmented generation grounds designs in precedents from existing exemplars. We demonstrate the framework through GameGrammar, generating complete tabletop game designs, and present three empirical studies. An ablation study (120 designs, 4 conditions) shows multi-agent specialization produces the largest quality gains (fun d=1.12, depth d=1.59; p<.001), while schema validation eliminates structural errors (d=4.78). A benchmark against 20 published board games reveals structural parity but a bounded creative gap (fun d=1.86): generated designs score 7-8 while published games score 8-9. A test-retest study (50 evaluations) validates the LLM-based evaluator, with 7/9 metrics achieving Good-to-Excellent reliability (ICC 0.836-0.989). The pattern generalizes beyond games. Any domain with expert vocabulary, validity constraints, and accumulated exemplars is a candidate for Generative Ontology.",
+    "published": "2026-02-05",
+    "authors": [
+      "Benny Cheung"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "19 pages, 12 figures, 8 tables. v2: added empirical evaluation (3 studies: ablation, benchmark, reliability), expanded related work, discussion section, appendices. Code available at https://github.com/bennycheung/GameGrammarCLI"
+  },
+  {
+    "arxiv_id": "2601.01844v1",
+    "arxiv_id_nover": "2601.01844",
+    "title": "Clinical Knowledge Graph Construction and Evaluation with Multi-LLMs via Retrieval-Augmented Generation",
+    "summary": "Large language models (LLMs) offer new opportunities for constructing knowledge graphs (KGs) from unstructured clinical narratives. However, existing approaches often rely on structured inputs and lack robust validation of factual accuracy and semantic consistency, limitations that are especially problematic in oncology. We introduce an end-to-end framework for clinical KG construction and evaluation directly from free text using multi-agent prompting and a schema-constrained Retrieval-Augmented Generation (KG-RAG) strategy. Our pipeline integrates (1) prompt-driven entity, attribute, and relation extraction; (2) entropy-based uncertainty scoring; (3) ontology-aligned RDF/OWL schema generation; and (4) multi-LLM consensus validation for hallucination detection and semantic refinement. Beyond static graph construction, the framework supports continuous refinement and self-supervised evaluation, enabling iterative improvement of graph quality. Applied to two oncology cohorts (PDAC and BRCA), our method produces interpretable, SPARQL-compatible, and clinically grounded knowledge graphs without relying on gold-standard annotations. Experimental results demonstrate consistent gains in precision, relevance, and ontology compliance over baseline methods.",
+    "published": "2026-01-05",
+    "authors": [
+      "Udiptaman Das",
+      "Krishnasai B. Atmakuri",
+      "Duy Ho",
+      "Chi Lee",
+      "Yugyung Lee"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "13 pages, 5 tables, 4 figures"
+  },
+  {
+    "arxiv_id": "2602.19183v1",
+    "arxiv_id_nover": "2602.19183",
+    "title": "SIDEKICK: A Semantically Integrated Resource for Drug Effects, Indications, and Contraindications",
+    "summary": "Pharmacovigilance and clinical decision support systems utilize structured drug safety data to guide medical practice. However, existing datasets frequently depend on terminologies such as MedDRA, which limits their semantic reasoning capabilities and their interoperability with Semantic Web ontologies and knowledge graphs. To address this gap, we developed SIDEKICK, a knowledge graph that standardizes drug indications, contraindications, and adverse reactions from FDA Structured Product Labels. We developed and used a workflow based on Large Language Model (LLM) extraction and Graph-Retrieval Augmented Generation (Graph RAG) for ontology mapping. We processed over 50,000 drug labels and mapped terms to the Human Phenotype Ontology (HPO), the MONDO Disease Ontology, and RxNorm. Our semantically integrated resource outperforms the SIDER and ONSIDES databases when applied to the task of drug repurposing by side effect similarity. We serialized the dataset as a Resource Description Framework (RDF) graph and employed the Semanticscience Integrated Ontology (SIO) as upper level ontology to further improve interoperability. Consequently, SIDEKICK enables automated safety surveillance and phenotype-based similarity analysis for drug repurposing.",
+    "published": "2025-12-06",
+    "authors": [
+      "Mohammad Ashhad",
+      "Olga Mashkova",
+      "Ricardo Henao",
+      "Robert Hoehndorf"
+    ],
+    "categories": [
+      "cs.IR"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2512.00590v2",
+    "arxiv_id_nover": "2512.00590",
+    "title": "Wikontic: Constructing Wikidata-Aligned, Ontology-Aware Knowledge Graphs with Large Language Models",
+    "summary": "Knowledge graphs (KGs) provide structured, verifiable grounding for large language models (LLMs), but current LLM-based systems commonly use KGs as auxiliary structures for text retrieval, leaving their intrinsic quality underexplored. In this work, we propose Wikontic, a multi-stage pipeline that constructs KGs from open-domain text by extracting candidate triplets with qualifiers, enforcing Wikidata-based type and relation constraints, and normalizing entities to reduce duplication. The resulting KGs are compact, ontology-consistent, and well-connected; on MuSiQue, the correct answer entity appears in 96% of generated triplets. On HotpotQA, our triplets-only setup achieves 76.0 F1, and on MuSiQue 59.8 F1, matching or surpassing several retrieval-augmented generation baselines that still require textual context. In addition, Wikontic attains state-of-the-art information-retention performance on the MINE-1 benchmark (86%), outperforming prior KG construction methods. Wikontic is also efficient at build time: KG construction uses less than 1,000 output tokens, about 3$\\times$ fewer than AriGraph and $<$1/20 of GraphRAG. The proposed pipeline enhances the quality of the generated KG and offers a scalable solution for leveraging structured knowledge in LLMs.",
+    "published": "2025-11-29",
+    "authors": [
+      "Alla Chepurova",
+      "Aydar Bulatov",
+      "Mikhail Burtsev",
+      "Yuri Kuratov"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2511.18364v1",
+    "arxiv_id_nover": "2511.18364",
+    "title": "KGpipe: Generation and Evaluation of Pipelines for Data Integration into Knowledge Graphs",
+    "summary": "Building high-quality knowledge graphs (KGs) from diverse sources requires combining methods for information extraction, data transformation, ontology mapping, entity matching, and data fusion. Numerous methods and tools exist for each of these tasks, but support for combining them into reproducible and effective end-to-end pipelines is still lacking. We present a new framework, KGpipe for defining and executing integration pipelines that can combine existing tools or LLM (Large Language Model) functionality. To evaluate different pipelines and the resulting KGs, we propose a benchmark to integrate heterogeneous data of different formats (RDF, JSON, text) into a seed KG. We demonstrate the flexibility of KGpipe by running and comparatively evaluating several pipelines integrating sources of the same or different formats using selected performance and quality metrics.",
+    "published": "2025-11-23",
+    "authors": [
+      "Marvin Hofer",
+      "Erhard Rahm"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.DB",
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": "15 KG pipelines (9 single source, 6 multi source)"
+  },
+  {
+    "arxiv_id": "2511.18343v1",
+    "arxiv_id_nover": "2511.18343",
+    "title": "A Needle in a Haystack: Intent-driven Reusable Artifacts Recommendation with LLMs",
+    "summary": "In open source software development, the reuse of existing artifacts has been widely adopted to avoid redundant implementation work. Reusable artifacts are considered more efficient and reliable than developing software components from scratch. However, when faced with a large number of reusable artifacts, developers often struggle to find artifacts that can meet their expected needs. To reduce this burden, retrieval-based and learning-based techniques have been proposed to automate artifact recommendations. Recently, Large Language Models (LLMs) have shown the potential to understand intentions, perform semantic alignment, and recommend usable artifacts. Nevertheless, their effectiveness has not been thoroughly explored. To fill this gap, we construct an intent-driven artifact recommendation benchmark named IntentRecBench, covering three representative open source ecosystems. Using IntentRecBench, we conduct a comprehensive comparative study of five popular LLMs and six traditional approaches in terms of precision and efficiency. Our results show that although LLMs outperform traditional methods, they still suffer from low precision and high inference cost due to the large candidate space. Inspired by the ontology-based semantic organization in software engineering, we propose TreeRec, a feature tree-guided recommendation framework to mitigate these issues. TreeRec leverages LLM-based semantic abstraction to organize artifacts into a hierarchical semantic tree, enabling intent and function alignment and reducing reasoning time. Extensive experiments demonstrate that TreeRec consistently improves the performance of diverse LLMs across ecosystems, highlighting its generalizability and potential for practical deployment.",
+    "published": "2025-11-23",
+    "authors": [
+      "Dongming Jin",
+      "Zhi Jin",
+      "Xiaohong Chen",
+      "Zheng Fang",
+      "Linyu Li",
+      "Yuanpeng He",
+      "Jia Li",
+      "Yirang Zhang",
+      "Yingtao Fang"
+    ],
+    "categories": [
+      "cs.SE"
+    ],
+    "journal_ref": "",
+    "comment": "15 pages, 7 figures"
+  },
+  {
+    "arxiv_id": "2511.13526v1",
+    "arxiv_id_nover": "2511.13526",
+    "title": "Automated Construction of Medical Indicator Knowledge Graphs Using Retrieval Augmented Large Language Models",
+    "summary": "Artificial intelligence (AI) is reshaping modern healthcare by advancing disease diagnosis, treatment decision-making, and biomedical research. Among AI technologies, large language models (LLMs) have become especially impactful, enabling deep knowledge extraction and semantic reasoning from complex medical texts. However, effective clinical decision support requires knowledge in structured, interoperable formats. Knowledge graphs serve this role by integrating heterogeneous medical information into semantically consistent networks. Yet, current clinical knowledge graphs still depend heavily on manual curation and rule-based extraction, which is limited by the complexity and contextual ambiguity of medical guidelines and literature. To overcome these challenges, we propose an automated framework that combines retrieval-augmented generation (RAG) with LLMs to construct medical indicator knowledge graphs. The framework incorporates guideline-driven data acquisition, ontology-based schema design, and expert-in-the-loop validation to ensure scalability, accuracy, and clinical reliability. The resulting knowledge graphs can be integrated into intelligent diagnosis and question-answering systems, accelerating the development of AI-driven healthcare solutions.",
+    "published": "2025-11-17",
+    "authors": [
+      "Zhengda Wang",
+      "Daqian Shi",
+      "Jingyi Zhao",
+      "Xiaolei Diao",
+      "Xiongfeng Tang",
+      "Yanguo Qin"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "5 pages, 1 figure, 1 table. Accepted at AI4RWC@WI-IAT 2025"
+  },
+  {
+    "arxiv_id": "2510.26898v2",
+    "arxiv_id_nover": "2510.26898",
+    "title": "Integrating Ontologies with Large Language Models for Enhanced Control Systems in Chemical Engineering",
+    "summary": "This work presents an ontology-integrated large language model (LLM) framework for chemical engineering that unites structured domain knowledge with generative reasoning. The proposed pipeline aligns model training and inference with the COPE ontology through a sequence of data acquisition, semantic preprocessing, information extraction, and ontology mapping steps, producing templated question-answer pairs that guide fine-tuning. A control-focused decoding stage and citation gate enforce syntactic and factual grounding by constraining outputs to ontology-linked terms, while evaluation metrics quantify both linguistic quality and ontological accuracy. Feedback and future extensions, including semantic retrieval and iterative validation, further enhance the system's interpretability and reliability. This integration of symbolic structure and neural generation provides a transparent, auditable approach for applying LLMs to process control, safety analysis, and other critical engineering contexts.",
+    "published": "2025-10-30",
+    "authors": [
+      "Crystal Su",
+      "Kuai Yu",
+      "Jingrui Zhang",
+      "Mingyuan Shao",
+      "Daniel Bauer"
+    ],
+    "categories": [
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": "This paper is withdrawn due to issues with attribution and citation accuracy"
+  },
+  {
+    "arxiv_id": "2510.25518v1",
+    "arxiv_id_nover": "2510.25518",
+    "title": "Retrieval Augmented Generation (RAG) for Fintech: Agentic Design and Evaluation",
+    "summary": "Retrieval-Augmented Generation (RAG) systems often face limitations in specialized domains such as fintech, where domain-specific ontologies, dense terminology, and acronyms complicate effective retrieval and synthesis. This paper introduces an agentic RAG architecture designed to address these challenges through a modular pipeline of specialized agents. The proposed system supports intelligent query reformulation, iterative sub-query decomposition guided by keyphrase extraction, contextual acronym resolution, and cross-encoder-based context re-ranking. We evaluate our approach against a standard RAG baseline using a curated dataset of 85 question--answer--reference triples derived from an enterprise fintech knowledge base. Experimental results demonstrate that the agentic RAG system outperforms the baseline in retrieval precision and relevance, albeit with increased latency. These findings suggest that structured, multi-agent methodologies offer a promising direction for enhancing retrieval robustness in complex, domain-specific settings.",
+    "published": "2025-10-29",
+    "authors": [
+      "Thomas Cook",
+      "Richard Osuagwu",
+      "Liman Tsatiashvili",
+      "Vrynsia Vrynsia",
+      "Koustav Ghosal",
+      "Maraim Masoud",
+      "Riccardo Mattivi"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "Keywords: RAG Agentic AI Fintech NLP KB Domain-Specific Ontology Query Understanding"
+  },
+  {
+    "arxiv_id": "2510.15428v2",
+    "arxiv_id_nover": "2510.15428",
+    "title": "Fault Cause Identification across Manufacturing Lines through Ontology-Guided and Process-Aware FMEA Graph Learning with LLMs",
+    "summary": "Fault cause identification in complex engineered systems remains challenging due to system complexity, frequent reconfigurations, and the limited reusability of accumulated diagnostic knowledge, with automated manufacturing lines representing a prominent application domain. Although Failure Mode and Effects Analysis (FMEA) worksheets contain valuable expert insights, their reuse across heterogeneous system configurations is hindered by natural language variability, inconsistent terminology, and process differences. To address these limitations, we propose OGPAL (Ontology-Guided and Process-Aware Learning), a framework that enhances FMEA reusability by combining manufacturing-domain conceptualization with graph neural network reasoning. First, FMEA worksheets from multiple manufacturing lines are transformed into a unified knowledge graph through ontology-guided information extraction supported by a large language model (LLM), capturing domain concepts such as actions, states, components, and parameters. Second, a Relational Graph Convolutional Network (RGCN) with the process-aware scoring function learns embeddings that respect both semantic relationships and sequential process flows. Finally, link prediction is employed to retrieve and rank candidate fault causes consistent with the target line's process flow. A case study on automotive pressure sensor assembly lines demonstrates that OGPAL outperforms a state-of-the-art retrieval-augmented generation baseline (nDCG@20 = 0.450) and an RGCN approach (0.559), achieving the best performance (0.719) in fault cause identification. Ablation studies confirm the contributions of both LLM-driven domain conceptualization and process-aware learning. These results indicate that the framework effectively supports reasoning over heterogeneous diagnostic knowledge and improves the transferability of FMEA knowledge across manufacturing lines.",
+    "published": "2025-10-17",
+    "authors": [
+      "Sho Okazaki",
+      "Kohei Kaminishi",
+      "Takuma Fujiu",
+      "Yusheng Wang",
+      "Manu Sasidharan",
+      "Jun Ota"
+    ],
+    "categories": [
+      "cs.IR"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2510.14670v1",
+    "arxiv_id_nover": "2510.14670",
+    "title": "TITAN: Graph-Executable Reasoning for Cyber Threat Intelligence",
+    "summary": "TITAN (Threat Intelligence Through Automated Navigation) is a framework that connects natural-language cyber threat queries with executable reasoning over a structured knowledge graph. It integrates a path planner model, which predicts logical relation chains from text, and a graph executor that traverses the TITAN Ontology to retrieve factual answers and supporting evidence. Unlike traditional retrieval systems, TITAN operates on a typed, bidirectional graph derived from MITRE, allowing reasoning to move clearly and reversibly between threats, behaviors, and defenses. To support training and evaluation, we introduce the TITAN Dataset, a corpus of 88209 examples (Train: 74258; Test: 13951) pairing natural language questions with executable reasoning paths and step by step Chain of Thought explanations. Empirical evaluations show that TITAN enables models to generate syntactically valid and semantically coherent reasoning paths that can be deterministically executed on the underlying graph.",
+    "published": "2025-10-16",
+    "authors": [
+      "Marco Simoni",
+      "Aleksandar Fontana",
+      "Andrea Saracino",
+      "Paolo Mori"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CR",
+      "cs.IR"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2510.04888v2",
+    "arxiv_id_nover": "2510.04888",
+    "title": "Revealing Interconnections between Diseases: from Statistical Methods to Large Language Models",
+    "summary": "Identifying disease interconnections through manual analysis of large-scale clinical data is labor-intensive, subjective, and prone to expert disagreement. While machine learning (ML) shows promise, three critical challenges remain: (1) selecting optimal methods from the vast ML landscape, (2) determining whether real-world clinical data (e.g., electronic health records, EHRs) or structured disease descriptions yield more reliable insights, (3) the lack of \"ground truth,\" as some disease interconnections remain unexplored in medicine. Large language models (LLMs) demonstrate broad utility, yet they often lack specialized medical knowledge. To address these gaps, we conduct a systematic evaluation of seven approaches for uncovering disease relationships based on two data sources: (i) sequences of ICD-10 codes from MIMIC-IV EHRs and (ii) the full set of ICD-10 codes, both with and without textual descriptions. Our framework integrates the following: (i) a statistical co-occurrence analysis and a masked language modeling (MLM) approach using real clinical data; (ii) domain-specific BERT variants (Med-BERT and BioClinicalBERT); (iii) a general-purpose BERT and document retrieval; and (iv) four LLMs (Mistral, DeepSeek, Qwen, and YandexGPT). Our graph-based comparison of the obtained interconnection matrices shows that the LLM-based approach produces interconnections with the lowest diversity of ICD code connections to different diseases compared to other methods, including text-based and domain-based approaches. This suggests an important implication: LLMs have limited potential for discovering new interconnections. In the absence of ground truth databases for medical interconnections between ICD codes, our results constitute a valuable medical disease ontology that can serve as a foundational resource for future clinical research and artificial intelligence applications in healthcare.",
+    "published": "2025-10-06",
+    "authors": [
+      "Alina Ermilova",
+      "Dmitrii Kornilov",
+      "Sofia Samoilova",
+      "Ekaterina Laptenkova",
+      "Anastasia Kolesnikova",
+      "Ekaterina Podplutova",
+      "Senotrusova Sofya",
+      "Maksim G. Sharaev"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2510.01409v2",
+    "arxiv_id_nover": "2510.01409",
+    "title": "OntoLogX: Ontology-Guided Knowledge Graph Extraction from Cybersecurity Logs with Large Language Models",
+    "summary": "System logs represent a valuable source of Cyber Threat Intelligence (CTI), capturing attacker behaviors, exploited vulnerabilities, and traces of malicious activity. Yet their utility is often limited by lack of structure, semantic inconsistency, and fragmentation across devices and sessions. Extracting actionable CTI from logs therefore requires approaches that can reconcile noisy, heterogeneous data into coherent and interoperable representations. We introduce OntoLogX, an autonomous Artificial Intelligence (AI) agent that leverages Large Language Models (LLMs) to transform raw logs into ontology-grounded Knowledge Graphs (KGs). OntoLogX integrates a lightweight log ontology with Retrieval Augmented Generation (RAG) and iterative correction steps, ensuring that generated KGs are syntactically and semantically valid. Beyond event-level analysis, the system aggregates KGs into sessions and employs a LLM to predict MITRE ATT&CK tactics, linking low-level log evidence to higher-level adversarial objectives. We evaluate OntoLogX on both logs from a public benchmark and a real-world honeypot dataset, demonstrating robust KG generation across multiple KGs backends and accurate mapping of adversarial activity to ATT&CK tactics. Results highlight the benefits of retrieval and correction for precision and recall, the effectiveness of code-oriented models in structured log analysis, and the value of ontology-grounded representations for actionable CTI extraction.",
+    "published": "2025-10-01",
+    "authors": [
+      "Luca Cotti",
+      "Idilio Drago",
+      "Anisa Rula",
+      "Devis Bianchini",
+      "Federico Cerutti"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "24 pages, 2 tables, 7 listings, 8 figures"
+  },
+  {
+    "arxiv_id": "2509.19057v2",
+    "arxiv_id_nover": "2509.19057",
+    "title": "RELATE: Relation Extraction in Biomedical Abstracts with LLMs and Ontology Constraints",
+    "summary": "Biomedical knowledge graphs (KGs) are vital for drug discovery and clinical decision support but remain incomplete. Large language models (LLMs) excel at extracting biomedical relations, yet their outputs lack standardization and alignment with ontologies, limiting KG integration. We introduce RELATE, a three-stage pipeline that maps LLM-extracted relations to standardized ontology predicates using ChemProt and the Biolink Model. The pipeline includes: (1) ontology preprocessing with predicate embeddings, (2) similarity-based retrieval enhanced with SapBERT, and (3) LLM-based reranking with explicit negation handling. This approach transforms relation extraction from free-text outputs to structured, ontology-constrained representations. On the ChemProt benchmark, RELATE achieves 52% exact match and 94% accuracy@10, and in 2,400 HEAL Project abstracts, it effectively rejects irrelevant associations (0.4%) and identifies negated assertions. RELATE captures nuanced biomedical relationships while ensuring quality for KG augmentation. By combining vector search with contextual LLM reasoning, RELATE provides a scalable, semantically accurate framework for converting unstructured biomedical literature into standardized KGs.",
+    "published": "2025-09-23",
+    "authors": [
+      "Olawumi Olasunkanmi",
+      "Mathew Satusky",
+      "Hong Yi",
+      "Chris Bizon",
+      "Harlin Lee",
+      "Stanley Ahalt"
+    ],
+    "categories": [
+      "cs.IR"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2508.12868v1",
+    "arxiv_id_nover": "2508.12868",
+    "title": "An LLM Agent-Based Complex Semantic Table Annotation Approach",
+    "summary": "The Semantic Table Annotation (STA) task, which includes Column Type Annotation (CTA) and Cell Entity Annotation (CEA), maps table contents to ontology entities and plays important roles in various semantic applications. However, complex tables often pose challenges such as semantic loss of column names or cell values, strict ontological hierarchy requirements, homonyms, spelling errors, and abbreviations, which hinder annotation accuracy. To address these issues, this paper proposes an LLM-based agent approach for CTA and CEA. We design and implement five external tools with tailored prompts based on the ReAct framework, enabling the STA agent to dynamically select suitable annotation strategies depending on table characteristics. Experiments are conducted on the Tough Tables and BiodivTab datasets from the SemTab challenge, which contain the aforementioned challenges. Our method outperforms existing approaches across various metrics. Furthermore, by leveraging Levenshtein distance to reduce redundant annotations, we achieve a 70% reduction in time costs and a 60% reduction in LLM token usage, providing an efficient and cost-effective solution for STA.",
+    "published": "2025-08-18",
+    "authors": [
+      "Yilin Geng",
+      "Shujing Wang",
+      "Chuan Wang",
+      "Keqing He",
+      "Yanfei Lv",
+      "Ying Wang",
+      "Zaiwen Feng",
+      "Xiaoying Bai"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.DB"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2508.09893v1",
+    "arxiv_id_nover": "2508.09893",
+    "title": "RAGulating Compliance: A Multi-Agent Knowledge Graph for Regulatory QA",
+    "summary": "Regulatory compliance question answering (QA) requires precise, verifiable information, and domain-specific expertise, posing challenges for Large Language Models (LLMs). In this work, we present a novel multi-agent framework that integrates a Knowledge Graph (KG) of Regulatory triplets with Retrieval-Augmented Generation (RAG) to address these demands. First, agents build and maintain an ontology-free KG by extracting subject--predicate--object (SPO) triplets from regulatory documents and systematically cleaning, normalizing, deduplicating, and updating them. Second, these triplets are embedded and stored along with their corresponding textual sections and metadata in a single enriched vector database, allowing for both graph-based reasoning and efficient information retrieval. Third, an orchestrated agent pipeline leverages triplet-level retrieval for question answering, ensuring high semantic alignment between user queries and the factual \"who-did-what-to-whom\" core captured by the graph. Our hybrid system outperforms conventional methods in complex regulatory queries, ensuring factual correctness with embedded triplets, enabling traceability through a unified vector database, and enhancing understanding through subgraph visualization, providing a robust foundation for compliance-driven and broader audit-focused applications.",
+    "published": "2025-08-13",
+    "authors": [
+      "Bhavik Agarwal",
+      "Hemant Sunil Jomraj",
+      "Simone Kaplunov",
+      "Jack Krolick",
+      "Viktoria Rojkova"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2507.07893v4",
+    "arxiv_id_nover": "2507.07893",
+    "title": "An Integrated Framework of Prompt Engineering and Multidimensional Knowledge Graphs for Legal Dispute Analysis",
+    "summary": "Legal dispute analysis is crucial for intelligent legal assistance systems. However, current LLMs face significant challenges in understanding complex legal concepts, maintaining reasoning consistency, and accurately citing legal sources. This research presents a framework combining prompt engineering with multidimensional knowledge graphs to improve LLMs' legal dispute analysis. Specifically, the framework includes a three-stage hierarchical prompt structure (task definition, knowledge background, reasoning guidance) along with a three-layer knowledge graph (legal ontology, representation, instance layers). Additionally, four supporting methods enable precise legal concept retrieval: direct code matching, semantic vector similarity, ontology path reasoning, and lexical segmentation. Through extensive testing, results show major improvements: sensitivity increased by 11.1%-11.3%, specificity by 5.4%-6.0%, and citation accuracy by 29.5%-39.7%. As a result, the framework provides better legal analysis and understanding of judicial logic, thus offering a new technical method for intelligent legal assistance systems.",
+    "published": "2025-07-10",
+    "authors": [
+      "Mingda Zhang",
+      "Na Zhao",
+      "Jianglong Qing",
+      "Qing xu",
+      "Kaiwen Pan",
+      "Ting luo"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "19 pages,3 figures"
+  },
+  {
+    "arxiv_id": "2507.03329v1",
+    "arxiv_id_nover": "2507.03329",
+    "title": "NDAI-NeuroMAP: A Neuroscience-Specific Embedding Model for Domain-Specific Retrieval",
+    "summary": "We present NDAI-NeuroMAP, the first neuroscience-domain-specific dense vector embedding model engineered for high-precision information retrieval tasks. Our methodology encompasses the curation of an extensive domain-specific training corpus comprising 500,000 carefully constructed triplets (query-positive-negative configurations), augmented with 250,000 neuroscience-specific definitional entries and 250,000 structured knowledge-graph triplets derived from authoritative neurological ontologies. We employ a sophisticated fine-tuning approach utilizing the FremyCompany/BioLORD-2023 foundation model, implementing a multi-objective optimization framework combining contrastive learning with triplet-based metric learning paradigms. Comprehensive evaluation on a held-out test dataset comprising approximately 24,000 neuroscience-specific queries demonstrates substantial performance improvements over state-of-the-art general-purpose and biomedical embedding models. These empirical findings underscore the critical importance of domain-specific embedding architectures for neuroscience-oriented RAG systems and related clinical natural language processing applications.",
+    "published": "2025-07-04",
+    "authors": [
+      "Devendra Patel",
+      "Aaditya Jain",
+      "Jayant Verma",
+      "Divyansh Rajput",
+      "Sunil Mahala",
+      "Ketki Suresh Khapare",
+      "Jayateja Kalla"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "The document consists of 15 pages in total: the first 13 pages comprise the main paper, while the last two pages contain supplementary material"
+  },
+  {
+    "arxiv_id": "2506.13467v1",
+    "arxiv_id_nover": "2506.13467",
+    "title": "Enhancing Omics Cohort Discovery for Research on Neurodegeneration through Ontology-Augmented Embedding Models",
+    "summary": "The growing volume of omics and clinical data generated for neurodegenerative diseases (NDs) requires new approaches for their curation so they can be ready-to-use in bioinformatics. NeuroEmbed is an approach for the engineering of semantically accurate embedding spaces to represent cohorts and samples. The NeuroEmbed method comprises four stages: (1) extraction of ND cohorts from public repositories; (2) semi-automated normalization and augmentation of metadata of cohorts and samples using biomedical ontologies and clustering on the embedding space; (3) automated generation of a natural language question-answering (QA) dataset for cohorts and samples based on randomized combinations of standardized metadata dimensions and (4) fine-tuning of a domain-specific embedder to optimize queries. We illustrate the approach using the GEO repository and the PubMedBERT pretrained embedder. Applying NeuroEmbed, we semantically indexed 2,801 repositories and 150,924 samples. Amongst many biology-relevant categories, we normalized more than 1,700 heterogeneous tissue labels from GEO into 326 unique ontology-aligned concepts and enriched annotations with new ontology-aligned terms, leading to a fold increase in size for the metadata terms between 2.7 and 20 fold. After fine-tuning PubMedBERT with the QA training data augmented with the enlarged metadata, the model increased its mean Retrieval Precision from 0.277 to 0.866 and its mean Percentile Rank from 0.355 to 0.896. The NeuroEmbed methodology for the creation of electronic catalogues of omics cohorts and samples will foster automated bioinformatic pipelines construction. The NeuroEmbed catalogue of cohorts and samples is available at https://github.com/JoseAdrian3/NeuroEmbed.",
+    "published": "2025-06-16",
+    "authors": [
+      "José A. Pardo",
+      "Alicia Gómez-Pascual",
+      "José T. Palma",
+      "Juan A. Botía"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "16 pages, 3 figures, 1 table"
+  },
+  {
+    "arxiv_id": "2506.07042v3",
+    "arxiv_id_nover": "2506.07042",
+    "title": "Reasoning with RAGged events: RAG-Enhanced Event Knowledge Base Construction and reasoning with proof-assistants",
+    "summary": "Extracting structured computational representations of historical events from narrative text remains computationally expensive when constructed manually. While RDF/OWL reasoners enable graph-based reasoning, they are limited to fragments of first-order logic, preventing deeper temporal and semantic analysis. This paper addresses both challenges by developing automatic historical event extraction models using multiple LLMs (GPT-4, Claude, Llama 3.2) with three enhancement strategies: pure base generation, knowledge graph enhancement, and Retrieval-Augmented Generation (RAG). We conducted comprehensive evaluations using historical texts from Thucydides. Our findings reveal that enhancement strategies optimize different performance dimensions rather than providing universal improvements. For coverage and historical breadth, base generation achieves optimal performance with Claude and GPT-4 extracting comprehensive events. However, for precision, RAG enhancement improves coordinate accuracy and metadata completeness. Model architecture fundamentally determines enhancement sensitivity: larger models demonstrate robust baseline performance with incremental RAG improvements, while Llama 3.2 shows extreme variance from competitive performance to complete failure. We then developed an automated translation pipeline converting extracted RDF representations into Coq proof assistant specifications, enabling higher-order reasoning beyond RDF capabilities including multi-step causal verification, temporal arithmetic with BC dates, and formal proofs about historical causation. The Coq formalization validates that RAG-discovered event types represent legitimate domain-specific semantic structures rather than ontological violations.",
+    "published": "2025-06-08",
+    "authors": [
+      "Stergios Chatzikyriakidis"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2506.01232v2",
+    "arxiv_id_nover": "2506.01232",
+    "title": "Retrieval-Augmented Generation of Ontologies from Relational Databases",
+    "summary": "Deriving OWL ontologies from relational database schemas supports semantic interoperability and downstream tasks such as knowledge graph population, ontology-based data access, graph-based learning, and automated reasoning. Existing approaches either require substantial expert effort or produce shallow ontologies that reflect the logical schema structure but fail to fully capture domain semantics. We present RIGOR (Retrieval-augmented Iterative Generation of RDB Ontologies), an LLM-driven pipeline that converts relational schemas into semantically rich OWL2DL ontologies with minimal human intervention. For each relational table, RIGOR generates a direct mapping to guarantee schema coverage, then enriches it via retrieval from three sources: relational schema context and documentation, external domain ontologies, and an ontology that grows incrementally as each validated fragment is integrated. A Gen-LLM produces provenance-annotated ontology fragments (delta ontologies), which are validated and, when needed, corrected by an independent Judge-LLM before integration. Guided by foreign-key constraints, the process iterates over relational tables until the full schema is covered. Experiments across three databases spanning two domains show that RIGOR consistently outperforms baseline methods across standard quality metrics while requiring no human oversight.",
+    "published": "2025-06-02",
+    "authors": [
+      "Nadeen Fathallah",
+      "Mojtaba Nayyeri",
+      "Athish A Yogi",
+      "Ratan Bahadur Thapa",
+      "Hans-Michael Tautenhahn",
+      "Anton Schnurpel",
+      "Steffen Staab"
+    ],
+    "categories": [
+      "cs.DB",
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": "Accepted in ISWC26"
+  },
+  {
+    "arxiv_id": "2506.00671v1",
+    "arxiv_id_nover": "2506.00671",
+    "title": "DeepRAG: Integrating Hierarchical Reasoning and Process Supervision for Biomedical Multi-Hop QA",
+    "summary": "We propose DeepRAG, a novel framework that integrates DeepSeek hierarchical question decomposition capabilities with RAG Gym unified retrieval-augmented generation optimization using process level supervision. Targeting the challenging MedHopQA biomedical question answering task, DeepRAG systematically decomposes complex queries into precise sub-queries and employs concept level reward signals informed by the UMLS ontology to enhance biomedical accuracy. Preliminary evaluations on the MedHopQA dataset indicate that DeepRAG significantly outperforms baseline models, including standalone DeepSeek and RAG Gym, achieving notable improvements in both Exact Match and concept level accuracy.",
+    "published": "2025-05-31",
+    "authors": [
+      "Yuelyu Ji",
+      "Hang Zhang",
+      "Shiven Verma",
+      "Hui Ji",
+      "Chun Li",
+      "Yushui Han",
+      "Yanshan Wang"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2505.23695v1",
+    "arxiv_id_nover": "2505.23695",
+    "title": "Data-to-Dashboard: Multi-Agent LLM Framework for Insightful Visualization in Enterprise Analytics",
+    "summary": "The rapid advancement of LLMs has led to the creation of diverse agentic systems in data analysis, utilizing LLMs' capabilities to improve insight generation and visualization. In this paper, we present an agentic system that automates the data-to-dashboard pipeline through modular LLM agents capable of domain detection, concept extraction, multi-perspective analysis generation, and iterative self-reflection. Unlike existing chart QA systems, our framework simulates the analytical reasoning process of business analysts by retrieving domain-relevant knowledge and adapting to diverse datasets without relying on closed ontologies or question templates. We evaluate our system on three datasets across different domains. Benchmarked against GPT-4o with a single-prompt baseline, our approach shows improved insightfulness, domain relevance, and analytical depth, as measured by tailored evaluation metrics and qualitative human assessment. This work contributes a novel modular pipeline to bridge the path from raw data to visualization, and opens new opportunities for human-in-the-loop validation by domain experts in business analytics. All code can be found here: https://github.com/77luvC/D2D_Data2Dashboard",
+    "published": "2025-05-29",
+    "authors": [
+      "Ran Zhang",
+      "Mohannad Elhamod"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2505.18553v1",
+    "arxiv_id_nover": "2505.18553",
+    "title": "Applying Ontologies and Knowledge Augmented Large Language Models to Industrial Automation: A Decision-Making Guidance for Achieving Human-Robot Collaboration in Industry 5.0",
+    "summary": "The rapid advancement of Large Language Models (LLMs) has resulted in interest in their potential applications within manufacturing systems, particularly in the context of Industry 5.0. However, determining when to implement LLMs versus other Natural Language Processing (NLP) techniques, ontologies or knowledge graphs, remains an open question. This paper offers decision-making guidance for selecting the most suitable technique in various industrial contexts, emphasizing human-robot collaboration and resilience in manufacturing. We examine the origins and unique strengths of LLMs, ontologies, and knowledge graphs, assessing their effectiveness across different industrial scenarios based on the number of domains or disciplines required to bring a product from design to manufacture. Through this comparative framework, we explore specific use cases where LLMs could enhance robotics for human-robot collaboration, while underscoring the continued relevance of ontologies and knowledge graphs in low-dependency or resource-constrained sectors. Additionally, we address the practical challenges of deploying these technologies, such as computational cost and interpretability, providing a roadmap for manufacturers to navigate the evolving landscape of Language based AI tools in Industry 5.0. Our findings offer a foundation for informed decision-making, helping industry professionals optimize the use of Language Based models for sustainable, resilient, and human-centric manufacturing. We also propose a Large Knowledge Language Model architecture that offers the potential for transparency and configuration based on complexity of task and computing resources available.",
+    "published": "2025-05-24",
+    "authors": [
+      "John Oyekan",
+      "Christopher Turner",
+      "Michael Bax",
+      "Erich Graf"
+    ],
+    "categories": [
+      "cs.HC",
+      "cs.RO"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2505.15132v1",
+    "arxiv_id_nover": "2505.15132",
+    "title": "Multicrossmodal Automated Agent for Integrating Diverse Materials Science Data",
+    "summary": "We introduce a multicrossmodal LLM-agent framework motivated by the growing volume and diversity of materials-science data ranging from high-resolution microscopy and dynamic simulation videos to tabular experiment logs and sprawling literature archives. While recent AI efforts have accelerated individual tasks such as property prediction or image classification, they typically treat each modality in isolation, leaving rich cross-modal correlations unexplored and forcing researchers to perform laborious manual integration. Moreover, existing multimodal foundation models often require expensive retraining or fine-tuning on domain data, and current multi-agent systems in materials informatics address only narrow subtasks. To overcome these obstacles, we design a coordinated team of specialized LLM agents, each equipped with domain-adapted prompts and plugins that project their outputs into a shared embedding space. A dynamic gating mechanism then weights and merges these insights, enabling unified reasoning over heterogeneous inputs without ever modifying the underlying LLM weights. We validate our approach on challenging case studies and demonstrate substantial gains in retrieval accuracy (85%), captioning fidelity, and integrated coverage (35%) compared to single-modality and zero-shot baselines. Our work paves the way for AI digital researchers capable of bridging data silos and accelerating the materials-discovery cycle. The code is available at https://github.com/adibgpt/Multicrossmodal-Autonomous-Materials-Science-Agent.",
+    "published": "2025-05-21",
+    "authors": [
+      "Adib Bazgir",
+      "Rama chandra Praneeth Madugula",
+      "Yuwen Zhang"
+    ],
+    "categories": [
+      "cond-mat.mtrl-sci"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2502.19023v1",
+    "arxiv_id_nover": "2502.19023",
+    "title": "Dealing with Inconsistency for Reasoning over Knowledge Graphs: A Survey",
+    "summary": "In Knowledge Graphs (KGs), where the schema of the data is usually defined by particular ontologies, reasoning is a necessity to perform a range of tasks, such as retrieval of information, question answering, and the derivation of new knowledge. However, information to populate KGs is often extracted (semi-) automatically from natural language resources, or by integrating datasets that follow different semantic schemas, resulting in KG inconsistency. This, however, hinders the process of reasoning. In this survey, we focus on how to perform reasoning on inconsistent KGs, by analyzing the state of the art towards three complementary directions: a) the detection of the parts of the KG that cause the inconsistency, b) the fixing of an inconsistent KG to render it consistent, and c) the inconsistency-tolerant reasoning. We discuss existing work from a range of relevant fields focusing on how, and in which cases they are related to the above directions. We also highlight persisting challenges and future directions.",
+    "published": "2025-02-26",
+    "authors": [
+      "Anastasios Nentidis",
+      "Charilaos Akasiadis",
+      "Angelos Charalambidis",
+      "Alexander Artikis"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2412.15235v1",
+    "arxiv_id_nover": "2412.15235",
+    "title": "OG-RAG: Ontology-Grounded Retrieval-Augmented Generation For Large Language Models",
+    "summary": "This paper presents OG-RAG, an Ontology-Grounded Retrieval Augmented Generation method designed to enhance LLM-generated responses by anchoring retrieval processes in domain-specific ontologies. While LLMs are widely used for tasks like question answering and search, they struggle to adapt to specialized knowledge, such as industrial workflows or knowledge work, without expensive fine-tuning or sub-optimal retrieval methods. Existing retrieval-augmented models, such as RAG, offer improvements but fail to account for structured domain knowledge, leading to suboptimal context generation. Ontologies, which conceptually organize domain knowledge by defining entities and their interrelationships, offer a structured representation to address this gap. OG-RAG constructs a hypergraph representation of domain documents, where each hyperedge encapsulates clusters of factual knowledge grounded using domain-specific ontology. An optimization algorithm then retrieves the minimal set of hyperedges that constructs a precise, conceptually grounded context for the LLM. This method enables efficient retrieval while preserving the complex relationships between entities. OG-RAG applies to domains where fact-based reasoning is essential, particularly in tasks that require workflows or decision-making steps to follow predefined rules and procedures. These include industrial workflows in healthcare, legal, and agricultural sectors, as well as knowledge-driven tasks such as news journalism, investigative research, consulting and more. Our evaluations demonstrate that OG-RAG increases the recall of accurate facts by 55% and improves response correctness by 40% across four different LLMs. Additionally, OG-RAG enables 30% faster attribution of responses to context and boosts fact-based reasoning accuracy by 27% compared to baseline methods.",
+    "published": "2024-12-12",
+    "authors": [
+      "Kartik Sharma",
+      "Peeyush Kumar",
+      "Yunqing Li"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2412.05937v1",
+    "arxiv_id_nover": "2412.05937",
+    "title": "Accelerating Manufacturing Scale-Up from Material Discovery Using Agentic Web Navigation and Retrieval-Augmented AI for Process Engineering Schematics Design",
+    "summary": "Process Flow Diagrams (PFDs) and Process and Instrumentation Diagrams (PIDs) are critical tools for industrial process design, control, and safety. However, the generation of precise and regulation-compliant diagrams remains a significant challenge, particularly in scaling breakthroughs from material discovery to industrial production in an era of automation and digitalization. This paper introduces an autonomous agentic framework to address these challenges through a twostage approach involving knowledge acquisition and generation. The framework integrates specialized sub-agents for retrieving and synthesizing multimodal data from publicly available online sources and constructs ontological knowledge graphs using a Graph Retrieval-Augmented Generation (Graph RAG) paradigm. These capabilities enable the automation of diagram generation and open-domain question answering (ODQA) tasks with high contextual accuracy. Extensive empirical experiments demonstrate the frameworks ability to deliver regulation-compliant diagrams with minimal expert intervention, highlighting its practical utility for industrial applications.",
+    "published": "2024-12-08",
+    "authors": [
+      "Sakhinana Sagar Srinivas",
+      "Akash Das",
+      "Shivam Gupta",
+      "Venkataramana Runkana"
+    ],
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.IR",
+      "cs.MA"
+    ],
+    "journal_ref": "",
+    "comment": ""
+  },
+  {
+    "arxiv_id": "2409.20010v1",
+    "arxiv_id_nover": "2409.20010",
+    "title": "Customized Information and Domain-centric Knowledge Graph Construction with Large Language Models",
+    "summary": "In this paper we propose a novel approach based on knowledge graphs to provide timely access to structured information, to enable actionable technology intelligence, and improve cyber-physical systems planning. Our framework encompasses a text mining process, which includes information retrieval, keyphrase extraction, semantic network creation, and topic map visualization. Following this data exploration process, we employ a selective knowledge graph construction (KGC) approach supported by an electronics and innovation ontology-backed pipeline for multi-objective decision-making with a focus on cyber-physical systems. We apply our methodology to the domain of automotive electrical systems to demonstrate the approach, which is scalable. Our results demonstrate that our construction process outperforms GraphGPT as well as our bi-LSTM and transformer REBEL with a pre-defined dataset by several times in terms of class recognition, relationship construction and correct \"sublass of\" categorization. Additionally, we outline reasoning applications and provide a comparison with Wikidata to show the differences and advantages of the approach.",
+    "published": "2024-09-30",
+    "authors": [
+      "Frank Wawrzik",
+      "Matthias Plaue",
+      "Savan Vekariya",
+      "Christoph Grimm"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "journal_ref": "",
+    "comment": "Presented at CAIPI Workshop at AAAI 2024"
+  },
+  {
+    "arxiv_id": "2406.06469v1",
+    "arxiv_id_nover": "2406.06469",
+    "title": "Husky: A Unified, Open-Source Language Agent for Multi-Step Reasoning",
+    "summary": "Language agents perform complex tasks by using tools to execute each step precisely. However, most existing agents are based on proprietary models or designed to target specific tasks, such as mathematics or multi-hop question answering. We introduce Husky, a holistic, open-source language agent that learns to reason over a unified action space to address a diverse set of complex tasks involving numerical, tabular, and knowledge-based reasoning. Husky iterates between two stages: 1) generating the next action to take towards solving a given task and 2) executing the action using expert models and updating the current solution state. We identify a thorough ontology of actions for addressing complex tasks and curate high-quality data to train expert models for executing these actions. Our experiments show that Husky outperforms prior language agents across 14 evaluation datasets. Moreover, we introduce HuskyQA, a new evaluation set which stress tests language agents for mixed-tool reasoning, with a focus on retrieving missing knowledge and performing numerical reasoning. Despite using 7B models, Husky matches or even exceeds frontier LMs such as GPT-4 on these tasks, showcasing the efficacy of our holistic approach in addressing complex reasoning problems. Our code and models are available at https://github.com/agent-husky/Husky-v1.",
+    "published": "2024-06-10",
+    "authors": [
+      "Joongwon Kim",
+      "Bhargavi Paranjape",
+      "Tushar Khot",
+      "Hannaneh Hajishirzi"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "journal_ref": "",
+    "comment": "50 pages, 42 figures. Project webpage available [here](https://agent-husky.github.io/)"
+  }
+]

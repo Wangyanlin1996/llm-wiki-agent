@@ -452,6 +452,31 @@
 - [Dealing with Inconsistency for Reasoning over KGs: A Survey](sources/inconsistency-kg-reasoning-survey.md) — 检测/修复/容忍三方向综述；ABox修复重心（Round 10 已收录，本轮深化引用） (2025)
 - [ABox Abduction for Inconsistent KBs under Repair Semantics](sources/abox-abduction-repair-semantics.md) — 修复语义下ABox溯因；DL-Lite/EL⊥复杂度全景；KR 2026 (2026)
 
+### OWL2 Reasoning × LLM Integration — Round 19 (2024-2026)
+
+#### A. 规则型本体推理（OWL2 RL / SWRL）+ LLM
+- [Structured Decomposition: LLM填充ABox+SWRL确定性推理](sources/structured-decomposition-swrl.md) — SWRL 验证 +9.7pp；互补谓词反例；3领域×11模型 (2026)
+- [Real-Time Health Analytics: BFO+SWRL+CEP+LLM 结核病实时检测](sources/ontology-cep-health-analytics.md) — 240 SWRL 规则；LLM 双重校验+辅助本体演化 (2025)
+- [Automating Cause-Effect Specification: KG+SWRL 安全联锁规格](sources/cause-effect-spec-kg-llm.md) — LLM 只转写不发明；语义接地率 100% (2026)
+- [SHACR: 智能家居 IoT 多类冲突消解](sources/shacr-smart-home-conflict.md) — 图 grounding F1 0.59→0.79；表示决定性能 (2026)
+
+#### B. OWL2 DL 推理工程应用
+- [When Corrective Hints Hurt: OWL2 DL 推理器引导修复](sources/reasoner-guided-repair-owl2dl.md) — verdict-only 修复 97.8% vs 直答 43.9%；提示反噬 −14.4pp (2026)
+- [GLaMoR: 图语言模型做 OWL 一致性检查](sources/glamor-owl-consistency-glm.md) — 95.13% acc；比 HermiT 快 20×；全局注意力关键 (2025)
+- [From Rule Engines to Ontologies: OWL2 DL 评估信息系统](sources/rule-engines-to-ontologies.md) — HermiT 门控代码生成；复现 Jess 分类；DOI-only (2026)
+- [Can LLMs Understand DL-Lite?: 六任务实证](sources/llm-understand-dllite.md) — 小本体近 100%/大 ABox 0%；NI 传递失败；EMNLP 2024 (2024)
+
+#### C. 推理结果校验 LLM / 辅助 LLM 生成
+- [G-SPEC: 5G 自治网络 SHACL 策略执行](sources/g-spec-5g-policy.md) — 零安全违规；修复率 94.1% vs 82.4%；NKG 贡献 68% (2025)
+- [QRAKEN: 图蒸馏+语义自愈 Text-to-SPARQL](sources/qraken-graph-distillation.md) — F1 0.652 (+32%)；TTQL 比 SHACL 高 64% (2026)
+- [xpSHACL: RAG+LLM 可解释 SHACL 校验](sources/xpshacl-explainable-validation.md) — 违规签名缓存命中率 99.48%；VLDB'25 WS (2025)
+- [Systematic Evaluation of KG Repair: VIO 评测框架](sources/kg-repair-shacl-llm.md) — 语义有效 86.17% vs isomorphism 49.94%；S+F+ 最优 (2025)
+- [AML 文本约束 LLM+SHACL 校验](sources/aml-shacl-validation-llm.md) — LLM 双向接入（生成 SHACL+解释报告）；工业 4.0 (2025)
+- [LLM 生成能力本体: OWL 推理+SHACL 校验](sources/llm-capability-ontologies.md) — 三道形式化门；Claude few-shot 错误分 0.03；ETFA 2024 (2024)
+- [EntailLLM: 时序标注逻辑蕴含校验 LLM 路径](sources/entailllm-vulnerability-verification.md) — 78.0%→97.9%；DK 回注 +37% 路径；医疗固件 (2026)
+- [Neurosymbolic Alignment: 生理世界模型对齐临床 LLM](sources/neurosymbolic-alignment-clinical.md) — CSS 69.5%→90.8%；训练时对齐胜运行时 guardrail (2026)
+- [Transparent CTI: 本体+SHACL 约束 LLM 日志抽取](sources/transparent-cti-ontology-shacl.md) — F1 0.009→0.811；Mistral 反例；ECAI 2025 WS (2025)
+
 ## Entities
 - [3GPP](entities/3GPP.md) — Collaborative telecom standards organization (7 organizational partners)
 
@@ -614,6 +639,12 @@
 - [本体辅助技能路由 Ontology-Assisted Skill Routing](concepts/OntologySkillRouting.md) — 本体结构化约束技能选择/工具编排/工作流路由；Task Ontology+Skill Ontology+WSA分解
 - [本体精准检索推理 Ontology-Precise Retrieval Reasoning](concepts/OntologyPreciseRetrievalReasoning.md) — 本体驱动约束满足检索推理；SMT+层次化推理+证明助手+知识内化；inverse calibration principle
 - [Agent循环检测与消解 Agent Loop Detection and Resolution](concepts/AgentLoopDetectionResolution.md) — 识别重复/停滞/级联错误并触发恢复；continuation invalidation+perseveration+cascading errors+harness flaws
+
+### OWL2 Reasoning × LLM Concepts (Round 19)
+- [推理器引导修复 Reasoner-Guided Repair](concepts/ReasonerGuidedRepair.md) — 推理器裁决反馈修复 LLM 错误；verdict-only 优于提示丰富修复；事前分工/事中校验/事后修复三形态
+- [本体约束 LLM 生成 Ontology-Constrained Generation](concepts/OntologyConstrainedGeneration.md) — 本体/SHACL 作生成契约约束输出；描述性经验内容优于规范性 schema 约束
+- [校验反馈闭环 Validation Feedback Loop](concepts/ValidationFeedbackLoop.md) — 三层校验+定向修复/解释/拒绝重规划三去向；VIO 回归测试方法论
+- [神经近似一致性检查 Neural Consistency Checking](concepts/NeuralConsistencyChecking.md) — 图语言模型二分类近似 T-Box 一致性；推理器栈廉价预过滤器
 
 ## Syntheses
 - [Glossary](glossary.md) — English-Chinese terminology mapping for 3GPP and AI Agent terms

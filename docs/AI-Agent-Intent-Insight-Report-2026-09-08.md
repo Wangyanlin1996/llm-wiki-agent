@@ -69,7 +69,7 @@
 
 ---
 
-#### 3. SkillNet — 创建、评估与连接 AI 技能
+#### 3. SkillNet — 创建、评估与连接 AI 技能 ✅️
 **arXiv**: [2603.04448](https://arxiv.org/abs/2603.04448) | **引用**: 0
 
 **解决的问题**: Agent 长期进步受制于缺乏系统化 skill 积累与迁移——反复"reinvent the wheel"。现有仓库（ClawHub/SkillsMP/SkillHub）无自动创建、无多维评估、无关系分析。
@@ -119,7 +119,7 @@
 
 ### B. 本体精准推理（偏检索向）
 
-#### 6. SatIR — 约束满足临床试验检索
+#### 6. SatIR — 约束满足临床试验检索 ✅️
 **arXiv**: [2604.08849](https://arxiv.org/abs/2604.08849) | **Venue**: COLM 2026 | **引用**: 0
 
 **解决的问题**: 相似性检索将资格约束视为软信号而非硬性要求。临床试验匹配需对照同一患者记录逐一检查尖锐约束（否定、时间性、数值阈值、偏侧性）。
@@ -135,7 +135,7 @@
 
 ---
 
-#### 7. DeepRAG — 层次化推理+过程监督
+#### 7. DeepRAG — 层次化推理+过程监督 ❌️
 **arXiv**: [2506.00671](https://arxiv.org/abs/2506.00671) | **Venue**: IJCAI 2025 | **引用**: 0
 
 **解决的问题**: 生物医学多跳 QA 需跨异构来源顺序推理。DeepSeek 不显式管理多层级推理依赖；RAG-Gym 用 LLaMA backbone 缺乏层次化分解精度。
@@ -168,7 +168,7 @@
 
 ---
 
-#### 9. RIGOR — 关系库到本体迭代 RAG
+#### 9. RIGOR — 关系库到本体迭代 RAG ❌️
 **arXiv**: [2506.01232](https://arxiv.org/abs/2506.01232) | **Venue**: ISWC 2026 | **引用**: 0
 
 **解决的问题**: 从 RDB schema 自动构建 rich OWL ontology 是 labor-intensive 的。现有方法仅依赖 structural cues 产出 shallow ontology。BURR benchmark 显示 LLM 方法在 mapping 上 underperform rule-based。
@@ -184,7 +184,7 @@
 
 ---
 
-#### 10. RareDxR1 — 罕见病自主推理
+#### 10. RareDxR1 — 罕见病自主推理 ❌️
 **arXiv**: [2607.00147](https://arxiv.org/abs/2607.00147) | **Venue**: IEEE ICME 2026 | **引用**: 0
 
 **解决的问题**: 现有 AI 方法依赖 pipeline phenotype 提取或 RAG，因预定义 ontology 和检索瓶颈导致关键信息丢失。标准 Rejection Sampling 在罕见病场景效率低下。
@@ -202,7 +202,7 @@
 
 ### C. Agent loop 循环检测与消解
 
-#### 11. TROVE — 轨迹验证路由编辑
+#### 11. TROVE — 轨迹验证路由编辑 ❌️
 **arXiv**: [2609.05019](https://arxiv.org/abs/2609.05019) | **引用**: 0
 
 **解决的问题**: Pre-execution commitment vs runtime mismatch——当中间结果使后续计划失效时（continuation invalidation），要么执行过时步骤导致错误累积，要么广泛重规划浪费计算并丢弃已完成进度。
@@ -235,7 +235,7 @@
 
 ---
 
-#### 13. Argus — 通用 Agent 推理 Runtime
+#### 13. Argus — 通用 Agent 推理 Runtime 
 **arXiv**: [2608.05144](https://arxiv.org/abs/2608.05144) | **引用**: 0
 
 **解决的问题**: 真正重要的研究任务往往 underdefined——objective 无法精确陈述，measurement 本身是问题的一部分，可用反馈稀疏/延迟/存争议。当 score 无法信任时，pivoting 应被允许但需与 goal drift 区分。

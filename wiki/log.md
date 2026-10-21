@@ -820,3 +820,52 @@ Phase A 核查发现用户提供的 15 篇论文中 11 篇为幻觉（73%），�
 - Updated OntologyReasoning concept page (+15 sources, 4主线展开)
 
 累计 454 -> 472 页, 326 -> 341 PDF, 327 -> 342 论文, 126 -> 129 概念.
+
+---
+
+## [2026-10-21] ingest | Round 19: OWL2 RL/DL 推理 × LLM 集成（校验 LLM 输入/辅助生成）
+
+**用户请求**: 检索基于 OWL2 RL 或 OWL2 DL 进行本体推理、并且解决实际问题的 paper，最好能将本体推理结果与 LLM 结合（如校验 LLM 输入或辅助 LLM 生成）。
+
+**参数**: Round 19 | 年份 2022-2026 | SHACL 纳入 | 目标 10-15 篇（实际 17 篇）
+
+### 入库 17 篇（3 子方向）
+
+**A. 规则型本体推理（OWL2 RL / SWRL）+ LLM（4 篇）**
+- structured-decomposition-swrl (2601.01609) — LLM 填充 ABox + SWRL/Pellet 确定性判类; 符号验证 +9.7pp; 互补谓词反例 −5.0pp
+- ontology-cep-health-analytics (2510.09646) — BFO+SWRL(240 条)+Siddhi CEP+LLM; 本体双重校验 LLM 输出; LLM 辅助本体演化
+- cause-effect-spec-kg-llm (2606.31614) — SPARQL 物化 C&E 行; LLM 只转写为 SWRL+叙事; 语义接地率 100%
+- shacr-smart-home-conflict (2606.22312) — 类型图 AFFECTS 边编码物理因果; 图 grounding F1 0.59→0.79; 表示决定性能
+
+**B. OWL2 DL 推理工程应用（4 篇）**
+- reasoner-guided-repair-owl2dl (2604.23398) — HermiT/Pellet 一致性 oracle; verdict-only 修复 97.8% vs 直答 43.9%; 提示反噬 −14.4pp; ICAIDE 2026
+- glamor-owl-consistency-glm (2504.19023) — GLM 二分类 T-Box 一致性; 95.13% acc; 比 HermiT 快 20×; WI-IAT 2026
+- rule-engines-to-ontologies (DOI 10.3390/computers15080544) — HermiT 门控代码生成; 复现 Jess M30/M33; OWA/CWA 双语义; DOI-only
+- llm-understand-dllite (2406.17532) — 6 任务实证; 小本体近 100%/大 ABox 0%; NI 传递失败; EMNLP 2024
+
+**C. 推理结果校验 LLM / 辅助 LLM 生成（9 篇）**
+- g-spec-5g-policy (2512.20275) — 5G NKG+SHACL(88 条)校验 agent 动作; 零安全违规; 修复率 94.1%; NKG 贡献 68%
+- qraken-graph-distillation (2610.08095) — 三级确定性校验+自愈循环; strict F1 0.652; TTQL 比 SHACL 高 64%; ISWC 2026 WS
+- xpshacl-explainable-validation (2507.08432) — 论证树+RAG+LLM 解释 SHACL 报告; 签名缓存命中 99.48%; VLDB'25 WS
+- kg-repair-shacl-llm (2507.22419) — VIO 系统化生成违规; 语法 97.35%/语义 86.17%/iso 49.94%; S+F+ 最优
+- aml-shacl-validation-llm (2506.10678) — LLM 文本约束→SHACL+报告人话化; 工业 AML; ETFA 2025
+- llm-capability-ontologies (2404.17524) — 语法+Pellet+SHACL 三道门校验 LLM 生成本体; Claude few-shot 错误分 0.03; ETFA 2024, 19 citations
+- entailllm-vulnerability-verification (2608.01763) — 时序标注逻辑蕴含过滤 LLM 漏洞路径; 78.0%→97.9%; DK 回注 +37% 路径
+- neurosymbolic-alignment-clinical (2608.24534) — HGNN 生理世界模型(847K 节点)驱动 ORPO; CSS 69.5%→90.8%; 训练时对齐胜运行时 guardrail
+- transparent-cti-ontology-shacl (2509.00081) — 本体+SHACL 约束 LLM 结构化输出; F1 0.009→0.811; Mistral 反例; ECAI 2025 WS; OntoLogX 配套方法论文
+
+### 关键趋势
+1. 推理器从"验证基准"进化到"修复环路"——verdict-only 原则（少即是多）与 S+F+ 上下文裁剪共同指向"最小充分反馈"
+2. SHACL 成为 LLM 生成物校验的事实标准（7/17 篇），覆盖本体生成/查询生成/agent 动作/KG 修复四个对象
+3. 描述性经验内容（TTQL）优于规范性 schema 约束（SHACL-auto）接地 LLM——+64%
+4. 图 grounding 比模型微调更重要（G-SPEC 消融 NKG 68% vs TSLAM 8%；SHACR F1 +0.20 同模型）
+5. LLM 理解 DL 本体随规模非线性坍缩（小本体 100%→大 ABox 0%）——推理器校验不可或缺的实证基础
+
+### 更新
+- index.md: +17 source entries +4 concept entries (Round 19 section)
+- overview.md: +Round 19 section (3 子方向趋势 + 收敛表 + 洞察)
+- log.md: 本条目
+- 16 PDFs downloaded to raw/papers/ + 1 DOI-only md 源 (rule-engines-to-ontologies.md)
+- 4 new concept pages: ReasonerGuidedRepair, OntologyConstrainedGeneration, ValidationFeedbackLoop, NeuralConsistencyChecking
+
+累计 484 -> 505 页; 341 -> 357 PDF; 348 -> 365 source 页; 129 -> 133 概念.

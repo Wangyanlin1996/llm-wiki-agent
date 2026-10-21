@@ -41,11 +41,11 @@
 
 #### T1 信息转换可观测性（3 篇）
 
-| # | 论文 | 年份 | Venue | arXiv | 核心贡献 |
-|---|------|------|-------|-------|---------|
-| 1 | [[agent-traces-to-trust]] — 执行溯源与证据追踪综述 | 2026 | arXiv | [2606.04990](https://arxiv.org/abs/2606.04990) | 执行溯源=typed graph；证据追踪=evidence-support projection；过程级问责统一框架 |
-| 2 | [[hansel-web-agent-verification]] — HANSEL 交互式验证 | 2026 | arXiv | [2606.18671](https://arxiv.org/abs/2606.18671) | 验证从被动阅读→交互导航；83.7% precision/88.8% recall；轨迹-61.6% |
-| 3 | [[causal-past-logic-runtime-verification]] — CPL 运行时验证 | 2026 | arXiv | [2605.20923](https://arxiv.org/abs/2605.20923) | 分布式agent运行时验证嵌入协调语言；向量时钟监控器 |
+| #   | 论文                                                     | 年份   | Venue | arXiv                                          | 核心贡献                                                        |
+| --- | ------------------------------------------------------ | ---- | ----- | ---------------------------------------------- | ----------------------------------------------------------- |
+| 1   | [[agent-traces-to-trust]] — 执行溯源与证据追踪综述                | 2026 | arXiv | [2606.04990](https://arxiv.org/abs/2606.04990) | 执行溯源=typed graph；证据追踪=evidence-support projection；过程级问责统一框架 |
+| 2   | [[hansel-web-agent-verification]] — HANSEL 交互式验证       | 2026 | arXiv | [2606.18671](https://arxiv.org/abs/2606.18671) | 验证从被动阅读→交互导航；83.7% precision/88.8% recall；轨迹-61.6%          |
+| 3   | [[causal-past-logic-runtime-verification]] — CPL 运行时验证 | 2026 | arXiv | [2605.20923](https://arxiv.org/abs/2605.20923) | 分布式agent运行时验证嵌入协调语言；向量时钟监控器                                 |
 
 #### T2 双受众分层解释（2 篇）
 

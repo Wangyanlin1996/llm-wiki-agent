@@ -8,31 +8,31 @@
 
 ## 概览
 
-| 方向 | 本轮新增 | 累计 | 代表趋势 |
-|---|---|---|---|
-| A. 本体驱动意图表示与对齐 | 5 | — | ISA-95/TMF标准本体提供操作语义保证 |
-| B. LLM+本体协同意图理解 | 3 | — | LLM grounding依赖语义线索而非几何 |
-| C. 本体对齐/匹配语义对齐 | 7 | — | 稳定匹配主导质量；工具结构化访问质变 |
+| 方向              | 本轮新增 | 累计  | 代表趋势                    |
+| --------------- | ---- | --- | ----------------------- |
+| A. 本体驱动意图表示与对齐  | 5    | —   | ISA-95/TMF标准本体提供操作语义保证  |
+| B. LLM+本体协同意图理解 | 3    | —   | LLM grounding依赖语义线索而非几何 |
+| C. 本体对齐/匹配语义对齐  | 7    | —   | 稳定匹配主导质量；工具结构化访问质变      |
 
 ## 新增论文清单
 
-| # | 论文 | 年份 | Venue | arXiv | 引用 | 方向 |
-|---|---|---|---|---|---|---|
-| 1 | Intent-Driven Smart Manufacturing | 2025 | ICKG 2025 | 2602.12419 | 1 | A |
-| 2 | TreeRec: 意图驱动制品推荐 | 2025 | arXiv | 2511.18343 | 0 | A |
-| 3 | Geospatial KG Multi-Agent | 2026 | arXiv | 2603.20670 | 1 | A |
-| 4 | RAG-Enabled Intent Reasoning | 2025 | EuCNC 2026 | 2505.09339 | 3 | A |
-| 5 | Usage-centric Intent Understanding | 2024 | EMNLP 2024 | 2402.14901 | 10 | A |
-| 6 | BiRGAT Multi-intent SLU | 2024 | ICASSP 2024 | 2402.18258 | 6 | B |
-| 7 | USD Scene Ontology Grounding | 2026 | ICRA 2026 WS | 2606.09134 | 0 | B |
-| 8 | SAM-NER 语义原型中介 | 2026 | ACL 2026 Findings | 2605.03706 | 0 | B |
-| 9 | Open Ontologies 稳定匹配 | 2026 | arXiv | 2605.09184 | 1 | C |
-| 10 | ANCHOR 无schema KG构建 | 2026 | arXiv | 2606.01208 | 0 | C |
-| 11 | BLINKG LLM KG基准 | 2026 | arXiv | 2605.19518 | 1 | C |
-| 12 | LLM Ontology Engineering + Legal KG | 2026 | SEMANTiCS 2026 | 2607.24551 | 0 | C |
-| 13 | CORTEX 本体语料图 | 2026 | arXiv | 2606.30175 | 0 | C |
-| 14 | ConceptE 事件本体扩展 | 2026 | arXiv | 2606.21048 | 0 | C |
-| 15 | VirtualSet 类型化本体世界 | 2026 | arXiv | 2607.18821 | 0 | C |
+| #   | 论文                                  | 年份   | Venue             | arXiv      | 引用  | 方向  |
+| --- | ----------------------------------- | ---- | ----------------- | ---------- | --- | --- |
+| 1   | Intent-Driven Smart Manufacturing   | 2025 | ICKG 2025         | 2602.12419 | 1   | A   |
+| 2   | TreeRec: 意图驱动制品推荐                   | 2025 | arXiv             | 2511.18343 | 0   | A   |
+| 3   | Geospatial KG Multi-Agent           | 2026 | arXiv             | 2603.20670 | 1   | A   |
+| 4   | RAG-Enabled Intent Reasoning        | 2025 | EuCNC 2026        | 2505.09339 | 3   | A   |
+| 5   | Usage-centric Intent Understanding  | 2024 | EMNLP 2024        | 2402.14901 | 10  | A   |
+| 6   | BiRGAT Multi-intent SLU             | 2024 | ICASSP 2024       | 2402.18258 | 6   | B   |
+| 7   | USD Scene Ontology Grounding        | 2026 | ICRA 2026 WS      | 2606.09134 | 0   | B   |
+| 8   | SAM-NER 语义原型中介                      | 2026 | ACL 2026 Findings | 2605.03706 | 0   | B   |
+| 9   | Open Ontologies 稳定匹配                | 2026 | arXiv             | 2605.09184 | 1   | C   |
+| 10  | ANCHOR 无schema KG构建                 | 2026 | arXiv             | 2606.01208 | 0   | C   |
+| 11  | BLINKG LLM KG基准                     | 2026 | arXiv             | 2605.19518 | 1   | C   |
+| 12  | LLM Ontology Engineering + Legal KG | 2026 | SEMANTiCS 2026    | 2607.24551 | 0   | C   |
+| 13  | CORTEX 本体语料图                        | 2026 | arXiv             | 2606.30175 | 0   | C   |
+| 14  | ConceptE 事件本体扩展                     | 2026 | arXiv             | 2606.21048 | 0   | C   |
+| 15  | VirtualSet 类型化本体世界                  | 2026 | arXiv             | 2607.18821 | 0   | C   |
 
 ## 新增论文结构化分析
 

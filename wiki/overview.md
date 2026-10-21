@@ -3,7 +3,7 @@ title: "Overview"
 type: synthesis
 tags: []
 sources: [28556-j00, 28312-j50, 28622-k20, 28912-j00, 28914-j00, evo-memory, agent-memory-survey, lightmem, emem, intpro, intent-signal-theory, vitabench2, intent-communication-design, intentrl, pira-bench, pask, memcog, memgym, apex-mem, h-mem, enpmr-bench, minteval, intentgrasp, recap, personalalign, contextagent, intent-detection-llm, satori, neurosync, ask-before-plan, inner-thoughts, proactive-ai-implications, assistantx, etapp, noemmma, good-agent-alignment, pp-clarifier, cocot, debate, onepred, icebreaker, proutt, speakrl, target-proactive-dialogue, ocr-memory, memoryos, memp, agentkb, mempi, peam, evomembench, sii-piwm, knowu-bench, proagentbench, procodebench, pa-bridge, reward-driven-interaction, amem, scrapmem, stale, promem, memory-autonomous-agents-survey, userharness, intentvlm, guide-bench, coinbench, tomcat, bayesian-social-deduction, psi-bench, fingertip-20k, propersim, ds-ia-framework, recgpt-mobile, cfqp, rac, corpus-rag-clarifying, cops, janus, sensitivity-aware-clarification, fairy-gui-agent, llm-autonomous-agent-survey, agentbench, agentverse, explainable-human-ai-interaction, agent-traces-to-trust, hansel-web-agent-verification, causal-past-logic-runtime-verification, three-level-llm-xai, explainable-ai-to-whom, responsible-explainable-ai-agents, blockchain-accountability-agents, argument-is-the-explanation, causal-explanations-sequential-uncertainty, trism-agentic-ai, cema-causal-explanations-mas, triex-multi-agent-llm-explanation, counterfactual-mas-explanation, policy-explanations-marl, forensic-trajectory-signatures, agent-tom-monitoring, swe-agent-mindset, looking-not-picking, skillcat, vadaorchestra, grounded-continuation, verification-horizon, raider-robot, causalab, contestability-layer, intent-centric-se, proof-carrying-agent, agentbound, kya-trust-layer, provenance-authorization, agentriskbom, redact-traces, cog-rag, coact-action-preserving-compression, smoothagent-lookahead-context, latent-context-compilation, cross-family-speculative-prefill, mia-signature-activation, prism-intent-memory-retrieval, apex-dynamic-data-selection, prompt-codebooks-pco, spear-code-augmented-prompt, mo-capo-multi-objective, maspo-joint-mas-prompt, prism-prompt-reliability, saga-workflow-scheduling, dynamo-asset-orchestration, co-coder-task-partitioning, agent-jit-compilation, typego-os-runtime, model-native-architecture, saecache-semantic-eviction, leyline-kv-directives, tokendance-collective-sharing, prism-scheduling-memory, stateful-inference-multi-agent, kv-policy-learning-evict, vericache-lossless-compression, hydra-dynamic-routing, inframind-infra-aware, routing-plateau, recal-reward-calibration, twinrouterbench-step-routing, goodserve-goodput-serving, syntactic-simplification-owl, dl-ontologies-probabilistic-circuits, datalogmtl-seminaive-materialisation, meteror-metric-temporal-reasoning, datalog-first-class-facts, ontology-grounded-reasoner-benchmarks, neural-shqoi-instance-retrieval, owl2dl-differentiable-circuits, llm-active-learning-owl, transformer-alcq-reasoning, neuro-symbolic-dl-reasoners-survey, falcon-inconsistent-alc, ontology-revision-plm, embedding-inconsistency-tolerant, inconsistency-kg-reasoning-survey, abox-abduction-repair-semantics]
-last_updated: 2026-10-09
+last_updated: 2026-10-21
 ---
 
 # Overview
@@ -1005,3 +1005,58 @@ Prompt 优化正从"优化一个全局字符串"转向"per-instance 路由+多�
 3. **不一致处理三方向各有适用域**（[[inconsistency-kg-reasoning-survey]]、[[abox-abduction-repair-semantics]]）：容忍（MCS/模糊/嵌入）保留信息但失经典保证，修复（PLM 修订/溯因建议）恢复一致性但可能删信息——"检测-修复-容忍"按不一致范围与信息价值选择
 4. **非 Horn 全特征是可微编译的前沿**（[[owl2dl-differentiable-circuits]]）：23% 的 SROIQ 公理超出 DeepProbLog Horn 片段，Baobab 用"后果演算饱和命题核心+有限域实例化扩展"打通——表达力与可微性不再二选一
 5. **嵌入推理器在不一致/不完整处价值凸显**（[[neural-shqoi-instance-retrieval]]、[[falcon-inconsistent-alc]]）：符号推理器对噪声停机、无条件蕴含一切，嵌入/模糊推理器在其失效处恢复有用推理（F1 1.00、Jaccard 1.00）——鲁棒性成为神经推理的核心卖点而非妥协
+
+---
+
+## 第19轮：OWL2 RL/DL 推理 × LLM 集成——校验 LLM 输入与辅助生成（2024-2026）— 17篇论文 × 3方向
+
+第19轮聚焦"基于 OWL2 RL 或 OWL2 DL 进行本体推理、并解决实际问题，且将推理结果与 LLM 结合"的论文。17 篇覆盖三个子方向：规则型本体推理（OWL2 RL/SWRL）+ LLM、OWL2 DL 推理工程应用、推理结果校验 LLM 输入/输出与辅助生成（含 SHACL 校验谱系）。本轮确立的核心命题：**确定性本体推理正在从"验证基准"进化为 LLM 生成管线的"修复环路"与"治理层"**。
+
+### 跨方向趋势
+
+| 方向 | 核心范式演进 | 关键论文 |
+|---|---|---|
+| **A. 规则型推理+LLM** | LLM 填 ABox+推理器判类→本体校验 LLM→LLM 受限生成 SWRL→图约束 LLM 动作空间 | [[structured-decomposition-swrl]]、[[ontology-cep-health-analytics]]、[[cause-effect-spec-kg-llm]]、[[shacr-smart-home-conflict]] |
+| **B. OWL2 DL 工程应用** | 推理器引导修复→神经近似一致性→推理器门控代码生成→LLM 能力边界测绘 | [[reasoner-guided-repair-owl2dl]]、[[glamor-owl-consistency-glm]]、[[rule-engines-to-ontologies]]、[[llm-understand-dllite]] |
+| **C. 校验/辅助 LLM** | SHACL 校验 agent 动作→校验查询→解释报告→修复 KG→校验生成本体→蕴含过滤→训练时对齐 | [[g-spec-5g-policy]]、[[qraken-graph-distillation]]、[[xpshacl-explainable-validation]]、[[kg-repair-shacl-llm]] |
+
+### 三维分析核心发现
+
+#### A. 规则型本体推理 + LLM（4篇）
+[[structured-decomposition-swrl]] 确立"LLM 填充 ABox、推理器判类"的分工范式：LLM 只做本体填充，SWRL 规则 + Pellet 做最终裁决，符号验证贡献 +9.7pp；关键反例是互补谓词（正/反成对断言）反而 −5.0pp，推翻其 prior work 默认设计。[[ontology-cep-health-analytics]] 展示最全的结合谱：240 条 SWRL 规则做实时 CEP，LLM 做解释/评估/本体演化建议，且 LLM 输出被本体"双重校验"。[[cause-effect-spec-kg-llm]] 把 LLM 角色压缩为"interpretive rather than generative"——SPARQL 物化 C&E 行后 LLM 只转写为叙事与 SWRL，语义接地率 100%、零幻觉设备。[[shacr-smart-home-conflict]] 用 AFFECTS 边把物理因果编码为可遍历图边，同模型加图 grounding 后 F1 0.59→0.79——表示而非模型决定性能。
+
+**关键洞察**：规则层的价值不在替代 LLM 推理，而在消除"小抽取错误复利累积"这一整类错误（SD 引言核心论点）；物理因果必须显式建模为图结构，文本规则原理上不可见（SHACR 物理 F1 0.77 vs 文本法上限 0.54）。
+
+#### B. OWL2 DL 推理工程应用（4篇）
+[[reasoner-guided-repair-owl2dl]] 发现 GPT-5.4 在 OWL 2 DL 蕴含查询上的系统性"过度谨慎"指纹（101 错误中 99 个 expected=no, got=unknown），verdict-only 修复 97.8% vs 直答 43.9%，但推理器裁决+OWA 提示反而 −14.4pp——提示框架比纠正内容更重要。[[glamor-owl-consistency-glm]] 用图语言模型把 T-Box 一致性检查变成二分类（95.13% acc，比 HermiT 快 20×），全局注意力是关键。[[rule-engines-to-ontologies]] 用 HermiT 门控代码生成（OWA 验证→CWA 执行双语义），完全复现 Jess 规则引擎分类。[[llm-understand-dllite]] 测绘 LLM 的 DL 本体能力边界：小本体近 100% 但大 ABox 0%、TBox NI 传递规则系统性失败且指令/示例改善有限。
+
+**关键洞察**：LLM 对 DL 本体的理解随规模非线性坍缩——这是推理器校验 LLM 输出不可或缺的实证基础；一致性检查的神经近似（GLaMoR）定位为推理器栈的廉价预过滤器而非替代者。
+
+#### C. 推理结果校验 LLM / 辅助生成（9篇）
+SHACL 是本轮最高频技术（7/17 篇），覆盖四个校验对象：**agent 动作**（[[g-spec-5g-policy]] 88 条 shape 预执行校验 5G 网络操作，零安全违规，修复率 94.1%）、**生成查询**（[[qraken-graph-distillation]] 三级校验+自愈循环，F1 0.652，且发现 TTQL 经验描述比 SHACL 形状高 64%）、**生成本体**（[[llm-capability-ontologies]] 语法+Pellet+SHACL 三道门，Claude few-shot 错误分低至 0.03；[[aml-shacl-validation-llm]] LLM 双向接入——生成 SHACL 又解释报告）、**生成 KG**（[[transparent-cti-ontology-shacl]] 本体+SHACL 约束结构化输出，F1 0.009→0.811）。闭环的评测与解释侧：[[kg-repair-shacl-llm]] 的 VIO 机制自造"已知答案"违规并揭示"修好（语义有效 86.17%）≠ 修对（isomorphism 49.94%）"；[[xpshacl-explainable-validation]] 用论证树+签名缓存（命中 99.48%）解释校验报告。两个非 SHACL 变体：[[entailllm-vulnerability-verification]] 用时序标注逻辑蕴含过滤 LLM 漏洞路径（78.0%→97.9%），且把 DKG 派生标签回注 prompt（+37% 路径）——验证器同时改善生成；[[neurosymbolic-alignment-clinical]] 把推理结果用于训练时对齐（HGNN 评分驱动 ORPO，CSS 69.5%→90.8%），推理期零开销。
+
+### 跨方向收敛
+
+| 收敛主题 | A. 规则推理+LLM | B. OWL2 DL 应用 | C. 校验/辅助 LLM |
+|---|---|---|---|
+| **确定性裁决** | SWRL+Pellet 判类 (SD) | HermiT 一致性 oracle (Hints) | SHACL/蕴含校验 (G-SPEC/EntailLLM) |
+| **最小充分反馈** | 互补谓词反例 (SD) | verdict-only 原则 (Hints) | S+F+ 上下文裁剪 (KG-Repair) |
+| **表示优于微调** | 图 grounding +0.20 (SHACR) | - | NKG 68% vs TSLAM 8% (G-SPEC) |
+| **描述性 vs 规范性** | SWRL 从物化行生成 (C&E) | OWA/CWA 双语义切换 (Rule Engines) | TTQL vs SHACL-auto +64% (QRAKEN) |
+| **闭环完整性** | 演化→校验→部署 (TB) | 直答→裁决→修复 (Hints) | 生成→校验→修复/解释/拒绝 (五篇) |
+
+### 与现有 Wiki 的连接
+
+- **与 Round 18 直接延续**：Round 18 确立"推理器验证 LLM 输出"评测侧（[[ontology-grounded-reasoner-benchmarks]]），本轮把验证延伸到修复环路（[[ReasonerGuidedRepair]]）与治理层（G-SPEC）；[[NeuralConsistencyChecking]]（GLaMoR）为 [[OntologyReasoningEngine]] 栈补上廉价预过滤器
+- **与 Round 13/16 呼应**：[[dynamic-ontology-llm-agents]] 的 HermiT 验证 judge 精修 → 本轮 [[ValidationFeedbackLoop]] 形式化该闭环；[[ontologx-cybersecurity-kg]] 的 SHACL 三阶段校验 → 本轮 [[transparent-cti-ontology-shacl]]（同组方法论）与 [[llm-capability-ontologies]]（三道门）
+- **与电信域呼应**：[[g-spec-5g-policy]] 的 NKG 映射 3GPP TS 28.623，与 [[IntentDrivenMnS]]、[[intent-6g-orchestration]]、[[security-ontology-autonomous-networks]] 构成"意图→本体→确定性治理"完整链
+- **与验证协同演化连接**：[[reasoner-guided-repair-owl2dl]] 的提示反噬是 [[VerificationCoEvolution]] 的新实例——验证器（提示词设计）须与生成器协同设计
+- **与 3GPP 意图管理呼应**：[[cause-effect-spec-kg-llm]] 的"规格一致性 by construction"与 [[RulePolicyIntentRelation]] 的声明式抽象同构
+
+### 关键洞察
+
+1. **推理器从裁判进化为教练**（[[reasoner-guided-repair-owl2dl]]、[[entailllm-vulnerability-verification]]）：不只打分拒绝，还通过 verdict 反馈（97.8% 修复率）或词汇回注（+37% 路径）主动改善生成——但反馈设计遵循"最小充分"原则，过多解释反而反噬（−14.4pp）
+2. **SHACL 是 LLM 生成物校验的事实标准**（7/17 篇）：四个校验对象（agent 动作/查询/本体/KG）+ 三种反馈去向（修复/解释/拒绝）已构成完整方法论栈；VIO 提供回归测试方法论
+3. **描述性经验内容优于规范性 schema**（[[qraken-graph-distillation]]）：TTQL（数据实际长什么样）比 SHACL 形状（数据应当长什么样）接地 LLM 的效果高 64%——约束之外还需要"分布知识"
+4. **图 grounding 比模型微调更重要**（[[g-spec-5g-policy]] 消融 NKG 68% vs TSLAM 8%；[[shacr-smart-home-conflict]] 同模型 +0.20 F1）："中等 LLM + 强形式化接地"胜过"微调 LLM 无接地"
+5. **训练时对齐与推理时校验是互补光谱**（[[neurosymbolic-alignment-clinical]] vs G-SPEC）：前者 CSS 90.8% 但概率性、推理零开销；后者零违规但确定性、推理期 142ms 开销——按安全预算与延迟预算选择
